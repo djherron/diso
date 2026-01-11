@@ -3,7 +3,7 @@
 
 ## Overview
 
-DOLCE - Descriptive Ontology for Linguistics and Cognitive Engineering
+**DOLCE - Descriptive Ontology for Linguistics and Cognitive Engineering** ontology
 
 The CNR-ISTC Laboratory for Applied Ontology (LOA):
 https://www.loa.istc.cnr.it/
