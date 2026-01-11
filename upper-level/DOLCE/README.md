@@ -1,9 +1,7 @@
-# DOLCE {ignore}
+# DOLCE
 
-**Table of Contents**
-[TOC]
 
-# Overview
+## Overview
 
 DOLCE - Descriptive Ontology for Linguistics and Cognitive Engineering
 
