@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF>
+<rdf:RDF xml:base="http://onto.eva.mpg.de/gfo-bio/gfo-obo-link.owl" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="" rdfs:label="gfo-obo-link.owl" owl:versionInfo="1.0">
+    <owl:imports>
+      <owl:Ontology rdf:about="http://onto.eva.mpg.de/gfo-bio/gfo-bio.owl"/>
+    </owl:imports>
+  </owl:Ontology>
+
+<!-- Classes -->
+  <owl:Class rdf:about="http://onto.eva.mpg.de/gfo-abstract-bio.owl#Biological_presential"/>
+  <owl:Class rdf:about="http://www.onto-med.de/ontologies/gfo.owl#Topoid"/>
+  <owl:Class rdf:nodeID="b610">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.onto-med.de/ontologies/gfo.owl#Topoid"/>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#occupied_by"/>
+        <owl:someValuesFrom rdf:resource="http://onto.eva.mpg.de/gfo-abstract-bio.owl#Biological_presential"/>
+      </owl:Restriction>
+    </owl:intersectionOf>
+  </owl:Class>
+
+<!-- Annotation Properties -->
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+
+<!-- Object Properties -->
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_contains"/>
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_has_part">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#has_part"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_has_proper_part">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#has_proper_part"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_instance_of">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#instance_of"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_part_of">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#part_of"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_participates_in">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#participates"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="file:/tmp/core/relationship.owl#OBO_REL_proper_part_of">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#proper_part_of"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://www.geneontology.org/owl/so.owl#part_of">
+    <rdfs:subPropertyOf rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#abstract_part_of"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#abstract_part_of"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#has_part"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#has_proper_part"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#instance_of"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#occupied_by"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#occupies"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#part_of"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#participates"/>
+  <owl:ObjectProperty rdf:about="http://www.onto-med.de/ontologies/gfo.owl#proper_part_of"/>
+
+<!-- Instances -->
+  <owl:Restriction>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.onto-med.de/ontologies/gfo.owl#occupies"/>
+        <owl:someValuesFrom rdf:nodeID="b610"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:onProperty rdf:resource="file:/tmp/core/relationship.owl#OBO_REL_contains"/>
+    <owl:someValuesFrom rdf:resource="http://onto.eva.mpg.de/gfo-abstract-bio.owl#Biological_presential"/>
+  </owl:Restriction>
+</rdf:RDF>
