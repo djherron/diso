@@ -62,3 +62,24 @@ The IES **information exchange** data model supports **situational awareness** (
 There may be interesting overlaps between IES and JC3IEDM in this respect, and between IES and the SA-specific ontologies in the `situation-awareness` subdomain (cluster).
 
 
+## IES and societal infrastructure
+
+Applications of IES for data exchange extend well beyond the domains of defence and security as conventionally conceived. 
+
+Per https://informationexchangestandard.org/about-the-ies/:
+> Initially established within **defence and national security**, the standard has evolved into a cross-sector resource supporting a wide range of **industries, including buildings, transport and utilities**.
+
+We refer to such assets as **societal infrastructure**. It is reasonable to regard societal infrastructure of this scale and scope as critical national assets with **national security relevance**.
+
+## IES and UK's National Digital Twin Programme
+
+A good example of a **societal infrastructure** application of the IES with clear national security dimensions is the UK's [National Digital Twin Programme](https://ndtp.co.uk/) (NDTP).  The IES plays a key role in the NDTP by enabling seamless data sharing across the ecosystem of diverse Digital Twins comprising the UK's National Digital Twin. The IES is a key component of the **Integration Architecture** (IA) layer in the **Information Management Framework** (IMF) of the UK's National Digital Twin. The IMF is the over-arching framework responsible for delivering effective, resilient and secure data sharing amongst Digital Twins. The IA is the component of the IMF responsible for providing the transport mechanisms, and authorisation and security protocols, that enable individual Digital Twins to interoperate within the National Digital Twin. The IES (and its companion, higher-level ontologies) is fundamental to the IA.
+
+The following diagram (part knowledge graph, part mind map) provides a high-level, pictorial description of the UK's **National Digital Twin Programme**. It shows where the IES fits within the overall vision. It also shows the role played by **upper-level** ontologies within the overall **Information Management Framework** (IMF), and thereby reinforces their relevance to the domains of defence, intelligence and security.
+
+![NDTP](ndtp-diagram.png "UK National Digital Twin Programme")
+
+
+
+
+
