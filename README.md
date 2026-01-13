@@ -1,10 +1,12 @@
-# Defence and Security Ontologies
+# DISO: Defence, Intelligence and Security Ontologies
 
-This repository contains a collection of OWL ontologies relating to the domains of defence and security. 
+**DISO** is a collection of OWL ontologies relating to the domains of **defence, intelligence and security**. 
 
 ## Overview
 
-The ontologies in this collection were identified and obtained during an **ontology search** exercise undertaken during Nov/Dec of 2025.  The search exercise was largely literature-driven. Most of the ontologies are accompanied by one or more **academic papers** that can be cited in relation to the ontology.  Each ontology is accompanied by some amount of documentation providing information such as: a short description, relevant context, and the source from which a physical copy of the ontology was ultimately obtained.
+The ontologies in this collection were identified and obtained during an **ontology search** exercise undertaken during Nov/Dec of 2025.
+  
+Each ontology is accompanied by some amount of documentation providing information such as: a short description, relevant context, and the source from which a physical copy of the ontology was ultimately obtained.
 
 Some ontologies are distributed as networks of component ontologies, woven together with `owl:imports` statements. For many of these, we have created **merged** versions of the ontology, using the Protege ontology editor, sometimes together with ontology catalog (`catalog-v001.xml`) files to redirect URLs to local files to overcome accessibility issues.  If a merge was performed, details of the merge strategy employed are recorded in the documentation accompanying the ontology.
 
