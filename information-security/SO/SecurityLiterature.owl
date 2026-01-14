@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.ida.liu.se/~iislab/projects/secont/SecurityLiterature.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+  xml:base="http://www.ida.liu.se/~iislab/projects/secont/SecurityLiterature.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An ontology for security literature.</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Literature">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dictionaries and other resources used as sources for the definitions of classes.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Definition">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasSource"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Literature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A class that contains definitions from literature.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasSource"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#hasSource">
+    <rdfs:domain rdf:resource="#Definition"/>
+    <rdfs:range rdf:resource="#Literature"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasQuotation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Literature"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDefinition">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >contains the definition.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Definition"/>
+  </owl:DatatypeProperty>
+  <Literature rdf:ID="Szo05">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Peter Szor. The Art of Computer Virus Research and Defense. Addison Wesley. 2005.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="Bis03">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Matt Bishop. Computer Security---Art and Science. Addison Wesley. 2003.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="Pho02">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Vir V. Phoha. Internet Security Dictionary. Springer. 2002.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="OED">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Concise Oxford English Dictionary. Ed. Catherine Soanes and Angus 
+    Stevenson. Oxford University Press, 2004. Oxford Reference Online. 
+    http://www.oxfordreference.com/</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="AP03">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gonzalo Ãlvarez, Slobodan Petrovic. "A new taxonomy of Web attacks suitable for efficient encoding". Computers &amp; Security. Vol. 22, Issue 5. Pages: 435-449. Elsevier Science B.V. 2003.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="LJ97">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ulf Lindqvist, Erland Jonsson. "How to Systemactically Classify Computer Security Intrusions". Proceedings of the IEEE Symposium on Security and Privacy (S&amp;P`97). Pages: 154-163. IEEE. May 1997.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="ODoC">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Oxford Dictionary of Computing, Oxford University Press. 
+    http://www.oxfordreference.com</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="Webopedia">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.webopedia.com</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="ISD">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dennis Longley, Michael Shain, William Caelli. Information security dictionary of concepts, standards and terms. Macmillan, 1992.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="Shi94">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0">
+      Rober W. Shirey. Security Architecture for Internet Protocols: A Guide 
+      for Protocol Designs and Standards. Internet Draft: 
+      draft.irtf-psrg-secarch-sect1-00.txt. November, 1994.
+    &lt;/p></hasQuotation>
+  </Literature>
+  <Literature rdf:ID="CCITT">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The International Telegraph and Telephone Consultative Committee. "Security Architecture for Open System Interconnection for CCITT Applications". Recommendation X.800. Geneva. 1991.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="CM02">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anirban Chakrabati, G. Manimaran. &amp;quot;Internet Infrastructure Security: A 
+    Taxonomy&amp;quot;. IEEE Internet Computing. Pages: 13-21. IEEE. November 2002.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="DDW99">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Herve Debar, Marc Dacier, Andreas Wespi. "Towards a taxonomy of intrusion-detection systems". Computer Networks. Vol. 31. Pages: 805-822. Elsevier Science B.V. 1999.</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="ODotI">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Oxford Dictionary of the Internet. Oxford University Press. http://www.oxfordreference.com</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="Wikipedia">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://en.wikipedia.org</hasQuotation>
+  </Literature>
+  <Literature rdf:ID="Gol99">
+    <hasQuotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dieter Gollmann. Computer Security. Wiley &amp; Sons. 1999.</hasQuotation>
+  </Literature>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

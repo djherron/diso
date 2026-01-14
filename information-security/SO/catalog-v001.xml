@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1768368345531" name="http://www.ida.liu.se/~iislab/projects/secont/Security.owl" uri="Security.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1768368345531" name="http://www.ida.liu.se/~iislab/projects/secont/SecurityLiterature.owl" uri="SecurityLiterature.owl"/>
+    </group>
+</catalog>
