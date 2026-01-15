@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa    "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY act    "http://pervasive.semanticweb.org/ont/2004/06/action#">
+   <!ENTITY pol    "http://pervasive.semanticweb.org/ont/2004/06/policy#">
+   <!ENTITY tme    "http://pervasive.semanticweb.org/ont/2004/06/time#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:act  = "&act;"
+   xmlns:tme  = "&tme;"
+   xmlns:pol  = "&pol;"
+   xmlns      = "&pol;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/policy">
+
+  <owl:Ontology rdf:about="&soupa;policy">
+    <owl:imports rdf:resource="&soupa;action"/>
+    <owl:imports rdf:resource="&soupa;time"/>
+    <owl:versionInfo>$Revision: 1.7 $, $Date: 2004/06/03 20:27:01 $</owl:versionInfo>
+    <rdfs:label>SOUPA Policy Ontology</rdfs:label>    
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Policy">
+    <rdfs:label>Policy</rdfs:label>
+  </owl:Class>
+  
+  <owl:ObjectProperty rdf:ID="defaultPolicyMode">
+    <rdfs:label>rulePrecedence</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+    <rdfs:range rdf:resource="#Mode"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="Mode">
+    <rdfs:label>Mode</rdfs:label>
+    <owl:oneOf rdf:parseType="Collection">
+       <pol:Mode rdf:about="#RequiresExplicitPermission"/>
+       <pol:Mode rdf:about="#RequiresNoExplicitPermission"/>
+    </owl:oneOf>
+  </owl:Class>
+
+  <pol:Mode rdf:ID="RequiresExplicitPermission"/>
+  <pol:Mode rdf:ID="RequiresNoExplicitPermission"/>
+
+  <pol:Mode rdf:ID="Conservative">
+    <owl:sameAs rdf:resource="#RequiresExplicitPermission"/>
+  </pol:Mode>
+
+  <pol:Mode rdf:ID="Liberal">
+    <owl:sameAs rdf:resource="#RequiresExplicitPermission"/>
+  </pol:Mode>
+
+  <owl:ObjectProperty rdf:ID="policyOf">
+    <rdfs:label>policyOf</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="creator">
+    <rdfs:label>creator</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="enforcer">
+    <rdfs:label>enforcer</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="createdOn">
+    <rdfs:label>createdOn</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+    <rdfs:range rdf:resource="&tme;InstantThing"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="permits">
+    <rdfs:label>permits</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+    <rdfs:range rdf:resource="#PermittedAction"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="forbids">
+    <rdfs:label>forbids</rdfs:label>
+    <rdfs:domain rdf:resource="#Policy"/>
+    <rdfs:range rdf:resource="#ForbiddenAction"/>    
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="PermittedAction">
+    <rdfs:label>PermittedAction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&act;Action"/>
+    <owl:disjointWith rdf:resource="#ForbiddenAction"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="ForbiddenAction">
+    <rdfs:label>ForbiddenAction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&act;Action"/>
+    <owl:disjointWith rdf:resource="#PermittedAction"/>
+  </owl:Class>
+
+
+</rdf:RDF>

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY tme    "http://pervasive.semanticweb.org/ont/2004/06/time#">
+   <!ENTITY per    "http://pervasive.semanticweb.org/ont/2004/06/person#">
+   <!ENTITY spc    "http://pervasive.semanticweb.org/ont/2004/06/space#">
+   <!ENTITY mtg    "http://pervasive.semanticweb.org/ont/2004/06/meeting#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns      = "&mtg;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/meeting">
+
+  <owl:Ontology rdf:about="&soupa;meeting">
+    <owl:imports rdf:resource="&soupa;time"/>
+    <owl:imports rdf:resource="&soupa;person"/>
+    <owl:imports rdf:resource="&soupa;space"/>
+    <owl:versionInfo>cvs:$Revision: 1.4 $, $Date: 2004/05/15 18:55:09 $</owl:versionInfo>
+    <rdfs:label>SOUPA Meeting Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Meeting">
+    <rdfs:label>Meeting</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&tme;IntervalEvent"/>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#location"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#ScheduledMeetingIsOnTime"/>
+      <owl:Class rdf:about="#ScheduledMeetingIsCancelled"/>
+      <owl:Class rdf:about="#ScheduledMeetingIsRescheduled"/>
+    </owl:unionOf>
+  </owl:Class>
+
+ <owl:DatatypeProperty rdf:ID="name">
+    <rdfs:label>name</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="description">
+    <rdfs:label>description</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="homepage">
+    <rdfs:label>homepage</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&per;Homepage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="attendee">
+    <rdfs:label>attendee</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&per;Person"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="attends">
+    <rdfs:label>attends</rdfs:label>
+    <owl:inverseOf rdf:resource="#attendee"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="location">
+    <rdfs:label>location</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&spc;SpaceInAFixedStructure"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:ObjectProperty>
+   
+  <owl:DatatypeProperty rdf:ID="eventCancelled">
+    <rdfs:label>eventCancelled</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="eventRescheduled">
+    <rdfs:label>eventRescheduled</rdfs:label>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+  </owl:DatatypeProperty>
+
+  <owl:Class rdf:ID="ScheduledMeetingIsOnTime">
+    <rdfs:label>ScheduledMeetingIsOnTime</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Meeting"/>
+    <owl:disjointWith rdf:resource="#ScheduledMeetingIsCancelled"/>
+    <owl:disjointWith rdf:resource="#ScheduledMeetingIsRescheduled"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="ScheduledMeetingIsCancelled">
+    <rdfs:label>ScheduledMeetingIsCancelled</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Meeting"/>
+    
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#eventCancelled"/>
+	<owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ScheduledMeetingIsOnTime"/>
+    <owl:disjointWith rdf:resource="#ScheduledMeetingIsRescheduled"/>
+  </owl:Class>
+
+ <owl:Class rdf:ID="ScheduledMeetingIsRescheduled">
+    <rdfs:label>ScheduledMeetingIsRescheduled</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Meeting"/>
+    
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#eventRescheduled"/>
+	<owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ScheduledMeetingIsCancelled"/>
+    <owl:disjointWith rdf:resource="#ScheduledMeetingIsOnTime"/>
+  </owl:Class>
+  
+ <owl:ObjectProperty rdf:ID="organizedBy">
+   <rdfs:label>organizedBy</rdfs:label>
+   <rdfs:domain rdf:resource="#Meeting"/>
+   <rdfs:range rdf:resource="&per;Person"/>
+ </owl:ObjectProperty>
+
+</rdf:RDF> 

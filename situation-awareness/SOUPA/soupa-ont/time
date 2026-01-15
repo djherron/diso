@@ -1,0 +1,457 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY tme    "http://pervasive.semanticweb.org/ont/2004/06/time#">
+   <!ENTITY tme1   "http://www.isi.edu/~pan/damltime/time-entry.owl#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:tme1 = "&tme1;"
+   xmlns      = "&tme;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/time">
+
+  <owl:Ontology rdf:about="&soupa;time">
+    <owl:versionInfo>cvs:$Revision: 1.6 $, $Date: 2004/05/25 19:52:44 $</owl:versionInfo>
+    <rdfs:label>SOUPA Time Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment> 
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="TemporalThing">
+    <rdfs:label>TemporalThing</rdfs:label>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Instant" />
+      <owl:Class rdf:about="#Interval" />
+    </owl:unionOf>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;TemporalThing"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="TemporalEvent">
+    <rdfs:label>TemporalEvent</rdfs:label>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#InstantEvent" />
+      <owl:Class rdf:about="#IntervalEvent" />
+    </owl:unionOf>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;Event"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="InstantThing">
+    <rdfs:label>InstantThing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Instant" />
+      <owl:Class rdf:about="#InstantEvent" />
+    </owl:unionOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#at"/>
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;InstantThing"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="IntervalThing">
+    <rdfs:label>IntervalThing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Interval" />
+      <owl:Class rdf:about="#IntervalEvent" />
+    </owl:unionOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#from" />
+        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#to" />
+        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;IntervalThing"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="InstantEvent">
+    <rdfs:label>InstantEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#InstantThing"/>
+    <rdfs:subClassOf rdf:resource="#TemporalEvent"/>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;InstantEvent"/>
+    </owl:equivalentClass>
+  </owl:Class> 
+
+  <owl:Class rdf:ID="IntervalEvent">
+    <rdfs:label>IntervalEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#IntervalThing"/>
+    <rdfs:subClassOf rdf:resource="#TemporalEvent"/>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;IntervalEvent"/>
+    </owl:equivalentClass>
+  </owl:Class> 
+
+  <owl:Class rdf:ID="Instant">
+    <rdfs:label>Instant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+    <rdfs:subClassOf rdf:resource="#InstantThing"/>
+
+    <owl:disjointWith rdf:resource="#Interval"/>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;Instant"/>
+    </owl:equivalentClass>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Interval">
+    <rdfs:label>Interval</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+    <rdfs:subClassOf rdf:resource="#IntervalThing"/>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;Interval"/>
+    </owl:equivalentClass>
+   </owl:Class> 
+
+  <owl:DatatypeProperty rdf:ID="at">
+    <rdfs:label>at</rdfs:label>
+    <rdfs:domain rdf:resource="#InstantThing"/>
+    <rdfs:range  rdf:resource="&xsd;dateTime"/>
+  </owl:DatatypeProperty>
+ 
+  <owl:ObjectProperty rdf:ID="begins">
+    <owl:equivalentProperty rdf:resource="#from"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="ends">
+    <owl:equivalentProperty rdf:resource="#to"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="from">
+    <rdfs:label>from</rdfs:label>
+    <rdfs:domain rdf:resource="#TemporalThing"/>
+    <rdfs:range rdf:resource="#InstantThing"/>
+
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;begins"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="to">
+    <rdfs:label>to</rdfs:label>
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range rdf:resource="#InstantThing"/>    
+
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;ends"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="inside">
+    <rdfs:label>inside</rdfs:label>
+    <rdfs:domain rdf:resource="#IntervalThing"/>
+    <rdfs:range rdf:resource="#InstantThing"/>
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;inside"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="before">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="after">
+    <owl:inverseOf rdf:resource="#before"/>
+  </owl:ObjectProperty>
+  
+
+  <owl:Class rdf:ID="ProperInterval">
+    <rdfs:subClassOf rdf:resource="#Interval"/>
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;ProperInterval"/>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <owl:Class rdf:ID="ProperIntervalThing">
+    <rdfs:subClassOf rdf:resource="#IntervalThing"/>    
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&tme1;IntervalThing"/>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="equals">
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intEquals"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="meets">
+    <rdfs:subPropertyOf rdf:resource="#nonoverlap" />
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intMeets"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="overlaps">
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intOverlaps"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="starts">
+    <rdfs:subPropertyOf rdf:resource="#startsOrDuring" />
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intStarts"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="during">
+    <rdfs:subPropertyOf rdf:resource="#startsOrDuring" />
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intDuring"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="finishes">
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intFinishes"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="metBy">
+    <owl:inverseOf rdf:resource="#meets" />
+    <rdfs:subPropertyOf rdf:resource="#nonoverlap" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intMetBy"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="overlappedBy">
+    <owl:inverseOf rdf:resource="#overlaps" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intOverlappedBy"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="startedBy">
+    <owl:inverseOf rdf:resource="#starts" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intStartedBy"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="contains">
+    <owl:inverseOf rdf:resource="#during" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intContains"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="finishedBy">
+    <owl:inverseOf rdf:resource="#finishes" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;intFinishedBy"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="startsOrDuring">
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;startsOrDuring"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="nonoverlap">
+    <rdfs:domain rdf:resource="#ProperIntervalThing" />
+    <rdfs:range  rdf:resource="#ProperIntervalThing" />
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&tme1;nonoverlap"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+  
+
+  <!-- unstable constructs -->
+
+  <owl:ObjectProperty rdf:ID="beforeOrAt">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#InstantThing" />
+    <rdfs:range  rdf:resource="#InstantThing" />
+    <rdfs:subPropertyOf rdf:resource="#endsBeforeStartOf" />
+    <owl:inverseOf rdf:resource="#after" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="afterOrAt">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#InstantThing" />
+    <rdfs:range  rdf:resource="#InstantThing" />
+    <rdfs:subPropertyOf rdf:resource="#startsAfterEndOf" />
+    <owl:inverseOf rdf:resource="#before" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="step">
+    <rdfs:domain rdf:resource="#Interval" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="sameTimeAs">
+    <rdf:type rdf:resource="&owl;SymmetricProperty" />
+    <rdfs:domain rdf:resource="#Instant" />
+    <rdfs:range  rdf:resource="#Instant" />
+    <rdfs:subPropertyOf rdf:resource="#beforeOrAt" />
+    <rdfs:subPropertyOf rdf:resource="#afterOrAt" />
+    <rdfs:subPropertyOf rdf:resource="#endsSameTimeAs" />
+    <rdfs:subPropertyOf rdf:resource="#startsSameTimeAs" />
+    <owl:inverseOf rdf:resource="#sameTimeAs" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="startsSoonerThan">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="startsSameTimeAs">
+    <rdf:type rdf:resource="&owl;SymmetricProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="startsLaterThan">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="endsSoonerThan">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="endsSameTimeAs">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="endsLaterThan">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+    <owl:inverseOf rdf:resource="#endsSoonerThan" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="startsAfterEndOf">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+    <owl:inverseOf rdf:resource="#endsBeforeStartOf" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="endsBeforeStartOf">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#TemporalThing" />
+    <rdfs:range  rdf:resource="#TemporalThing" />
+    <owl:inverseOf rdf:resource="#startsAfterEndOf" />
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="ContinuousInterval">
+    <rdfs:label>ContinuousInterval</rdfs:label>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Interval" />
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#step" />
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+      </owl:Restriction>
+    </owl:intersectionOf>
+    <owl:disjointWith rdf:resource="#DiscreteInterval"/>
+  </owl:Class>    
+
+  <owl:Class rdf:ID="DiscreteInterval">
+    <rdfs:label>DiscreteInterval</rdfs:label>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Interval" />
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#step" />
+        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+      </owl:Restriction>
+    </owl:intersectionOf>
+    <owl:disjointWith rdf:resource="#DiscreteInterval"/>
+  </owl:Class>    
+
+  <owl:Class rdf:ID="PeriodicDiscreteInterval">
+    <rdfs:label>PeriodicDiscreteInterval</rdfs:label>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#DiscreteInterval" />
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#step" />
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </owl:intersectionOf>
+  </owl:Class>    
+
+
+</rdf:RDF>

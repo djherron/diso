@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY cobra  "http://cobra.umbc.edu/ont/2004/05/">   
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY per    "http://pervasive.semanticweb.org/ont/dev/person#">
+   <!ENTITY agt    "http://pervasive.semanticweb.org/ont/dev/agent#">
+   <!ENTITY spc    "http://pervasive.semanticweb.org/ont/dev/space#">
+   <!ENTITY mtg    "http://pervasive.semanticweb.org/ont/dev/meeting#">
+   <!ENTITY ddc    "http://pervasive.semanticweb.org/ont/dev/digital-doc#">
+   <!ENTITY ebm    "http://cobra.umbc.edu/ont/2004/05/ebiquity-meetings#">
+   <!ENTITY ebgeo  "http://cobra.umbc.edu/ont/2004/05/ebiquity-geo#">   
+   <!ENTITY foaf   "http://xmlns.com/foaf/0.1#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:foaf = "&foaf;"
+   xmlns:per  = "&per;"
+   xmlns:agt  = "&agt;"
+   xmlns      = "&ebm;"
+   xml:base   = "http://cobra.umbc.edu/ont/2004/05/ebiquity-meetings">
+
+  <owl:Ontology rdf:about="&cobra;ebiquity-meetings">
+    <owl:imports rdf:resource="&cobra;ebiquity-geo"/>
+    <owl:imports rdf:resource="http://pervasive.semanticweb.org/ont/dev/digital-doc"/>
+    <owl:versionInfo>cvs:$Revision: 1.2 $, $Date: 2004/05/17 13:05:08 $</owl:versionInfo>
+    <rdfs:label>UMBC eBiquity Group Meeting Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+  </owl:Ontology>
+
+  <owl:Class rdf:about="&agt;Agent"/>
+  <owl:Class rdf:about="&per;Person"/>
+  <owl:Class rdf:about="&foaf;Group"/>
+  <owl:Class rdf:about="&per;Homepage"/>
+
+  <owl:DatatypeProperty rdf:about="&foaf;name"/>
+  <owl:ObjectProperty rdf:about="&foaf;membershipClass"/>    
+  <owl:ObjectProperty rdf:about="&per;workplaceHomepage"/>
+  <owl:ObjectProperty rdf:about="&mtg;organizedBy"/>
+  <owl:ObjectProperty rdf:about="&spc;location"/>
+  <owl:ObjectProperty rdf:about="&mtg;attends"/>
+  <owl:ObjectProperty rdf:about="&mtg;attendee"/>
+  <owl:DatatypeProperty rdf:about="&per;name"/>
+
+  <owl:Class rdf:ID="EbiquityMember">
+    <rdfs:subClassOf rdf:resource="&per;Person"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="&per;workplaceHomepage"/>
+	<owl:hasValue rdf:resource="http://ebiquity.umbc.edu"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="EbiquityFriend">
+    <rdfs:subClassOf rdf:resource="&per;Person"/>
+    
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="&per;knows"/>
+	<owl:someValuesFrom rdf:resource="#EbiquityMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <per:Homepage rdf:about="http://ebiquity.umbc.edu"/>
+  <per:Homepage rdf:about="http://www.cs.umbc.edu"/>
+  
+  <owl:Class rdf:ID="EbiquityMeeting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&mtg;Meeting"/>
+    </rdfs:subClassOf>
+    
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#speaker"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="&spc;location"/>
+	<owl:hasValue rdf:resource="&ebgeo;ITE325B"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="&mtg;organizedBy"/>
+	<owl:hasValue rdf:resource="#timfinin"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <per:Person rdf:ID="timfinin">
+     <per:name rdf:datatype="&xsd;string">Tim Finin</per:name>
+     <per:workplaceHomepage rdf:resource="http://ebiquity.umbc.edu"/>
+     <per:workplaceHomepage rdf:resource="http://www.cs.umbc.edu"/>
+  </per:Person>
+
+  <owl:ObjectProperty rdf:ID="speaker">
+    <rdfs:subPropertyOf rdf:resource="&mtg;attendee"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="EbiquityMeetingAttendee">
+    <rdfs:subClassOf rdf:resource="&per;Person"/>
+    
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="&mtg;attends"/>
+	<owl:someValuesFrom rdf:resource="#EbiquityMeeting"/>	  
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="VisitorWhoAttendsEbiquityMeeting">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class>
+	<owl:complementOf rdf:resource="#EbiquityMember"/>
+      </owl:Class>
+      <owl:Class rdf:about="#EbiquityMeetingAttendee"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  
+  <owl:ObjectProperty rdf:ID="presentationVideo">
+    <rdfs:domain rdf:resource="#EbiquityMeeting"/>
+    <rdfs:range rdf:resource="&ddc;VideoFile"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="eventPhotos">
+    <rdfs:domain rdf:resource="#EbiquityMeeting"/>
+    <rdfs:range rdf:resource="&ddc;ImageFile"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="recordedDiscussion">
+    <rdfs:domain rdf:resource="#EbiquityMeeting"/>
+    <rdfs:range rdf:resource="&ddc;AudioFile"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="ContextBroker">
+     <rdfs:subClassOf rdf:resource="&agt;Agent"/>
+  </owl:Class>
+</rdf:RDF>

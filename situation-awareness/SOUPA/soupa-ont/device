@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY dev    "http://pervasive.semanticweb.org/ont/2004/06/device#">
+   <!ENTITY per    "http://pervasive.semanticweb.org/ont/2004/06/person#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:per  = "&per;"
+   xmlns      = "&dev;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/device">
+  <owl:Ontology rdf:about="&soupa;device">
+    <owl:versionInfo>$Revision: 1.1 $, $Date: 2004/05/15 18:55:08 $</owl:versionInfo>
+    <rdfs:label>SOUPA Device Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+    <owl:imports rdf:resource="&soupa;person"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Device">
+    <rdfs:label>Device</rdfs:label>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#modelNumber"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#serialNumber"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#manufacturerHomepage"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="modelNumber">
+    <rdfs:label>modelNumber</rdfs:label>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="serialNumber">
+    <rdfs:label>serialNumber</rdfs:label>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="manufacturerHomepage">
+    <rdfs:label>manufacturerHomepage</rdfs:label>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="&per;Homepage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="hasUser">
+    <rdfs:label>userOf</rdfs:label>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="&per;Person"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="Cellphone">
+    <rdfs:label>Cellphone</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="NokiaCellphone">
+    <rdfs:label>NokiaCellphone</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Cellphone"/>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#manufacturerHomepage"/>
+	<owl:hasValue rdf:resource="http://www.nokia.com"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <per:Homepage rdf:about="http://www.nokia.com"/>
+
+  <owl:Class rdf:ID="SonyEricssonCellphone">
+    <rdfs:label>SonyEricssonCellphone</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Cellphone"/>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#manufacturerHomepage"/>
+	<owl:hasValue rdf:resource="http://www.sonyericsson.com"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <per:Homepage rdf:about="http://www.sonyericsson.com"/>
+
+  <owl:Class rdf:ID="BluetoothEnabledCellphone">
+    <rdfs:label>BluetoothEnabledCellphone</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Cellphone"/>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#bluetoothMAC"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="bluetoothMAC">
+    <rdfs:label>bluetoothMAC</rdfs:label>
+    <rdfs:domain rdf:resource="#BluetoothEnabledCellphone"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>

@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY spc    "http://pervasive.semanticweb.org/ont/2004/06/space#">
+   <!ENTITY geom   "http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:spc  = "&spc;"
+   xmlns      = "&geom;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/geo-measurement">
+
+  <owl:Ontology rdf:about="&soupa;geo-measurement">
+    <owl:imports rdf:resource="&soupa;space"/>
+    <owl:versionInfo>cvs:$Revision: 1.2 $, $Date: 2004/03/07 17:58:36 $</owl:versionInfo>
+    <rdfs:label>SOUPA Geographical Measurement Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="LocationCoordinates">
+    <rdfs:label>LocationCoordinates</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#longitude"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf> 
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#latitude"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>  
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#altitude"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>  
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="longitude">
+    <rdfs:label>longitude</rdfs:label>
+    <rdfs:domain rdf:resource="#LocationCoordinates"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="latitude">
+    <rdfs:label>latitude</rdfs:label>
+    <rdfs:domain rdf:resource="#LocationCoordinates"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="altitude">
+    <rdfs:label>altitude</rdfs:label>
+    <rdfs:domain rdf:resource="#LocationCoordinates"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  
+  <owl:Class rdf:ID="Distance">
+    <rdfs:label>Distance</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#fromSpatialThing"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#toSpatialThing"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#distanceValueDescription"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="fromSpatialThing">
+    <rdfs:label>fromSpatialThing</rdfs:label>
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="&spc;SpatialThing"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="toSpatialThing">
+    <rdfs:label>toSpatialThing</rdfs:label>
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="&spc;SpatialThing"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="distanceValueDescription">
+    <rdfs:label>distanceValueDescription</rdfs:label>
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="#DistanceValueDescription"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="DistanceValueDescription"> 
+    <rdfs:label>DistanceValueDescription</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#distanceUnit"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#distanceValue"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#direction"/>
+	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>	
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="distanceUnit">
+    <rdfs:label>distanceUnit</rdfs:label>
+    <rdfs:domain rdf:resource="#DistanceValueDescription"/>
+    <rdfs:range rdf:resource="#DistanceUnit"/>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:ID="distanceValue">
+    <rdfs:label>distanceValue</rdfs:label>
+    <rdfs:domain rdf:resource="#DistanceValueDescription"/>
+    <rdfs:range rdf:resource="&xsd;float"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="direction">
+    <rdfs:label>direction</rdfs:label>
+    <rdfs:domain rdf:resource="#DistanceValueDescription"/>
+    <rdfs:range rdf:resource="#Direction"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="DistanceUnit">
+    <rdfs:label>DistanceUnit</rdfs:label>
+    <owl:oneOf rdf:parseType="Collection">
+      <DistanceUnit rdf:about="#Mile"/>  
+      <DistanceUnit rdf:about="#Yard"/>    
+      <DistanceUnit rdf:about="#Foot"/>
+      <DistanceUnit rdf:about="#Inch"/>
+	    
+      <DistanceUnit rdf:about="#Kilometer"/>
+      <DistanceUnit rdf:about="#Meter"/>
+      <DistanceUnit rdf:about="#Centimeter"/>
+    </owl:oneOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Direction">
+    <rdfs:label>Direction</rdfs:label>
+    <owl:oneOf rdf:parseType="Collection">
+      <Direction rdf:about="#N"/>
+      <Direction rdf:about="#S"/>
+      <Direction rdf:about="#E"/>
+      <Direction rdf:about="#W"/>
+      <Direction rdf:about="#NW"/>
+      <Direction rdf:about="#NE"/>
+      <Direction rdf:about="#SW"/>
+      <Direction rdf:about="#SE"/>
+    </owl:oneOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="SurfaceArea">
+    <rdfs:label>SurfaceArea</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#surfaceAreaOf"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#areaValueDescription"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="surfaceAreaOf">
+    <rdfs:label>surfaceAreaOf</rdfs:label>
+    <rdfs:domain rdf:resource="#SurfaceArea"/>
+    <rdfs:range rdf:resource="&spc;SpatialThing"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="areaValueDescription">
+    <rdfs:label>areValueDescription</rdfs:label>
+    <rdfs:domain rdf:resource="#SurfaceArea"/>
+    <rdfs:range rdf:resource="#AreaValueDescription"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="AreaValueDescription">
+    <rdfs:label>AreaValueDescription</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#areaUnit"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#areaValue"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="areaUnit">
+    <rdfs:label>areaUnit</rdfs:label>
+    <rdfs:domain rdf:resource="#AreaValueDescription"/>
+    <rdfs:range rdf:resource="#DistanceUnit"/>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:ID="areaValue">
+    <rdfs:label>areaValue</rdfs:label>
+    <rdfs:domain rdf:resource="#AreaValueDescription"/>
+    <rdfs:range rdf:resource="&xsd;float"/>
+  </owl:DatatypeProperty>
+
+  <owl:Class rdf:ID="AreaUnit">
+    <rdfs:label>AreaUnit</rdfs:label>
+    <owl:oneOf rdf:parseType="Collection">
+      <AreaUnit rdf:about="#MileSq"/>  
+      <AreaUnit rdf:about="#YardSq"/>    
+      <AreaUnit rdf:about="#FootSq"/>
+      <AreaUnit rdf:about="#InchSq"/>
+	    
+      <AreaUnit rdf:about="#KilometerSq"/>
+      <AreaUnit rdf:about="#MeterSq"/>
+      <AreaUnit rdf:about="#CentimeterSq"/>
+    </owl:oneOf>
+  </owl:Class>
+
+</rdf:RDF>

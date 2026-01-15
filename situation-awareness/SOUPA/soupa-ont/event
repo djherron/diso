@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY eve    "http://pervasive.semanticweb.org/ont/2004/06/event#">
+   <!ENTITY tme    "http://pervasive.semanticweb.org/ont/2004/06/time#">
+   <!ENTITY spc    "http://pervasive.semanticweb.org/ont/2004/06/space#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:tme  = "&tme;"
+   xmlns:spc  = "&spc;"
+   xmlns      = "&eve;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/event">
+  <owl:Ontology rdf:about="&soupa;eve">
+    <owl:versionInfo>$Revision: 1.4 $, $Date: 2004/03/07 17:58:36 $</owl:versionInfo>
+    <rdfs:label>SOUPA Event Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+    <owl:imports rdf:resource="&soupa;time"/>
+    <owl:imports rdf:resource="&soupa;space"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="SpatialTemporalThing">
+    <rdfs:label>SpatialTemporalThing</rdfs:label>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="&tme;TemporalThing" />
+      <owl:Class rdf:about="&spc;SpatialThing" />
+    </owl:intersectionOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="SpatialTemporalEvent">
+    <rdfs:label>SpatialTemporalEvent</rdfs:label>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="&tme;TemporalEvent" />
+      <owl:Class rdf:about="#SpatialTemporalThing"/>
+    </owl:intersectionOf>
+  </owl:Class> 
+ 
+</rdf:RDF>

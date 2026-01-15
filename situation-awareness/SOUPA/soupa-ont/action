@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa   "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY act    "http://pervasive.semanticweb.org/ont/action#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+
+   xmlns:act  = "&act;"
+   xmlns      = "&act;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/action">
+
+  <owl:Ontology rdf:about="&soupa;action">
+    <owl:versionInfo>$Revision: 1.6 $, $Date: 2004/07/15 15:40:46 $</owl:versionInfo>
+    <rdfs:label>SOUPA Action Ontology</rdfs:label>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Action">
+    <rdfs:label>Action</rdfs:label>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="actor">   
+    <rdfs:label>actor</rdfs:label>
+    <rdfs:domain rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="recipient">
+    <rdfs:label>recipient</rdfs:label>
+    <rdfs:domain rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="target">
+    <rdfs:domain rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="location">
+    <rdfs:domain rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="time">
+    <rdfs:domain rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="instrument">
+    <rdfs:domain rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+
+</rdf:RDF>

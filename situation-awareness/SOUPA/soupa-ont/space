@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY tme    "http://pervasive.semanticweb.org/ont/2004/01/time#">
+   <!ENTITY geom   "http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#">
+   <!ENTITY pol    "http://pervasive.semanticweb.org/ont/2004/06/policy#">
+   <!ENTITY spc    "http://pervasive.semanticweb.org/ont/2004/06/space#">   
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:tme  = "&tme;"
+   xmlns:geom = "&geom;"
+   xmlns:pol  = "&pol;"
+   xmlns      = "&spc;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/space">
+
+  <owl:Ontology rdf:about="&soupa;space">
+    <owl:imports rdf:resource="&soupa;time"/>
+    <owl:imports rdf:resource="&soupa;geo-measurement"/>
+    <owl:imports rdf:resource="&soupa;policy"/>
+    <owl:versionInfo>cvs:$Revision: 1.3 $, $Date: 2004/03/07 17:33:18 $</owl:versionInfo>
+    <rdfs:label>SOUPA Space Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="SpatialThing">
+    <rdfs:label>SpatialThing</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#hasCoordinates"/>
+	<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#GeographicalSpace"/>
+      <owl:Class rdf:about="#MovableSpatialThing"/>
+    </owl:unionOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="hasCoordinates">
+    <rdfs:label>hasCoordinates</rdfs:label>
+    <rdfs:domain rdf:resource="#SpatialThing"/>
+    <rdfs:range rdf:resource="&geom;LocationCoordinates"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="GeopoliticalEntity">
+    <rdfs:label>GeopoliticalEntity</rdfs:label>
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="officialName">
+    <rdfs:label>officialName</rdfs:label>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#GeopoliticalEntity"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+ 
+  <owl:ObjectProperty rdf:ID="controls">
+    <rdfs:label>controls</rdfs:label>
+    <rdfs:domain rdf:resource="#GeopoliticalEntity"/>
+    <rdfs:range rdf:resource="#GeographicalSpace"/>    
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="controlledBy">
+    <rdfs:label>controlledBy</rdfs:label>
+    <owl:inverseOf rdf:resource="#controls"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="definesPolicy">
+    <rdfs:label>definesPolicy</rdfs:label>
+    <rdfs:domain rdf:resource="#GeopoliticalEntity"/>
+    <rdfs:range rdf:resource="&pol;Policy"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="GeographicalSpace">
+    <rdfs:label>GeographicalSpace</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#SpatialThing"/>
+
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#GeographicalRegion"/>
+      <owl:Class rdf:about="#FixedStructure"/>
+      <owl:Class rdf:about="#SpaceInAFixedStructure"/>
+    </owl:unionOf>    
+    
+    <owl:disjointWith rdf:resource="#MovableSpatialThing"/>
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdfs:label>name</rdfs:label>
+    <rdfs:domain rdf:resource="#GeographicalSpace"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:Class rdf:ID="GeographicalRegion">
+    <rdfs:label>GeographicalRegion</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GeographicalSpace"/>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#LandBasedRegion"/>
+      <owl:Class rdf:about="#WaterBasedRegion"/>
+    </owl:unionOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="LandBasedRegion">
+    <rdfs:label>LandBasedRegion</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GeographicalRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="WaterBasedRegion">
+    <rdfs:label>WaterBasedRegion</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GeographicalRegion"/>
+    <owl:disjointWith rdf:resource="#LandBasedRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="FixedStructure">
+    <rdfs:label>FixedStructure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GeographicalSpace"/>
+    <owl:disjointWith rdf:resource="#GeographicalRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="SpaceInAFixedStructure">
+    <rdfs:label>SpaceInAFixedStructure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GeographicalSpace"/>
+    <owl:disjointWith rdf:resource="#GeographicalRegion"/>
+    <owl:disjointWith rdf:resource="#FixedStructure"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="spatiallySubsumes">
+    <rdfs:label>spatiallySubsumes</rdfs:label>
+    <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+
+    <rdfs:domain rdf:resource="#GeographicalSpace"/>
+    <rdfs:range rdf:resource="#GeographicalSpace"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="spatiallySubsumedBy">
+    <rdfs:label>spatiallySubsumedBy</rdfs:label>
+    <owl:inverseOf rdf:resource="#spatiallySubsumes"/>
+  </owl:ObjectProperty>
+ 
+</rdf:RDF>

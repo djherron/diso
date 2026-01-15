@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY cobra  "http://cobra.umbc.edu/ont/2004/05/">   
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY spc    "http://pervasive.semanticweb.org/ont/dev/space#">
+   <!ENTITY rcc    "http://pervasive.semanticweb.org/ont/dev/rcc#">
+   <!ENTITY geom   "http://pervasive.semanticweb.org/ont/dev/geo-measurement#">
+   <!ENTITY ebgeo  "http://cobra.umbc.edu/ont/2004/05/ebiquity-geo#">
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:spc  = "&spc;"
+   xmlns:rcc  = "&rcc;"
+   xmlns:geom = "&geom;"
+   xmlns      = "&ebgeo;"
+   xml:base   = "http://cobra.umbc.edu/ont/2004/05/ebiquity-geo">
+
+  <owl:Ontology rdf:about="&cobra;ebiquity-geo">
+    <owl:versionInfo>cvs:$Revision: 1.3 $, $Date: 2004/05/17 13:05:08 $</owl:versionInfo>
+    <rdfs:label>UMBC eBiquity Group Geo Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Room">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&spc;SpaceInAFixedStructure"/>
+    </rdfs:subClassOf>    
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&rcc;RCCSpatialRegion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <Room rdf:ID="ITE325B">
+    <rcc:isDisconnectedFrom rdf:resource="#ITE210A"/>
+    <rcc:isDisconnectedFrom rdf:resource="#ITE332"/>
+    <rcc:isDisconnectedFrom rdf:resource="#ITE329"/>
+  </Room>
+
+  <Room rdf:ID="ITE210A">
+    <rcc:isDisconnectedFrom rdf:resource="#ITE325B"/>    
+    <rcc:isDisconnectedFrom rdf:resource="#ITE332"/>    
+    <rcc:isDisconnectedFrom rdf:resource="#ITE329"/>
+  </Room>
+
+  <Room rdf:ID="ITE332">
+    <rcc:isDisconnectedFrom rdf:resource="#ITE210A"/>
+    <rcc:isDisconnectedFrom rdf:resource="#ITE325B"/>
+    <rcc:isDisconnectedFrom rdf:resource="#ITE329"/>
+  </Room>
+
+  <Room rdf:ID="ITE329">
+    <rcc:isDisconnectedFrom rdf:resource="#ITE210A"/>
+    <rcc:isDisconnectedFrom rdf:resource="#ITE325B"/>
+    <rcc:isDisconnectedFrom rdf:resource="#ITE332"/>
+  </Room>
+
+  <owl:ObjectProperty rdf:about="&rcc;isDisconnectedFrom"/>
+
+  <owl:Class rdf:ID="Building">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&spc;FixedStructure"/>
+    </rdfs:subClassOf>        
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="&spc;spatiallySubsumes"/>
+  <owl:ObjectProperty rdf:about="&spc;spatiallySubsumedBy"/>
+  
+  <Building rdf:ID="ITE">
+    <spc:spatiallySubsumes rdf:resource="#ITE325B"/>
+    <spc:spatiallySubsumes rdf:resource="#ITE210A"/>
+    <spc:spatiallySubsumes rdf:resource="#ITE332"/>
+    <spc:spatiallySubsumes rdf:resource="#ITE329"/>
+  </Building>
+
+  <owl:Class rdf:ID="UniversityCampus">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&spc;LandBasedRegion"/>
+    </rdfs:subClassOf>    
+  </owl:Class>
+
+  <owl:Class rdf:about="&geom;LocationCoordinates"/>
+  <owl:ObjectProperty rdf:about="&spc;hasCoordinates"/>
+  <owl:DatatypeProperty rdf:about="&geom;latitude">
+     <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&geom;longitude">
+     <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <UniversityCampus rdf:ID="UMBCMainCampus"> 
+    <spc:spatiallySubsumes rdf:resource="#ITE"/>       
+
+    <spc:hasCoordinates>
+      <geom:LocationCoordinates rdf:about="campusCoordinates">
+	<geom:latitude rdf:datatype="&xsd;string">39.2524</geom:latitude>
+	<geom:longitude rdf:datatype="&xsd;string">-76.7113</geom:longitude> 
+      </geom:LocationCoordinates>
+    </spc:hasCoordinates>
+
+  </UniversityCampus>
+
+
+  <owl:Class rdf:ID="StatesInTheUS">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&rcc;RCCSpatialRegion"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&spc;LandBasedRegion"/>
+    </rdfs:subClassOf>    
+  </owl:Class>
+    
+  <StatesInTheUS rdf:ID="Maryland">
+    <spc:spatiallySubsumes rdf:resource="#UMBCMainCampus"/>       
+    <rcc:isDisconnectedFrom rdf:resource="#California"/>
+  </StatesInTheUS>
+
+  <StatesInTheUS rdf:ID="California">
+    <spc:spatiallySubsumedBy rdf:resource="#US"/>       
+    <rcc:isDisconnectedFrom rdf:resource="#Maryland"/>
+  </StatesInTheUS>
+
+  <owl:Class rdf:ID="Country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&rcc;RCCSpatialRegion"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="&spc;LandBasedRegion"/>
+    </rdfs:subClassOf>    
+  </owl:Class>
+
+  <Country rdf:ID="US">
+    <spc:spatiallySubsumes rdf:resource="#Maryland"/>
+    <spc:spatiallySubsumes rdf:resource="#California"/>
+    <rcc:isDisconnectedFrom rdf:resource="#Japan"/>
+  </Country>
+
+  <Country rdf:ID="Japan">
+    <rcc:isDisconnectedFrom rdf:resource="#US"/>
+  </Country>
+
+</rdf:RDF>

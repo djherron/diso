@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY soupa  "http://pervasive.semanticweb.org/ont/2004/06/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY foaf   "http://xmlns.com/foaf/0.1#"> 
+   <!ENTITY per    "http://pervasive.semanticweb.org/ont/2004/06/person#">   
+   ]>
+<!--
+    This ontology document is licensed under the Creative Commons
+    Attribution License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA. 
+-->
+<rdf:RDF
+   xmlns:rdf  = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:owl  = "&owl;"
+   xmlns:xsd  = "&xsd;"
+   xmlns:foaf = "&foaf;"
+   xmlns      = "&per;"
+   xml:base   = "http://pervasive.semanticweb.org/ont/2004/06/person">
+
+  <owl:Ontology rdf:about="&soupa;person">
+    <owl:versionInfo>cvs:$Revision: 1.8 $, $Date: 2004/06/19 20:50:17 $</owl:versionInfo>
+    <rdfs:label>SOUPA Person Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>     
+  </owl:Ontology>
+  
+  <owl:Class rdf:ID="Person">
+    <rdfs:label>Person</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#gender"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#birthDate"/>
+	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&foaf;Person"/>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdfs:label>name</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>    
+  </owl:DatatypeProperty>
+   
+  <owl:DatatypeProperty rdf:ID="firstName"> 
+    <rdfs:label>firstName</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>    
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="middleName">
+    <rdfs:label>middleName</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="lastName">
+    <rdfs:label>lastName</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="givenName">
+    <rdfs:label>givenName</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <owl:equivalentProperty rdf:resource="#firstName"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="familyName">
+    <rdfs:label>familyName</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <owl:equivalentProperty rdf:resource="#lastName"/>
+  </owl:DatatypeProperty>
+
+  <owl:Class rdf:ID="Gender">
+    <rdfs:label>Gender</rdfs:label>
+    <owl:oneOf rdf:parseType="Collection">
+      <Gender rdf:about="#Male"/>
+      <Gender rdf:about="#Female"/>
+    </owl:oneOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="gender">
+    <rdfs:label>gender</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#Gender"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty" />
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:ID="birthDate">
+    <rdfs:label>birthDate</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;date"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty" />
+  </owl:DatatypeProperty>
+    
+  <owl:DatatypeProperty rdf:ID="nickname">
+    <rdfs:label>nickname</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="homepage">
+    <rdfs:label>homepage</rdfs:label>
+    <rdfs:range rdf:resource="#Homepage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="workplaceHomepage">
+    <rdfs:label>workplaceHomepage</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#homepage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="schoolHomepage">
+    <rdfs:label>schoolHomepage</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#homepage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="hasContactProfile">
+    <rdfs:label>hasContactProfile</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#ContactProfile"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="hasHomeContactProfile">
+    <rdfs:label>hasHomeContactProfile</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#hasContactProfile"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="hasWorkContactProfile">
+    <rdfs:label>hasHomeContact</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#hasContactProfile"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="hasSchoolContactProfile">
+    <rdfs:label>hasSchoolContact</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#hasContactProfile"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="ContactProfile">
+    <rdfs:label>ContactProfile</rdfs:label>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#address"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#phone"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#fax"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#homepage"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#email"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>    
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#mobile"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#im"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+
+    <rdfs:subClassOf>
+       <owl:Restriction>
+          <owl:onProperty rdf:resource="#myagent"/>
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+       </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:DatatypeProperty rdf:ID="address">
+    <rdfs:label>address</rdfs:label>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="phone">
+    <rdfs:label>phone</rdfs:label>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="fax">
+    <rdfs:label>fax</rdfs:label>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="mobile">
+    <rdfs:label>mobile</rdfs:label>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="sms">
+    <rdfs:label>sms</rdfs:label>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="email">
+    <rdfs:label>email</rdfs:label>
+    <rdfs:range rdf:resource="#Email"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="im">
+    <rdfs:label>im</rdfs:label>
+    <rdfs:range rdf:resource="#ChatID"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="myagent">
+    <rdfs:label>im</rdfs:label>
+    <rdfs:range rdf:resource="#JADEAgentID"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="InternetResourceURL">
+    <rdfs:label>InternetResourceURL</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Document">
+    <rdfs:label>Document</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class rdf:about="&foaf;Document"/>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Homepage">
+    <rdfs:label>Homepage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#InternetResourceURL"/>
+    <rdfs:subClassOf rdf:resource="#Document"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Email">
+    <rdfs:label>Email</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#InternetResourceURL"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="ChatID">
+    <rdfs:label>ChatID</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#InternetResourceURL"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="JADEAgentID">
+    <rdfs:label>JADEAgentID</rdfs:label>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="providedBy">
+    <rdfs:label>providedBy</rdfs:label>
+    <rdfs:domain rdf:resource="#ChatID"/>
+    <rdfs:range rdf:resource="#IMProvider"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="hasRegisteredChatID">
+    <rdfs:label>hasRegisteredChatID</rdfs:label>
+    <owl:inverseOf rdf:resource="#providedBy"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="IMProvider">
+    <rdfs:label>IMProvider</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#hasRegisteredChatID"/>
+	<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="knows">
+    <rdfs:label>knows</rdfs:label>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:domain rdf:resource="#Person"/>
+
+    <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+
+    <owl:equivalentProperty>
+      <owl:ObjectProperty rdf:about="&foaf;knows"/>
+    </owl:equivalentProperty>
+  </owl:ObjectProperty>
+
+
+</rdf:RDF>
