@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:saw="http://vistology.com/ont/2009/minds/SAWCore.owl#"
+  xml:base="http://vistology.com/ont/2009/minds/SAWCore.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Versatile Information Systems' Core Ontology for Situation
+Awareness</rdfs:comment>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.0</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Object"/>
+  <owl:Class rdf:ID="AttributeTuple"/>
+  <owl:Class rdf:ID="Source"/>
+  <owl:Class rdf:ID="InternalEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Event"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AttributeValue"/>
+  <owl:Class rdf:ID="Situation">
+    <rdfs:subClassOf rdf:resource="#Object"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RelationTuple"/>
+  <owl:Class rdf:ID="PhysicalObject">
+    <rdfs:subClassOf rdf:resource="#Object"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Goal"/>
+  <owl:Class rdf:ID="Relation"/>
+  <owl:Class rdf:ID="Rule"/>
+  <owl:Class rdf:ID="Attribute"/>
+  <owl:Class rdf:ID="RuleFiring"/>
+  <owl:Class rdf:ID="VelocityTuple">
+    <rdfs:subClassOf rdf:resource="#AttributeTuple"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RelationValue"/>
+  <owl:Class rdf:ID="ExternalEvent">
+    <rdfs:subClassOf rdf:resource="#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LocationTuple">
+    <rdfs:subClassOf rdf:resource="#AttributeTuple"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ValueFunction"/>
+  <owl:ObjectProperty rdf:ID="hasAttribute">
+    <rdfs:range rdf:resource="#AttributeTuple"/>
+    <rdfs:domain rdf:resource="#Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="definingInternalEvent">
+    <rdfs:range rdf:resource="#InternalEvent"/>
+    <rdfs:domain rdf:resource="#RelationValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="definingExternalEvent">
+    <rdfs:range rdf:resource="#ExternalEvent"/>
+    <rdfs:domain rdf:resource="#AttributeValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasGoal">
+    <rdfs:range rdf:resource="#Goal"/>
+    <rdfs:domain rdf:resource="#Situation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasObject">
+    <rdfs:domain rdf:resource="#Situation"/>
+    <rdfs:range rdf:resource="#Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="relevantRelation">
+    <rdfs:range rdf:resource="#Relation"/>
+    <rdfs:domain rdf:resource="#Situation"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="time">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="certainty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#AttributeValue"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="truthValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#RelationValue"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="definesAttributeValue">
+    <rdfs:range rdf:resource="#AttributeValue"/>
+    <rdfs:domain rdf:resource="#ExternalEvent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#definingExternalEvent"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLocationTuple">
+    <rdfs:range rdf:resource="#LocationTuple"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#PhysicalObject"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="definesRelationValue">
+    <rdfs:domain rdf:resource="#InternalEvent"/>
+    <owl:inverseOf rdf:resource="#definingInternalEvent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#RelationValue"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="onObject">
+    <rdfs:domain rdf:resource="#RelationTuple"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Object"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="modelledBy">
+    <rdfs:domain rdf:resource="#Attribute"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ValueFunction"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="cause">
+    <rdfs:domain rdf:resource="#InternalEvent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#RuleFiring"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAttributeValue">
+    <rdfs:range rdf:resource="#AttributeValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AttributeTuple"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="source">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ExternalEvent"/>
+    <rdfs:range rdf:resource="#Source"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="attribute">
+    <rdfs:domain rdf:resource="#AttributeTuple"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Attribute"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="definedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Relation"/>
+    <rdfs:range rdf:resource="#Rule"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasVelocityTuple">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#VelocityTuple"/>
+    <rdfs:domain rdf:resource="#PhysicalObject"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="objectOwner">
+    <owl:inverseOf rdf:resource="#hasAttribute"/>
+    <rdfs:domain rdf:resource="#AttributeTuple"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Object"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasRelationValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#RelationTuple"/>
+    <rdfs:range rdf:resource="#RelationValue"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="firing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Rule"/>
+    <rdfs:range rdf:resource="#RuleFiring"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="relation">
+    <rdfs:range rdf:resource="#Relation"/>
+    <rdfs:domain rdf:resource="#RelationTuple"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->
