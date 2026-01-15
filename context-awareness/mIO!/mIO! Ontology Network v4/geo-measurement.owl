@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY spc "http://pervasive.semanticweb.org/ont/2004/06/space#" >
+    <!ENTITY geo-measurement "http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#" >
+]>
+
+
+<rdf:RDF xmlns="http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#"
+     xml:base="http://pervasive.semanticweb.org/ont/2004/06/geo-measurement"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:geo-measurement="http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#"
+     xmlns:spc="http://pervasive.semanticweb.org/ont/2004/06/space#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:label
+            >SOUPA Geographical Measurement Ontology</rdfs:label>
+        <owl:versionInfo
+            >cvs:$Revision: 1.2 $, $Date: 2004/03/07 17:58:36 $</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaUnit -->
+
+    <owl:ObjectProperty rdf:about="#areaUnit">
+        <rdfs:label>areaUnit</rdfs:label>
+        <rdfs:domain rdf:resource="#AreaValueDescription"/>
+        <rdfs:range rdf:resource="#DistanceUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValueDescription -->
+
+    <owl:ObjectProperty rdf:about="#areaValueDescription">
+        <rdfs:label
+            >areValueDescription</rdfs:label>
+        <rdfs:range rdf:resource="#AreaValueDescription"/>
+        <rdfs:domain rdf:resource="#SurfaceArea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#direction -->
+
+    <owl:ObjectProperty rdf:about="#direction">
+        <rdfs:label>direction</rdfs:label>
+        <rdfs:range rdf:resource="#Direction"/>
+        <rdfs:domain rdf:resource="#DistanceValueDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceUnit -->
+
+    <owl:ObjectProperty rdf:about="#distanceUnit">
+        <rdfs:label>distanceUnit</rdfs:label>
+        <rdfs:range rdf:resource="#DistanceUnit"/>
+        <rdfs:domain rdf:resource="#DistanceValueDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValueDescription -->
+
+    <owl:ObjectProperty rdf:about="#distanceValueDescription">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label
+            >distanceValueDescription</rdfs:label>
+        <rdfs:domain rdf:resource="#Distance"/>
+        <rdfs:range rdf:resource="#DistanceValueDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#fromSpatialThing -->
+
+    <owl:ObjectProperty rdf:about="#fromSpatialThing">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label
+            >fromSpatialThing</rdfs:label>
+        <rdfs:domain rdf:resource="#Distance"/>
+        <rdfs:range rdf:resource="&spc;SpatialThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#surfaceAreaOf -->
+
+    <owl:ObjectProperty rdf:about="#surfaceAreaOf">
+        <rdfs:label>surfaceAreaOf</rdfs:label>
+        <rdfs:domain rdf:resource="#SurfaceArea"/>
+        <rdfs:range rdf:resource="&spc;SpatialThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#toSpatialThing -->
+
+    <owl:ObjectProperty rdf:about="#toSpatialThing">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>toSpatialThing</rdfs:label>
+        <rdfs:domain rdf:resource="#Distance"/>
+        <rdfs:range rdf:resource="&spc;SpatialThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#altitude -->
+
+    <owl:DatatypeProperty rdf:about="#altitude">
+        <rdfs:label>altitude</rdfs:label>
+        <rdfs:domain rdf:resource="#LocationCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValue -->
+
+    <owl:DatatypeProperty rdf:about="#areaValue">
+        <rdfs:label>areaValue</rdfs:label>
+        <rdfs:domain rdf:resource="#AreaValueDescription"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValue -->
+
+    <owl:DatatypeProperty rdf:about="#distanceValue">
+        <rdfs:label>distanceValue</rdfs:label>
+        <rdfs:domain rdf:resource="#DistanceValueDescription"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#latitude -->
+
+    <owl:DatatypeProperty rdf:about="#latitude">
+        <rdfs:label>latitude</rdfs:label>
+        <rdfs:domain rdf:resource="#LocationCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#longitude -->
+
+    <owl:DatatypeProperty rdf:about="#longitude">
+        <rdfs:label>longitude</rdfs:label>
+        <rdfs:domain rdf:resource="#LocationCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit -->
+
+    <owl:Class rdf:about="#AreaUnit">
+        <rdfs:label>AreaUnit</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MileSq"/>
+                    <rdf:Description rdf:about="#InchSq"/>
+                    <rdf:Description rdf:about="#CentimeterSq"/>
+                    <rdf:Description rdf:about="#KilometerSq"/>
+                    <rdf:Description rdf:about="#YardSq"/>
+                    <rdf:Description rdf:about="#MeterSq"/>
+                    <rdf:Description rdf:about="#FootSq"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaValueDescription -->
+
+    <owl:Class rdf:about="#AreaValueDescription">
+        <rdfs:label
+            >AreaValueDescription</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#areaValue"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#areaUnit"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction -->
+
+    <owl:Class rdf:about="#Direction">
+        <rdfs:label>Direction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#N"/>
+                    <rdf:Description rdf:about="#NE"/>
+                    <rdf:Description rdf:about="#S"/>
+                    <rdf:Description rdf:about="#NW"/>
+                    <rdf:Description rdf:about="#SW"/>
+                    <rdf:Description rdf:about="#SE"/>
+                    <rdf:Description rdf:about="#W"/>
+                    <rdf:Description rdf:about="#E"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Distance -->
+
+    <owl:Class rdf:about="#Distance">
+        <rdfs:label>Distance</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#distanceValueDescription"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#toSpatialThing"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#fromSpatialThing"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit -->
+
+    <owl:Class rdf:about="#DistanceUnit">
+        <rdfs:label>DistanceUnit</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Centimeter"/>
+                    <rdf:Description rdf:about="#Yard"/>
+                    <rdf:Description rdf:about="#Foot"/>
+                    <rdf:Description rdf:about="#Kilometer"/>
+                    <rdf:Description rdf:about="#Mile"/>
+                    <rdf:Description rdf:about="#Inch"/>
+                    <rdf:Description rdf:about="#Meter"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription -->
+
+    <owl:Class rdf:about="#DistanceValueDescription">
+        <rdfs:label
+            >DistanceValueDescription</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#distanceUnit"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#distanceValue"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#direction"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates -->
+
+    <owl:Class rdf:about="#LocationCoordinates">
+        <rdfs:label
+            >LocationCoordinates</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SurfaceArea -->
+
+    <owl:Class rdf:about="#SurfaceArea">
+        <rdfs:label>SurfaceArea</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#areaValueDescription"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceAreaOf"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing -->
+
+    <owl:Class rdf:about="&spc;SpatialThing"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Centimeter -->
+
+    <owl:Thing rdf:about="#Centimeter">
+        <rdf:type rdf:resource="#DistanceUnit"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#CentimeterSq -->
+
+    <AreaUnit rdf:about="#CentimeterSq">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </AreaUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#E -->
+
+    <Direction rdf:about="#E">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Direction>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Foot -->
+
+    <owl:Thing rdf:about="#Foot">
+        <rdf:type rdf:resource="#DistanceUnit"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#FootSq -->
+
+    <AreaUnit rdf:about="#FootSq">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </AreaUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Inch -->
+
+    <DistanceUnit rdf:about="#Inch">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </DistanceUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#InchSq -->
+
+    <AreaUnit rdf:about="#InchSq">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </AreaUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Kilometer -->
+
+    <DistanceUnit rdf:about="#Kilometer">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </DistanceUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#KilometerSq -->
+
+    <AreaUnit rdf:about="#KilometerSq">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </AreaUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Meter -->
+
+    <owl:Thing rdf:about="#Meter">
+        <rdf:type rdf:resource="#DistanceUnit"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MeterSq -->
+
+    <AreaUnit rdf:about="#MeterSq">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </AreaUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Mile -->
+
+    <owl:Thing rdf:about="#Mile">
+        <rdf:type rdf:resource="#DistanceUnit"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MileSq -->
+
+    <AreaUnit rdf:about="#MileSq">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </AreaUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#N -->
+
+    <owl:Thing rdf:about="#N">
+        <rdf:type rdf:resource="#Direction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NE -->
+
+    <owl:Thing rdf:about="#NE">
+        <rdf:type rdf:resource="#Direction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NW -->
+
+    <owl:Thing rdf:about="#NW">
+        <rdf:type rdf:resource="#Direction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#S -->
+
+    <Direction rdf:about="#S">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Direction>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SE -->
+
+    <owl:Thing rdf:about="#SE">
+        <rdf:type rdf:resource="#Direction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SW -->
+
+    <owl:Thing rdf:about="#SW">
+        <rdf:type rdf:resource="#Direction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#W -->
+
+    <owl:Thing rdf:about="#W">
+        <rdf:type rdf:resource="#Direction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Yard -->
+
+    <DistanceUnit rdf:about="#Yard">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </DistanceUnit>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#YardSq -->
+
+    <owl:Thing rdf:about="#YardSq">
+        <rdf:type rdf:resource="#AreaUnit"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

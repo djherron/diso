@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY p1 "http://www.owl-ontologies.com/assert.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ip "http://individual.utoronto.ca/hesham/IP.owl#" >
+    <!ENTITY oGalen "http://www.opengalen.org/open/crm/crm-anatomy.owl#" >
+    <!ENTITY midLevel "http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl#" >
+    <!ENTITY e_response_buildings "http://e-response.org/ontology/2006/20060815/e_response_buildings#" >
+]>
+
+
+<rdf:RDF xmlns="http://e-response.org/ontology/2006/20060815/e_response_buildings#"
+     xml:base="http://e-response.org/ontology/2006/20060815/e_response_buildings"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:e_response_buildings="http://e-response.org/ontology/2006/20060815/e_response_buildings#"
+     xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+     xmlns:oGalen="http://www.opengalen.org/open/crm/crm-anatomy.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:midLevel="http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl#"
+     xmlns:ip="http://individual.utoronto.ca/hesham/IP.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <rdfs:comment xml:lang="en"
+            >15 August 2006: created by Yannis, a fabricated ontology for building defects, manufacturing materials, building types and any other building related concepts</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >This ontology will be used in the e-Response scenario for the CROSI Mapping System (CMS) to align input concepts to designated concepts related to the event in question.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Versi&#243;n 1.0 de la adaptaci&#243;n de e-response_buildings a la red de ontolog&#237;as mIO!</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >e-response_buildings  adaptada a la red de ontolog&#237;as mIO!</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Apartment -->
+
+    <owl:Class rdf:about="#Apartment">
+        <rdfs:subClassOf rdf:resource="#ApartmentBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >a relatively self-contained housing unit in a building.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#ApartmentBuilding -->
+
+    <owl:Class rdf:about="#ApartmentBuilding">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >a multi-unit dwelling made up of several (generally four or more) apartments.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#BoardingHouse -->
+
+    <owl:Class rdf:about="#BoardingHouse">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A boarding house is a house (often a family home) in which holiday-makers or lodgers rent one or more rooms for one or more nights, and sometimes for extended periods of weeks, months and years</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Building -->
+
+    <owl:Class rdf:about="#Building"/>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Bungalow -->
+
+    <owl:Class rdf:about="#Bungalow">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A type of single story house.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Cafe -->
+
+    <owl:Class rdf:about="#Cafe">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A coffeehouse, coffee shop, or cafe  shares some of the characteristics of a bar, and some of the characteristics of a restaurant. As the name suggests, coffeehouses focus on providing coffee and tea as well as light snacks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Caravan -->
+
+    <owl:Class rdf:about="#Caravan">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A caravan is a small trailer in which people can live and travel simultaneously.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Church -->
+
+    <owl:Class rdf:about="#Church">
+        <rdfs:subClassOf rdf:resource="#ReligiousBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A building used in Christian worship.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#College -->
+
+    <owl:Class rdf:about="#College">
+        <rdfs:subClassOf rdf:resource="#EducationBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >An educational institution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Cottage -->
+
+    <owl:Class rdf:about="#Cottage">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A cottage is a dwelling, typically in a non-urban location (although there are cottage-style dwellings in cities).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Depot -->
+
+    <owl:Class rdf:about="#Depot">
+        <rdfs:subClassOf rdf:resource="#StorageBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A depot is usually a centralized store or operating base for logistical use by commercial or governmental bodies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Detached -->
+
+    <owl:Class rdf:about="#Detached">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A free-standing residential building, generally found in less dense urban areas, the suburbs of cities, the exurban region, and rural areas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Dwelling -->
+
+    <owl:Class rdf:about="#Dwelling">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#EducationBuilding -->
+
+    <owl:Class rdf:about="#EducationBuilding">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Factory -->
+
+    <owl:Class rdf:about="#Factory">
+        <rdfs:subClassOf rdf:resource="#IndustrialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A factory or manufacturing plant is a large industrial building where workers manufacture goods or supervise machines processing one product into another.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Farm -->
+
+    <owl:Class rdf:about="#Farm">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A farm is the basic unit in agriculture. It is a section of land devoted to the production and management of food, either produce or livestock.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Farmhouse -->
+
+    <owl:Class rdf:about="#Farmhouse">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A farmhouse is a type of building or house which serves a residential purpose in a rural or agricultural setting. Most often, the surrounding environment will be a farm.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Garage -->
+
+    <owl:Class rdf:about="#Garage">
+        <rdfs:subClassOf rdf:resource="#StorageBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A building or part of a home either designed or used for storing a vehicle or vehicles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Hospital -->
+
+    <owl:Class rdf:about="#Hospital">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >An institution for health care provided by physicians, surgeons, nurses, and other professionals.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Hostel -->
+
+    <owl:Class rdf:about="#Hostel">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >Provide short-term accommodation to travellers or backpackers, particularly encouraging outdoor activities and cultural exchange for the young.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <owl:disjointWith rdf:resource="#Motel"/>
+        <rdfs:comment xml:lang="en"
+            >An establishment that provides paid lodging, usually on a short-term basis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#House -->
+
+    <owl:Class rdf:about="#House">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#IndustrialBuilding -->
+
+    <owl:Class rdf:about="#IndustrialBuilding">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Maisonette -->
+
+    <owl:Class rdf:about="#Maisonette">
+        <rdfs:subClassOf rdf:resource="#Apartment"/>
+        <rdfs:comment xml:lang="en"
+            >an apartment / flat on two levels with internal stairs, or which has its own entrance at street level.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Mews -->
+
+    <owl:Class rdf:about="#Mews">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >British term referring to a certain type of stabling with living quarters. The term is both singular (&quot;a mews house&quot;) and plural, and is used primarily in London and in some parts of Canada.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Motel -->
+
+    <owl:Class rdf:about="#Motel">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >The word motel (from MOtor hoTEL) referred initially to a single building of connected rooms whose doors face a parking lot and/or common area or a series of small cabins with common parking. Their creation was driven by increased driving distances on the United States highway system that allowed easy cross-country travel.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#MultiStory -->
+
+    <owl:Class rdf:about="#MultiStory">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:comment xml:lang="en"
+            >a building with more than one story (floor)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#NonResidentialBuilding -->
+
+    <owl:Class rdf:about="#NonResidentialBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <owl:disjointWith rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >a building which is not used as a residence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#NursingHome -->
+
+    <owl:Class rdf:about="#NursingHome">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A place of residence for people who require constant nursing care and have significant Activity of Daily Living (ADL) deficiencies. Residents include the elderly and younger adults with physical disabilities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#OfficeBuilding -->
+
+    <owl:Class rdf:about="#OfficeBuilding">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >An office building  is a form of commercial building which contains spaces mainly designed to be used for offices. The primary purpose of an office building is to provide a workplace and working environment primarily for administrative and managerial workers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Penthouse -->
+
+    <owl:Class rdf:about="#Penthouse">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >the top floor of a multi-story building</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#PowerPlant -->
+
+    <owl:Class rdf:about="#PowerPlant">
+        <rdfs:subClassOf rdf:resource="#IndustrialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A facility for the generation of electric power.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Prefabricated -->
+
+    <owl:Class rdf:about="#Prefabricated">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >Houses built in modules (modular homes) or transportable sections (manufactured homes).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Refinery -->
+
+    <owl:Class rdf:about="#Refinery">
+        <rdfs:subClassOf rdf:resource="#IndustrialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >Is composed of a group of chemical engineering unit processes and unit operations used for refining certain materials or converting raw material into products of value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#ReligiousBuilding -->
+
+    <owl:Class rdf:about="#ReligiousBuilding">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#ResidentialBuilding -->
+
+    <owl:Class rdf:about="#ResidentialBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:comment xml:lang="en"
+            >a buidling which is constructed for residential occupancy. Its main purpose is to provide dwelling for one or more households</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Restaurant -->
+
+    <owl:Class rdf:about="#Restaurant">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >An establishment that serves prepared food and beverages to be consumed on the premises.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#School -->
+
+    <owl:Class rdf:about="#School">
+        <rdfs:subClassOf rdf:resource="#EducationBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A place designated for education in the form of group learning among students, teachers, and staff.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Semi-detached -->
+
+    <owl:Class rdf:about="#Semi-detached">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >Semi-detached housing consists of pairs of houses built side by side as units sharing a party wall and usually in such a way that each house&#39;s layout is a mirror image of its twin.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Shed -->
+
+    <owl:Class rdf:about="#Shed">
+        <rdfs:subClassOf rdf:resource="#StorageBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A simple, single-story structure in a back garden or on an allotment that is used for storage, hobbies or as a workshop.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Shop -->
+
+    <owl:Class rdf:about="#Shop">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A mercantile establishment for the retail sale of goods or services</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#StorageBuilding -->
+
+    <owl:Class rdf:about="#StorageBuilding">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A building or collections of buildings, designed to hold large objects, or a great many objects of a particular type.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Studio -->
+
+    <owl:Class rdf:about="#Studio">
+        <rdfs:subClassOf rdf:resource="#Apartment"/>
+        <rdfs:comment xml:lang="en"
+            >A self-contained unit with one main room, one bathroom, and some closet space. There is no distinct bedroom in a studio: sleeping, cooking, dining, living is all done in the main room.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Tavern -->
+
+    <owl:Class rdf:about="#Tavern">
+        <rdfs:subClassOf rdf:resource="#NonResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A tavern is, loosely, a place of business where people gather to drink alcoholic beverages and, more than likely, also be served food, though not licenced to put up guests.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Terraced -->
+
+    <owl:Class rdf:about="#Terraced">
+        <rdfs:subClassOf rdf:resource="#ResidentialBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >Is a style of housing where a row of identical or mirror-image houses share side walls. The first and last of these houses is called an end terrace.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#University -->
+
+    <owl:Class rdf:about="#University">
+        <rdfs:subClassOf rdf:resource="#EducationBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >An institution of higher education and research, which grants academic degrees at all levels (bachelor, master, and doctorate) in a variety of subjects.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Warehouse -->
+
+    <owl:Class rdf:about="#Warehouse">
+        <rdfs:subClassOf rdf:resource="#StorageBuilding"/>
+        <rdfs:comment xml:lang="en"
+            >A commercial building for storage of goods.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

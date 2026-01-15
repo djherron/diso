@@ -1,0 +1,1178 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY service "http://www.cenitmio.es/ontologies/service.owl#" >
+    <!ENTITY space "http://212.119.9.180/Ontologies/0.3/space.owl#" >
+    <!ENTITY Service "http://www.cenitmio.es/ontologies/Service.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Service.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Service.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Service="http://www.cenitmio.es/ontologies/Service.owl#"
+     xmlns:service="http://www.cenitmio.es/ontologies/service.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:space="http://212.119.9.180/Ontologies/0.3/space.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Service Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre servicios</rdfs:comment>
+        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/service.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#actsAs -->
+
+    <owl:ObjectProperty rdf:about="#actsAs">
+        <rdfs:range rdf:resource="#Capacity"/>
+        <rdfs:domain rdf:resource="#MIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#componentOf -->
+
+    <owl:ObjectProperty rdf:about="#componentOf">
+        <rdfs:domain rdf:resource="#Component"/>
+        <rdfs:range rdf:resource="#MIOService"/>
+        <owl:inverseOf rdf:resource="#consistOfComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#consistOfComponent -->
+
+    <owl:ObjectProperty rdf:about="#consistOfComponent">
+        <rdfs:range rdf:resource="#Component"/>
+        <rdfs:domain rdf:resource="#MIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#dependsOn -->
+
+    <owl:ObjectProperty rdf:about="#dependsOn">
+        <rdfs:domain rdf:resource="#DynamicComponent"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Capacity"/>
+                    <rdf:Description rdf:about="#MIOService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#generalizesMIOService -->
+
+    <owl:ObjectProperty rdf:about="#generalizesMIOService">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasDigitalSignature -->
+
+    <owl:ObjectProperty rdf:about="#hasDigitalSignature">
+        <rdfs:range rdf:resource="#DigitalSignature"/>
+        <rdfs:domain rdf:resource="#MIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasFuncionality -->
+
+    <owl:ObjectProperty rdf:about="#hasFuncionality">
+        <rdfs:domain rdf:resource="#Component"/>
+        <rdfs:range rdf:resource="#Funcionality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasMIOServicePopularity -->
+
+    <owl:ObjectProperty rdf:about="#hasMIOServicePopularity">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOServicePopularity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasMIOServicePresence -->
+
+    <owl:ObjectProperty rdf:about="#hasMIOServicePresence">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOServicePresence"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasMIOServiceQualityOfService -->
+
+    <owl:ObjectProperty rdf:about="#hasMIOServiceQualityOfService">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOServiceQualityOfService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasMIOServiceUsability -->
+
+    <owl:ObjectProperty rdf:about="#hasMIOServiceUsability">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOServiceUsability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasMIOServiceValidity -->
+
+    <owl:ObjectProperty rdf:about="#hasMIOServiceValidity">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOServiceValidity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="#hasParameter">
+        <rdfs:domain rdf:resource="#Capacity"/>
+        <rdfs:range rdf:resource="#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasPermission -->
+
+    <owl:ObjectProperty rdf:about="#hasPermission">
+        <rdfs:range rdf:resource="#Permission"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ClientServerMIOService"/>
+                    <rdf:Description rdf:about="#CollaborativeMIOService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#isCreatedFrom -->
+
+    <owl:ObjectProperty rdf:about="#isCreatedFrom">
+        <rdfs:domain rdf:resource="#MIOServiceInstance"/>
+        <rdfs:range rdf:resource="#MIOServiceTemplate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#isDigitalSignatureAssociatedTo -->
+
+    <owl:ObjectProperty rdf:about="#isDigitalSignatureAssociatedTo">
+        <rdfs:domain rdf:resource="#DigitalSignature"/>
+        <rdfs:range rdf:resource="#MIOService"/>
+        <owl:inverseOf rdf:resource="#hasDigitalSignature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#isParameterOf -->
+
+    <owl:ObjectProperty rdf:about="#isParameterOf">
+        <rdfs:range rdf:resource="#Capacity"/>
+        <rdfs:domain rdf:resource="#Parameter"/>
+        <owl:inverseOf rdf:resource="#hasParameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#organizedBy -->
+
+    <owl:ObjectProperty rdf:about="#organizedBy">
+        <rdfs:range rdf:resource="#Block"/>
+        <rdfs:domain rdf:resource="#MIOServiceTemplate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#shapes -->
+
+    <owl:ObjectProperty rdf:about="#shapes">
+        <rdfs:range rdf:resource="#MIOService"/>
+        <owl:inverseOf rdf:resource="#takesFormOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MIOServiceInstance"/>
+                    <rdf:Description rdf:about="#MIOServiceTemplate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#specializesMIOService -->
+
+    <owl:ObjectProperty rdf:about="#specializesMIOService">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="#MIOService"/>
+        <owl:inverseOf rdf:resource="#generalizesMIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#takesFormOf -->
+
+    <owl:ObjectProperty rdf:about="#takesFormOf">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MIOServiceInstance"/>
+                    <rdf:Description rdf:about="#MIOServiceTemplate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hasMIOServiceNumericUsability -->
+
+    <owl:DatatypeProperty rdf:about="#hasMIOServiceNumericUsability">
+        <rdfs:label xml:lang="en"
+            >hasMIOServiceNumericUsability</rdfs:label>
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#mIOServiceAssessment -->
+
+    <owl:DatatypeProperty rdf:about="#mIOServiceAssessment">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#mIOServiceDescription -->
+
+    <owl:DatatypeProperty rdf:about="#mIOServiceDescription">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#mIOServiceTag -->
+
+    <owl:DatatypeProperty rdf:about="#mIOServiceTag">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#mIOServiceTitle -->
+
+    <owl:DatatypeProperty rdf:about="#mIOServiceTitle">
+        <rdfs:domain rdf:resource="#MIOService"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#AdministrativeInformationService -->
+
+    <owl:Class rdf:about="#AdministrativeInformationService">
+        <rdfs:label xml:lang="en"
+            >Administrative information service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de informaci&#243;n administrativa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+        <owl:disjointWith rdf:resource="#SecurityInformationService"/>
+        <owl:disjointWith rdf:resource="#TouristInformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#BasicFood -->
+
+    <owl:Class rdf:about="#BasicFood">
+        <rdfs:label xml:lang="en">Basic food</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Alimentaci&#243;n b&#225;sica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Block -->
+
+    <owl:Class rdf:about="#Block">
+        <rdfs:label xml:lang="en">Block</rdfs:label>
+        <rdfs:label xml:lang="es">Bloque</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Buffet -->
+
+    <owl:Class rdf:about="#Buffet">
+        <rdfs:label xml:lang="en">Buffet</rdfs:label>
+        <rdfs:label xml:lang="es">Buffet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#BussinessBlock -->
+
+    <owl:Class rdf:about="#BussinessBlock">
+        <rdfs:label xml:lang="en">Bussiness block</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Bloque de negocio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Block"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Capacity -->
+
+    <owl:Class rdf:about="#Capacity">
+        <rdfs:label xml:lang="en">Capacity</rdfs:label>
+        <rdfs:label xml:lang="es">Capacidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#ClientServerMIOService -->
+
+    <owl:Class rdf:about="#ClientServerMIOService">
+        <rdfs:label xml:lang="en"
+            >Client-Server mIO! service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio mIO! cliente-servidor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MIOService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#CollaborativeMIOService -->
+
+    <owl:Class rdf:about="#CollaborativeMIOService">
+        <rdfs:label xml:lang="en"
+            >Collaborative mIO! service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio mIO! colaborativo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MIOService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#CommunicationFuncionality -->
+
+    <owl:Class rdf:about="#CommunicationFuncionality">
+        <rdfs:label xml:lang="en"
+            >Communication funcionality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Funcionalidad de comunicaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Funcionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Component -->
+
+    <owl:Class rdf:about="#Component">
+        <rdfs:label xml:lang="en">Component</rdfs:label>
+        <rdfs:label xml:lang="es">Componente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#CulturalService -->
+
+    <owl:Class rdf:about="#CulturalService">
+        <rdfs:label xml:lang="en"
+            >Cultural service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio cultural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios culturales</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#DataFuncionality -->
+
+    <owl:Class rdf:about="#DataFuncionality">
+        <rdfs:label xml:lang="en"
+            >Data funcionality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Funcionalidad de datos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Funcionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#DigitalSignature -->
+
+    <owl:Class rdf:about="#DigitalSignature">
+        <rdfs:label xml:lang="en"
+            >Digital signature</rdfs:label>
+        <rdfs:label xml:lang="es">Firma digital</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#DynamicComponent -->
+
+    <owl:Class rdf:about="#DynamicComponent">
+        <rdfs:label xml:lang="en"
+            >Dynamic component</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Componente din&#225;mico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#EntertainmentService -->
+
+    <owl:Class rdf:about="#EntertainmentService">
+        <rdfs:label xml:lang="en"
+            >Entertainment service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de ocio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios de ocio</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#FixedComponent -->
+
+    <owl:Class rdf:about="#FixedComponent">
+        <rdfs:label xml:lang="en">Fixed component</rdfs:label>
+        <rdfs:label xml:lang="es">Componente fijo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#FoodService -->
+
+    <owl:Class rdf:about="#FoodService">
+        <rdfs:label xml:lang="en">Food service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios de alimentaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#FoodServiceType -->
+
+    <owl:Class rdf:about="#FoodServiceType">
+        <rdfs:label xml:lang="en"
+            >Food service type</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Tipo servicio alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Funcionality -->
+
+    <owl:Class rdf:about="#Funcionality">
+        <rdfs:label xml:lang="en">Funcionality</rdfs:label>
+        <rdfs:label xml:lang="es">Funcionalidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#HealtCareTransportation -->
+
+    <owl:Class rdf:about="#HealtCareTransportation">
+        <rdfs:label xml:lang="en"
+            >Healt care transportation</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Transporte sanitario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCare"/>
+        <owl:disjointWith rdf:resource="#SpecialtyCare"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#HealthCare -->
+
+    <owl:Class rdf:about="#HealthCare">
+        <rdfs:label xml:lang="en">Health care</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de sanidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios sanitarios</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#HostingService -->
+
+    <owl:Class rdf:about="#HostingService">
+        <rdfs:label xml:lang="en">Hosting service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio alojamiento</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios de alojamiento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#InformationService -->
+
+    <owl:Class rdf:about="#InformationService">
+        <rdfs:label xml:lang="en"
+            >Information service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de informaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios de informaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#IngestService -->
+
+    <owl:Class rdf:about="#IngestService">
+        <rdfs:label xml:lang="en">Ingest service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio ingesta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#InputParameter -->
+
+    <owl:Class rdf:about="#InputParameter">
+        <rdfs:label xml:lang="en">Input parameter</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Par&#225;metro de entrada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#InternalCapacity -->
+
+    <owl:Class rdf:about="#InternalCapacity">
+        <rdfs:label xml:lang="en"
+            >Internal capacity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capacidad interna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Capacity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#InternationalFoodService -->
+
+    <owl:Class rdf:about="#InternationalFoodService">
+        <rdfs:label xml:lang="en"
+            >International food service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de comida internacional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#InternetFuncionality -->
+
+    <owl:Class rdf:about="#InternetFuncionality">
+        <rdfs:label xml:lang="en"
+            >Internet funcionality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Funcionalidad de internet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Funcionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#LocalMIOService -->
+
+    <owl:Class rdf:about="#LocalMIOService">
+        <rdfs:label xml:lang="en"
+            >Local mIO! service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio mIO! local</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MIOService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#LocalService -->
+
+    <owl:Class rdf:about="#LocalService">
+        <rdfs:label xml:lang="en">Local service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio en establecimiento</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Service"/>
+        <rdfs:comment xml:lang="en"
+            >Class that represents the services it can offer a service provider</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios que puede ofrece un proveedor de servicio</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#LocationFuncionality -->
+
+    <owl:Class rdf:about="#LocationFuncionality">
+        <rdfs:subClassOf rdf:resource="#Funcionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#LogicBlock -->
+
+    <owl:Class rdf:about="#LogicBlock">
+        <rdfs:label xml:lang="en">Logic block</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Bloque de l&#243;gica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Block"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOService -->
+
+    <owl:Class rdf:about="#MIOService">
+        <rdfs:label xml:lang="en">mIO! service</rdfs:label>
+        <rdfs:label xml:lang="es">Servicio mIO!</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Service"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios mIO!</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServiceInstance -->
+
+    <owl:Class rdf:about="#MIOServiceInstance">
+        <rdfs:label xml:lang="en"
+            >mIO! service instance</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Instancia de servicio mIO!</rdfs:label>
+        <rdfs:comment xml:lang="es"
+            >El concepto de servicio mIO! cuando se rellena de contenido y entra en ejecuci&#243;n se convierte en una instancia de servicio.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServicePopularity -->
+
+    <owl:Class rdf:about="#MIOServicePopularity">
+        <rdfs:label xml:lang="en"
+            >mIo! service popularity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >popularidad de un servicio mIO!</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServicePresence -->
+
+    <owl:Class rdf:about="#MIOServicePresence">
+        <rdfs:label xml:lang="en"
+            >mIO! service presence</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Presencia de un serivio mIO!</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServiceQualityOfService -->
+
+    <owl:Class rdf:about="#MIOServiceQualityOfService">
+        <rdfs:label xml:lang="en"
+            >mIO! service quality of service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Calidad de servicio de un servicio mIO!</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServiceTemplate -->
+
+    <owl:Class rdf:about="#MIOServiceTemplate">
+        <rdfs:label xml:lang="en"
+            >mIO! service template</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Plantilla de servicio mIO!</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="es"
+            >El concepto de servicio mIO! cuando no es m&#225;s que un ente publicado, se denomina plantilla de servicio.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServiceUsability -->
+
+    <owl:Class rdf:about="#MIOServiceUsability">
+        <rdfs:label xml:lang="en"
+            >mIO! service usability</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Usabilidad de un servicio mIO!</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServiceValidity -->
+
+    <owl:Class rdf:about="#MIOServiceValidity">
+        <rdfs:label xml:lang="en"
+            >mIO! service validity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Validez de un servicio mIO!</rdfs:label>
+        <rdfs:comment xml:lang="es"
+            >La validez de un servicio mIO! est&#225; formada por un par (validez temporal, validadez espacial).
+
+Un servicio mIO! puede tener m&#225;s de una validez.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MasterBlock -->
+
+    <owl:Class rdf:about="#MasterBlock">
+        <rdfs:label xml:lang="en">Master block</rdfs:label>
+        <rdfs:label xml:lang="es">Bloque maestro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Block"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Menu -->
+
+    <owl:Class rdf:about="#Menu">
+        <rdfs:label xml:lang="en">Menu</rdfs:label>
+        <rdfs:label xml:lang="es">Men&#250;</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MultimediaFuncionality -->
+
+    <owl:Class rdf:about="#MultimediaFuncionality">
+        <rdfs:label xml:lang="en"
+            >Multimedia funcionality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Funcionalidad multimedia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Funcionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#NetworkedCapacity -->
+
+    <owl:Class rdf:about="#NetworkedCapacity">
+        <rdfs:label xml:lang="en"
+            >Networked capacity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capacidad de red</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Capacity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#OutputParameter -->
+
+    <owl:Class rdf:about="#OutputParameter">
+        <rdfs:label xml:lang="en"
+            >Output parameter</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Par&#225;metro de salida</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Parameter -->
+
+    <owl:Class rdf:about="#Parameter">
+        <rdfs:label xml:lang="en">Parameter</rdfs:label>
+        <rdfs:label xml:lang="es">Par&#225;metro</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Permission -->
+
+    <owl:Class rdf:about="#Permission">
+        <rdfs:label xml:lang="en">Permission</rdfs:label>
+        <rdfs:label xml:lang="es">Permiso</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#ReligiousService -->
+
+    <owl:Class rdf:about="#ReligiousService">
+        <rdfs:label xml:lang="en"
+            >Religious service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio religioso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios religiosos</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#RemoteCapacity -->
+
+    <owl:Class rdf:about="#RemoteCapacity">
+        <rdfs:label xml:lang="en">Remote capacity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capacidad remota</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Capacity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#RoomService -->
+
+    <owl:Class rdf:about="#RoomService">
+        <rdfs:label xml:lang="en">Room service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio habitaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingService"/>
+        <owl:disjointWith rdf:resource="#SpaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SecurityBlock -->
+
+    <owl:Class rdf:about="#SecurityBlock">
+        <rdfs:label xml:lang="en">Security block</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Bloque de seguridad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Block"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SecurityInformationService -->
+
+    <owl:Class rdf:about="#SecurityInformationService">
+        <rdfs:label xml:lang="en"
+            >Security information service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de informaci&#243;n seguridad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+        <owl:disjointWith rdf:resource="#TouristInformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SecurityServices -->
+
+    <owl:Class rdf:about="#SecurityServices">
+        <rdfs:label xml:lang="en"
+            >Security services</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de seguridad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios de seguridad</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SelfService -->
+
+    <owl:Class rdf:about="#SelfService">
+        <rdfs:label xml:lang="en">Self-service</rdfs:label>
+        <rdfs:label xml:lang="es">Autoservicio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SemanticBlock -->
+
+    <owl:Class rdf:about="#SemanticBlock">
+        <rdfs:label xml:lang="en">Semantic block</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Bloque sem&#225;ntico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Block"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Service -->
+
+    <owl:Class rdf:about="#Service">
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <rdfs:label xml:lang="es">Servicio</rdfs:label>
+        <owl:equivalentClass rdf:resource="&service;Service"/>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#ShortDistanceCapacity -->
+
+    <owl:Class rdf:about="#ShortDistanceCapacity">
+        <rdfs:label xml:lang="en"
+            >Short distance capacity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capacidad pr&#243;xima</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Capacity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SpaceType -->
+
+    <owl:Class rdf:about="#SpaceType">
+        <rdfs:label xml:lang="en">Space type</rdfs:label>
+        <rdfs:label xml:lang="es">Tipo de espacio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SpecialtyCare -->
+
+    <owl:Class rdf:about="#SpecialtyCare">
+        <rdfs:label xml:lang="en">Specialty care</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Atenci&#243;n especializada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCare"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SportService -->
+
+    <owl:Class rdf:about="#SportService">
+        <rdfs:label xml:lang="en">Sport service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio deportivo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios deportivos</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#TICFuncionality -->
+
+    <owl:Class rdf:about="#TICFuncionality">
+        <rdfs:label xml:lang="en"
+            >TIC funcionality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Funcionalidad TIC</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Funcionality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#TouristInformationService -->
+
+    <owl:Class rdf:about="#TouristInformationService">
+        <rdfs:label xml:lang="en"
+            >Tourist information service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de informaci&#243;n tur&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#TransportationClass -->
+
+    <owl:Class rdf:about="#TransportationClass">
+        <rdfs:label xml:lang="en"
+            >Transportation class</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Clase transporte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#TransportationService -->
+
+    <owl:Class rdf:about="#TransportationService">
+        <rdfs:label xml:lang="en"
+            >Transportation service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Servicio de transporte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalService"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios de transporte</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/service.owl#Service -->
+
+    <owl:Class rdf:about="&service;Service"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#easyMIOServiceUsability -->
+
+    <owl:Thing rdf:about="#easyMIOServiceUsability">
+        <rdf:type rdf:resource="#MIOServiceUsability"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#hardMIOServiceUsability -->
+
+    <owl:Thing rdf:about="#hardMIOServiceUsability">
+        <rdf:type rdf:resource="#MIOServiceUsability"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#mediumMIOServiceUsability -->
+
+    <owl:Thing rdf:about="#mediumMIOServiceUsability">
+        <rdf:type rdf:resource="#MIOServiceUsability"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#veryEasyMIOServiceUsability -->
+
+    <owl:Thing rdf:about="#veryEasyMIOServiceUsability">
+        <rdf:type rdf:resource="#MIOServiceUsability"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#veryHardMIOServiceUsability -->
+
+    <MIOServiceUsability rdf:about="#veryHardMIOServiceUsability">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MIOServiceUsability>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

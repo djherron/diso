@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY wordnet "http://xmlns.com/wordnet/1.6/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY contact "http://www.w3.org/2000/10/swap/pim/contact#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY User "http://www.cenitmio.es/ontologies/User.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/User.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/User.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:contact="http://www.w3.org/2000/10/swap/pim/contact#"
+     xmlns:wordnet="http://xmlns.com/wordnet/1.6/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:User="http://www.cenitmio.es/ontologies/User.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! User Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre usuarios</rdfs:comment>
+        <owl:imports rdf:resource="http://www.mindswap.org/2003/owl/foaf"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasEmploymentStatus -->
+
+    <owl:ObjectProperty rdf:about="#hasEmploymentStatus">
+        <rdfs:range rdf:resource="#EmploymentStatus"/>
+        <rdfs:domain rdf:resource="#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasMobilityPattern -->
+
+    <owl:ObjectProperty rdf:about="#hasMobilityPattern">
+        <rdfs:range rdf:resource="#MobilityPattern"/>
+        <rdfs:domain rdf:resource="#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasNeed -->
+
+    <owl:ObjectProperty rdf:about="#hasNeed">
+        <rdfs:range rdf:resource="#Need"/>
+        <rdfs:domain rdf:resource="#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasPersonalRelationship -->
+
+    <owl:ObjectProperty rdf:about="#hasPersonalRelationship">
+        <rdfs:label xml:lang="en"
+            >hasPersonalRelationship</rdfs:label>
+        <rdfs:range rdf:resource="#PersonalRelationshipBetweenUsers"/>
+        <rdfs:domain rdf:resource="#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasPersonalSkill -->
+
+    <owl:ObjectProperty rdf:about="#hasPersonalSkill">
+        <rdfs:range rdf:resource="#PersonalSkill"/>
+        <rdfs:domain rdf:resource="#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasQuantitativePersonalRelationshipLevel -->
+
+    <owl:ObjectProperty rdf:about="#hasQuantitativePersonalRelationshipLevel">
+        <rdfs:isDefinedBy xml:lang="en"
+            >hasQuantitativePersonalRelationshipLevel</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="#PersonalRelationshipBetweenUsers"/>
+        <rdfs:range rdf:resource="#PersonalRelationshipLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasUserLevel -->
+
+    <owl:ObjectProperty rdf:about="#hasUserLevel">
+        <rdfs:label xml:lang="en">hasUserLevel</rdfs:label>
+        <rdfs:domain rdf:resource="#User"/>
+        <rdfs:range rdf:resource="#UserLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#onlineIdentity -->
+
+    <owl:ObjectProperty rdf:about="#onlineIdentity">
+        <rdfs:domain rdf:resource="#User"/>
+        <rdfs:range rdf:resource="&foaf;OnlineAccount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#personalRelationshipWithUser -->
+
+    <owl:ObjectProperty rdf:about="#personalRelationshipWithUser">
+        <rdfs:label xml:lang="en"
+            >personalRelationshipWithUser</rdfs:label>
+        <rdfs:domain rdf:resource="#PersonalRelationshipBetweenUsers"/>
+        <rdfs:range rdf:resource="#User"/>
+        <owl:inverseOf rdf:resource="#hasPersonalRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#hasQualitativePersonalRelationshipLevel -->
+
+    <owl:DatatypeProperty rdf:about="#hasQualitativePersonalRelationshipLevel">
+        <rdfs:label xml:lang="en"
+            >hasQualitativePersonalRelationshipLevel</rdfs:label>
+        <rdfs:domain rdf:resource="#PersonalRelationshipBetweenUsers"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#EmploymentStatus -->
+
+    <owl:Class rdf:about="#EmploymentStatus">
+        <rdfs:label xml:lang="en"
+            >Employment status</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Situaci&#243;n laboral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#MobilityPattern -->
+
+    <owl:Class rdf:about="#MobilityPattern">
+        <rdfs:label xml:lang="en"
+            >Mobility pattern</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Patr&#243;n de movilidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#Need -->
+
+    <owl:Class rdf:about="#Need">
+        <rdfs:label xml:lang="en">Need</rdfs:label>
+        <rdfs:label xml:lang="es">Necesidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#PersonalRelationshipBetweenUsers -->
+
+    <owl:Class rdf:about="#PersonalRelationshipBetweenUsers">
+        <rdfs:label xml:lang="en"
+            >PersonalRelationshipBetweenUsers</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#PersonalRelationshipLevel -->
+
+    <owl:Class rdf:about="#PersonalRelationshipLevel">
+        <rdfs:label xml:lang="en"
+            >PersonalRelationshipLevel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#PersonalSkill -->
+
+    <owl:Class rdf:about="#PersonalSkill">
+        <rdfs:label xml:lang="en">Personal skill</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Habilidades personales</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#User -->
+
+    <owl:Class rdf:about="#User">
+        <rdfs:label xml:lang="en">User</rdfs:label>
+        <rdfs:label xml:lang="es">Usuario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#UserLevel -->
+
+    <owl:Class rdf:about="#UserLevel">
+        <rdfs:label xml:lang="en">UserLevel</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Nivel de usuario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineAccount -->
+
+    <owl:Class rdf:about="&foaf;OnlineAccount"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#employed -->
+
+    <EmploymentStatus rdf:about="#employed">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </EmploymentStatus>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#highMobility -->
+
+    <MobilityPattern rdf:about="#highMobility">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MobilityPattern>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#highPersonalRelationshipLevel -->
+
+    <owl:Thing rdf:about="#highPersonalRelationshipLevel">
+        <rdf:type rdf:resource="#PersonalRelationshipLevel"/>
+        <rdfs:label xml:lang="en"
+            >highPersonalRelationshipLevel</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#highway -->
+
+    <MobilityPattern rdf:about="#highway">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MobilityPattern>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#lowPersonalRelationshipLevel -->
+
+    <PersonalRelationshipLevel rdf:about="#lowPersonalRelationshipLevel">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >lowPersonalRelationshipLevel</rdfs:label>
+    </PersonalRelationshipLevel>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#mediumPersonalRelationshipLevel -->
+
+    <PersonalRelationshipLevel rdf:about="#mediumPersonalRelationshipLevel">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >mediumPersonalRelationshipLevel</rdfs:label>
+    </PersonalRelationshipLevel>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#pedestrian -->
+
+    <MobilityPattern rdf:about="#pedestrian">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MobilityPattern>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#retired -->
+
+    <owl:Thing rdf:about="#retired">
+        <rdf:type rdf:resource="#EmploymentStatus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#static -->
+
+    <owl:Thing rdf:about="#static">
+        <rdf:type rdf:resource="#MobilityPattern"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#student -->
+
+    <owl:Thing rdf:about="#student">
+        <rdf:type rdf:resource="#EmploymentStatus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#unemployed -->
+
+    <owl:Thing rdf:about="#unemployed">
+        <rdf:type rdf:resource="#EmploymentStatus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#urbanCar -->
+
+    <MobilityPattern rdf:about="#urbanCar">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MobilityPattern>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#veryHighPersonalRelationshipLevel -->
+
+    <PersonalRelationshipLevel rdf:about="#veryHighPersonalRelationshipLevel">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >veryHighPersonalRelationshipLevel</rdfs:label>
+    </PersonalRelationshipLevel>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#veryLowPersonalRelationshipLevel -->
+
+    <owl:Thing rdf:about="#veryLowPersonalRelationshipLevel">
+        <rdf:type rdf:resource="#PersonalRelationshipLevel"/>
+        <rdfs:label xml:lang="en"
+            >veryLowPersonalRelationshipLevel</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#retired"/>
+            <rdf:Description rdf:about="#highway"/>
+            <rdf:Description rdf:about="#highMobility"/>
+            <rdf:Description rdf:about="#employed"/>
+            <rdf:Description rdf:about="#student"/>
+            <rdf:Description rdf:about="#urbanCar"/>
+            <rdf:Description rdf:about="#unemployed"/>
+            <rdf:Description rdf:about="#pedestrian"/>
+            <rdf:Description rdf:about="#static"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

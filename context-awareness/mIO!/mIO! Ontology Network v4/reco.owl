@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY mIO "http://www.cenitmio.es/ontologies/mIO.owl#" >
+    <!ENTITY Role "http://www.cenitmio.es/ontologies/Role.owl#" >
+    <!ENTITY ontologies "http://ontologies.ezweb.morfeo-project.org/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY reco "http://ontologies.ezweb.morfeo-project.org/reco#" >
+    <!ENTITY reco2 "http://ontologies.ezweb.morfeo-project.org/reco.owl#" >
+]>
+
+
+<rdf:RDF xmlns="&ontologies;reco.owl#"
+     xml:base="&ontologies;reco.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:reco="&ontologies;reco#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:mIO="http://www.cenitmio.es/ontologies/mIO.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:reco2="&ontologies;reco.owl#"
+     xmlns:ontologies="http://ontologies.ezweb.morfeo-project.org/"
+     xmlns:Role="http://www.cenitmio.es/ontologies/Role.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <dc:date>2008-11-13</dc:date>
+        <dc:creator>Luis Polo</dc:creator>
+        <dc:contributor
+            >Sergio Fern&#225;ndez</dc:contributor>
+        <dc:contributor>Diego Berrueta</dc:contributor>
+        <dc:creator>Emilio Rubiera</dc:creator>
+        <dc:rights
+            >(c) TreeLogic, 2009</dc:rights>
+        <dc:creator>Ivan M&#237;nguez</dc:creator>
+        <dc:title xml:lang="en">RECO Ontology</dc:title>
+        <dc:description xml:lang="en"
+            >RECommendations Ontology: a vocabulary to formalize preferences in the Semantic Web</dc:description>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#andComposite -->
+
+    <owl:ObjectProperty rdf:about="#andComposite"/>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#andComposition -->
+
+    <owl:ObjectProperty rdf:about="#andComposition">
+        <rdfs:label xml:lang="en">AND Composition</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A property which matches each composite-preference with the set of preferences composing it. Being an and-Composition, all the preferences have to be realised.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#CompositePreference"/>
+                    <rdf:Description rdf:about="&mIO;CompositeDependency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Role;Preference"/>
+                    <rdf:Description rdf:about="&mIO;Dependency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#asksFor -->
+
+    <owl:ObjectProperty rdf:about="#asksFor">
+        <rdfs:label xml:lang="en">Asks For</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The relationship between a user profile, agent or a group of agents and their demands, which can be mandatory, positive, negative or exclusive.</rdfs:comment>
+        <rdfs:range rdf:resource="#Demand"/>
+        <rdfs:subPropertyOf rdf:resource="#internallyRepresents"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Profile"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#desireTowards -->
+
+    <owl:ObjectProperty rdf:about="#desireTowards">
+        <rdfs:label xml:lang="en">Desire Towards</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A modal relation expressing that a user has a strong preference towards something.</rdfs:comment>
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:subPropertyOf rdf:resource="#internallyRepresents"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Profile"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#excludedPreference -->
+
+    <owl:ObjectProperty rdf:about="#excludedPreference">
+        <rdfs:label xml:lang="en"
+            >Excluded Preference</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property relates a demand with a particular condition P. Individuals that fulfill this condition P are excluded from the set of valid candidates for this demand.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Demand"/>
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:subPropertyOf rdf:resource="#refinedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#filter -->
+
+    <owl:ObjectProperty rdf:about="#filter">
+        <rdfs:label xml:lang="en">Filter</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A property which develops the pattern restraining the value of a datatype property.</rdfs:comment>
+        <rdfs:range rdf:resource="#Filter"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Pattern"/>
+                    <rdf:Description rdf:about="&Role;Preference"/>
+                    <rdf:Description rdf:about="&mIO;Dependency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#internallyRepresents -->
+
+    <owl:ObjectProperty rdf:about="#internallyRepresents">
+        <rdfs:label xml:lang="en"
+            >Internally Represents</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A user internally represents (in her mind) a modal description: a desire, a plan, a duty, etc.</rdfs:comment>
+        <rdfs:range rdf:resource="#ModalDescription"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Profile"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#negativePreference -->
+
+    <owl:ObjectProperty rdf:about="#negativePreference">
+        <rdfs:label xml:lang="en"
+            >Negative Optional Preference</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property relates a demand with a particular condition P. Individuals that fulfill this condition P decline their utility value.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Demand"/>
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:subPropertyOf rdf:resource="#refinedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#notDesireTowards -->
+
+    <owl:ObjectProperty rdf:about="#notDesireTowards">
+        <rdfs:label xml:lang="en"
+            >Not Desire Towards</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A modal relation expressing the absence of a preference towards something.</rdfs:comment>
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:subPropertyOf rdf:resource="#internallyRepresents"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#operator -->
+
+    <owl:ObjectProperty rdf:about="#operator">
+        <rdfs:label xml:lang="en">Operator</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A property which matches a pattern to the operator restraining the value of a datatype property.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Filter"/>
+        <rdfs:range rdf:resource="#Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#positivePreference -->
+
+    <owl:ObjectProperty rdf:about="#positivePreference">
+        <rdfs:label xml:lang="en"
+            >Positive Optional Preference</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property relates a demand to a preference P in an optional way. Individuals that fulfill the condition P increase their utility value.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Demand"/>
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:subPropertyOf rdf:resource="#refinedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#refinedBy -->
+
+    <owl:ObjectProperty rdf:about="#refinedBy">
+        <rdfs:label xml:lang="en">Refined By</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A modal description can be refined by adding new components.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ModalDescription"/>
+        <rdfs:range rdf:resource="#ModalDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#requiredPreference -->
+
+    <owl:ObjectProperty rdf:about="#requiredPreference">
+        <rdfs:label xml:lang="en"
+            >Required Preference</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property relates a demand with a preference P in a mandatory way. Individuals that fulfill the condition P are considered valid candidateds for this demand.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Demand"/>
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:subPropertyOf rdf:resource="#refinedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#unionComposite -->
+
+    <owl:ObjectProperty rdf:about="#unionComposite"/>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#unionComposition -->
+
+    <owl:ObjectProperty rdf:about="#unionComposition">
+        <rdfs:label xml:lang="en"
+            >UNION Composition</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A property which matches each composite-preference with the set of preferences composing it. Being a union-Composition, at least one of the preferences has to be realised.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#CompositePreference"/>
+                    <rdf:Description rdf:about="&mIO;CompositeDependency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Role;Preference"/>
+                    <rdf:Description rdf:about="&mIO;Dependency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#utilityValue -->
+
+    <owl:DatatypeProperty rdf:about="#utilityValue">
+        <rdfs:label xml:lang="en">Utility Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property represents the utility value of a commodity or a service according to the preferences of the user.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#CompositePreference -->
+
+    <owl:Class rdf:about="#CompositePreference">
+        <rdfs:label xml:lang="en"
+            >Composite preference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preference"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:complementOf>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#andComposite"/>
+                                        <owl:someValuesFrom rdf:resource="#Preference"/>
+                                    </owl:Restriction>
+                                </owl:complementOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#unionComposite"/>
+                                <owl:someValuesFrom rdf:resource="#Preference"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:complementOf>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#unionComposite"/>
+                                        <owl:someValuesFrom rdf:resource="#Preference"/>
+                                    </owl:Restriction>
+                                </owl:complementOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#andComposite"/>
+                                <owl:someValuesFrom rdf:resource="#Preference"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >A complex representation of a preference to express the union or the intersection of two or more preferences using AND and OR operators. A composite preference uses one and only one operator. Both operators are incompatible.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Demand -->
+
+    <owl:Class rdf:about="#Demand">
+        <rdfs:label xml:lang="en">Demand</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ModalDescription"/>
+        <rdfs:comment xml:lang="en"
+            >The willingness to achieve a commodity or a service with certain properties. Basically a demand is a set of preferences: mandatory, positive, negative or excluding.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Filter -->
+
+    <owl:Class rdf:about="#Filter">
+        <rdfs:label xml:lang="en">Filter</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A preferred condition on a datatype property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#ModalDescription -->
+
+    <owl:Class rdf:about="#ModalDescription">
+        <rdfs:label xml:lang="en"
+            >Modal Description</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A modal description consists in the specification of a modal target: desire, right, power, duty, etc. From the formal semantic viewpoint, a modal description is the reification of a relation involving a modal logic operator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Operator -->
+
+    <owl:Class rdf:about="#Operator">
+        <rdfs:label xml:lang="en">Operator</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Elements that define operations on literals in a filter: string comparisons, numerical ranges, etc. Operators are equivalent to their corresponding SPARQL built-ins.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Pattern -->
+
+    <owl:Class rdf:about="#Pattern">
+        <rdfs:label xml:lang="en">Pattern</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >An individual that satisfies some preferred conditions. These individuals can be interpreted as variables in matchmaking applications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Preference -->
+
+    <owl:Class rdf:about="#Preference">
+        <rdfs:label xml:lang="en">Preference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ModalDescription"/>
+        <rdfs:comment xml:lang="en"
+            >A desired property of a commodity or a service.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Profile -->
+
+    <owl:Class rdf:about="#Profile">
+        <rdfs:label xml:lang="en">Profile</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The user profile of an agent. An agent might have more than one profile: user profiles vary according to their contexts and situations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Preference -->
+
+    <owl:Class rdf:about="&Role;Preference"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#CompositeDependency -->
+
+    <owl:Class rdf:about="&mIO;CompositeDependency"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#Dependency -->
+
+    <owl:Class rdf:about="&mIO;Dependency"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Group -->
+
+    <owl:Class rdf:about="&foaf;Group"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#contains -->
+
+    <owl:Thing rdf:about="#contains">
+        <rdf:type rdf:resource="#Operator"/>
+        <rdfs:label xml:lang="en">contains</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#equals -->
+
+    <owl:Thing rdf:about="#equals">
+        <rdf:type rdf:resource="#Operator"/>
+        <rdfs:label xml:lang="en">equals</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#greaterEquals -->
+
+    <owl:Thing rdf:about="#greaterEquals">
+        <rdf:type rdf:resource="#Operator"/>
+        <rdfs:label xml:lang="en">greater equals</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#greaterThan -->
+
+    <owl:Thing rdf:about="#greaterThan">
+        <rdf:type rdf:resource="#Operator"/>
+        <rdfs:label xml:lang="en">greater than</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#lesserEquals -->
+
+    <Operator rdf:about="#lesserEquals">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">lesser equals</rdfs:label>
+    </Operator>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#lesserThan -->
+
+    <Operator rdf:about="#lesserThan">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">lesser than</rdfs:label>
+    </Operator>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

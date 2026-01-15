@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Source "http://www.cenitmio.es/ontologies/Source.owl#" >
+    <!ENTITY Device "http://www.cenitmio.es/ontologies/Device.owl#" >
+    <!ENTITY Service "http://www.cenitmio.es/ontologies/Service.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Source.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Source.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Service="http://www.cenitmio.es/ontologies/Service.owl#"
+     xmlns:Device="http://www.cenitmio.es/ontologies/Device.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Source="http://www.cenitmio.es/ontologies/Source.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>2.0</owl:versionInfo>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Source Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre fuentes de contexto</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#hasContextSourceMember -->
+
+    <owl:ObjectProperty rdf:about="#hasContextSourceMember">
+        <rdfs:range rdf:resource="#ContextSource"/>
+        <rdfs:domain rdf:resource="#MultipleContextSource"/>
+        <owl:inverseOf rdf:resource="#isAggregatedSourceMemberOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#isAggregatedSourceMemberOf -->
+
+    <owl:ObjectProperty rdf:about="#isAggregatedSourceMemberOf">
+        <rdfs:domain rdf:resource="#ContextSource"/>
+        <rdfs:range rdf:resource="#MultipleContextSource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#isContextInformationProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="#isContextInformationProvidedBy">
+        <rdfs:label xml:lang="en"
+            >isContextInformationProvidedBy</rdfs:label>
+        <rdfs:domain rdf:resource="#ContextInformation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Service;MIOService"/>
+                    <rdf:Description rdf:about="#ContextSource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#providesContextInformation -->
+
+    <owl:ObjectProperty rdf:about="#providesContextInformation">
+        <rdfs:range rdf:resource="#ContextInformation"/>
+        <owl:inverseOf rdf:resource="#isContextInformationProvidedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Service;MIOService"/>
+                    <rdf:Description rdf:about="#ContextSource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#contextSourceDescription -->
+
+    <owl:DatatypeProperty rdf:about="#contextSourceDescription">
+        <rdfs:domain rdf:resource="#ContextSource"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#hasActionRadiusFromALocation -->
+
+    <owl:DatatypeProperty rdf:about="#hasActionRadiusFromALocation">
+        <rdfs:domain rdf:resource="#ContextSource"/>
+        <owl:propertyDisjointWith rdf:resource="#hasLocationRestrictions"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#hasLocationRestrictions -->
+
+    <owl:DatatypeProperty rdf:about="#hasLocationRestrictions">
+        <rdfs:domain rdf:resource="#ContextSource"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Device -->
+
+    <owl:Class rdf:about="&Device;Device"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOService -->
+
+    <owl:Class rdf:about="&Service;MIOService"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextConsumer -->
+
+    <owl:Class rdf:about="#ContextConsumer">
+        <rdfs:label xml:lang="en"
+            >Context consumer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Consumidor de contexto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextInformation -->
+
+    <owl:Class rdf:about="#ContextInformation">
+        <rdfs:label xml:lang="en"
+            >Context information type</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Tipo de informaci&#243;n de contexto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextSource -->
+
+    <owl:Class rdf:about="#ContextSource">
+        <rdfs:label xml:lang="es">Context source</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fuente de contexto</rdfs:label>
+        <owl:equivalentClass rdf:resource="#ContextSourceByCardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextSourceByCardinality -->
+
+    <owl:Class rdf:about="#ContextSourceByCardinality">
+        <rdfs:label xml:lang="en"
+            >Context source by cardinality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fuente de contexto por cardinalidad</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MultipleContextSource"/>
+                    <rdf:Description rdf:about="#SimpleContextSource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en"
+            >This concept has been created to support the modelling of aggregate context sources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#EnvironmentalInformation -->
+
+    <owl:Class rdf:about="#EnvironmentalInformation">
+        <rdfs:label xml:lang="en"
+            >EnvironmentalInformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ContextInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutHumidity -->
+
+    <owl:Class rdf:about="#InformationAboutHumidity">
+        <rdfs:label xml:lang="en"
+            >InformationAboutHumidity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EnvironmentalInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutLighting -->
+
+    <owl:Class rdf:about="#InformationAboutLighting">
+        <rdfs:label xml:lang="en"
+            >InformationAboutLighting</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EnvironmentalInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutNoise -->
+
+    <owl:Class rdf:about="#InformationAboutNoise">
+        <rdfs:label xml:lang="en"
+            >InformationAboutNoise</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EnvironmentalInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutPressure -->
+
+    <owl:Class rdf:about="#InformationAboutPressure">
+        <rdfs:label xml:lang="en"
+            >InformationAboutPressure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EnvironmentalInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutTemperature -->
+
+    <owl:Class rdf:about="#InformationAboutTemperature">
+        <rdfs:label xml:lang="en"
+            >InformationAboutTemperature</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EnvironmentalInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#MultipleContextSource -->
+
+    <owl:Class rdf:about="#MultipleContextSource">
+        <rdfs:label xml:lang="en"
+            >Multiple context source</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fuente de contexto multiple</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasContextSourceMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ContextSourceByCardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#SimpleContextSource -->
+
+    <owl:Class rdf:about="#SimpleContextSource">
+        <rdfs:label xml:lang="en"
+            >Simple context source</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fuente de contexto simple</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ContextSourceByCardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

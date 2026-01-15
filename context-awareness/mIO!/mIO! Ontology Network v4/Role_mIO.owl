@@ -1,0 +1,478 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY Role "http://www.cenitmio.es/ontologies/Role.owl#" >
+    <!ENTITY ontologies "http://ontologies.ezweb.morfeo-project.org/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY reco "http://ontologies.ezweb.morfeo-project.org/reco#" >
+    <!ENTITY profile "http://ontologies.ezweb.morfeo-project.org/profile#" >
+    <!ENTITY reco2 "http://ontologies.ezweb.morfeo-project.org/reco.owl#" >
+    <!ENTITY profile2 "http://ontologies.ezweb.morfeo-project.org/profile.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Role.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Role.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:reco="&ontologies;reco#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:profile="&ontologies;profile#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:reco2="&ontologies;reco.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:profile2="&ontologies;profile.owl#"
+     xmlns:Role="http://www.cenitmio.es/ontologies/Role.owl#"
+     xmlns:ontologies="http://ontologies.ezweb.morfeo-project.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Role Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre roles, perfiles y preferencias</rdfs:comment>
+        <owl:imports rdf:resource="&ontologies;profile.owl"/>
+        <owl:imports rdf:resource="&ontologies;reco.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#aboutPreference -->
+
+    <owl:ObjectProperty rdf:about="#aboutPreference">
+        <rdfs:range rdf:resource="#Preference"/>
+        <rdfs:domain rdf:resource="#RelationHasPreference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#definesGoal -->
+
+    <owl:ObjectProperty rdf:about="#definesGoal">
+        <rdfs:label xml:lang="en">definesGoal</rdfs:label>
+        <rdfs:range rdf:resource="#Goal"/>
+        <rdfs:domain rdf:resource="#Profile"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#definesPreference -->
+
+    <owl:ObjectProperty rdf:about="#definesPreference">
+        <rdfs:label xml:lang="en"
+            >definesPreference</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;reco.owl#Preference"/>
+        <rdfs:domain rdf:resource="#Profile"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#definesTask -->
+
+    <owl:ObjectProperty rdf:about="#definesTask">
+        <rdfs:label xml:lang="en">definesTask</rdfs:label>
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:range rdf:resource="#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasActiveProfile -->
+
+    <owl:ObjectProperty rdf:about="#hasActiveProfile">
+        <rdfs:domain rdf:resource="&ontologies;profile.owl#Situation"/>
+        <rdfs:range rdf:resource="#Profile"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasAgentRolePreference -->
+
+    <owl:ObjectProperty rdf:about="#hasAgentRolePreference">
+        <rdfs:domain rdf:resource="#AgentRole"/>
+        <rdfs:range rdf:resource="#RelationHasPreference"/>
+        <rdfs:subPropertyOf rdf:resource="#hasPreference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasFuzzyImportance -->
+
+    <owl:ObjectProperty rdf:about="#hasFuzzyImportance">
+        <rdfs:range rdf:resource="#ImportanceWithFuzzyQuantifiers"/>
+        <rdfs:domain rdf:resource="#RelationHasPreference"/>
+        <rdfs:subPropertyOf rdf:resource="#hasImportance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasImportance -->
+
+    <owl:ObjectProperty rdf:about="#hasImportance">
+        <rdfs:range rdf:resource="#Importance"/>
+        <rdfs:domain rdf:resource="#RelationHasPreference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasImportanceLevel -->
+
+    <owl:ObjectProperty rdf:about="#hasImportanceLevel">
+        <rdfs:range rdf:resource="#ImportanceByLevels"/>
+        <rdfs:domain rdf:resource="#RelationHasPreference"/>
+        <rdfs:subPropertyOf rdf:resource="#hasImportance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasIndividualPreference -->
+
+    <owl:ObjectProperty rdf:about="#hasIndividualPreference">
+        <rdfs:domain rdf:resource="#Individual"/>
+        <rdfs:range rdf:resource="#RelationHasPreference"/>
+        <rdfs:subPropertyOf rdf:resource="#hasPreference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasPreference -->
+
+    <owl:ObjectProperty rdf:about="#hasPreference">
+        <rdfs:range rdf:resource="#RelationHasPreference"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#AgentRole"/>
+                    <rdf:Description rdf:about="#Individual"/>
+                    <rdf:Description rdf:about="#Profile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#hasProfilePreference -->
+
+    <owl:ObjectProperty rdf:about="#hasProfilePreference">
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:range rdf:resource="#RelationHasPreference"/>
+        <rdfs:subPropertyOf rdf:resource="#hasPreference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#profileConsistOf -->
+
+    <owl:ObjectProperty rdf:about="#profileConsistOf">
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;profile.owl#Situation"/>
+                    <rdf:Description rdf:about="#Individual"/>
+                    <rdf:Description rdf:about="#Role"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#profileConsistOfIndividual -->
+
+    <owl:ObjectProperty rdf:about="#profileConsistOfIndividual">
+        <rdfs:range rdf:resource="#Individual"/>
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:subPropertyOf rdf:resource="#profileConsistOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#profileConsistOfRole -->
+
+    <owl:ObjectProperty rdf:about="#profileConsistOfRole">
+        <rdfs:range rdf:resource="#AgentRole"/>
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:subPropertyOf rdf:resource="#profileConsistOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#profileConsistOfSituation -->
+
+    <owl:ObjectProperty rdf:about="#profileConsistOfSituation">
+        <rdfs:range rdf:resource="&ontologies;profile.owl#Situation"/>
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:subPropertyOf rdf:resource="#profileConsistOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#numericImportance -->
+
+    <owl:DatatypeProperty rdf:about="#numericImportance">
+        <rdfs:domain rdf:resource="#RelationHasPreference"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#Profile -->
+
+    <owl:Class rdf:about="&ontologies;profile.owl#Profile">
+        <owl:equivalentClass rdf:resource="&ontologies;reco.owl#Profile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#Role -->
+
+    <owl:Class rdf:about="&ontologies;profile.owl#Role">
+        <owl:equivalentClass rdf:resource="#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#Situation -->
+
+    <owl:Class rdf:about="&ontologies;profile.owl#Situation"/>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Preference -->
+
+    <owl:Class rdf:about="&ontologies;reco.owl#Preference"/>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Profile -->
+
+    <owl:Class rdf:about="&ontologies;reco.owl#Profile">
+        <owl:equivalentClass rdf:resource="#Profile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#AgentRole -->
+
+    <owl:Class rdf:about="#AgentRole">
+        <rdfs:label xml:lang="en">Agent role</rdfs:label>
+        <rdfs:label xml:lang="es">Rol agentivo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#CausativeRole -->
+
+    <owl:Class rdf:about="#CausativeRole">
+        <rdfs:label xml:lang="en">Causative role</rdfs:label>
+        <rdfs:label xml:lang="es">Rol causativo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Goal -->
+
+    <owl:Class rdf:about="#Goal">
+        <rdfs:label xml:lang="en">Goal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Importance -->
+
+    <owl:Class rdf:about="#Importance">
+        <rdfs:label xml:lang="en">Importance</rdfs:label>
+        <rdfs:label xml:lang="es">Importancia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#ImportanceByLevels -->
+
+    <owl:Class rdf:about="#ImportanceByLevels">
+        <rdfs:label xml:lang="en"
+            >Importance by levels</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Importancia por niveles</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Importance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#ImportanceWithFuzzyQuantifiers -->
+
+    <owl:Class rdf:about="#ImportanceWithFuzzyQuantifiers">
+        <rdfs:label xml:lang="en"
+            >Importance with fuzzy quantifiers</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Importancia con cuantificadores borrosos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Importance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Individual -->
+
+    <owl:Class rdf:about="#Individual">
+        <rdfs:label xml:lang="en">Individual</rdfs:label>
+        <rdfs:label xml:lang="es">Sujeto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Preference -->
+
+    <owl:Class rdf:about="#Preference">
+        <rdfs:label xml:lang="en">Preference</rdfs:label>
+        <rdfs:label xml:lang="es">Preferencia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Profile -->
+
+    <owl:Class rdf:about="#Profile">
+        <rdfs:label xml:lang="en">Profile</rdfs:label>
+        <rdfs:label xml:lang="es">Perfil</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#profileConsistOfIndividual"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#profileConsistOfRole"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#profileConsistOfSituation"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#RelationHasPreference -->
+
+    <owl:Class rdf:about="#RelationHasPreference">
+        <rdfs:label xml:lang="en"
+            >Relation has preference</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Relacion tiene preferencia</rdfs:label>
+        <rdfs:comment xml:lang="es"
+            >Esta clase se a&#241;ade para formar el patr&#243;n N-ary. Se utiliza para representar que un agente, individuo o perfil tienen unas preferencias sobre determinadas coas y adem&#225;s estas preferncias pueden tener niveles de importancia</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Role -->
+
+    <owl:Class rdf:about="#Role">
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+        <rdfs:label xml:lang="es">Rol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="es"
+            >Cargo o funci&#243;n que alguien o algo cumple en alguna situaci&#243;n o en la vida.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#RoleOfCommunication -->
+
+    <owl:Class rdf:about="#RoleOfCommunication">
+        <rdfs:label xml:lang="en"
+            >Role of communication</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Rol de comunicaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Task -->
+
+    <owl:Class rdf:about="#Task">
+        <rdfs:label xml:lang="en">Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

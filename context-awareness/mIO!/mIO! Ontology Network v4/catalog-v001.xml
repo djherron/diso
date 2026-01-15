@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://ontologies.ezweb.morfeo-project.org/profile.owl" uri="reco.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://e-response.org/ontology/2006/20060815/e_response_buildings" uri="e-response_buildings_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="duplicate:http://ontologies.ezweb.morfeo-project.org/profile.owl" uri="Ontologa%20de%20Perfiles%20y%20Roles.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="duplicate:http://ontologies.ezweb.morfeo-project.org/profile.owl" uri="Ontología%20de%20Perfiles%20y%20Roles.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://ontologies.ezweb.morfeo-project.org/reco.owl" uri="reco.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://pervasive.semanticweb.org/ont/2004/06/geo-measurement" uri="geo-measurement.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://pervasive.semanticweb.org/ont/2004/06/space" uri="space_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://sweet.jpl.nasa.gov/ontology/units.owl" uri="units.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Country.owl" uri="Country_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Device.owl" uri="Device_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Environment.owl" uri="Environment_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Interface.owl" uri="Interface_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Location.owl" uri="Location_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Network.owl" uri="Network_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Provider.owl" uri="Provider_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Role.owl" uri="Role_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Service.owl" uri="Service_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Source.owl" uri="Source_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/Time.owl" uri="Time_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/User.owl" uri="User_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/context_Environment.owl" uri="context_Environment_mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/mIO.owl" uri="mIO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.cenitmio.es/ontologies/service.owl" uri="service.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.mindswap.org/2003/owl/foaf" uri="foaf.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.ontologydesignpatterns.org/cp/owl/componency.owl" uri="componency.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.ontologydesignpatterns.org/cp/owl/price.owl" uri="price.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.w3.org/2006/time" uri="time.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1378983393067" name="http://www.w3.org/2007/uwa/ontologies/DeliveryContext_Network.owl" uri="DeliveryContext_Network_mIO.owl"/>
+    </group>
+</catalog>

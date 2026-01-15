@@ -1,0 +1,916 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY space "http://212.119.9.180/Ontologies/0.3/space.owl#" >
+    <!ENTITY Provider "http://www.cenitmio.es/ontologies/Provider.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Provider.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Provider.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Provider="http://www.cenitmio.es/ontologies/Provider.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:space="http://212.119.9.180/Ontologies/0.3/space.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Provider Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a sobre proveedores.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#hasServiceProviderMember -->
+
+    <owl:ObjectProperty rdf:about="#hasServiceProviderMember">
+        <rdfs:domain rdf:resource="#MultipleServiceProvider"/>
+        <rdfs:range rdf:resource="#ServiceProvider"/>
+        <owl:inverseOf rdf:resource="#isAggregatedProviderMemberOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#isAggregatedProviderMemberOf -->
+
+    <owl:ObjectProperty rdf:about="#isAggregatedProviderMemberOf">
+        <rdfs:range rdf:resource="#MultipleServiceProvider"/>
+        <rdfs:domain rdf:resource="#ServiceProvider"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#serviceProviderName -->
+
+    <owl:DatatypeProperty rdf:about="#serviceProviderName">
+        <rdfs:domain rdf:resource="#ServiceProvider"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#AirportServiceProvider -->
+
+    <owl:Class rdf:about="#AirportServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Airport service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio aeroportuario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Bar -->
+
+    <owl:Class rdf:about="#Bar">
+        <rdfs:label xml:lang="en">Bar</rdfs:label>
+        <rdfs:label xml:lang="es">Bar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+        <rdfs:subClassOf rdf:resource="#FoodServiceProvider"/>
+        <owl:disjointWith rdf:resource="#Market"/>
+        <owl:disjointWith rdf:resource="#StreetMarket"/>
+        <owl:disjointWith rdf:resource="#Supermarket"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#BicycleRental -->
+
+    <owl:Class rdf:about="#BicycleRental">
+        <rdfs:label xml:lang="en">Bicycle rental</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Pr&#233;stamo de bicicleta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#RentalTransportianServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#BoardingHouse -->
+
+    <owl:Class rdf:about="#BoardingHouse">
+        <rdfs:label xml:lang="en">BoardingHouse</rdfs:label>
+        <rdfs:label xml:lang="es">Pensi&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#BowlingAlley -->
+
+    <owl:Class rdf:about="#BowlingAlley">
+        <rdfs:label xml:lang="en">Bowling alley</rdfs:label>
+        <rdfs:label xml:lang="es">Bolera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#BusServiceProvider -->
+
+    <owl:Class rdf:about="#BusServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Bus service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de autob&#250;s</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Casino -->
+
+    <owl:Class rdf:about="#Casino">
+        <rdfs:label xml:lang="en">Casino</rdfs:label>
+        <rdfs:label xml:lang="es">Casino</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Chemists -->
+
+    <owl:Class rdf:about="#Chemists">
+        <rdfs:label xml:lang="en">Chemist&#39;s</rdfs:label>
+        <rdfs:label xml:lang="es">Farmacia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCareProvider"/>
+        <rdfs:subClassOf rdf:resource="#Shop"/>
+        <owl:disjointWith rdf:resource="#Emergency"/>
+        <owl:disjointWith rdf:resource="#GeneralPractitioner"/>
+        <owl:disjointWith rdf:resource="#Hospital"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Cinema -->
+
+    <owl:Class rdf:about="#Cinema">
+        <rdfs:label xml:lang="en">Cinema</rdfs:label>
+        <rdfs:label xml:lang="es">Cine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Show"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#CityPolice -->
+
+    <owl:Class rdf:about="#CityPolice">
+        <rdfs:label xml:lang="en">City police</rdfs:label>
+        <rdfs:label xml:lang="es">Policia local</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SecurityServicesProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#CivilDefence -->
+
+    <owl:Class rdf:about="#CivilDefence">
+        <rdfs:label xml:lang="en">Civil defence</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Protecci&#243;n civil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCareProvider"/>
+        <rdfs:subClassOf rdf:resource="#SecurityServicesProvider"/>
+        <owl:disjointWith rdf:resource="#CivilGuard"/>
+        <owl:disjointWith rdf:resource="#NationalPoliceForcel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#CivilGuard -->
+
+    <owl:Class rdf:about="#CivilGuard">
+        <rdfs:label xml:lang="en">Civil Guard</rdfs:label>
+        <rdfs:label xml:lang="es">Guardia Civil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SecurityServicesProvider"/>
+        <owl:disjointWith rdf:resource="#NationalPoliceForcel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#ClothesShop -->
+
+    <owl:Class rdf:about="#ClothesShop">
+        <rdfs:label xml:lang="en">Clothes shop</rdfs:label>
+        <rdfs:label xml:lang="es">Tienda de ropa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#CoachServiceProvider -->
+
+    <owl:Class rdf:about="#CoachServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Coach service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de autocar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Concert -->
+
+    <owl:Class rdf:about="#Concert">
+        <rdfs:label xml:lang="en">Concert</rdfs:label>
+        <rdfs:label xml:lang="es">Concierto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Show"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#CulturalServiceProvider -->
+
+    <owl:Class rdf:about="#CulturalServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Cultural service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio cultural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios culturales</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#DepartmentStores -->
+
+    <owl:Class rdf:about="#DepartmentStores">
+        <rdfs:label xml:lang="en"
+            >Department stores</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Grandes almacenes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Discotheque -->
+
+    <owl:Class rdf:about="#Discotheque">
+        <rdfs:label xml:lang="en">Discotheque</rdfs:label>
+        <rdfs:label xml:lang="es">Discoteca</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Emergency -->
+
+    <owl:Class rdf:about="#Emergency">
+        <rdfs:label xml:lang="en">Emergency</rdfs:label>
+        <rdfs:label xml:lang="es">Urgencias</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCareProvider"/>
+        <owl:disjointWith rdf:resource="#GeneralPractitioner"/>
+        <owl:disjointWith rdf:resource="#Hospital"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#EntertainmentServiceProvider -->
+
+    <owl:Class rdf:about="#EntertainmentServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Entertainment service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de ocio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios de ocio</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#EquestrianServiceProvider -->
+
+    <owl:Class rdf:about="#EquestrianServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Equestrian service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio ecuestre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Firefighters -->
+
+    <owl:Class rdf:about="#Firefighters">
+        <rdfs:label xml:lang="en">Firefighters</rdfs:label>
+        <rdfs:label xml:lang="es">Bomberos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SecurityServicesProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#FoodServiceProvider -->
+
+    <owl:Class rdf:about="#FoodServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Food service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios de alimentaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#GeneralPractitioner -->
+
+    <owl:Class rdf:about="#GeneralPractitioner">
+        <rdfs:label xml:lang="en"
+            >General practitioner</rdfs:label>
+        <rdfs:label xml:lang="es">M&#233;dico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCareProvider"/>
+        <owl:disjointWith rdf:resource="#Hospital"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#GroceryStore -->
+
+    <owl:Class rdf:about="#GroceryStore">
+        <rdfs:label xml:lang="en">Grocery store</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Tienda de alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceProvider"/>
+        <rdfs:subClassOf rdf:resource="#Shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#HallOfResidence -->
+
+    <owl:Class rdf:about="#HallOfResidence">
+        <rdfs:label xml:lang="en"
+            >Hall of residence</rdfs:label>
+        <rdfs:label xml:lang="es">Acogida</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingServiceProvider"/>
+        <owl:disjointWith rdf:resource="#Hostel"/>
+        <owl:disjointWith rdf:resource="#Hotel"/>
+        <owl:disjointWith rdf:resource="#Lodging"/>
+        <owl:disjointWith rdf:resource="#Refuge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#HealthCareProvider -->
+
+    <owl:Class rdf:about="#HealthCareProvider">
+        <rdfs:label xml:lang="en"
+            >Health care provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicios santiarios</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios sanitarios</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#HeliportServiceProvider -->
+
+    <owl:Class rdf:about="#HeliportServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Heliport service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de helipuerto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Hospital -->
+
+    <owl:Class rdf:about="#Hospital">
+        <rdfs:label xml:lang="en">Hospital</rdfs:label>
+        <rdfs:label xml:lang="es">Hospital</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HealthCareProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Hostel -->
+
+    <owl:Class rdf:about="#Hostel">
+        <rdfs:label xml:lang="en">Hostel</rdfs:label>
+        <rdfs:label xml:lang="es">Hostal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingServiceProvider"/>
+        <owl:disjointWith rdf:resource="#Hotel"/>
+        <owl:disjointWith rdf:resource="#Lodging"/>
+        <owl:disjointWith rdf:resource="#Refuge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#HostingServiceProvider -->
+
+    <owl:Class rdf:about="#HostingServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Hosting service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de alojamiento</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios de alojamiento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:label xml:lang="en">Hotel</rdfs:label>
+        <rdfs:label xml:lang="es">Hotel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingServiceProvider"/>
+        <owl:disjointWith rdf:resource="#Lodging"/>
+        <owl:disjointWith rdf:resource="#Refuge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#InformationServiceProvider -->
+
+    <owl:Class rdf:about="#InformationServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Information service provider</rdfs:label>
+        <rdfs:label xml:lang="es">Informaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios de informaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#LocalServiceProvider -->
+
+    <owl:Class rdf:about="#LocalServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Local service provider</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa en nuestro dominio a las entidades que pueden ofrecer alg&#250;n servicio de utilidad a los usuarios</rdfs:comment>
+        <owl:versionInfo xml:lang="es"
+            >Proveedor servicio en establecimiento</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Lodging -->
+
+    <owl:Class rdf:about="#Lodging">
+        <rdfs:label xml:lang="en">Lodging</rdfs:label>
+        <rdfs:label xml:lang="es">Albergue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingServiceProvider"/>
+        <owl:disjointWith rdf:resource="#Refuge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#MIOServiceProvider -->
+
+    <owl:Class rdf:about="#MIOServiceProvider">
+        <rdfs:label xml:lang="en"
+            >mIO! service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio mIO!</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios mIO!</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Market -->
+
+    <owl:Class rdf:about="#Market">
+        <rdfs:label xml:lang="en">Market</rdfs:label>
+        <rdfs:label xml:lang="es">Mercado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceProvider"/>
+        <rdfs:subClassOf rdf:resource="#GroceryStore"/>
+        <owl:disjointWith rdf:resource="#Restaurant"/>
+        <owl:disjointWith rdf:resource="#StreetMarket"/>
+        <owl:disjointWith rdf:resource="#Supermarket"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#MultipleServiceProvider -->
+
+    <owl:Class rdf:about="#MultipleServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Multiple service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio multiple</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasServiceProviderMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ServiceProviderByCardinality"/>
+        <owl:disjointWith rdf:resource="#SimpleServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Museum -->
+
+    <owl:Class rdf:about="#Museum">
+        <rdfs:label xml:lang="en">Museum</rdfs:label>
+        <rdfs:label xml:lang="es">Museo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#CulturalServiceProvider"/>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Musical -->
+
+    <owl:Class rdf:about="#Musical">
+        <rdfs:label xml:lang="en">Musical</rdfs:label>
+        <rdfs:label xml:lang="es">Musical</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Show"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#NationalPoliceForcel -->
+
+    <owl:Class rdf:about="#NationalPoliceForcel">
+        <rdfs:label xml:lang="en"
+            >National police force</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Policia nacional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SecurityServicesProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#OperaHouse -->
+
+    <owl:Class rdf:about="#OperaHouse">
+        <rdfs:label xml:lang="en">Opera house</rdfs:label>
+        <rdfs:label xml:lang="es">Opera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Show"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#PortServiceProvider -->
+
+    <owl:Class rdf:about="#PortServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Port service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio portuario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#PressShop -->
+
+    <owl:Class rdf:about="#PressShop">
+        <rdfs:label xml:lang="en">Press shop</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Tienda de prensa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Pub -->
+
+    <owl:Class rdf:about="#Pub">
+        <rdfs:label xml:lang="en">Pub</rdfs:label>
+        <rdfs:label xml:lang="es">Pub</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#RailwayServiceProvider -->
+
+    <owl:Class rdf:about="#RailwayServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Railway service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servico de ferrocarril</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Refuge -->
+
+    <owl:Class rdf:about="#Refuge">
+        <rdfs:label xml:lang="es">Refugio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#HostingServiceProvider"/>
+        <rdfs:comment xml:lang="en">Refuge</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#ReligiousServiceProvider -->
+
+    <owl:Class rdf:about="#ReligiousServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Religious Service Provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio religioso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios religiosos</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#RentalTransportianServiceProvider -->
+
+    <owl:Class rdf:about="#RentalTransportianServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Rental transportian service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de transporte en alquiler</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Restaurant -->
+
+    <owl:Class rdf:about="#Restaurant">
+        <rdfs:label xml:lang="en">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="es">Restaurante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceProvider"/>
+        <owl:disjointWith rdf:resource="#StreetMarket"/>
+        <owl:disjointWith rdf:resource="#Supermarket"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#SecurityServicesProvider -->
+
+    <owl:Class rdf:about="#SecurityServicesProvider">
+        <rdfs:label xml:lang="en"
+            >Security services provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de seguridad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios de seguridad</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#ServiceProvider -->
+
+    <owl:Class rdf:about="#ServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio</rdfs:label>
+        <owl:equivalentClass rdf:resource="#ServiceProviderByCardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#ServiceProviderByCardinality -->
+
+    <owl:Class rdf:about="#ServiceProviderByCardinality">
+        <rdfs:label xml:lang="en"
+            >Service provider by cardinality</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio por cardinalidad</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MultipleServiceProvider"/>
+                    <rdf:Description rdf:about="#SimpleServiceProvider"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en"
+            >This concept has been created to support the modelling of aggregate service provider.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#ShoeShop -->
+
+    <owl:Class rdf:about="#ShoeShop">
+        <rdfs:label xml:lang="en">Shoe shop</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Tienda de calzado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Shop -->
+
+    <owl:Class rdf:about="#Shop">
+        <rdfs:label xml:lang="en">Shop</rdfs:label>
+        <rdfs:label xml:lang="es">Tienda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa tiendas</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Show -->
+
+    <owl:Class rdf:about="#Show">
+        <rdfs:label xml:lang="en">Show</rdfs:label>
+        <rdfs:label xml:lang="es">Espect&#225;culo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EntertainmentServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#SimpleServiceProvider -->
+
+    <owl:Class rdf:about="#SimpleServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Simple service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio simple</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServiceProviderByCardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#SportServiceProvider -->
+
+    <owl:Class rdf:about="#SportServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Sport service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio deportivo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios deportivos</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#StreetMarket -->
+
+    <owl:Class rdf:about="#StreetMarket">
+        <rdfs:label xml:lang="en">Street market</rdfs:label>
+        <rdfs:label xml:lang="es">Mercadillo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ClothesShop"/>
+        <rdfs:subClassOf rdf:resource="#FoodServiceProvider"/>
+        <rdfs:subClassOf rdf:resource="#ShoeShop"/>
+        <owl:disjointWith rdf:resource="#Supermarket"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Supermarket -->
+
+    <owl:Class rdf:about="#Supermarket">
+        <rdfs:label xml:lang="en">Supermarket</rdfs:label>
+        <rdfs:label xml:lang="es">Supermercado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodServiceProvider"/>
+        <rdfs:subClassOf rdf:resource="#GroceryStore"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#TaxiServiceProvider -->
+
+    <owl:Class rdf:about="#TaxiServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Taxi service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de taxi</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Theater -->
+
+    <owl:Class rdf:about="#Theater">
+        <rdfs:label xml:lang="en">Theater</rdfs:label>
+        <rdfs:label xml:lang="es">Teatro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Show"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#TouristAgency -->
+
+    <owl:Class rdf:about="#TouristAgency">
+        <rdfs:label xml:lang="en">Tourist agency</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Agencia tur&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InformationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#TrainServiceProvider -->
+
+    <owl:Class rdf:about="#TrainServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Train service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de tren</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TransportationServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#TransportationServiceProvider -->
+
+    <owl:Class rdf:about="#TransportationServiceProvider">
+        <rdfs:label xml:lang="en"
+            >Transportation service provider</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de transporte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocalServiceProvider"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los proveedores de servicios de transporte</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

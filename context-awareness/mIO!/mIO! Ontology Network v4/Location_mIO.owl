@@ -1,0 +1,1069 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Country "http://www.cenitmio.es/ontologies/Country.owl#" >
+    <!ENTITY Location "http://www.cenitmio.es/ontologies/Location.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY space "http://pervasive.semanticweb.org/ont/2004/06/space#" >
+    <!ENTITY pol "http://pervasive.semanticweb.org/ont/2004/06/policy#" >
+    <!ENTITY context_CODAMOS_mIO "http://www.cenitmio.es/ontologies/context_CODAMOS_mIO.owl#" >
+    <!ENTITY geom "http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#" >
+    <!ENTITY e_response_buildings "http://e-response.org/ontology/2006/20060815/e_response_buildings#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Location.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Location.owl"
+     xmlns:geom="http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:e_response_buildings="http://e-response.org/ontology/2006/20060815/e_response_buildings#"
+     xmlns:pol="http://pervasive.semanticweb.org/ont/2004/06/policy#"
+     xmlns:context_CODAMOS_mIO="http://www.cenitmio.es/ontologies/context_CODAMOS_mIO.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:space="http://pervasive.semanticweb.org/ont/2004/06/space#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Country="http://www.cenitmio.es/ontologies/Country.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Location="http://www.cenitmio.es/ontologies/Location.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Location Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre localizaci&#243;n</rdfs:comment>
+        <owl:imports rdf:resource="http://e-response.org/ontology/2006/20060815/e_response_buildings"/>
+        <owl:imports rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/space"/>
+        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Country.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasAddress -->
+
+    <owl:ObjectProperty rdf:about="#hasAddress">
+        <rdfs:domain rdf:resource="&space;SpatialThing"/>
+        <rdfs:range rdf:resource="#Address"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasGeo -->
+
+    <owl:ObjectProperty rdf:about="#hasGeo">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:range rdf:resource="&space;GeopoliticalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasGeoDirect -->
+
+    <owl:ObjectProperty rdf:about="#hasGeoDirect">
+        <rdfs:range rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:domain rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:subPropertyOf rdf:resource="#hasGeo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="#hasLocation">
+        <rdfs:domain rdf:resource="&space;SpatialThing"/>
+        <rdfs:range rdf:resource="#NAryRelationHasLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasPrecisionDistanceUnit -->
+
+    <owl:ObjectProperty rdf:about="#hasPrecisionDistanceUnit">
+        <rdfs:range rdf:resource="&geom;DistanceUnit"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasPrecisionMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasPrecisionMeasurement -->
+
+    <owl:ObjectProperty rdf:about="#hasPrecisionMeasurement">
+        <rdfs:domain rdf:resource="&geom;LocationCoordinates"/>
+        <rdfs:range rdf:resource="#NAryRelationHasPrecisionMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasSpaceType -->
+
+    <owl:ObjectProperty rdf:about="#hasSpaceType">
+        <rdfs:domain rdf:resource="&space;GeographicalSpace"/>
+        <rdfs:range rdf:resource="#SpaceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasWay -->
+
+    <owl:ObjectProperty rdf:about="#hasWay">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#Way"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isInAutonomousRegion -->
+
+    <owl:ObjectProperty rdf:about="#isInAutonomousRegion">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#AutonomousRegion"/>
+        <rdfs:subPropertyOf rdf:resource="#isInGeopoliticalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isInCity -->
+
+    <owl:ObjectProperty rdf:about="#isInCity">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#City"/>
+        <rdfs:subPropertyOf rdf:resource="#isInGeopoliticalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isInCountry -->
+
+    <owl:ObjectProperty rdf:about="#isInCountry">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#Country"/>
+        <rdfs:subPropertyOf rdf:resource="#isInGeopoliticalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isInGeopoliticalEntity -->
+
+    <owl:ObjectProperty rdf:about="#isInGeopoliticalEntity">
+        <rdfs:range rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:domain rdf:resource="#Address"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isInPostalDistrict -->
+
+    <owl:ObjectProperty rdf:about="#isInPostalDistrict">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#PostalDistrict"/>
+        <rdfs:subPropertyOf rdf:resource="#isInGeopoliticalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isInProvince -->
+
+    <owl:ObjectProperty rdf:about="#isInProvince">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#Province"/>
+        <rdfs:subPropertyOf rdf:resource="#isInGeopoliticalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isLocatedAtGeopoliticalEntity -->
+
+    <owl:ObjectProperty rdf:about="#isLocatedAtGeopoliticalEntity">
+        <rdfs:range rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isPartOfGeo -->
+
+    <owl:ObjectProperty rdf:about="#isPartOfGeo">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:domain rdf:resource="&space;GeopoliticalEntity"/>
+        <owl:inverseOf rdf:resource="#hasGeo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isPartOfGeoDirect -->
+
+    <owl:ObjectProperty rdf:about="#isPartOfGeoDirect">
+        <rdfs:domain rdf:resource="&space;GeopoliticalEntity"/>
+        <rdfs:range rdf:resource="&space;GeopoliticalEntity"/>
+        <owl:inverseOf rdf:resource="#hasGeoDirect"/>
+        <rdfs:subPropertyOf rdf:resource="#isPartOfGeo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#isSpaceTypeOf -->
+
+    <owl:ObjectProperty rdf:about="#isSpaceTypeOf">
+        <rdfs:range rdf:resource="&space;GeographicalSpace"/>
+        <rdfs:domain rdf:resource="#SpaceType"/>
+        <owl:inverseOf rdf:resource="#hasSpaceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#obtainedByMethod -->
+
+    <owl:ObjectProperty rdf:about="#obtainedByMethod">
+        <rdfs:range rdf:resource="#MethodOfObtainingLocation"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#addressFloor -->
+
+    <owl:DatatypeProperty rdf:about="#addressFloor">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#addressLetter -->
+
+    <owl:DatatypeProperty rdf:about="#addressLetter">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#addressNumber -->
+
+    <owl:DatatypeProperty rdf:about="#addressNumber">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#addressPostalCode -->
+
+    <owl:DatatypeProperty rdf:about="#addressPostalCode">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#addressStair -->
+
+    <owl:DatatypeProperty rdf:about="#addressStair">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#hasPrecisionValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasPrecisionValue">
+        <rdfs:domain rdf:resource="#NAryRelationHasPrecisionMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#wayName -->
+
+    <owl:DatatypeProperty rdf:about="#wayName">
+        <rdfs:domain rdf:resource="#Way"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#NonResidentialBuilding -->
+
+    <owl:Class rdf:about="&e_response_buildings;NonResidentialBuilding"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit -->
+
+    <owl:Class rdf:about="&geom;DistanceUnit"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates -->
+
+    <owl:Class rdf:about="&geom;LocationCoordinates">
+        <rdfs:subClassOf rdf:resource="#AbsoluteLocationInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#FixedStructure -->
+
+    <owl:Class rdf:about="&space;FixedStructure"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace -->
+
+    <owl:Class rdf:about="&space;GeographicalSpace"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity -->
+
+    <owl:Class rdf:about="&space;GeopoliticalEntity">
+        <rdfs:label xml:lang="en"
+            >Geopolitical entity</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >L&#237;mite administrativo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#AutonomousRegion"/>
+                    <rdf:Description rdf:about="#City"/>
+                    <rdf:Description rdf:about="#Country"/>
+                    <rdf:Description rdf:about="#PostalDistrict"/>
+                    <rdf:Description rdf:about="#Province"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Un objeto geopol&#237;tico es una entidad geogr&#225;fica debida a la intervenci&#243;n humana. S&#243;lo puede ser uno de los siguientes elementos: pa&#237;s, comunidad aut&#243;noma, provincia, ciudad o distrito postal. Adem&#225;s, estos elementos son disjuntos entre s&#237;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#MovableSpatialThing -->
+
+    <owl:Class rdf:about="&space;MovableSpatialThing"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure -->
+
+    <owl:Class rdf:about="&space;SpaceInAFixedStructure"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing -->
+
+    <owl:Class rdf:about="&space;SpatialThing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasAddress"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country -->
+
+    <owl:Class rdf:about="&Country;Country">
+        <owl:equivalentClass rdf:resource="#Country"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#AbsoluteLocationInformation -->
+
+    <owl:Class rdf:about="#AbsoluteLocationInformation">
+        <rdfs:label xml:lang="en"
+            >AbsoluteLocationInformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocationInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Address -->
+
+    <owl:Class rdf:about="#Address">
+        <rdfs:label xml:lang="en">Address</rdfs:label>
+        <rdfs:label xml:lang="es">Direcci&#243;n</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Alleway -->
+
+    <owl:Class rdf:about="#Alleway">
+        <rdfs:label xml:lang="en">Alleyway</rdfs:label>
+        <rdfs:label xml:lang="es">Traves&#237;a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#ArchitecturalElement -->
+
+    <owl:Class rdf:about="#ArchitecturalElement">
+        <rdfs:label xml:lang="en"
+            >ArchitecturalElement</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Elemento arquitect&#243;nico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;FixedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#AutonomousRegion -->
+
+    <owl:Class rdf:about="#AutonomousRegion">
+        <rdfs:label xml:lang="en"
+            >Autonomous region</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Comunidad aut&#243;noma</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Province"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Country"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                <owl:onClass rdf:resource="#Country"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#City"/>
+        <owl:disjointWith rdf:resource="#Country"/>
+        <owl:disjointWith rdf:resource="#PostalDistrict"/>
+        <owl:disjointWith rdf:resource="#Province"/>
+        <rdfs:comment
+            >Comunidad aut&#243;noma es un objeto geopol&#237;tico que es parte de un solo pa&#237;s y tiene una o varias provincias.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Avenue -->
+
+    <owl:Class rdf:about="#Avenue">
+        <rdfs:label xml:lang="en">Avenue</rdfs:label>
+        <rdfs:label xml:lang="es">Avenida</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#BusStation -->
+
+    <owl:Class rdf:about="#BusStation">
+        <rdfs:label xml:lang="en">BusStation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PublicTransportStation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#City -->
+
+    <owl:Class rdf:about="#City">
+        <rdfs:label xml:lang="en">City</rdfs:label>
+        <rdfs:label xml:lang="es">Ciudad</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#PostalDistrict"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Province"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                <owl:onClass rdf:resource="#Province"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Country"/>
+        <owl:disjointWith rdf:resource="#PostalDistrict"/>
+        <owl:disjointWith rdf:resource="#Province"/>
+        <rdfs:comment
+            >Una ciudad es un objeto geopol&#237;tico que es parte de una o varias provincias (existen ciudades lim&#237;trofes que se encuentran entre dos provincias) y contiene uno o m&#225;s distritos postales.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#ConferenceRoom -->
+
+    <owl:Class rdf:about="#ConferenceRoom">
+        <rdfs:label xml:lang="en">Conference room</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sala de congresos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;SpaceInAFixedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Country -->
+
+    <owl:Class rdf:about="#Country">
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+        <rdfs:label xml:lang="es">Pa&#237;s</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#AutonomousRegion"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#PostalDistrict"/>
+        <owl:disjointWith rdf:resource="#Province"/>
+        <rdfs:comment
+            >Un pa&#237;s es un conjunto de comunidades aut&#243;nomas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Crossroad -->
+
+    <owl:Class rdf:about="#Crossroad">
+        <rdfs:label xml:lang="en">Crossroad</rdfs:label>
+        <rdfs:label xml:lang="es">Cruce</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Gymnasium -->
+
+    <owl:Class rdf:about="#Gymnasium">
+        <rdfs:label xml:lang="en">Gymnasium</rdfs:label>
+        <rdfs:label xml:lang="es">Gimnasio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SportFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#LocationInformation -->
+
+    <owl:Class rdf:about="#LocationInformation">
+        <rdfs:label xml:lang="en"
+            >LocationInformation</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n sobre localizaci&#243;n</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#MethodOfObtainingLocation -->
+
+    <owl:Class rdf:about="#MethodOfObtainingLocation"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Museum -->
+
+    <owl:Class rdf:about="#Museum">
+        <rdfs:label xml:lang="en">Museum</rdfs:label>
+        <rdfs:label xml:lang="es">Museo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&e_response_buildings;NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#NAryRelationHasLocation -->
+
+    <owl:Class rdf:about="#NAryRelationHasLocation">
+        <rdfs:label xml:lang="en"
+            >N-ary relation has location</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Class created to support the nary relation among located entities, coordinates and temporal entities.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Punto de extensi&#243;n para enlazar la localizaci&#243;n con el tiempo en la red.
+
+Especificar este naria con &quot;NAryRelationHasLocationAtTime&quot;.
+
+Especificar la relaci&#243;n &quot;hasLocation&quot; con &quot;hasLocationAtTime&quot; que ira de  &quot;NAryRelationHasLocationAtTime&quot; a &quot;TimeInterval U TimeInstant&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#NAryRelationHasPrecisionMeasurement -->
+
+    <owl:Class rdf:about="#NAryRelationHasPrecisionMeasurement">
+        <rdfs:label xml:lang="en"
+            >N-ary relation has precision measurement</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Class created to support the nary relation among coordinates measurement and its error.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PointOfSale -->
+
+    <owl:Class rdf:about="#PointOfSale">
+        <rdfs:label xml:lang="en">PointOfSale</rdfs:label>
+        <rdfs:label xml:lang="es">TPV</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Terminal punto de venta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;SpaceInAFixedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PostalDistrict -->
+
+    <owl:Class rdf:about="#PostalDistrict">
+        <rdfs:label xml:lang="en">Postal district</rdfs:label>
+        <rdfs:label xml:lang="es">Distrito postal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#City"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                <owl:onClass rdf:resource="#City"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Province"/>
+        <rdfs:comment
+            >Un distrito postal es un objeto geopol&#237;tico que forma parte de una y s&#243;lo una ciudad.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Province -->
+
+    <owl:Class rdf:about="#Province">
+        <rdfs:label xml:lang="en">Province</rdfs:label>
+        <rdfs:label xml:lang="es">Provincia</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#City"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#AutonomousRegion"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                <owl:onClass rdf:resource="#AutonomousRegion"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Una provincia es un objeto geopol&#237;tico que tiene una o m&#225;s ciudades y es parte de una y s&#243;lo una comunidad aut&#243;noma.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PublicProperty -->
+
+    <owl:Class rdf:about="#PublicProperty">
+        <rdfs:label xml:lang="en">PublicProperty</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;MovableSpatialThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PublicTransport -->
+
+    <owl:Class rdf:about="#PublicTransport">
+        <rdfs:label xml:lang="en">PublicTransport</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;MovableSpatialThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PublicTransportStation -->
+
+    <owl:Class rdf:about="#PublicTransportStation">
+        <rdfs:label xml:lang="en"
+            >Public transport station</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&e_response_buildings;NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#RelativeLocationInformation -->
+
+    <owl:Class rdf:about="#RelativeLocationInformation">
+        <rdfs:label xml:lang="en"
+            >RelativeLocationInformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LocationInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Road -->
+
+    <owl:Class rdf:about="#Road">
+        <rdfs:label xml:lang="en">Road</rdfs:label>
+        <rdfs:label xml:lang="es">Carretera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Round -->
+
+    <owl:Class rdf:about="#Round">
+        <rdfs:label xml:lang="en">Round</rdfs:label>
+        <rdfs:label xml:lang="es">Ronda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Shelter -->
+
+    <owl:Class rdf:about="#Shelter">
+        <rdfs:label xml:lang="en">Shelter</rdfs:label>
+        <rdfs:label xml:lang="es">Marquesina</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;FixedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#ShopWindow -->
+
+    <owl:Class rdf:about="#ShopWindow">
+        <rdfs:label xml:lang="en">ShopWindow</rdfs:label>
+        <rdfs:label xml:lang="es">Escaparate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;SpaceInAFixedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#SmartShoppingCart -->
+
+    <owl:Class rdf:about="#SmartShoppingCart">
+        <rdfs:label xml:lang="en"
+            >SmartShoppingCart</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Carro inteligente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;MovableSpatialThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#SpaceType -->
+
+    <owl:Class rdf:about="#SpaceType">
+        <rdfs:label xml:lang="en">Space type</rdfs:label>
+        <rdfs:label xml:lang="es">Tipo de espacio</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#indoor"/>
+                    <rdf:Description rdf:about="#outdoor"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#SportFacility -->
+
+    <owl:Class rdf:about="#SportFacility">
+        <rdfs:label xml:lang="en">SportFacility</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Instalaciones deportivas</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&e_response_buildings;NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Square -->
+
+    <owl:Class rdf:about="#Square">
+        <rdfs:label xml:lang="en">Square</rdfs:label>
+        <rdfs:label xml:lang="es">Plaza</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Street -->
+
+    <owl:Class rdf:about="#Street">
+        <rdfs:label xml:lang="en">Street</rdfs:label>
+        <rdfs:label xml:lang="es">Calle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Supermarket -->
+
+    <owl:Class rdf:about="#Supermarket">
+        <rdfs:label xml:lang="en">Supermarket</rdfs:label>
+        <rdfs:label xml:lang="es">Supermercado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&e_response_buildings;NonResidentialBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#TouristInformationPoint -->
+
+    <owl:Class rdf:about="#TouristInformationPoint">
+        <rdfs:label xml:lang="en"
+            >TouristInformationPoint</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Punto de informaci&#243;n tur&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;FixedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#TrainStation -->
+
+    <owl:Class rdf:about="#TrainStation">
+        <rdfs:label xml:lang="en">TrainStation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PublicTransportStation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#UndergroundStation -->
+
+    <owl:Class rdf:about="#UndergroundStation">
+        <rdfs:label xml:lang="en"
+            >UndergroundStation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PublicTransportStation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Urbanization -->
+
+    <owl:Class rdf:about="#Urbanization">
+        <rdfs:label xml:lang="en">Urbanization</rdfs:label>
+        <rdfs:label xml:lang="es">Urbanizaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#VendingMachine -->
+
+    <owl:Class rdf:about="#VendingMachine">
+        <rdfs:label xml:lang="en">VendingMachine</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Maquina expendedora</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&space;MovableSpatialThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Walk -->
+
+    <owl:Class rdf:about="#Walk">
+        <rdfs:label xml:lang="en">Walk</rdfs:label>
+        <rdfs:label xml:lang="es">Paseo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Way"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Way -->
+
+    <owl:Class rdf:about="#Way">
+        <rdfs:label xml:lang="en">Way</rdfs:label>
+        <rdfs:label xml:lang="es">V&#237;a</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#AGPS -->
+
+    <MethodOfObtainingLocation rdf:about="#AGPS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MethodOfObtainingLocation>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#CoO -->
+
+    <MethodOfObtainingLocation rdf:about="#CoO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </MethodOfObtainingLocation>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#GPS -->
+
+    <owl:Thing rdf:about="#GPS">
+        <rdf:type rdf:resource="#MethodOfObtainingLocation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#indoor -->
+
+    <SpaceType rdf:about="#indoor">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">indoor</rdfs:label>
+        <rdfs:label xml:lang="es">interior</rdfs:label>
+    </SpaceType>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#noFigure -->
+
+    <Way rdf:about="#noFigure">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">no consta</rdfs:label>
+        <rdfs:label xml:lang="en">no figure</rdfs:label>
+    </Way>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#outdoor -->
+
+    <owl:Thing rdf:about="#outdoor">
+        <rdf:type rdf:resource="#SpaceType"/>
+        <rdfs:label xml:lang="en">outdoor</rdfs:label>
+        <rdfs:label xml:lang="es">exterior</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#indoor"/>
+            <rdf:Description rdf:about="#outdoor"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

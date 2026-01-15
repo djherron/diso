@@ -1,0 +1,952 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Network "http://www.cenitmio.es/ontologies/Network.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Network.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Network.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Network="http://www.cenitmio.es/ontologies/Network.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Network Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre redes</rdfs:comment>
+        <owl:imports rdf:resource="http://www.w3.org/2007/uwa/ontologies/DeliveryContext_Network.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasAccessNetworkType -->
+
+    <owl:ObjectProperty rdf:about="#hasAccessNetworkType">
+        <rdfs:range rdf:resource="#AccessNetworkType"/>
+        <rdfs:domain rdf:resource="#Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkAccessibility -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkAccessibility">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkAccessibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkAdministrator -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkAdministrator">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkCoverage -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkCoverage">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkCoverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkDomain -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkDomain">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkDomain"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkHandover -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkHandover">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkHandover"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkHandoverByOperator -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkHandoverByOperator">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkHandoverByOperator"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkHandover"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkHandoverByTechnology -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkHandoverByTechnology">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkHandoverByTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkHandover"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkOperator -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkOperator">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasNetworkTopology -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkTopology">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkTopology"/>
+        <owl:inverseOf rdf:resource="#isNetworkTopologyOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasPhysicalLayer -->
+
+    <owl:ObjectProperty rdf:about="#hasPhysicalLayer">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#PhysicalLayer"/>
+        <owl:inverseOf rdf:resource="#isPhysicalLayerOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasPriceSystem -->
+
+    <owl:ObjectProperty rdf:about="#hasPriceSystem">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#PriceSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#hasQualityOfService -->
+
+    <owl:ObjectProperty rdf:about="#hasQualityOfService">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#QualityOfService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#isAccessNetworkTypeOf -->
+
+    <owl:ObjectProperty rdf:about="#isAccessNetworkTypeOf">
+        <rdfs:domain rdf:resource="#AccessNetworkType"/>
+        <rdfs:range rdf:resource="#Network"/>
+        <owl:inverseOf rdf:resource="#hasAccessNetworkType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#isInNetwork -->
+
+    <owl:ObjectProperty rdf:about="#isInNetwork">
+        <rdfs:range rdf:resource="#Network"/>
+        <rdfs:domain rdf:resource="#NetworkResource"/>
+        <rdfs:subPropertyOf rdf:resource="#isInTheNetworkAreaOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#isInTheNetworkAreaOf -->
+
+    <owl:ObjectProperty rdf:about="#isInTheNetworkAreaOf">
+        <rdfs:range rdf:resource="#Network"/>
+        <rdfs:domain rdf:resource="#NetworkResource"/>
+        <owl:inverseOf rdf:resource="#shouldProvideAccessTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#isNetworkTopologyOf -->
+
+    <owl:ObjectProperty rdf:about="#isNetworkTopologyOf">
+        <rdfs:range rdf:resource="#Network"/>
+        <rdfs:domain rdf:resource="#NetworkTopology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#isPhysicalLayerOf -->
+
+    <owl:ObjectProperty rdf:about="#isPhysicalLayerOf">
+        <rdfs:range rdf:resource="#Network"/>
+        <rdfs:domain rdf:resource="#PhysicalLayer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#providesAccessTo -->
+
+    <owl:ObjectProperty rdf:about="#providesAccessTo">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkResource"/>
+        <owl:inverseOf rdf:resource="#isInNetwork"/>
+        <rdfs:subPropertyOf rdf:resource="#shouldProvideAccessTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#shouldProvideAccessTo -->
+
+    <owl:ObjectProperty rdf:about="#shouldProvideAccessTo">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="#NetworkResource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#bandwidth -->
+
+    <owl:DatatypeProperty rdf:about="#bandwidth">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#jitter -->
+
+    <owl:DatatypeProperty rdf:about="#jitter">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#latency -->
+
+    <owl:DatatypeProperty rdf:about="#latency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#noise -->
+
+    <owl:DatatypeProperty rdf:about="#noise">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#sendsDirectlyToDevices -->
+
+    <owl:DatatypeProperty rdf:about="#sendsDirectlyToDevices">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#signalQuality -->
+
+    <owl:DatatypeProperty rdf:about="#signalQuality">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#AccessByUserID -->
+
+    <owl:Class rdf:about="#AccessByUserID">
+        <rdfs:label xml:lang="en"
+            >Access by user ID</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Acceso mediante identificaci&#243;n de usuario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AccessNetworkType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#AccessNetworkType -->
+
+    <owl:Class rdf:about="#AccessNetworkType">
+        <rdfs:label xml:lang="en"
+            >Access network type</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Tipo de acceso a la red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#AnonimousUserIDAccess -->
+
+    <owl:Class rdf:about="#AnonimousUserIDAccess">
+        <rdfs:label xml:lang="en"
+            >Anonimous user ID access</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Acceso mediante usuario an&#243;nimo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AccessByUserID"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#AssignedUserIDAccess -->
+
+    <owl:Class rdf:about="#AssignedUserIDAccess">
+        <rdfs:label xml:lang="en"
+            >Assigned user ID access</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Acceso mediante identificaci&#243;n de usuario asignada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AccessByUserID"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#CellPhysicalLayer -->
+
+    <owl:Class rdf:about="#CellPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Cell physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso celular</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#WiredPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#CloseCommunicationProtocol -->
+
+    <owl:Class rdf:about="#CloseCommunicationProtocol">
+        <rdfs:label xml:lang="en"
+            >CloseCommunicationProtocol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#CommunicationProtocol"/>
+        <owl:disjointWith rdf:resource="#OpenCommunicationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#CommunicationProtocol -->
+
+    <owl:Class rdf:about="#CommunicationProtocol">
+        <rdfs:label xml:lang="en"
+            >CommunicationProtocol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#DynamicPriceSystem -->
+
+    <owl:Class rdf:about="#DynamicPriceSystem">
+        <rdfs:label xml:lang="en"
+            >Dynamic price system</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n din&#225;mico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#DynamicPriceSystemByNetworkLoad -->
+
+    <owl:Class rdf:about="#DynamicPriceSystemByNetworkLoad">
+        <rdfs:label xml:lang="en"
+            >Dynamic price system by network load</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n din&#225;mico por carga de red</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DynamicPriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#DynamicPriceSystemByService -->
+
+    <owl:Class rdf:about="#DynamicPriceSystemByService">
+        <rdfs:label xml:lang="en"
+            >Dynamic price system by service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n din&#225;mico por servicio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DynamicPriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#DynamicUserID -->
+
+    <owl:Class rdf:about="#DynamicUserID">
+        <rdfs:label xml:lang="en">Dynamic user ID</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Identificaci&#243;n de usuario din&#225;mica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AssignedUserIDAccess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#EnetPhysicalLayer -->
+
+    <owl:Class rdf:about="#EnetPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Enet physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso Enet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#WirelessPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#ExistingDynamicPriceSystemByNetworkLoad -->
+
+    <owl:Class rdf:about="#ExistingDynamicPriceSystemByNetworkLoad">
+        <rdfs:label xml:lang="en"
+            >Existing dynamic price system by network load</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n din&#225;mico por carga de red existente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DynamicPriceSystemByNetworkLoad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#FixedPrice -->
+
+    <owl:Class rdf:about="#FixedPrice">
+        <rdfs:label xml:lang="en">Fixed price</rdfs:label>
+        <rdfs:label xml:lang="es">Precio fijo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#StaticPriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#FlatRate -->
+
+    <owl:Class rdf:about="#FlatRate">
+        <rdfs:label xml:lang="en">Flat rate</rdfs:label>
+        <rdfs:label xml:lang="es">Tarifa plana</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#StaticPriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#FrameFormat -->
+
+    <owl:Class rdf:about="#FrameFormat">
+        <rdfs:label xml:lang="en">FrameFormat</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Formato de la trama de datos</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#FreeAccess -->
+
+    <owl:Class rdf:about="#FreeAccess">
+        <rdfs:label xml:lang="en">Free access</rdfs:label>
+        <rdfs:label xml:lang="es">Acceso libre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AccessNetworkType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#FreeOfCharge -->
+
+    <owl:Class rdf:about="#FreeOfCharge">
+        <rdfs:label xml:lang="en">Free of charge</rdfs:label>
+        <rdfs:label xml:lang="es">Gratuito</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#StaticPriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#GeneratedDynamicPriceSystemByNetworkLoad -->
+
+    <owl:Class rdf:about="#GeneratedDynamicPriceSystemByNetworkLoad">
+        <rdfs:label xml:lang="en"
+            >Generated dynamic price system by network load</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n din&#225;mico por carga de red generada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DynamicPriceSystemByNetworkLoad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#LANNetworkCoverage -->
+
+    <owl:Class rdf:about="#LANNetworkCoverage">
+        <rdfs:label xml:lang="en"
+            >LAN network coverage</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cobertura de red LAN</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#Network -->
+
+    <owl:Class rdf:about="#Network">
+        <rdfs:label xml:lang="en">Network</rdfs:label>
+        <rdfs:label xml:lang="es">Red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkAccessibility -->
+
+    <owl:Class rdf:about="#NetworkAccessibility">
+        <rdfs:label xml:lang="en"
+            >Network accessibility</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Facilidad de acceso a la red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkCoverage -->
+
+    <owl:Class rdf:about="#NetworkCoverage">
+        <rdfs:label xml:lang="en"
+            >Network coverage</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cobertura de red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkDomain -->
+
+    <owl:Class rdf:about="#NetworkDomain">
+        <rdfs:label xml:lang="en">Network domain</rdfs:label>
+        <rdfs:label xml:lang="es">Dominio de red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkHandover -->
+
+    <owl:Class rdf:about="#NetworkHandover">
+        <rdfs:label xml:lang="en"
+            >Network handover</rdfs:label>
+        <rdfs:label xml:lang="es">Handover de red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkHandoverByOperator -->
+
+    <owl:Class rdf:about="#NetworkHandoverByOperator">
+        <rdfs:label xml:lang="en"
+            >Network handover by operator</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Handover de red seg&#250;n operador</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkHandover"/>
+        <owl:disjointWith rdf:resource="#NetworkHandoverByTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkHandoverByTechnology -->
+
+    <owl:Class rdf:about="#NetworkHandoverByTechnology">
+        <rdfs:label xml:lang="en"
+            >Network handover by technology</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Handover de red seg&#250;n tecnolog&#237;a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkHandover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkOperator -->
+
+    <owl:Class rdf:about="#NetworkOperator">
+        <rdfs:label xml:lang="en"
+            >Network operator</rdfs:label>
+        <rdfs:label xml:lang="es">Operador de red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkResource -->
+
+    <owl:Class rdf:about="#NetworkResource">
+        <rdfs:label xml:lang="es"
+            >Network resource</rdfs:label>
+        <rdfs:label xml:lang="es">Recurso de red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkTopology -->
+
+    <owl:Class rdf:about="#NetworkTopology">
+        <rdfs:label xml:lang="en"
+            >Network topology</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Topolog&#237;a de red</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NonCellularRadioPhysicalLayer -->
+
+    <owl:Class rdf:about="#NonCellularRadioPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Non cellular radio physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso de radio no celular</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#WiredPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#OpenCommunicationProtocol -->
+
+    <owl:Class rdf:about="#OpenCommunicationProtocol">
+        <rdfs:label xml:lang="en"
+            >OpenCommunicationProtocol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#CommunicationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#PANNetworkCoverage -->
+
+    <owl:Class rdf:about="#PANNetworkCoverage">
+        <rdfs:label xml:lang="en"
+            >PAN network coverage</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cobertura de red PAN</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#PhysicalLayer -->
+
+    <owl:Class rdf:about="#PhysicalLayer">
+        <rdfs:label xml:lang="en">Physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#WiredPhysicalLayer"/>
+                    <rdf:Description rdf:about="#WirelessPhysicalLayer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#PowerLinePhysicalLayer -->
+
+    <owl:Class rdf:about="#PowerLinePhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Power line physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso power line</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#WirelessPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#PriceSystem -->
+
+    <owl:Class rdf:about="#PriceSystem">
+        <rdfs:label xml:lang="en">Price system</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#PrivateNetworkDomain -->
+
+    <owl:Class rdf:about="#PrivateNetworkDomain">
+        <rdfs:label xml:lang="en"
+            >Private network domain</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Dominio de red privado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#ProximityPhysicalLayer -->
+
+    <owl:Class rdf:about="#ProximityPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Proximity physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso de proximidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#WiredPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#PublicNetworkDomain -->
+
+    <owl:Class rdf:about="#PublicNetworkDomain">
+        <rdfs:label xml:lang="en"
+            >Public network domain</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Dominio de red publico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#QualityOfService -->
+
+    <owl:Class rdf:about="#QualityOfService">
+        <rdfs:label xml:lang="en"
+            >Quality of service</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Calidad de servicio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#RTBPhysicalLayer -->
+
+    <owl:Class rdf:about="#RTBPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >RTB physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso RTB</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#WirelessPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#StaticPriceSystem -->
+
+    <owl:Class rdf:about="#StaticPriceSystem">
+        <rdfs:label xml:lang="en"
+            >Static price system</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sistema de tarificaci&#243;n est&#225;tico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PriceSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#UserIDBySubscription -->
+
+    <owl:Class rdf:about="#UserIDBySubscription">
+        <rdfs:label xml:lang="en"
+            >User ID by subscription</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Identificaci&#243;n de usuario mediante subscripci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AssignedUserIDAccess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#UserIDDefinedByUser -->
+
+    <owl:Class rdf:about="#UserIDDefinedByUser">
+        <rdfs:label xml:lang="en"
+            >User ID defined by user</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Identficaci&#243;n de usuario definida por el usuario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AssignedUserIDAccess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#WANNetworkCoverage -->
+
+    <owl:Class rdf:about="#WANNetworkCoverage">
+        <rdfs:label xml:lang="en"
+            >WAN network coverage</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cobertura de red WAN</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NetworkCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#WiredPhysicalLayer -->
+
+    <owl:Class rdf:about="#WiredPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Wired physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso cableada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PhysicalLayer"/>
+        <owl:disjointWith rdf:resource="#WirelessPhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#WirelessPhysicalLayer -->
+
+    <owl:Class rdf:about="#WirelessPhysicalLayer">
+        <rdfs:label xml:lang="en"
+            >Wireless physical layer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Capa f&#237;sica de acceso inal&#225;mbrica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PhysicalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#backgroundQoS -->
+
+    <QualityOfService rdf:about="#backgroundQoS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </QualityOfService>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#conversationalQoS -->
+
+    <owl:Thing rdf:about="#conversationalQoS">
+        <rdf:type rdf:resource="#QualityOfService"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#horizontalHandover -->
+
+    <owl:Thing rdf:about="#horizontalHandover">
+        <rdf:type rdf:resource="#NetworkHandoverByTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#interOperatorHandover -->
+
+    <owl:Thing rdf:about="#interOperatorHandover">
+        <rdf:type rdf:resource="#NetworkHandoverByOperator"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#interactiveQoS -->
+
+    <owl:Thing rdf:about="#interactiveQoS">
+        <rdf:type rdf:resource="#QualityOfService"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#intraOperatorHandover -->
+
+    <NetworkHandoverByOperator rdf:about="#intraOperatorHandover">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </NetworkHandoverByOperator>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#streamingQoS -->
+
+    <QualityOfService rdf:about="#streamingQoS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </QualityOfService>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#verticalHandover -->
+
+    <owl:Thing rdf:about="#verticalHandover">
+        <rdf:type rdf:resource="#NetworkHandoverByTechnology"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

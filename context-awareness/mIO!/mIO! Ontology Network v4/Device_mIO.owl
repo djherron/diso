@@ -1,0 +1,5286 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Device "http://www.cenitmio.es/ontologies/Device.owl#" >
+    <!ENTITY Device2 "http://www.cenitmio.es/ontologies/Device.owl#6.1" >
+    <!ENTITY Device8 "http://www.cenitmio.es/ontologies/Device.owl#2.0" >
+    <!ENTITY Device4 "http://www.cenitmio.es/ontologies/Device.owl#7.1" >
+    <!ENTITY Device6 "http://www.cenitmio.es/ontologies/Device.owl#2.1" >
+    <!ENTITY Device7 "http://www.cenitmio.es/ontologies/Device.owl#5.1" >
+    <!ENTITY Device5 "http://www.cenitmio.es/ontologies/Device.owl#4.1" >
+    <!ENTITY Device3 "http://www.cenitmio.es/ontologies/Device.owl#9.1" >
+    <!ENTITY Readin "http://www.cenitmio.es/ontologies/Device.owl#Readin/" >
+    <!ENTITY componency "http://www.ontologydesignpatterns.org/cp/owl/componency.owl#" >
+    <!ENTITY pulseOximeterStorage "http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterStorage/" >
+    <!ENTITY EnvironmentalHumidity "http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalHumidity/" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Device.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Device.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Device4="&Device;7.1"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Readin="&Device;Readin/"
+     xmlns:Device3="&Device;9.1"
+     xmlns:EnvironmentalHumidity="&Device;EnvironmentalHumidity/"
+     xmlns:Device7="&Device;5.1"
+     xmlns:componency="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#"
+     xmlns:Device="http://www.cenitmio.es/ontologies/Device.owl#"
+     xmlns:Device6="&Device;2.1"
+     xmlns:Device8="&Device;2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:pulseOximeterStorage="&Device;pulseOximeterStorage/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Device2="&Device;6.1"
+     xmlns:Device5="&Device;4.1">
+    <owl:Ontology rdf:about="">
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <owl:versionInfo>3.0</owl:versionInfo>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <dc:title xml:lang="en"
+            >mIO! Device Ontology</dc:title>
+        <rdfs:comment xml:lang="es"
+            >Ontolog&#237;a mIO! sobre dispositivos</rdfs:comment>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/componency.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasComponent"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#allowsPaper -->
+
+    <owl:ObjectProperty rdf:about="#allowsPaper">
+        <rdfs:label xml:lang="en">allowsPaper</rdfs:label>
+        <rdfs:range rdf:resource="#Paper"/>
+        <rdfs:domain rdf:resource="#Printer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#allowsSheetSize -->
+
+    <owl:ObjectProperty rdf:about="#allowsSheetSize">
+        <rdfs:label xml:lang="en">allowsSheetSize</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="#SheetSize"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasChargingMode -->
+
+    <owl:ObjectProperty rdf:about="#hasChargingMode">
+        <rdfs:range rdf:resource="#ChargingMode"/>
+        <rdfs:domain rdf:resource="#Device"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasDetectionTechnology -->
+
+    <owl:ObjectProperty rdf:about="#hasDetectionTechnology">
+        <rdfs:label xml:lang="en"
+            >hasDetectionTechnology</rdfs:label>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="#DetectionTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeviceTechnology"/>
+        <owl:inverseOf rdf:resource="#isDetectionTechnologyOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasDeviceTechnology -->
+
+    <owl:ObjectProperty rdf:about="#hasDeviceTechnology">
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="#DeviceTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasDisplayTechnology -->
+
+    <owl:ObjectProperty rdf:about="#hasDisplayTechnology">
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="#DisplayTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeviceTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasFlashTechnology -->
+
+    <owl:ObjectProperty rdf:about="#hasFlashTechnology">
+        <rdfs:label xml:lang="en"
+            >hasFlashTechnology</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="#FlashTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeviceTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasImageStabilization -->
+
+    <owl:ObjectProperty rdf:about="#hasImageStabilization">
+        <rdfs:label xml:lang="en"
+            >hasImageStabilization</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="#ImageStabilization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasInformationAccessType -->
+
+    <owl:ObjectProperty rdf:about="#hasInformationAccessType">
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="#InformationAccessType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasPrintingSize -->
+
+    <owl:ObjectProperty rdf:about="#hasPrintingSize">
+        <rdfs:label xml:lang="en">hasPrintingSize</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="#PrintingSize"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasSensorTechnology -->
+
+    <owl:ObjectProperty rdf:about="#hasSensorTechnology">
+        <rdfs:label xml:lang="en"
+            >hasSensorTechnology</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="#SensorTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeviceTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasTouchScreenTechonology -->
+
+    <owl:ObjectProperty rdf:about="#hasTouchScreenTechonology">
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="#TouchScreenTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeviceTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isCompatibleWithStandard -->
+
+    <owl:ObjectProperty rdf:about="#isCompatibleWithStandard">
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="#StandardAboutDevice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isConnectedBy -->
+
+    <owl:ObjectProperty rdf:about="#isConnectedBy">
+        <rdfs:label xml:lang="en">isConnectedBy</rdfs:label>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="#DeviceConnector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isConnectedWithDevice -->
+
+    <owl:ObjectProperty rdf:about="#isConnectedWithDevice">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en"
+            >isConnectedWithDevice</rdfs:label>
+        <rdfs:range rdf:resource="#Device"/>
+        <rdfs:domain rdf:resource="#Device"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isDetectionTechnologyOf -->
+
+    <owl:ObjectProperty rdf:about="#isDetectionTechnologyOf">
+        <rdfs:label xml:lang="en"
+            >isDetectionTechnologyOf</rdfs:label>
+        <rdfs:range rdf:resource="#CO2LevelSensor"/>
+        <rdfs:domain rdf:resource="#DetectionTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#isDeviceTechnologyOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isDeviceTechnologyOf -->
+
+    <owl:ObjectProperty rdf:about="#isDeviceTechnologyOf">
+        <rdfs:range rdf:resource="#Device"/>
+        <rdfs:domain rdf:resource="#DeviceTechnology"/>
+        <owl:inverseOf rdf:resource="#hasDeviceTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isDisplayTechnologyOf -->
+
+    <owl:ObjectProperty rdf:about="#isDisplayTechnologyOf">
+        <rdfs:range rdf:resource="#Display"/>
+        <rdfs:domain rdf:resource="#DisplayTechnology"/>
+        <owl:inverseOf rdf:resource="#hasDisplayTechnology"/>
+        <rdfs:subPropertyOf rdf:resource="#isDeviceTechnologyOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isTouchScreenTechnologyOf -->
+
+    <owl:ObjectProperty rdf:about="#isTouchScreenTechnologyOf">
+        <rdfs:range rdf:resource="#TouchScreen"/>
+        <rdfs:domain rdf:resource="#TouchScreenTechnology"/>
+        <owl:inverseOf rdf:resource="#hasTouchScreenTechonology"/>
+        <rdfs:subPropertyOf rdf:resource="#isDeviceTechnologyOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#operatesWithLoudspeakerOperatingMode -->
+
+    <owl:ObjectProperty rdf:about="#operatesWithLoudspeakerOperatingMode">
+        <rdfs:label xml:lang="en"
+            >operatesWithLoudspeakerOperatingMode</rdfs:label>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="#LoudspeakerOperatingMode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#providesStorage -->
+
+    <owl:ObjectProperty rdf:about="#providesStorage">
+        <rdfs:label xml:lang="en">providesStorage</rdfs:label>
+        <rdfs:range rdf:resource="#Storage"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MemoryModule"/>
+                    <rdf:Description rdf:about="#RFIDLabel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#supportsAudioEncoding -->
+
+    <owl:ObjectProperty rdf:about="#supportsAudioEncoding">
+        <rdfs:label xml:lang="en"
+            >supportsAudioEncoding</rdfs:label>
+        <rdfs:range rdf:resource="#AudioEncoding"/>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#supportsPositioningsystem -->
+
+    <owl:ObjectProperty rdf:about="#supportsPositioningsystem">
+        <rdfs:label xml:lang="en"
+            >supportsPositioningsystem</rdfs:label>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="#PositioningSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#addsPositioningInformation -->
+
+    <owl:DatatypeProperty rdf:about="#addsPositioningInformation">
+        <rdfs:label xml:lang="en"
+            >adds positioning information</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#baliseMarginOfError -->
+
+    <owl:DatatypeProperty rdf:about="#baliseMarginOfError">
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Balise"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#balisePrecision -->
+
+    <owl:DatatypeProperty rdf:about="#balisePrecision">
+        <rdfs:comment xml:lang="en"
+            >Measured in meters</rdfs:comment>
+        <rdfs:domain rdf:resource="#Balise"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#baliseUnits -->
+
+    <owl:DatatypeProperty rdf:about="#baliseUnits">
+        <rdfs:domain rdf:resource="#Balise"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorMeasuringRange -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorMeasuringRange">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorMeasuringRange</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in ppm</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorMeasuringRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorMeasuringRangeMax">
+        <rdfs:comment>Measured in ppm</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#cO2LevelSensorMeasuringRange"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorMeasuringRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorMeasuringRangeMin">
+        <rdfs:comment>Measured in ppm</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#cO2LevelSensorMeasuringRange"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorOperatingTemperature -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorOperatingTemperature">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorOperatingTemperature</rdfs:label>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorOperatingTemperatureCelsius -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorOperatingTemperatureCelsius">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorOperatingTemperatureCelsius</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#cO2LevelSensorOperatingTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorOperatingTemperatureFahrenheit -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorOperatingTemperatureFahrenheit">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorOperatingTemperatureFahrenheit</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Fahrenheit</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#cO2LevelSensorOperatingTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorOutputVoltage -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorOutputVoltage">
+        <rdfs:label xml:lang="en"
+            >CO2 Level sensor output voltage</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in V</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorPrecision -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorPrecision">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorPrecision</rdfs:label>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorPrecisionInPPM -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorPrecisionInPPM">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorPrecisionInPPM</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in ppm</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#cO2LevelSensorPrecision"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorPrecisionInPercentage -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorPrecisionInPercentage">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorPrecisionInPercentage</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#cO2LevelSensorPrecision"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorResolution -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorResolution">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorResolution</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in bit/ppm</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cO2LevelSensorResponseTime -->
+
+    <owl:DatatypeProperty rdf:about="#cO2LevelSensorResponseTime">
+        <rdfs:label xml:lang="en"
+            >cO2LevelSensorResponseTime</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in % readings  / 120s</rdfs:comment>
+        <rdfs:domain rdf:resource="#CO2LevelSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraAperture -->
+
+    <owl:DatatypeProperty rdf:about="#cameraAperture">
+        <rdfs:label xml:lang="en">cameraAperture</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in f</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraAutoOrientation -->
+
+    <owl:DatatypeProperty rdf:about="#cameraAutoOrientation">
+        <rdfs:label xml:lang="en"
+            >cameraAutoOrientation</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraAutofocus -->
+
+    <owl:DatatypeProperty rdf:about="#cameraAutofocus">
+        <rdfs:label xml:lang="en">cameraAutofocus</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#cameraEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >cameraEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraFlash -->
+
+    <owl:DatatypeProperty rdf:about="#cameraFlash">
+        <rdfs:label xml:lang="en">cameraFlash</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraFocusDistance -->
+
+    <owl:DatatypeProperty rdf:about="#cameraFocusDistance">
+        <rdfs:label xml:lang="en"
+            >cameraFocusDistance</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraHeight -->
+
+    <owl:DatatypeProperty rdf:about="#cameraHeight">
+        <rdfs:label xml:lang="en">cameraHeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraIdleEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#cameraIdleEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >cameraIdleEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraImageResolution -->
+
+    <owl:DatatypeProperty rdf:about="#cameraImageResolution">
+        <rdfs:label xml:lang="en"
+            >cameraImageResolution</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in pix</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraImageResolutionLength -->
+
+    <owl:DatatypeProperty rdf:about="#cameraImageResolutionLength">
+        <rdfs:label xml:lang="en"
+            >cameraImageResolutionLength</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in pix</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraImageResolution"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraImageResolutionWidth -->
+
+    <owl:DatatypeProperty rdf:about="#cameraImageResolutionWidth">
+        <rdfs:label xml:lang="en"
+            >cameraImageResolutionWidth</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in pix</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraImageResolution"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraImageStabilization -->
+
+    <owl:DatatypeProperty rdf:about="#cameraImageStabilization">
+        <rdfs:label xml:lang="en"
+            >cameraImageStabilization</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraLength -->
+
+    <owl:DatatypeProperty rdf:about="#cameraLength">
+        <rdfs:label xml:lang="en">cameraLength</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingHumidityRange -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingHumidityRange">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingHumidityRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingHumidityRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingHumidityRangeMax">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingHumidityRangeMax</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingHumidityRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingHumidityRangeMin">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingHumidityRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingTemperatureRange -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingTemperatureRange">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingTemperatureRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingTemperatureRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingTemperatureRangeMax">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingTemperatureRangeMax</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOperatingTemperatureRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOperatingTemperatureRangeMin">
+        <rdfs:label xml:lang="en"
+            >cameraOperatingTemperatureRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraOpticalZoom -->
+
+    <owl:DatatypeProperty rdf:about="#cameraOpticalZoom">
+        <rdfs:label xml:lang="en"
+            >cameraOpticalZoom</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraPricePerUse -->
+
+    <owl:DatatypeProperty rdf:about="#cameraPricePerUse">
+        <rdfs:label xml:lang="en"
+            >cameraPricePerUse</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSensitivity -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSensitivity">
+        <rdfs:label xml:lang="en"
+            >cameraSensitivity</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >According to ISO</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSensorSize -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSensorSize">
+        <rdfs:label xml:lang="en"
+            >cameraSensorSize</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSensorSizeLength -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSensorSizeLength">
+        <rdfs:label xml:lang="en"
+            >cameraSensorSizeLength</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSensorSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSensorSizeWidth -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSensorSizeWidth">
+        <rdfs:label xml:lang="en"
+            >cameraSensorSizeWidth</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSensorSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraShutterSpeed -->
+
+    <owl:DatatypeProperty rdf:about="#cameraShutterSpeed">
+        <rdfs:label xml:lang="en"
+            >cameraShutterSpeed</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in 1/s</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSize -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSize">
+        <rdfs:label xml:lang="en">cameraSize</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSpectrumRange -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSpectrumRange">
+        <rdfs:label xml:lang="en"
+            >cameraSpectrumRange</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in nm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSpectrumRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSpectrumRangeMax">
+        <rdfs:label xml:lang="en"
+            >cameraSpectrumRangeMax</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in nm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSpectrumRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraSpectrumRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#cameraSpectrumRangeMin">
+        <rdfs:label xml:lang="en"
+            >cameraSpectrumRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in nm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSpectrumRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraStandbyEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#cameraStandbyEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >cameraStandbyEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraVideoResolution -->
+
+    <owl:DatatypeProperty rdf:about="#cameraVideoResolution">
+        <rdfs:label xml:lang="en"
+            >cameraVideoResolution</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in pix</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraVideoResolutionLength -->
+
+    <owl:DatatypeProperty rdf:about="#cameraVideoResolutionLength">
+        <rdfs:label xml:lang="en"
+            >cameraVideoResolutionLength</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in pix</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraVideoResolution"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraVideoResolutionWidth -->
+
+    <owl:DatatypeProperty rdf:about="#cameraVideoResolutionWidth">
+        <rdfs:label xml:lang="en"
+            >cameraVideoResolutionWidth</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in pix</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraVideoResolution"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraVideoSpeed -->
+
+    <owl:DatatypeProperty rdf:about="#cameraVideoSpeed">
+        <rdfs:label xml:lang="en"
+            >cameraVideoSpeed</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in fps</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraWeight -->
+
+    <owl:DatatypeProperty rdf:about="#cameraWeight">
+        <rdfs:label xml:lang="en">cameraWeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in g</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#cameraWidth -->
+
+    <owl:DatatypeProperty rdf:about="#cameraWidth">
+        <rdfs:label xml:lang="en">cameraWidth</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:subPropertyOf rdf:resource="#cameraSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#colourPrinting -->
+
+    <owl:DatatypeProperty rdf:about="#colourPrinting">
+        <rdfs:label xml:lang="en">colourPrinting</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayBrightness -->
+
+    <owl:DatatypeProperty rdf:about="#displayBrightness">
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayColours -->
+
+    <owl:DatatypeProperty rdf:about="#displayColours">
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayContrast -->
+
+    <owl:DatatypeProperty rdf:about="#displayContrast">
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayPricePerUse -->
+
+    <owl:DatatypeProperty rdf:about="#displayPricePerUse">
+        <rdfs:comment xml:lang="en"
+            >Measured in euros per second</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayResolution -->
+
+    <owl:DatatypeProperty rdf:about="#displayResolution">
+        <rdfs:comment xml:lang="en"
+            >Measured in pixels (Height x Width)</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayResolutionHeigth -->
+
+    <owl:DatatypeProperty rdf:about="#displayResolutionHeigth">
+        <rdfs:comment xml:lang="en"
+            >Heigth measured in pixels</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:subPropertyOf rdf:resource="#displayResolution"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayResolutionWidth -->
+
+    <owl:DatatypeProperty rdf:about="#displayResolutionWidth">
+        <rdfs:comment xml:lang="en"
+            >Widht measured in pixels</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:subPropertyOf rdf:resource="#displayResolution"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayResponseTime -->
+
+    <owl:DatatypeProperty rdf:about="#displayResponseTime">
+        <rdfs:comment xml:lang="en">Measured in ms</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displaySize -->
+
+    <owl:DatatypeProperty rdf:about="#displaySize">
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displaySizeCm -->
+
+    <owl:DatatypeProperty rdf:about="#displaySizeCm">
+        <rdfs:comment xml:lang="en">Measured in cms</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:subPropertyOf rdf:resource="#displaySize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displaySizeInch -->
+
+    <owl:DatatypeProperty rdf:about="#displaySizeInch">
+        <rdfs:comment xml:lang="en"
+            >Measured in inchs</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:subPropertyOf rdf:resource="#displaySize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayUsefulLife -->
+
+    <owl:DatatypeProperty rdf:about="#displayUsefulLife">
+        <rdfs:comment xml:lang="en"
+            >Measured in hours</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayViewAngle -->
+
+    <owl:DatatypeProperty rdf:about="#displayViewAngle">
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayViewAngleH -->
+
+    <owl:DatatypeProperty rdf:about="#displayViewAngleH">
+        <rdfs:comment xml:lang="en"
+            >Measured in grades</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:subPropertyOf rdf:resource="#displayViewAngle"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#displayViewAngleV -->
+
+    <owl:DatatypeProperty rdf:about="#displayViewAngleV">
+        <rdfs:comment xml:lang="en"
+            >Measured in grades</rdfs:comment>
+        <rdfs:domain rdf:resource="#Display"/>
+        <rdfs:subPropertyOf rdf:resource="#displayViewAngle"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalHumidityPressureSensorMarginOfError -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalHumidityPressureSensorMarginOfError">
+        <rdfs:label xml:lang="en"
+            >environmentalHumidityPressureSensorMarginOfError</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#EnvironmentalHumidityPressureSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalHumidityPressureSensorPrecision -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalHumidityPressureSensorPrecision">
+        <rdfs:label xml:lang="en"
+            >environmentalHumidityPressureSensorPrecision</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalHumidityPressureSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalHumidityPressureSensorUnits -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalHumidityPressureSensorUnits">
+        <rdfs:label xml:lang="en"
+            >environmentalHumidityPressureSensorUnits</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalHumidityPressureSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorCoefficientOfDeviation -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorCoefficientOfDeviation">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorCoefficientOfDeviation</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorHeight -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorHeight">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorHeight</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorLength -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorLength">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorLength</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorOperatingTemperatureRange -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorOperatingTemperatureRange">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorOperatingTemperatureRange</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorOperatingTemperatureRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorOperatingTemperatureRangeMax">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorOperatingTemperatureRangeMax</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#environmentalTemperatureSensorOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorOperatingTemperatureRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorOperatingTemperatureRangeMin">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorOperatingTemperatureRangeMin</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#environmentalTemperatureSensorOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorOutputVoltage -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorOutputVoltage">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorOutputVoltage</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorPrecision -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorPrecision">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorPrecision</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#environmentalTemperatureSensorWidth -->
+
+    <owl:DatatypeProperty rdf:about="#environmentalTemperatureSensorWidth">
+        <rdfs:label xml:lang="en"
+            >environmentalTemperatureSensorWidth</rdfs:label>
+        <rdfs:domain rdf:resource="#EnvironmentalTemperatureSensor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSAutonomousAcquisitionSensitivity -->
+
+    <owl:DatatypeProperty rdf:about="#gPSAutonomousAcquisitionSensitivity">
+        <rdfs:label xml:lang="en"
+            >gPSAutonomousAcquisitionSensitivity</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in dBm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverSensitivity"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSRececiverOperatingHumidityRange -->
+
+    <owl:DatatypeProperty rdf:about="#gPSRececiverOperatingHumidityRange">
+        <rdfs:label xml:lang="en"
+            >gPSRececiverOperatingHumidityRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSRececiverOperatingHumidityRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#gPSRececiverOperatingHumidityRangeMax">
+        <rdfs:label xml:lang="en"
+            >gPSRececiverOperatingHumidityRangeMax</rdfs:label>
+        <rdfs:comment
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSRececiverOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSRececiverOperatingHumidityRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#gPSRececiverOperatingHumidityRangeMin">
+        <rdfs:label xml:lang="en"
+            >gPSRececiverOperatingHumidityRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSRececiverOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSRececiverOperatingTemperatureMax -->
+
+    <owl:DatatypeProperty rdf:about="#gPSRececiverOperatingTemperatureMax">
+        <rdfs:label xml:lang="en"
+            >gPSRececiverOperatingTemperatureMax</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSRececiverOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSRececiverOperatingTemperatureRange -->
+
+    <owl:DatatypeProperty rdf:about="#gPSRececiverOperatingTemperatureRange">
+        <rdfs:label xml:lang="en"
+            >gPSRececiverOperatingTemperatureRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSRececiverOperatingTemperatureRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#gPSRececiverOperatingTemperatureRangeMin">
+        <rdfs:label xml:lang="en"
+            >gPSRececiverOperatingTemperatureRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSRececiverOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverHeight -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverHeight">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverHeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverHorizontalPositionAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverHorizontalPositionAccuracy">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverHorizontalPositionAccuracy</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in m</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverIdleEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverIdleEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverIdleEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverLength -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverLength">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverLength</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverMaximumOperatingAltitude -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverMaximumOperatingAltitude">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverMaximumOperatingAltitude</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in m</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverMaximumOperatingSpeed -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverMaximumOperatingSpeed">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverMaximumOperatingSpeed</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in m/s</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverOperatingEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverOperatingEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverOperatingEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverRefreshRate -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverRefreshRate">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverRefreshRate</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in Hz</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverSensitivity -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverSensitivity">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverSensitivity</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in dBm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverSize -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverSize">
+        <rdfs:label xml:lang="en">gPSReceiverSize</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverSpeedAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverSpeedAccuracy">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverSpeedAccuracy</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in m/s</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverStandbyEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverStandbyEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverStandbyEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverTimeSensitivity -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverTimeSensitivity">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverTimeSensitivity</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in dBm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverSensitivity"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverTimeToFirstFix -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverTimeToFirstFix">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverTimeToFirstFix</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in s</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverTimeToFirstFixCold -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverTimeToFirstFixCold">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverTimeToFirstFixCold</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in s</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverTimeToFirstFix"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverTimeToFirstFixHot -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverTimeToFirstFixHot">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverTimeToFirstFixHot</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in s</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverTimeToFirstFix"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverTimeToFirstFixWarm -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverTimeToFirstFixWarm">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverTimeToFirstFixWarm</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in s</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverTimeToFirstFix"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverWeight -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverWeight">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverWeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in g</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#gPSReceiverWidth -->
+
+    <owl:DatatypeProperty rdf:about="#gPSReceiverWidth">
+        <rdfs:label xml:lang="en"
+            >gPSReceiverWidth</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#GPSReceiver"/>
+        <rdfs:subPropertyOf rdf:resource="#gPSReceiverSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glocoseMeterMaximunReadings -->
+
+    <owl:DatatypeProperty rdf:about="#glocoseMeterMaximunReadings">
+        <rdfs:label xml:lang="en"
+            >glocoseMeterMaximunReadings</rdfs:label>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterCalibrationCurve -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterCalibrationCurve">
+        <rdfs:comment xml:lang="en">Testing</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterHeight -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterHeight">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterHeight</rdfs:label>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterHumidity -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterHumidity">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterHumidity</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterIncludeLancet -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterIncludeLancet">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterIncludeLancet</rdfs:label>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterLength -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterLength">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterLength</rdfs:label>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterMeasuringRange -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterMeasuringRange">
+        <rdfs:comment xml:lang="en"
+            >Measured in mg/dL</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterMemoryStorage -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterMemoryStorage">
+        <rdfs:comment
+            >Measured in number of measurements</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterOperatingTemperatureCelsius -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterOperatingTemperatureCelsius">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterOperatingTemperatureCelsius</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:subPropertyOf rdf:resource="#glucoseMeterOperationTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterOperatingTemperatureFahrenheit -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterOperatingTemperatureFahrenheit">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterOperatingTemperatureFahrenheit</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Fahrenheit</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:subPropertyOf rdf:resource="#glucoseMeterOperationTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterOperationTemperature -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterOperationTemperature">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterOperationTemperature</rdfs:label>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterPowerDuration -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterPowerDuration">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterPowerDuration</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in number of measurements</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterPrecision -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterPrecision">
+        <rdfs:comment xml:lang="en">Testing</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterSampleChamberVolumme -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterSampleChamberVolumme">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterSampleChamberVolumme</rdfs:label>
+        <rdfs:comment>Measured in uL</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterSampleSize -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterSampleSize">
+        <rdfs:comment xml:lang="en">Measured in uL</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterTimeMeasurement -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterTimeMeasurement">
+        <rdfs:comment xml:lang="en"
+            >Measured in seconds</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterWeight -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterWeight">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterWeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in g</rdfs:comment>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#glucoseMeterWidth -->
+
+    <owl:DatatypeProperty rdf:about="#glucoseMeterWidth">
+        <rdfs:label xml:lang="en"
+            >glucoseMeterWidth</rdfs:label>
+        <rdfs:domain rdf:resource="#GlucoseMeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasBarCodeRecognitionSystem -->
+
+    <owl:DatatypeProperty rdf:about="#hasBarCodeRecognitionSystem">
+        <rdfs:label xml:lang="en"
+            >hasBarCodeRecognitionSystem</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasFacialRecognitionSystem -->
+
+    <owl:DatatypeProperty rdf:about="#hasFacialRecognitionSystem">
+        <rdfs:label xml:lang="en"
+            >hasFacialRecognitionSystem</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasLicensePlateSystem -->
+
+    <owl:DatatypeProperty rdf:about="#hasLicensePlateSystem">
+        <rdfs:label xml:lang="en"
+            >hasLicensePlateSystem</rdfs:label>
+        <rdfs:domain rdf:resource="#Camera"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isASharedDevice -->
+
+    <owl:DatatypeProperty rdf:about="#isASharedDevice">
+        <rdfs:label xml:lang="en">isASharedDevice</rdfs:label>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isASharedDeviceForInput -->
+
+    <owl:DatatypeProperty rdf:about="#isASharedDeviceForInput">
+        <rdfs:label xml:lang="en"
+            >isASharedDeviceForInput</rdfs:label>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isASharedDeviceForOutput -->
+
+    <owl:DatatypeProperty rdf:about="#isASharedDeviceForOutput">
+        <rdfs:label xml:lang="en"
+            >isASharedDeviceForOutput</rdfs:label>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isASharedDeviceReceivingImagenes -->
+
+    <owl:DatatypeProperty rdf:about="#isASharedDeviceReceivingImagenes">
+        <rdfs:label xml:lang="en"
+            >isASharedDeviceReceivingImagenes</rdfs:label>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#isASharedDevideDuringControll -->
+
+    <owl:DatatypeProperty rdf:about="#isASharedDevideDuringControll">
+        <rdfs:label xml:lang="en"
+            >isASharedDevideDuringControll</rdfs:label>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#keyboardBufferSize -->
+
+    <owl:DatatypeProperty rdf:about="#keyboardBufferSize">
+        <rdfs:comment xml:lang="en"
+            >Number of characters</rdfs:comment>
+        <rdfs:domain rdf:resource="#Keyboard"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#keyboardOperatingLife -->
+
+    <owl:DatatypeProperty rdf:about="#keyboardOperatingLife">
+        <rdfs:comment xml:lang="en">Number of uses</rdfs:comment>
+        <rdfs:domain rdf:resource="#Keyboard"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerDistortionLevel -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerDistortionLevel">
+        <rdfs:label xml:lang="en"
+            >loudspeakerDistortionLevel</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerEfficiency -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerEfficiency">
+        <rdfs:label xml:lang="en"
+            >loudspeakerEfficiency</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerElectricalPower -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerElectricalPower">
+        <rdfs:label xml:lang="en"
+            >loudspeakerElectricalPower</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >loudspeakerEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerFrequencyResponse -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerFrequencyResponse">
+        <rdfs:label xml:lang="en"
+            >loudspeakerFrequencyResponse</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in dB</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerImpedance -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerImpedance">
+        <rdfs:label xml:lang="en"
+            >loudspeakerImpedance</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in ohms</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerNominalPower -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerNominalPower">
+        <rdfs:label xml:lang="en"
+            >loudspeakerNominalPower</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingHumidityRange -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingHumidityRange">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingHumidityRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingHumidityRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingHumidityRangeMax">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingHumidityRangeMax</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingHumidityRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingHumidityRangeMin">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingHumidityRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingTemperatureRange -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingTemperatureRange">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingTemperatureRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingTemperatureRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingTemperatureRangeMax">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingTemperatureRangeMax</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerOperatingTemperatureRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerOperatingTemperatureRangeMin">
+        <rdfs:label xml:lang="en"
+            >loudspeakerOperatingTemperatureRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerSensitivity -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerSensitivity">
+        <rdfs:label xml:lang="en"
+            >loudspeakerSensitivity</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in db/w</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerSize -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerSize">
+        <rdfs:label xml:lang="en">loudspeakerSize</rdfs:label>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerSizeCm -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerSizeCm">
+        <rdfs:label xml:lang="en"
+            >loudspeakerSizeCm</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerSizeInch -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerSizeInch">
+        <rdfs:label xml:lang="en"
+            >loudspeakerSizeInch</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in inch</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerStandbyEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerStandbyEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >loudspeakerStandbyEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:subPropertyOf rdf:resource="#loudspeakerEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#loudspeakerWeight -->
+
+    <owl:DatatypeProperty rdf:about="#loudspeakerWeight">
+        <rdfs:label xml:lang="en"
+            >loudspeakerWeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in g</rdfs:comment>
+        <rdfs:domain rdf:resource="#Loudspeaker"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#memoryModuleCapacity -->
+
+    <owl:DatatypeProperty rdf:about="#memoryModuleCapacity">
+        <rdfs:label xml:lang="en"
+            >memoryModuleCapacity</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in Bytes</rdfs:comment>
+        <rdfs:domain rdf:resource="#MemoryModule"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#memoryModuleSpeed -->
+
+    <owl:DatatypeProperty rdf:about="#memoryModuleSpeed">
+        <rdfs:label xml:lang="en"
+            >memoryModuleSpeed</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in Hz</rdfs:comment>
+        <rdfs:domain rdf:resource="#MemoryModule"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microphoneFrequencyResponse -->
+
+    <owl:DatatypeProperty rdf:about="#microphoneFrequencyResponse">
+        <rdfs:label xml:lang="en"
+            >microphoneFrequencyResponse</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in Hz</rdfs:comment>
+        <rdfs:domain rdf:resource="#Microphone"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microphoneImpedance -->
+
+    <owl:DatatypeProperty rdf:about="#microphoneImpedance">
+        <rdfs:label xml:lang="en"
+            >microphoneImpedance</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in ohms</rdfs:comment>
+        <rdfs:domain rdf:resource="#Microphone"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microphoneSensitivity -->
+
+    <owl:DatatypeProperty rdf:about="#microphoneSensitivity">
+        <rdfs:label xml:lang="en"
+            >microphoneSensitivity</rdfs:label>
+        <rdfs:comment xml:lang="es"
+            >a 1KHz, voltaje en circuito abierto</rdfs:comment>
+        <rdfs:domain rdf:resource="#Microphone"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microphoneSensitivitydBV -->
+
+    <owl:DatatypeProperty rdf:about="#microphoneSensitivitydBV">
+        <rdfs:label xml:lang="en"
+            >microphoneSensitivitydBV</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in dBV/Pa</rdfs:comment>
+        <rdfs:domain rdf:resource="#Microphone"/>
+        <rdfs:subPropertyOf rdf:resource="#microphoneSensitivity"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microphoneSensitivitymV -->
+
+    <owl:DatatypeProperty rdf:about="#microphoneSensitivitymV">
+        <rdfs:label xml:lang="en"
+            >microphoneSensitivitymV</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mV</rdfs:comment>
+        <rdfs:domain rdf:resource="#Microphone"/>
+        <rdfs:subPropertyOf rdf:resource="#microphoneSensitivity"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microphoneWeight -->
+
+    <owl:DatatypeProperty rdf:about="#microphoneWeight">
+        <rdfs:label xml:lang="en"
+            >microphoneWeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in g</rdfs:comment>
+        <rdfs:domain rdf:resource="#Microphone"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#printerEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >printerEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerHeight -->
+
+    <owl:DatatypeProperty rdf:about="#printerHeight">
+        <rdfs:label xml:lang="en">printerHeight</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerIdleEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#printerIdleEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >printerIdleEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerLength -->
+
+    <owl:DatatypeProperty rdf:about="#printerLength">
+        <rdfs:label xml:lang="en">printerLength</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >printerOperatingEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingHumidityRange -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingHumidityRange">
+        <rdfs:label xml:lang="en"
+            >printerOperatingHumidityRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingHumidityRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingHumidityRangeMax">
+        <rdfs:label xml:lang="en"
+            >printerOperatingHumidityRangeMax</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingHumidityRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingHumidityRangeMin">
+        <rdfs:label xml:lang="en"
+            >printerOperatingHumidityRangeMin</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerOperatingHumidityRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingTemperatureRange -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingTemperatureRange">
+        <rdfs:label xml:lang="en"
+            >printerOperatingTemperatureRange</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingTemperatureRangeMax -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingTemperatureRangeMax">
+        <rdfs:label xml:lang="en"
+            >printerOperatingTemperatureRangeMax</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerOperatingTemperatureRangeMin -->
+
+    <owl:DatatypeProperty rdf:about="#printerOperatingTemperatureRangeMin">
+        <rdfs:label xml:lang="en"
+            >printerOperatingTemperatureRangeMin</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerOperatingTemperatureRange"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerPricePerUse -->
+
+    <owl:DatatypeProperty rdf:about="#printerPricePerUse">
+        <rdfs:label xml:lang="en"
+            >printerPricePerUse</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Measured in euros per page</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerResolution -->
+
+    <owl:DatatypeProperty rdf:about="#printerResolution">
+        <rdfs:label xml:lang="en"
+            >printerResolution</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in ppp</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerSize -->
+
+    <owl:DatatypeProperty rdf:about="#printerSize">
+        <rdfs:label xml:lang="en">printerSize</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in cm</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerStandbyEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#printerStandbyEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >printerStandbyEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerEnergyConsumption"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerWeight -->
+
+    <owl:DatatypeProperty rdf:about="#printerWeight">
+        <rdfs:label xml:lang="en">printerWeight</rdfs:label>
+        <cpannotationschema:hasComponent xml:lang="en">Measured in g</cpannotationschema:hasComponent>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printerWidth -->
+
+    <owl:DatatypeProperty rdf:about="#printerWidth">
+        <rdfs:label xml:lang="en">printerWidth</rdfs:label>
+        <rdfs:domain rdf:resource="#Printer"/>
+        <rdfs:subPropertyOf rdf:resource="#printerSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printingSize -->
+
+    <owl:DatatypeProperty rdf:about="#printingSize">
+        <rdfs:label xml:lang="en">printingSize</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#PrintingSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printingSizeHeight -->
+
+    <owl:DatatypeProperty rdf:about="#printingSizeHeight">
+        <rdfs:label xml:lang="en"
+            >printingSizeHeight</rdfs:label>
+        <rdfs:domain rdf:resource="#PrintingSize"/>
+        <rdfs:subPropertyOf rdf:resource="#printingSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#printingSizeLength -->
+
+    <owl:DatatypeProperty rdf:about="#printingSizeLength">
+        <rdfs:label xml:lang="en"
+            >printingSizeLength</rdfs:label>
+        <rdfs:domain rdf:resource="#PrintingSize"/>
+        <rdfs:subPropertyOf rdf:resource="#printingSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterBloodSaturation -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterBloodSaturation">
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterBloodSaturationPrecision -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterBloodSaturationPrecision">
+        <rdfs:comment xml:lang="en"
+            >Measured in number of digits</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterHeartRate -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterHeartRate">
+        <rdfs:comment xml:lang="en"
+            >Measured in pulse per minute (bpm)</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterHeartRatePrecision -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterHeartRatePrecision">
+        <rdfs:comment xml:lang="en"
+            >Measured in number of digits</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterHyperbaricPressure -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterHyperbaricPressure">
+        <rdfs:comment xml:lang="en"
+            >Measured in atmospheres</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterMaximumHeight -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterMaximumHeight">
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterMaximumHeightFeet -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterMaximumHeightFeet">
+        <rdfs:comment xml:lang="en"
+            >Measured in feet</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:subPropertyOf rdf:resource="#pulseOximeterMaximumHeight"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterMaximumHeightMeter -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterMaximumHeightMeter">
+        <rdfs:comment xml:lang="en"
+            >Measured in meters</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:subPropertyOf rdf:resource="#pulseOximeterMaximumHeight"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterMemoryStorage -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterMemoryStorage">
+        <rdfs:comment xml:lang="en"
+            >Meadured in number of measurements</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterOperatingHumidity -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterOperatingHumidity">
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterOperatingTemperature -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterOperatingTemperature">
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterOperatingTemperatureCelsius -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterOperatingTemperatureCelsius">
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:subPropertyOf rdf:resource="#pulseOximeterOperatingTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterOperatingTemperatureFahrenheit -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterOperatingTemperatureFahrenheit">
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Fahrenheit</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:subPropertyOf rdf:resource="#pulseOximeterOperatingTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterStorageTtransportHumidity -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterStorageTtransportHumidity">
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterStorageTtransportTemperature -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterStorageTtransportTemperature">
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterStorageTtransportTemperatureCelsius -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterStorageTtransportTemperatureCelsius">
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Celsius</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:subPropertyOf rdf:resource="#pulseOximeterStorageTtransportTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pulseOximeterStorageTtransportTemperatureFahrenheit -->
+
+    <owl:DatatypeProperty rdf:about="#pulseOximeterStorageTtransportTemperatureFahrenheit">
+        <rdfs:comment xml:lang="en"
+            >Measured in degrees Fahrenheit</rdfs:comment>
+        <rdfs:domain rdf:resource="#PulseOximeter"/>
+        <rdfs:subPropertyOf rdf:resource="#pulseOximeterStorageTtransportTemperature"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#rFIDLabelCapacity -->
+
+    <owl:DatatypeProperty rdf:about="#rFIDLabelCapacity">
+        <rdfs:label xml:lang="en"
+            >RFIDLabelCapacity</rdfs:label>
+        <rdfs:domain rdf:resource="#RFIDLabel"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#rFIDLabelEnergyConsumption -->
+
+    <owl:DatatypeProperty rdf:about="#rFIDLabelEnergyConsumption">
+        <rdfs:label xml:lang="en"
+            >rFIDLabelEnergyConsumption</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in W</rdfs:comment>
+        <rdfs:domain rdf:resource="#RFIDLabel"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#sheetSize -->
+
+    <owl:DatatypeProperty rdf:about="#sheetSize">
+        <rdfs:label xml:lang="en">sheetSize</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#SheetSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#sheetSizeHeight -->
+
+    <owl:DatatypeProperty rdf:about="#sheetSizeHeight">
+        <rdfs:label xml:lang="en">sheetSizeHeight</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#SheetSize"/>
+        <rdfs:subPropertyOf rdf:resource="#sheetSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#sheetSizeLength -->
+
+    <owl:DatatypeProperty rdf:about="#sheetSizeLength">
+        <rdfs:label xml:lang="en">sheetSizeLength</rdfs:label>
+        <rdfs:comment xml:lang="en">Measured in mm</rdfs:comment>
+        <rdfs:domain rdf:resource="#SheetSize"/>
+        <rdfs:subPropertyOf rdf:resource="#sheetSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#supportsHotSwapping -->
+
+    <owl:DatatypeProperty rdf:about="#supportsHotSwapping">
+        <rdfs:label xml:lang="en"
+            >supportsHotSwapping</rdfs:label>
+        <rdfs:domain rdf:resource="#MemoryModule"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenBrightness -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenBrightness">
+        <rdfs:comment xml:lang="en"
+            >Measured in percentage</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenColours -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenColours">
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenContrast -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenContrast">
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenMeanTimeBetweenFailure -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenMeanTimeBetweenFailure">
+        <rdfs:comment xml:lang="en"
+            >Measured in hours</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenResolution -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenResolution">
+        <rdfs:comment xml:lang="en"
+            >Measured in pixels (Height x Width)</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenResolutionHeigth -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenResolutionHeigth">
+        <rdfs:comment xml:lang="en"
+            >Heigth measured in pixels</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:subPropertyOf rdf:resource="#touchScreenResolution"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenResolutionWidth -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenResolutionWidth">
+        <rdfs:comment xml:lang="en"
+            >Widht measured in pixels</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:subPropertyOf rdf:resource="#touchScreenResolution"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenResponseTime -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenResponseTime">
+        <rdfs:comment xml:lang="en">Measured in ms</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenSize -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenSize">
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenSizeCm -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenSizeCm">
+        <rdfs:comment xml:lang="en">Measured in cms</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:subPropertyOf rdf:resource="#touchScreenSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenSizeInch -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenSizeInch">
+        <rdfs:comment xml:lang="en"
+            >Measured in inchs</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:subPropertyOf rdf:resource="#touchScreenSize"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenUsefulLife -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenUsefulLife">
+        <rdfs:comment xml:lang="en"
+            >Measured in hours</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenViewAngle -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenViewAngle">
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenViewAngleH -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenViewAngleH">
+        <rdfs:comment xml:lang="en"
+            >Measured in grades</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:subPropertyOf rdf:resource="#touchScreenViewAngle"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#touchScreenViewAngleV -->
+
+    <owl:DatatypeProperty rdf:about="#touchScreenViewAngleV">
+        <rdfs:comment xml:lang="en"
+            >Measured in grades</rdfs:comment>
+        <rdfs:domain rdf:resource="#TouchScreen"/>
+        <rdfs:subPropertyOf rdf:resource="#touchScreenViewAngle"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#AcousticPulserecognitionTouchScreen -->
+
+    <owl:Class rdf:about="#AcousticPulserecognitionTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#AcousticWaveTouchScreen -->
+
+    <owl:Class rdf:about="#AcousticWaveTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ActiveComponent -->
+
+    <owl:Class rdf:about="#ActiveComponent">
+        <rdfs:label xml:lang="en">ActiveComponent</rdfs:label>
+        <rdfs:label xml:lang="es">Elemento activo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ActiveRFIDLabel -->
+
+    <owl:Class rdf:about="#ActiveRFIDLabel">
+        <rdfs:label xml:lang="en">ActiveRFIDLabel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#RFIDLabel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Amplifier -->
+
+    <owl:Class rdf:about="#Amplifier">
+        <rdfs:label xml:lang="en">Amplifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Anemometer -->
+
+    <owl:Class rdf:about="#Anemometer">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Antenna -->
+
+    <owl:Class rdf:about="#Antenna">
+        <rdfs:label xml:lang="en">Antenna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#AudioEncoding -->
+
+    <owl:Class rdf:about="#AudioEncoding">
+        <rdfs:label xml:lang="en">AudioEncoding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Balise -->
+
+    <owl:Class rdf:about="#Balise">
+        <rdfs:label xml:lang="es"
+            >La baliza de localizaci&#243;n o baliza sirve de ayuda para la localizaci&#243;n.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#BarCodePrinter -->
+
+    <owl:Class rdf:about="#BarCodePrinter">
+        <rdfs:label xml:lang="en">BarCodePrinter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintinghCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Battery -->
+
+    <owl:Class rdf:about="#Battery">
+        <rdfs:subClassOf rdf:resource="#ChargingMode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#BendingWaveLoudspeaker -->
+
+    <owl:Class rdf:about="#BendingWaveLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >BendingWaveLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de deformaci&#243;n de onda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#BidirectionalLoudspeaker -->
+
+    <owl:Class rdf:about="#BidirectionalLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >BidirectionalLoudspeaker</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LoudspeakerByDirectivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#BlueToothShortDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#BlueToothShortDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#ShortDistanceCommunicationModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CO2LevelSensor -->
+
+    <owl:Class rdf:about="#CO2LevelSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#DeviceEmbeddedInPublicTransport"/>
+                            <rdf:Description rdf:about="#UrbanInfrastructureDevice"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Un sensor de nivel de CO2 proporciona como dato un valor de tensi&#243;n proporcional al nivel de di&#243;xido de carbono gaseoso detectado.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CRTDisplay -->
+
+    <owl:Class rdf:about="#CRTDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Cable -->
+
+    <owl:Class rdf:about="#Cable">
+        <rdfs:label xml:lang="en">Cable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceConnector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Camera -->
+
+    <owl:Class rdf:about="#Camera">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isASharedDeviceReceivingImagenes"/>
+                        <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isASharedDevideDuringControll"/>
+                        <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Display"/>
+                            <rdf:Description rdf:about="#GPSReceiver"/>
+                            <rdf:Description rdf:about="#LargeDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#Loudspeaker"/>
+                            <rdf:Description rdf:about="#MemoryModule"/>
+                            <rdf:Description rdf:about="#Printer"/>
+                            <rdf:Description rdf:about="#ProcessingModule"/>
+                            <rdf:Description rdf:about="#ReadingWritingModuleNFC"/>
+                            <rdf:Description rdf:about="#ShortDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#TouchScreen"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isCompatibleWithStandard"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#pictbridge"/>
+                            <rdf:Description rdf:about="#DLNA"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Una c&#225;mara proporciona un servicio de captura de im&#225;genes, v&#237;deo o ambos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CapacitiveKeyboard -->
+
+    <owl:Class rdf:about="#CapacitiveKeyboard">
+        <rdfs:subClassOf rdf:resource="#Keyboard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CapacitiveTouchScreen -->
+
+    <owl:Class rdf:about="#CapacitiveTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Casing -->
+
+    <owl:Class rdf:about="#Casing">
+        <rdfs:label xml:lang="en">Casing</rdfs:label>
+        <rdfs:label xml:lang="es">Carcasa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ChargingMode -->
+
+    <owl:Class rdf:about="#ChargingMode"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CompactFlashCard -->
+
+    <owl:Class rdf:about="#CompactFlashCard">
+        <rdfs:label xml:lang="en">CF</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >CompactFlashCard</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FLASHMemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Computer -->
+
+    <owl:Class rdf:about="#Computer">
+        <rdfs:label xml:lang="en">Computer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ComputerTerminal -->
+
+    <owl:Class rdf:about="#ComputerTerminal">
+        <rdfs:label xml:lang="en"
+            >ComputerTerminal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CondenserMicrophone -->
+
+    <owl:Class rdf:about="#CondenserMicrophone">
+        <rdfs:label xml:lang="en"
+            >CondenserMicrophone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Microphone"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ConventionalPaper -->
+
+    <owl:Class rdf:about="#ConventionalPaper">
+        <rdfs:label xml:lang="en"
+            >ConventionalPaper</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ConventionalTag -->
+
+    <owl:Class rdf:about="#ConventionalTag">
+        <rdfs:label xml:lang="en">ConventionalTag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Decoder -->
+
+    <owl:Class rdf:about="#Decoder">
+        <rdfs:label xml:lang="en">Decoder</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DetectionTechnology -->
+
+    <owl:Class rdf:about="#DetectionTechnology">
+        <rdfs:label xml:lang="en"
+            >DetectionTechnology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Detector -->
+
+    <owl:Class rdf:about="#Detector">
+        <rdfs:label xml:lang="en">Detector</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Device -->
+
+    <owl:Class rdf:about="#Device">
+        <rdfs:subClassOf rdf:resource="&componency;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DeviceComponent -->
+
+    <owl:Class rdf:about="#DeviceComponent">
+        <rdfs:label xml:lang="en">DeviceComponent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&componency;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DeviceConnector -->
+
+    <owl:Class rdf:about="#DeviceConnector">
+        <rdfs:label xml:lang="en">DeviceConnector</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&componency;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DeviceEmbeddedInPublicTransport -->
+
+    <owl:Class rdf:about="#DeviceEmbeddedInPublicTransport">
+        <rdfs:label xml:lang="en"
+            >DeviceEmbeddedInPublicTransport</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DeviceTechnology -->
+
+    <owl:Class rdf:about="#DeviceTechnology"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Diaphragm -->
+
+    <owl:Class rdf:about="#Diaphragm">
+        <rdfs:label xml:lang="en">Diaphragm</rdfs:label>
+        <rdfs:label xml:lang="es">Diafragma</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DigitalImageStabilization -->
+
+    <owl:Class rdf:about="#DigitalImageStabilization">
+        <rdfs:label xml:lang="en"
+            >DigitalImageStabilization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ImageStabilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DigitalLoudspeaker -->
+
+    <owl:Class rdf:about="#DigitalLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >DigitalLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es">Altavoz digital</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Display -->
+
+    <owl:Class rdf:about="#Display">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:comment xml:lang="es"
+            >Un display sirve para presentaci&#243;n de datos al usuario y para extender las capacidades de visualizaci&#243;n de los terminales.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DisplayTechnology -->
+
+    <owl:Class rdf:about="#DisplayTechnology">
+        <rdfs:subClassOf rdf:resource="#DeviceTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DistributedModeLoudspeaker -->
+
+    <owl:Class rdf:about="#DistributedModeLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >DistributedModeLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de modo distribuido</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DotMatrixPrinter -->
+
+    <owl:Class rdf:about="#DotMatrixPrinter">
+        <rdfs:label xml:lang="en"
+            >DotMatrixPrinter</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Impresora matricial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintingTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DynamicMicrophone -->
+
+    <owl:Class rdf:about="#DynamicMicrophone">
+        <rdfs:label xml:lang="en"
+            >DynamicMicrophone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Microphone"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ElectrostaticLoudspeaker -->
+
+    <owl:Class rdf:about="#ElectrostaticLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >ElectrostaticLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz electrost&#225;tico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalHumidityPressureSensor -->
+
+    <owl:Class rdf:about="#EnvironmentalHumidityPressureSensor">
+        <rdfs:subClassOf rdf:resource="#EnvironmentalHumiditySensor"/>
+        <rdfs:subClassOf rdf:resource="#EnvironmentalPressureSensor"/>
+        <rdfs:comment xml:lang="es"
+            >Un sensor de humedad y presi&#243;n ambiental mide datos atmosf&#233;ricos. No tienen porqu&#233; estar contenidos en el mismo dispositivo. Pueden darse sensores s&#243;lo de humedad o s&#243;lo de presi&#243;n.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalHumiditySensor -->
+
+    <owl:Class rdf:about="#EnvironmentalHumiditySensor">
+        <rdfs:label xml:lang="en"
+            >EnvironmentalHumiditySensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalPressureSensor -->
+
+    <owl:Class rdf:about="#EnvironmentalPressureSensor">
+        <rdfs:label xml:lang="en"
+            >EnvironmentalPressureSensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalTemperatureSensor -->
+
+    <owl:Class rdf:about="#EnvironmentalTemperatureSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#MobileDevice"/>
+                            <rdf:Description rdf:about="#UrbanInfrastructureDevice"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Un sensor de temperatura ambiental proporciona como dato un valor de tensi&#243;n directamente proporcional a un valor de temperatura ambiente</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#FLASHMemoryModule -->
+
+    <owl:Class rdf:about="#FLASHMemoryModule">
+        <rdfs:label xml:lang="en"
+            >FLASHMemoryModule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#FlashTechnology -->
+
+    <owl:Class rdf:about="#FlashTechnology">
+        <rdfs:label xml:lang="en">FlashTechnology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#FlatPanelLoudspeaker -->
+
+    <owl:Class rdf:about="#FlatPanelLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >FlatPanelLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de panel plano</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GPRSLargeDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#GPRSLargeDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#LargeDistanceCommunicationModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GPSReceiver -->
+
+    <owl:Class rdf:about="#GPSReceiver">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Camera"/>
+                            <rdf:Description rdf:about="#Display"/>
+                            <rdf:Description rdf:about="#LargeDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#Loudspeaker"/>
+                            <rdf:Description rdf:about="#MemoryModule"/>
+                            <rdf:Description rdf:about="#Microphone"/>
+                            <rdf:Description rdf:about="#ProcessingModule"/>
+                            <rdf:Description rdf:about="#ReadingWritingModuleNFC"/>
+                            <rdf:Description rdf:about="#ShortDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#TouchScreen"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isASharedDevice"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Un receptor GPS proporciona un servicio de posicionamiento.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GlucoseMeter -->
+
+    <owl:Class rdf:about="#GlucoseMeter">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isCompatibleWithStandard"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >El gluc&#243;metro se utiliza punzando la pel y colocando la muestra en la tira de medici&#243;n.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#HardDisk -->
+
+    <owl:Class rdf:about="#HardDisk">
+        <rdfs:label xml:lang="en">HardDisk</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#HeilAirMotionTransformer -->
+
+    <owl:Class rdf:about="#HeilAirMotionTransformer">
+        <rdfs:label xml:lang="en"
+            >HeilAirMotionTransformer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de movimiento de aire Heil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#HornLoudspeaker -->
+
+    <owl:Class rdf:about="#HornLoudspeaker">
+        <rdfs:label xml:lang="en">HornLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de bocina</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ImageCaptureDevice -->
+
+    <owl:Class rdf:about="#ImageCaptureDevice">
+        <rdfs:label xml:lang="en"
+            >ImageCaptureDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ImagePrinter -->
+
+    <owl:Class rdf:about="#ImagePrinter">
+        <rdfs:label xml:lang="en">ImagePrinter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintinghCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ImageProcessingDevice -->
+
+    <owl:Class rdf:about="#ImageProcessingDevice">
+        <rdfs:label xml:lang="en"
+            >ImageProcessingDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProcessingModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ImageStabilization -->
+
+    <owl:Class rdf:about="#ImageStabilization">
+        <rdfs:label xml:lang="en"
+            >ImageStabilization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#IndoorInfrastructureDevice -->
+
+    <owl:Class rdf:about="#IndoorInfrastructureDevice">
+        <rdfs:label xml:lang="en"
+            >IndoorInfrastructureDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InfrastructureDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InductionCoil -->
+
+    <owl:Class rdf:about="#InductionCoil">
+        <rdfs:label xml:lang="en">InductionCoil</rdfs:label>
+        <rdfs:label xml:lang="es">Bobina</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InformationAccessType -->
+
+    <owl:Class rdf:about="#InformationAccessType"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InfraredTouchScreen -->
+
+    <owl:Class rdf:about="#InfraredTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InfrastructureDevice -->
+
+    <owl:Class rdf:about="#InfrastructureDevice">
+        <rdfs:label xml:lang="en"
+            >InfrastructureDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InkContainer -->
+
+    <owl:Class rdf:about="#InkContainer">
+        <rdfs:label xml:lang="en">InkContainer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Contenedor de tinta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InkjetPrinter -->
+
+    <owl:Class rdf:about="#InkjetPrinter">
+        <rdfs:label xml:lang="en">InkjetPrinter</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Impresora de inyecci&#243;n de tinta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintingTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#IntegratedFlashMemory -->
+
+    <owl:Class rdf:about="#IntegratedFlashMemory">
+        <rdfs:label xml:lang="en"
+            >IntegratedFlashMemory</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FLASHMemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Keyboard -->
+
+    <owl:Class rdf:about="#Keyboard">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LCDDisplay -->
+
+    <owl:Class rdf:about="#LCDDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Laptop -->
+
+    <owl:Class rdf:about="#Laptop">
+        <rdfs:label xml:lang="en">Laptop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computer"/>
+        <rdfs:subClassOf rdf:resource="#MobileDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LargeDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#LargeDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LaserDisplay -->
+
+    <owl:Class rdf:about="#LaserDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LaserPrinter -->
+
+    <owl:Class rdf:about="#LaserPrinter">
+        <rdfs:label xml:lang="en">LaserPrinter</rdfs:label>
+        <rdfs:label xml:lang="es">Impresora l&#225;ser</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintingTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Lens -->
+
+    <owl:Class rdf:about="#Lens">
+        <rdfs:label xml:lang="en">Lens</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+        <rdfs:comment>Lente</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LightingDevice -->
+
+    <owl:Class rdf:about="#LightingDevice">
+        <rdfs:label xml:lang="en">LightingDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Loudspeaker -->
+
+    <owl:Class rdf:about="#Loudspeaker">
+        <owl:equivalentClass rdf:resource="#LoudspeakerByDirectivity"/>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Camera"/>
+                            <rdf:Description rdf:about="#Decoder"/>
+                            <rdf:Description rdf:about="#GPSReceiver"/>
+                            <rdf:Description rdf:about="#LargeDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#MemoryModule"/>
+                            <rdf:Description rdf:about="#Microphone"/>
+                            <rdf:Description rdf:about="#ProcessingModule"/>
+                            <rdf:Description rdf:about="#ShortDistanceCommunicationModule"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isASharedDeviceForInput"/>
+                        <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isASharedDeviceForOutput"/>
+                        <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Un altavoz genera sonido a partir de una se&#241;al el&#233;ctrica recibida.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LoudspeakerByDirectivity -->
+
+    <owl:Class rdf:about="#LoudspeakerByDirectivity">
+        <rdfs:label xml:lang="en"
+            >LoudspeakerByDirectivity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LoudspeakerCoordinateOperatingMode -->
+
+    <owl:Class rdf:about="#LoudspeakerCoordinateOperatingMode">
+        <rdfs:label xml:lang="en"
+            >LoudspeakerCoordinateOperatingMode</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LoudspeakerOperatingMode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LoudspeakerIndependentOperatingMode -->
+
+    <owl:Class rdf:about="#LoudspeakerIndependentOperatingMode">
+        <rdfs:label xml:lang="en"
+            >LoudspeakerIndependentOperatingMode</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LoudspeakerOperatingMode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LoudspeakerOperatingMode -->
+
+    <owl:Class rdf:about="#LoudspeakerOperatingMode">
+        <rdfs:label xml:lang="en"
+            >LoudspeakerOperatingMode</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MagnetostrictiveSpeaker -->
+
+    <owl:Class rdf:about="#MagnetostrictiveSpeaker">
+        <rdfs:label xml:lang="en"
+            >MagnetostrictiveSpeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz magnetostrictivo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Mains -->
+
+    <owl:Class rdf:about="#Mains">
+        <rdfs:subClassOf rdf:resource="#ChargingMode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MechanicalImageStabilization -->
+
+    <owl:Class rdf:about="#MechanicalImageStabilization">
+        <rdfs:label xml:lang="en"
+            >MechanicalImageStabilization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ImageStabilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MembraneKeyboard -->
+
+    <owl:Class rdf:about="#MembraneKeyboard">
+        <rdfs:subClassOf rdf:resource="#Keyboard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MemoryModule -->
+
+    <owl:Class rdf:about="#MemoryModule">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Computer"/>
+                            <rdf:Description rdf:about="#ComputerTerminal"/>
+                            <rdf:Description rdf:about="#Router"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Un m&#243;dulo de memoria sirve para el almacenamiento de datos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MetallicContactKeyboard -->
+
+    <owl:Class rdf:about="#MetallicContactKeyboard">
+        <rdfs:subClassOf rdf:resource="#Keyboard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Microphone -->
+
+    <owl:Class rdf:about="#Microphone">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#IndoorInfrastructureDevice"/>
+                            <rdf:Description rdf:about="#MobileDevice"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Un micr&#243;fono proporciona como dato un valor de tensi&#243;n proporcional a las ondas ac&#250;sticas detectadas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MiniDVD -->
+
+    <owl:Class rdf:about="#MiniDVD">
+        <rdfs:label xml:lang="en">MiniDVD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MobileDevice -->
+
+    <owl:Class rdf:about="#MobileDevice">
+        <rdfs:label xml:lang="en">Mobile device</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Dispositivo m&#243;vil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MobilePhone -->
+
+    <owl:Class rdf:about="#MobilePhone">
+        <rdfs:label xml:lang="en">Mobile phone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MobileDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MovingCoilLoudspeaker -->
+
+    <owl:Class rdf:about="#MovingCoilLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >MovingCoilLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de bobina</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz din&#225;mico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MultiMediaCardMemory -->
+
+    <owl:Class rdf:about="#MultiMediaCardMemory">
+        <rdfs:label xml:lang="en">MMC</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >MultiMediaCardMemory</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MultiTouchScreen -->
+
+    <owl:Class rdf:about="#MultiTouchScreen">
+        <rdfs:label xml:lang="en"
+            >MultiTouchScreen</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Pantalla multi t&#225;ctil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#NFCShortDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#NFCShortDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#ShortDistanceCommunicationModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#NavigationSystem -->
+
+    <owl:Class rdf:about="#NavigationSystem">
+        <rdfs:label xml:lang="en"
+            >NavigationSystem</rdfs:label>
+        <rdfs:label xml:lang="es">Navegador</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#OLEDDisplay -->
+
+    <owl:Class rdf:about="#OLEDDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#OmnidirectionalLoudspeaker -->
+
+    <owl:Class rdf:about="#OmnidirectionalLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >OmnidirectionalLoudspeaker</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LoudspeakerByDirectivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#OpticalImagingTouchScreen -->
+
+    <owl:Class rdf:about="#OpticalImagingTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Paper -->
+
+    <owl:Class rdf:about="#Paper">
+        <rdfs:label xml:lang="en">Paper</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PaperTray -->
+
+    <owl:Class rdf:about="#PaperTray">
+        <rdfs:label xml:lang="en">PaperTray</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >recept&#225;culo de almacenamiento de hojas</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PassiveRFIDLabel -->
+
+    <owl:Class rdf:about="#PassiveRFIDLabel">
+        <rdfs:label xml:lang="en"
+            >PassiveRFIDLabel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#RFIDLabel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PermanentMagnet -->
+
+    <owl:Class rdf:about="#PermanentMagnet">
+        <rdfs:label xml:lang="en">PermanentMagnet</rdfs:label>
+        <rdfs:label xml:lang="es">Im&#225;n permanente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PersonalComputer -->
+
+    <owl:Class rdf:about="#PersonalComputer">
+        <rdfs:label xml:lang="en"
+            >PersonalComputer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PersonalDigitalAssistant -->
+
+    <owl:Class rdf:about="#PersonalDigitalAssistant">
+        <rdfs:label xml:lang="en"
+            >Personal digital assistant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MobileDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PhotographicPaper -->
+
+    <owl:Class rdf:about="#PhotographicPaper">
+        <rdfs:label xml:lang="en"
+            >Photographic paper</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PiezoelectricKeyboard -->
+
+    <owl:Class rdf:about="#PiezoelectricKeyboard">
+        <rdfs:subClassOf rdf:resource="#Keyboard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PiezoelectricSpeaker -->
+
+    <owl:Class rdf:about="#PiezoelectricSpeaker">
+        <rdfs:label xml:lang="en"
+            >PiezoelectricSpeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz piezoel&#233;ctrico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PlasmaArcLoudspeaker -->
+
+    <owl:Class rdf:about="#PlasmaArcLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >PlasmaArcLoudspeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de arco de plasma</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PlasmaDisplay -->
+
+    <owl:Class rdf:about="#PlasmaDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PositioningDevice -->
+
+    <owl:Class rdf:about="#PositioningDevice">
+        <rdfs:label xml:lang="en"
+            >PositioningDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PositioningSystem -->
+
+    <owl:Class rdf:about="#PositioningSystem">
+        <rdfs:label xml:lang="en"
+            >PositioningSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PowerSource -->
+
+    <owl:Class rdf:about="#PowerSource">
+        <rdfs:label xml:lang="en">PowerSource</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Alimentador de voljate de polarizaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PresentationSurface -->
+
+    <owl:Class rdf:about="#PresentationSurface">
+        <rdfs:label xml:lang="en"
+            >PresentationSurface</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PressureSensorTouchScreen -->
+
+    <owl:Class rdf:about="#PressureSensorTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Printer -->
+
+    <owl:Class rdf:about="#Printer">
+        <owl:equivalentClass rdf:resource="#PrinterByPrintingTechnology"/>
+        <owl:equivalentClass rdf:resource="#PrinterByPrintinghCharacteristic"/>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Camera"/>
+                            <rdf:Description rdf:about="#Display"/>
+                            <rdf:Description rdf:about="#LargeDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#MemoryModule"/>
+                            <rdf:Description rdf:about="#ProcessingModule"/>
+                            <rdf:Description rdf:about="#ReadingWritingModuleNFC"/>
+                            <rdf:Description rdf:about="#ShortDistanceCommunicationModule"/>
+                            <rdf:Description rdf:about="#TouchScreen"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isCompatibleWithStandard"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#pictbridge"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Una impresora proporciona un servicio de impresi&#243;n.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PrinterByPrintingTechnology -->
+
+    <owl:Class rdf:about="#PrinterByPrintingTechnology">
+        <rdfs:label xml:lang="en"
+            >PrinterByPrintingTechnology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PrinterByPrintinghCharacteristic -->
+
+    <owl:Class rdf:about="#PrinterByPrintinghCharacteristic">
+        <rdfs:label xml:lang="en"
+            >PrinterByPrintinghCharacteristic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Printhead -->
+
+    <owl:Class rdf:about="#Printhead">
+        <rdfs:label xml:lang="en">Printhead</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cabezal de impresion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PrintingSize -->
+
+    <owl:Class rdf:about="#PrintingSize">
+        <rdfs:label xml:lang="en">PrintingSize</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ProcessingModule -->
+
+    <owl:Class rdf:about="#ProcessingModule">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PulseOximeter -->
+
+    <owl:Class rdf:about="#PulseOximeter">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isConnectedWithDevice"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#MobileDevice"/>
+                            <rdf:Description rdf:about="#PersonalComputer"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Usually pulse oximeters are placed on the index finger, although an increasingly used method is to use it in the earlobe.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Normalmente los pulsiox&#237;metros se colocan en el dedo &#237;ndice, aunque un m&#233;todo cada vez m&#225;s empleado es usarlo en el l&#243;bulo de la oreja.
+Un pulsiox&#237;metro funciona mejor en personas de raza blanca pues la piel negra es un obst&#225;culo para la luz, por su absorci&#243;n.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RAMMemoryModule -->
+
+    <owl:Class rdf:about="#RAMMemoryModule">
+        <rdfs:label xml:lang="en">RAMMemoryModule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RFIDLabel -->
+
+    <owl:Class rdf:about="#RFIDLabel">
+        <rdfs:label xml:lang="en">RFIDLabel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#rFIDLabelEnergyConsumption"/>
+                <owl:hasValue rdf:datatype="&xsd;double">.0</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es"
+            >Una etiqueta RFID sirve para identificar un objeto.
+Una etiqueta RFID proporciona como dato el identificador asociado al objeto.
+Una etiqueta RFID es detectada mejor si no se encuentra adherida a objetos con alto contenido en agua.
+Una etiqueta RFID pasiva no consume bater&#237;a</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ROMMemoryModule -->
+
+    <owl:Class rdf:about="#ROMMemoryModule">
+        <rdfs:label xml:lang="en">ROMMemoryModule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ReadingWritingModuleNFC -->
+
+    <owl:Class rdf:about="#ReadingWritingModuleNFC">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RearMetallicPlate -->
+
+    <owl:Class rdf:about="#RearMetallicPlate">
+        <rdfs:label xml:lang="en"
+            >RearMetallicPlate</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Placa met&#225;lica trasera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ReceiptPrinter -->
+
+    <owl:Class rdf:about="#ReceiptPrinter">
+        <rdfs:label xml:lang="en">ReceiptPrinter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintinghCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RecycledPaper -->
+
+    <owl:Class rdf:about="#RecycledPaper">
+        <rdfs:label xml:lang="en">RecycledPaper</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ResistiveTouchScreen -->
+
+    <owl:Class rdf:about="#ResistiveTouchScreen">
+        <rdfs:subClassOf rdf:resource="#TouchScreen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RibbonSpeaker -->
+
+    <owl:Class rdf:about="#RibbonSpeaker">
+        <rdfs:label xml:lang="en">RibbonSpeaker</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Altavoz de cinta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Loudspeaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Router -->
+
+    <owl:Class rdf:about="#Router">
+        <rdfs:label xml:lang="en">Router</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RubberDomeKeyboard -->
+
+    <owl:Class rdf:about="#RubberDomeKeyboard">
+        <rdfs:subClassOf rdf:resource="#Keyboard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SEDDisplay -->
+
+    <owl:Class rdf:about="#SEDDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SecureDigitalCard -->
+
+    <owl:Class rdf:about="#SecureDigitalCard">
+        <rdfs:label xml:lang="en">SD</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >SecureDigitalCard</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MemoryModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SelfAdhesiveLabel -->
+
+    <owl:Class rdf:about="#SelfAdhesiveLabel">
+        <rdfs:label xml:lang="en"
+            >SelfAdhesiveLabel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Sensor -->
+
+    <owl:Class rdf:about="#Sensor">
+        <rdfs:label xml:lang="en">Sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SensorSource -->
+
+    <owl:Class rdf:about="#SensorSource">
+        <rdfs:label xml:lang="en">SensorSource</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SensorTechnology -->
+
+    <owl:Class rdf:about="#SensorTechnology">
+        <rdfs:label xml:lang="en"
+            >SensorTechnology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SheetSize -->
+
+    <owl:Class rdf:about="#SheetSize">
+        <rdfs:label xml:lang="en">SheetSize</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ShortDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#ShortDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SignalProcessor -->
+
+    <owl:Class rdf:about="#SignalProcessor">
+        <rdfs:label xml:lang="en">SignalProcessor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeviceComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#StandardAboutDevice -->
+
+    <owl:Class rdf:about="#StandardAboutDevice">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Storage -->
+
+    <owl:Class rdf:about="#Storage">
+        <rdfs:label xml:lang="en">Storage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#TFTDisplay -->
+
+    <owl:Class rdf:about="#TFTDisplay">
+        <rdfs:subClassOf rdf:resource="#Display"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#TextPrinter -->
+
+    <owl:Class rdf:about="#TextPrinter">
+        <rdfs:label xml:lang="en">TextPrinter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintinghCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ThermalPaper -->
+
+    <owl:Class rdf:about="#ThermalPaper">
+        <rdfs:label xml:lang="en">ThermalPaper</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ThermalPrinter -->
+
+    <owl:Class rdf:about="#ThermalPrinter">
+        <rdfs:label xml:lang="en">ThermalPrinter</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Impresora t&#233;rmica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PrinterByPrintingTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#TouchScreen -->
+
+    <owl:Class rdf:about="#TouchScreen">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#TouchScreenTechnology -->
+
+    <owl:Class rdf:about="#TouchScreenTechnology">
+        <rdfs:subClassOf rdf:resource="#DeviceTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Trackball -->
+
+    <owl:Class rdf:about="#Trackball">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#UMTSLargeDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#UMTSLargeDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#LargeDistanceCommunicationModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#UltraMobilePC -->
+
+    <owl:Class rdf:about="#UltraMobilePC">
+        <rdfs:label xml:lang="en">Ultra mobile PC</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computer"/>
+        <rdfs:subClassOf rdf:resource="#MobileDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#UnidirectionalLoudspeaker -->
+
+    <owl:Class rdf:about="#UnidirectionalLoudspeaker">
+        <rdfs:label xml:lang="en"
+            >UnidirectionalLoudspeaker</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LoudspeakerByDirectivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#UrbanInfrastructureDevice -->
+
+    <owl:Class rdf:about="#UrbanInfrastructureDevice">
+        <rdfs:label xml:lang="en"
+            >UrbanInfrastructureDevice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InfrastructureDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#WiFiLargeDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#WiFiLargeDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#LargeDistanceCommunicationModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ZigBeeShortDistanceCommunicationModule -->
+
+    <owl:Class rdf:about="#ZigBeeShortDistanceCommunicationModule">
+        <rdfs:subClassOf rdf:resource="#ShortDistanceCommunicationModule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/componency.owl#Object -->
+
+    <owl:Class rdf:about="&componency;Object"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#2.0LoudspeakerCoordinateOperatingMode -->
+
+    <LoudspeakerCoordinateOperatingMode rdf:about="#2.0LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >2.0LoudspeakerCoordinateOperatingMode</rdfs:label>
+    </LoudspeakerCoordinateOperatingMode>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#2.1LoudspeakerCoordinateOperatingMode -->
+
+    <owl:Thing rdf:about="#2.1LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="#LoudspeakerCoordinateOperatingMode"/>
+        <rdfs:label xml:lang="en"
+            >2.1LoudspeakerCoordinateOperatingMode</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#4.1LoudspeakerCoordinateOperatingMode -->
+
+    <owl:Thing rdf:about="#4.1LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="#LoudspeakerCoordinateOperatingMode"/>
+        <rdfs:label xml:lang="en"
+            >4.1LoudspeakerCoordinateOperatingMode</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#5.1LoudspeakerCoordinateOperatingMode -->
+
+    <owl:Thing rdf:about="#5.1LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="#LoudspeakerCoordinateOperatingMode"/>
+        <rdfs:label xml:lang="en"
+            >5.1LoudspeakerCoordinateOperatingMode</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#6.1LoudspeakerCoordinateOperatingMode -->
+
+    <LoudspeakerCoordinateOperatingMode rdf:about="#6.1LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >6.1LoudspeakerCoordinateOperatingMode</rdfs:label>
+    </LoudspeakerCoordinateOperatingMode>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#7.1LoudspeakerCoordinateOperatingMode -->
+
+    <owl:Thing rdf:about="#7.1LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="#LoudspeakerCoordinateOperatingMode"/>
+        <rdfs:label xml:lang="en"
+            >7.1LoudspeakerCoordinateOperatingMode</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#9.1LoudspeakerCoordinateOperatingMode -->
+
+    <owl:Thing rdf:about="#9.1LoudspeakerCoordinateOperatingMode">
+        <rdf:type rdf:resource="#LoudspeakerCoordinateOperatingMode"/>
+        <rdfs:label xml:lang="en">9.1</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CCDSensorTechnology -->
+
+    <SensorTechnology rdf:about="#CCDSensorTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >CCDSensorTechnology</rdfs:label>
+    </SensorTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CMOSSensorTechnology -->
+
+    <SensorTechnology rdf:about="#CMOSSensorTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >CMOSSensorTechnology</rdfs:label>
+    </SensorTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CRTDisplayTechnology -->
+
+    <DisplayTechnology rdf:about="#CRTDisplayTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </DisplayTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CompassPositioningsystem -->
+
+    <PositioningSystem rdf:about="#CompassPositioningsystem">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >CompassPositioningsystem</rdfs:label>
+    </PositioningSystem>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DLNA -->
+
+    <owl:Thing rdf:about="#DLNA">
+        <rdf:type rdf:resource="#StandardAboutDevice"/>
+        <rdfs:label xml:lang="en">DLNA</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DTS-ESAudioEncoding -->
+
+    <owl:Thing rdf:about="#DTS-ESAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >DTS-ESAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DTS-HDAudioEncoding -->
+
+    <AudioEncoding rdf:about="#DTS-HDAudioEncoding">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >DTS-HDAudioEncoding</rdfs:label>
+    </AudioEncoding>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DTSAudioEncoding -->
+
+    <AudioEncoding rdf:about="#DTSAudioEncoding">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >DTSAudioEncoding</rdfs:label>
+    </AudioEncoding>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EGNOSPositioningsystem -->
+
+    <owl:Thing rdf:about="#EGNOSPositioningsystem">
+        <rdf:type rdf:resource="#PositioningSystem"/>
+        <rdfs:label xml:lang="en"
+            >EGNOSPositioningsystem</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#FDAStandard -->
+
+    <owl:Thing rdf:about="#FDAStandard">
+        <rdf:type rdf:resource="#StandardAboutDevice"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GLONASSPositioningsystem -->
+
+    <owl:Thing rdf:about="#GLONASSPositioningsystem">
+        <rdf:type rdf:resource="#PositioningSystem"/>
+        <rdfs:label xml:lang="en"
+            >GLONASSPositioningsystem</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GPSPositioningsystem -->
+
+    <owl:Thing rdf:about="#GPSPositioningsystem">
+        <rdf:type rdf:resource="#PositioningSystem"/>
+        <rdfs:label xml:lang="en"
+            >GPSPositioningsystem</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GalileoPositioningsystem -->
+
+    <PositioningSystem rdf:about="#GalileoPositioningsystem">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >galileoPositioningsystem</rdfs:label>
+    </PositioningSystem>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LCDDisplayTechnology -->
+
+    <owl:Thing rdf:about="#LCDDisplayTechnology">
+        <rdf:type rdf:resource="#DisplayTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LEDFlashTechnology -->
+
+    <FlashTechnology rdf:about="#LEDFlashTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >LEDFlashTechnology</rdfs:label>
+    </FlashTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#OLEDDisplayTechnology -->
+
+    <owl:Thing rdf:about="#OLEDDisplayTechnology">
+        <rdf:type rdf:resource="#DisplayTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SDDSAudioEncoding -->
+
+    <owl:Thing rdf:about="#SDDSAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >SDDSAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SEDDisplayTechnology -->
+
+    <owl:Thing rdf:about="#SEDDisplayTechnology">
+        <rdf:type rdf:resource="#DisplayTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#TFTDisplayTechnology -->
+
+    <owl:Thing rdf:about="#TFTDisplayTechnology">
+        <rdf:type rdf:resource="#DisplayTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#XenonFlashTechnology -->
+
+    <owl:Thing rdf:about="#XenonFlashTechnology">
+        <rdf:type rdf:resource="#FlashTechnology"/>
+        <rdfs:label xml:lang="en"
+            >XenonFlashTechnology</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#acousticPulseRecognitionTouchScreenTechnology -->
+
+    <owl:Thing rdf:about="#acousticPulseRecognitionTouchScreenTechnology">
+        <rdf:type rdf:resource="#TouchScreenTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#acousticWaveTouchScreenTechnology -->
+
+    <owl:Thing rdf:about="#acousticWaveTouchScreenTechnology">
+        <rdf:type rdf:resource="#TouchScreenTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#activeInformationAccessType -->
+
+    <InformationAccessType rdf:about="#activeInformationAccessType">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </InformationAccessType>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#capacitiveTouchScreenTechnology -->
+
+    <TouchScreenTechnology rdf:about="#capacitiveTouchScreenTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TouchScreenTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#continuaHealthAllianceStandard -->
+
+    <owl:Thing rdf:about="#continuaHealthAllianceStandard">
+        <rdf:type rdf:resource="#StandardAboutDevice"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyDigitalAudioEncoding -->
+
+    <AudioEncoding rdf:about="#dolbyDigitalAudioEncoding">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >dolbyDigitalAudioEncoding</rdfs:label>
+    </AudioEncoding>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyDigitalEXAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyDigitalEXAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyDigitalEXAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyDigitalPlusAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyDigitalPlusAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyDigitalPlusAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyProLogicAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyProLogicAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyProLogicAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyProLogicIIAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyProLogicIIAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyProLogicIIAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyProLogicIIxAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyProLogicIIxAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyProLogicIIxAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyProLogicIIzAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyProLogicIIzAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyProLogicIIzAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbySurroundAudioEncoding -->
+
+    <AudioEncoding rdf:about="#dolbySurroundAudioEncoding">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >dolbySurroundAudioEncoding</rdfs:label>
+    </AudioEncoding>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#dolbyTrueHDAudioEncoding -->
+
+    <owl:Thing rdf:about="#dolbyTrueHDAudioEncoding">
+        <rdf:type rdf:resource="#AudioEncoding"/>
+        <rdfs:label xml:lang="en"
+            >dolbyTrueHDAudioEncoding</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#electrochemistryDetectionTechnology -->
+
+    <owl:Thing rdf:about="#electrochemistryDetectionTechnology">
+        <rdf:type rdf:resource="#DetectionTechnology"/>
+        <rdfs:label xml:lang="en"
+            >electrochemistryDetectionTechnology</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#infraredDetectionTechnology -->
+
+    <owl:Thing rdf:about="#infraredDetectionTechnology">
+        <rdf:type rdf:resource="#DetectionTechnology"/>
+        <rdfs:label xml:lang="en"
+            >infraredDetectionTechnology</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#infraredTouchScreenTechnology -->
+
+    <owl:Thing rdf:about="#infraredTouchScreenTechnology">
+        <rdf:type rdf:resource="#TouchScreenTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#laserDisplayTechnology -->
+
+    <owl:Thing rdf:about="#laserDisplayTechnology">
+        <rdf:type rdf:resource="#DisplayTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#microsoftHealthVaulthStandard -->
+
+    <owl:Thing rdf:about="#microsoftHealthVaulthStandard">
+        <rdf:type rdf:resource="#StandardAboutDevice"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#opticalImagingTouchScreenTechnology -->
+
+    <owl:Thing rdf:about="#opticalImagingTouchScreenTechnology">
+        <rdf:type rdf:resource="#TouchScreenTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pasiveInformationAccessType -->
+
+    <owl:Thing rdf:about="#pasiveInformationAccessType">
+        <rdf:type rdf:resource="#InformationAccessType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#penteoAudioEncoding -->
+
+    <AudioEncoding rdf:about="#penteoAudioEncoding">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >penteoAudioEncoding</rdfs:label>
+    </AudioEncoding>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#permanentStorage -->
+
+    <owl:Thing rdf:about="#permanentStorage">
+        <rdf:type rdf:resource="#Storage"/>
+        <rdfs:label xml:lang="en"
+            >permanentStorage</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#photoacousticDetectionTechnology -->
+
+    <DetectionTechnology rdf:about="#photoacousticDetectionTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >photoacousticDetectionTechnology</rdfs:label>
+    </DetectionTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pictbridge -->
+
+    <owl:Thing rdf:about="#pictbridge">
+        <rdf:type rdf:resource="#StandardAboutDevice"/>
+        <rdfs:label xml:lang="en">pictbridge</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#plasmaDisplayTechnology -->
+
+    <DisplayTechnology rdf:about="#plasmaDisplayTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </DisplayTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#pressureSensorTouchScreenTechnology -->
+
+    <owl:Thing rdf:about="#pressureSensorTouchScreenTechnology">
+        <rdf:type rdf:resource="#TouchScreenTechnology"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#resistiveTouchScreenTechnology -->
+
+    <TouchScreenTechnology rdf:about="#resistiveTouchScreenTechnology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TouchScreenTechnology>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#temporaryStorage -->
+
+    <Storage rdf:about="#temporaryStorage">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >temporaryStorage</rdfs:label>
+    </Storage>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

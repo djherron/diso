@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ontologies "http://www.cenitmio.es/ontologies/" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY profile "http://ontologies.ezweb.morfeo-project.org/profile#" >
+    <!ENTITY profile2 "http://ontologies.ezweb.morfeo-project.org/profile.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://ontologies.ezweb.morfeo-project.org/profile.owl#"
+     xml:base="http://ontologies.ezweb.morfeo-project.org/profile.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:profile2="http://ontologies.ezweb.morfeo-project.org/profile.owl#"
+     xmlns:ontologies="http://www.cenitmio.es/ontologies/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:profile="http://ontologies.ezweb.morfeo-project.org/profile#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <dc:contributor>Ivan M&#237;nguez</dc:contributor>
+        <dc:rights
+            >(c) TreeLogic, 2009</dc:rights>
+        <dc:creator>Luis Polo</dc:creator>
+        <dc:contributor
+            >Marcos Sacrist&#225;nt</dc:contributor>
+        <dc:contributor>Diego Berrueta</dc:contributor>
+        <dc:date>2009-12-14</dc:date>
+        <dc:contributor>Pablo L&#243;pez</dc:contributor>
+        <dc:title xml:lang="en"
+            >Roles and Profiles Ontology</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#atSituation -->
+
+    <owl:ObjectProperty rdf:about="#atSituation">
+        <rdfs:label xml:lang="en">at situation</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:range rdf:resource="#Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#personalizes -->
+
+    <owl:ObjectProperty rdf:about="#personalizes">
+        <rdfs:label xml:lang="en">personalizes</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+        <rdfs:domain rdf:resource="#Profile"/>
+        <rdfs:range rdf:resource="#Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#plays -->
+
+    <owl:ObjectProperty rdf:about="#plays">
+        <rdfs:label xml:lang="en">plays</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+        <rdfs:range rdf:resource="#Role"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#profiles -->
+
+    <owl:ObjectProperty rdf:about="#profiles">
+        <rdfs:label xml:lang="en">profiles</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+        <rdfs:range rdf:resource="#Profile"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#requires -->
+
+    <owl:ObjectProperty rdf:about="#requires">
+        <rdfs:label xml:lang="en">requires</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+        <rdfs:domain rdf:resource="#Role"/>
+        <rdfs:range rdf:resource="#Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#specializes -->
+
+    <owl:ObjectProperty rdf:about="#specializes">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">specializes</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property allows to express hierarchies of roles, by means of role specialization: if role A specializes role B, and B specializes C, then role A specializes role C.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Role"/>
+        <rdfs:range rdf:resource="#Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#ConcreteProfile -->
+
+    <owl:Class rdf:about="#ConcreteProfile">
+        <rdfs:label xml:lang="en"
+            >Concrete Profile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Profile"/>
+        <owl:disjointWith rdf:resource="#ConsolidatedProfile"/>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#ConsolidatedProfile -->
+
+    <owl:Class rdf:about="#ConsolidatedProfile">
+        <rdfs:label xml:lang="en"
+            >Consolidated Profile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Profile"/>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#NonSaturatedRole -->
+
+    <owl:Class rdf:about="#NonSaturatedRole">
+        <rdfs:label xml:lang="en"
+            >Non Saturated Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Role"/>
+        <owl:disjointWith rdf:resource="#SaturatedRole"/>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#Profile -->
+
+    <owl:Class rdf:about="#Profile">
+        <owl:disjointWith rdf:resource="#Role"/>
+        <rdfs:comment xml:lang="en"
+            >A profile is interpreted in this ontology as a qua-individual.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#Role -->
+
+    <owl:Class rdf:about="#Role">
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#SaturatedRole -->
+
+    <owl:Class rdf:about="#SaturatedRole">
+        <rdfs:label xml:lang="en">Saturated Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Role"/>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/profile.owl#Situation -->
+
+    <owl:Class rdf:about="#Situation">
+        <rdfs:label xml:lang="en">Situation</rdfs:label>
+        <rdfs:comment xml:lang="en">FIXME</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Group -->
+
+    <owl:Class rdf:about="&foaf;Group"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

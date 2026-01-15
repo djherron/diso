@@ -1,0 +1,2896 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY country "http://www.cenitmio.es/ontologies/Country.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/Country.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/Country.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:country="http://www.cenitmio.es/ontologies/Country.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator>Mar&#237;a Poveda</dc:creator>
+        <rdfs:comment
+            >Ontology Generated from iso3166, which is a Classification Scheme 
+modelled using a Snowflake
+implemented in XML</rdfs:comment>
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <rdfs:comment xml:lang="en"
+            >mIO! Countries Ontology</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#hasCountryName -->
+
+    <owl:DatatypeProperty rdf:about="#hasCountryName">
+        <rdfs:label xml:lang="en"
+            >has country name</rdfs:label>
+        <rdfs:domain rdf:resource="#Country"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#hasISO3166Identifier -->
+
+    <owl:DatatypeProperty rdf:about="#hasISO3166Identifier">
+        <rdfs:label xml:lang="en"
+            >has ISO3166 identifier</rdfs:label>
+        <rdfs:domain rdf:resource="#Country"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country -->
+
+    <owl:Class rdf:about="#Country">
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AD_ANDORRA -->
+
+    <Country rdf:about="#Country_AD_ANDORRA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ANDORRA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AD</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ANDORRA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AE_UNITED_ARAB_EMIRATES -->
+
+    <owl:Thing rdf:about="#Country_AE_UNITED_ARAB_EMIRATES">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >UNITED ARAB EMIRATES</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >UNITED ARAB EMIRATES</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AF_AFGHANISTAN -->
+
+    <owl:Thing rdf:about="#Country_AF_AFGHANISTAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">AFGHANISTAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AF</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">AFGHANISTAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AG_ANTIGUA_AND_BARBUDA -->
+
+    <owl:Thing rdf:about="#Country_AG_ANTIGUA_AND_BARBUDA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >ANTIGUA AND BARBUDA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >ANTIGUA AND BARBUDA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AI_ANGUILLA -->
+
+    <owl:Thing rdf:about="#Country_AI_ANGUILLA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ANGUILLA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ANGUILLA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AL_ALBANIA -->
+
+    <owl:Thing rdf:about="#Country_AL_ALBANIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ALBANIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AL</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ALBANIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AM_ARMENIA -->
+
+    <owl:Thing rdf:about="#Country_AM_ARMENIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ARMENIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ARMENIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AN_NETHERLANDS_ANTILLES -->
+
+    <owl:Thing rdf:about="#Country_AN_NETHERLANDS_ANTILLES">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >NETHERLANDS ANTILLES</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >NETHERLANDS ANTILLES</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AO_ANGOLA -->
+
+    <Country rdf:about="#Country_AO_ANGOLA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ANGOLA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ANGOLA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AO</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AQ_ANTARCTICA -->
+
+    <Country rdf:about="#Country_AQ_ANTARCTICA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ANTARCTICA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ANTARCTICA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AQ</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AR_ARGENTINA -->
+
+    <Country rdf:about="#Country_AR_ARGENTINA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ARGENTINA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ARGENTINA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AS_AMERICAN_SAMOA -->
+
+    <owl:Thing rdf:about="#Country_AS_AMERICAN_SAMOA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">AMERICAN SAMOA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">AMERICAN SAMOA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AS</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AT_AUSTRIA -->
+
+    <owl:Thing rdf:about="#Country_AT_AUSTRIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">AUSTRIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AT</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">AUSTRIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AU_AUSTRALIA -->
+
+    <owl:Thing rdf:about="#Country_AU_AUSTRALIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">AUSTRALIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AU</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">AUSTRALIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AW_ARUBA -->
+
+    <owl:Thing rdf:about="#Country_AW_ARUBA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ARUBA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ARUBA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AW</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AX_%C3%85LAND_ISLANDS -->
+
+    <Country rdf:about="#Country_AX_%C3%85LAND_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">&#197;LAND ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AX</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">&#197;LAND ISLANDS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_AZ_AZERBAIJAN -->
+
+    <Country rdf:about="#Country_AZ_AZERBAIJAN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">AZERBAIJAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">AZ</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">AZERBAIJAN</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BA_BOSNIA_AND_HERZEGOVINA -->
+
+    <Country rdf:about="#Country_BA_BOSNIA_AND_HERZEGOVINA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >BOSNIA AND HERZEGOVINA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >BOSNIA AND HERZEGOVINA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BB_BARBADOS -->
+
+    <Country rdf:about="#Country_BB_BARBADOS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BARBADOS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BARBADOS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BB</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BD_BANGLADESH -->
+
+    <owl:Thing rdf:about="#Country_BD_BANGLADESH">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BANGLADESH</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BANGLADESH</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BD</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BE_BELGIUM -->
+
+    <Country rdf:about="#Country_BE_BELGIUM">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BELGIUM</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">BELGIUM</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BF_BURKINA_FASO -->
+
+    <Country rdf:about="#Country_BF_BURKINA_FASO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BURKINA FASO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BF</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">BURKINA FASO</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BG_BULGARIA -->
+
+    <owl:Thing rdf:about="#Country_BG_BULGARIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BULGARIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">BULGARIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BH_BAHRAIN -->
+
+    <owl:Thing rdf:about="#Country_BH_BAHRAIN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BAHRAIN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BAHRAIN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BH</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BI_BURUNDI -->
+
+    <owl:Thing rdf:about="#Country_BI_BURUNDI">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BURUNDI</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">BURUNDI</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BJ_BENIN -->
+
+    <owl:Thing rdf:about="#Country_BJ_BENIN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BENIN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BENIN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BJ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BM_BERMUDA -->
+
+    <owl:Thing rdf:about="#Country_BM_BERMUDA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BERMUDA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BERMUDA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BM</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BN_BRUNEI_DARUSSALAM -->
+
+    <Country rdf:about="#Country_BN_BRUNEI_DARUSSALAM">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >BRUNEI DARUSSALAM</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >BRUNEI DARUSSALAM</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BO_BOLIVIA -->
+
+    <Country rdf:about="#Country_BO_BOLIVIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BOLIVIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">BOLIVIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BR_BRAZIL -->
+
+    <Country rdf:about="#Country_BR_BRAZIL">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BRAZIL</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">BRAZIL</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BS_BAHAMAS -->
+
+    <owl:Thing rdf:about="#Country_BS_BAHAMAS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BAHAMAS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BAHAMAS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BS</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BT_BHUTAN -->
+
+    <owl:Thing rdf:about="#Country_BT_BHUTAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BHUTAN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BHUTAN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BT</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BV_BOUVET_ISLAND -->
+
+    <Country rdf:about="#Country_BV_BOUVET_ISLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BOUVET ISLAND</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BOUVET ISLAND</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BV</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BW_BOTSWANA -->
+
+    <Country rdf:about="#Country_BW_BOTSWANA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">BOTSWANA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BOTSWANA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BW</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BY_BELARUS -->
+
+    <owl:Thing rdf:about="#Country_BY_BELARUS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BELARUS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BELARUS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BY</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_BZ_BELIZE -->
+
+    <owl:Thing rdf:about="#Country_BZ_BELIZE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">BELIZE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">BELIZE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">BZ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CA_CANADA -->
+
+    <owl:Thing rdf:about="#Country_CA_CANADA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CANADA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">CANADA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CC_COCOS_KEELING_ISLANDS -->
+
+    <Country rdf:about="#Country_CC_COCOS_KEELING_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >COCOS (KEELING) ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >COCOS (KEELING) ISLANDS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CD_CONGO_THE_DEMOCRATIC_REPUBLIC_OF_THE -->
+
+    <owl:Thing rdf:about="#Country_CD_CONGO_THE_DEMOCRATIC_REPUBLIC_OF_THE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >CONGO, THE DEMOCRATIC REPUBLIC OF THE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CD</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >CONGO, THE DEMOCRATIC REPUBLIC OF THE</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CF_CENTRAL_AFRICAN_REPUBLIC -->
+
+    <Country rdf:about="#Country_CF_CENTRAL_AFRICAN_REPUBLIC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >CENTRAL AFRICAN REPUBLIC</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >CENTRAL AFRICAN REPUBLIC</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CF</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CG_CONGO -->
+
+    <owl:Thing rdf:about="#Country_CG_CONGO">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CONGO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">CONGO</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CH_SWITZERLAND -->
+
+    <owl:Thing rdf:about="#Country_CH_SWITZERLAND">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SWITZERLAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CH</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SWITZERLAND</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CI_COTE_D_IVOIRE -->
+
+    <owl:Thing rdf:about="#Country_CI_COTE_D_IVOIRE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">COTE D\&#39;IVOIRE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">COTE D\&#39;IVOIRE</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CK_COOK_ISLANDS -->
+
+    <owl:Thing rdf:about="#Country_CK_COOK_ISLANDS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">COOK ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CK</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">COOK ISLANDS</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CL_CHILE -->
+
+    <Country rdf:about="#Country_CL_CHILE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">CHILE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CHILE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CL</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CM_CAMEROON -->
+
+    <owl:Thing rdf:about="#Country_CM_CAMEROON">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CAMEROON</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CAMEROON</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CM</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CN_CHINA -->
+
+    <owl:Thing rdf:about="#Country_CN_CHINA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CHINA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CHINA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CN</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CO_COLOMBIA -->
+
+    <owl:Thing rdf:about="#Country_CO_COLOMBIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">COLOMBIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">COLOMBIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CR_COSTA_RICA -->
+
+    <Country rdf:about="#Country_CR_COSTA_RICA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">COSTA RICA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">COSTA RICA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CR</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CU_CUBA -->
+
+    <Country rdf:about="#Country_CU_CUBA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">CUBA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CU</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">CUBA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CV_CAPE_VERDE -->
+
+    <Country rdf:about="#Country_CV_CAPE_VERDE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">CAPE VERDE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CAPE VERDE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CV</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CX_CHRISTMAS_ISLAND -->
+
+    <Country rdf:about="#Country_CX_CHRISTMAS_ISLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >CHRISTMAS ISLAND</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >CHRISTMAS ISLAND</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CX</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CY_CYPRUS -->
+
+    <owl:Thing rdf:about="#Country_CY_CYPRUS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CYPRUS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CY</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">CYPRUS</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_CZ_CZECH_REPUBLIC -->
+
+    <Country rdf:about="#Country_CZ_CZECH_REPUBLIC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">CZECH REPUBLIC</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">CZ</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">CZECH REPUBLIC</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_DE_GERMANY -->
+
+    <owl:Thing rdf:about="#Country_DE_GERMANY">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">GERMANY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">DE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GERMANY</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_DJ_DJIBOUTI -->
+
+    <Country rdf:about="#Country_DJ_DJIBOUTI">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">DJIBOUTI</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">DJ</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">DJIBOUTI</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_DK_DENMARK -->
+
+    <Country rdf:about="#Country_DK_DENMARK">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">DENMARK</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">DENMARK</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">DK</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_DM_DOMINICA -->
+
+    <Country rdf:about="#Country_DM_DOMINICA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">DOMINICA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">DM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">DOMINICA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_DO_DOMINICAN_REPUBLIC -->
+
+    <Country rdf:about="#Country_DO_DOMINICAN_REPUBLIC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >DOMINICAN REPUBLIC</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">DO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >DOMINICAN REPUBLIC</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_DZ_ALGERIA -->
+
+    <owl:Thing rdf:about="#Country_DZ_ALGERIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ALGERIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ALGERIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">DZ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_EC_ECUADOR -->
+
+    <owl:Thing rdf:about="#Country_EC_ECUADOR">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ECUADOR</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">EC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ECUADOR</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_EE_ESTONIA -->
+
+    <Country rdf:about="#Country_EE_ESTONIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ESTONIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">EE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ESTONIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_EG_EGYPT -->
+
+    <owl:Thing rdf:about="#Country_EG_EGYPT">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">EGYPT</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">EG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">EGYPT</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_EH_WESTERN_SAHARA -->
+
+    <owl:Thing rdf:about="#Country_EH_WESTERN_SAHARA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">WESTERN SAHARA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">EH</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">WESTERN SAHARA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ER_ERITREA -->
+
+    <Country rdf:about="#Country_ER_ERITREA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ERITREA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ER</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ERITREA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ES_SPAIN -->
+
+    <Country rdf:about="#Country_ES_SPAIN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SPAIN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ES</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SPAIN</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ET_ETHIOPIA -->
+
+    <owl:Thing rdf:about="#Country_ET_ETHIOPIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ETHIOPIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ET</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ETHIOPIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_FI_FINLAND -->
+
+    <Country rdf:about="#Country_FI_FINLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">FINLAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">FI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">FINLAND</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_FJ_FIJI -->
+
+    <owl:Thing rdf:about="#Country_FJ_FIJI">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">FIJI</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">FIJI</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">FJ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_FK_FALKLAND_ISLANDS_MALVINAS_ -->
+
+    <Country rdf:about="#Country_FK_FALKLAND_ISLANDS_MALVINAS_">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >FALKLAND ISLANDS (MALVINAS)</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >FALKLAND ISLANDS (MALVINAS)</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">FK</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_FM_MICRONESIA_FEDERATED_STATES_OF -->
+
+    <Country rdf:about="#Country_FM_MICRONESIA_FEDERATED_STATES_OF">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >MICRONESIA, FEDERATED STATES OF</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">FM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >MICRONESIA, FEDERATED STATES OF</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_FO_FAROE_ISLANDS -->
+
+    <owl:Thing rdf:about="#Country_FO_FAROE_ISLANDS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">FAROE ISLANDS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">FAROE ISLANDS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">FO</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_FR_FRANCE -->
+
+    <Country rdf:about="#Country_FR_FRANCE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">FRANCE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">FR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">FRANCE</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GA_GABON -->
+
+    <owl:Thing rdf:about="#Country_GA_GABON">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">GABON</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GABON</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GB_UNITED_KINGDOM -->
+
+    <owl:Thing rdf:about="#Country_GB_UNITED_KINGDOM">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">UNITED KINGDOM</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GB</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">UNITED KINGDOM</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GD_GRENADA -->
+
+    <Country rdf:about="#Country_GD_GRENADA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GRENADA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GD</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GRENADA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GE_GEORGIA -->
+
+    <Country rdf:about="#Country_GE_GEORGIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GEORGIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GEORGIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GF_FRENCH_GUIANA -->
+
+    <Country rdf:about="#Country_GF_FRENCH_GUIANA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">FRENCH GUIANA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">FRENCH GUIANA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GF</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GG_GUERNSEY -->
+
+    <Country rdf:about="#Country_GG_GUERNSEY">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUERNSEY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GUERNSEY</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GH_GHANA -->
+
+    <Country rdf:about="#Country_GH_GHANA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GHANA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GH</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GHANA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GI_GIBRALTAR -->
+
+    <owl:Thing rdf:about="#Country_GI_GIBRALTAR">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">GIBRALTAR</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GIBRALTAR</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GL_GREENLAND -->
+
+    <Country rdf:about="#Country_GL_GREENLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GREENLAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GL</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GREENLAND</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GM_GAMBIA -->
+
+    <Country rdf:about="#Country_GM_GAMBIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GAMBIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">GAMBIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GM</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GN_GUINEA -->
+
+    <Country rdf:about="#Country_GN_GUINEA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUINEA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GUINEA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GP_GUADELOUPE -->
+
+    <Country rdf:about="#Country_GP_GUADELOUPE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUADELOUPE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GP</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GUADELOUPE</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GQ_EQUATORIAL_GUINEA -->
+
+    <owl:Thing rdf:about="#Country_GQ_EQUATORIAL_GUINEA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >EQUATORIAL GUINEA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >EQUATORIAL GUINEA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GQ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GR_GREECE -->
+
+    <Country rdf:about="#Country_GR_GREECE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GREECE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GREECE</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GS_SOUTH_GEORGIA_AND_THE_SOUTH_SANDWICH_ISLANDS -->
+
+    <Country rdf:about="#Country_GS_SOUTH_GEORGIA_AND_THE_SOUTH_SANDWICH_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GS</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GT_GUATEMALA -->
+
+    <Country rdf:about="#Country_GT_GUATEMALA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUATEMALA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GT</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GUATEMALA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GU_GUAM -->
+
+    <Country rdf:about="#Country_GU_GUAM">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUAM</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GU</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">GUAM</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GW_GUINEA_BISSAU -->
+
+    <owl:Thing rdf:about="#Country_GW_GUINEA_BISSAU">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUINEA-BISSAU</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">GUINEA-BISSAU</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GW</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_GY_GUYANA -->
+
+    <Country rdf:about="#Country_GY_GUYANA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">GUYANA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">GUYANA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">GY</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_HK_HONG_KONG -->
+
+    <owl:Thing rdf:about="#Country_HK_HONG_KONG">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">HONG KONG</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">HK</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">HONG KONG</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_HM_HEARD_ISLAND_AND_MCDONALD_ISLANDS -->
+
+    <Country rdf:about="#Country_HM_HEARD_ISLAND_AND_MCDONALD_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >HEARD ISLAND AND MCDONALD ISLANDS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >HEARD ISLAND AND MCDONALD ISLANDS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">HM</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_HN_HONDURAS -->
+
+    <Country rdf:about="#Country_HN_HONDURAS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">HONDURAS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">HN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">HONDURAS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_HR_CROATIA -->
+
+    <Country rdf:about="#Country_HR_CROATIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">CROATIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CROATIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">HR</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_HT_HAITI -->
+
+    <owl:Thing rdf:about="#Country_HT_HAITI">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">HAITI</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">HAITI</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">HT</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_HU_HUNGARY -->
+
+    <Country rdf:about="#Country_HU_HUNGARY">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">HUNGARY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">HU</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">HUNGARY</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ID_INDONESIA -->
+
+    <owl:Thing rdf:about="#Country_ID_INDONESIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">INDONESIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ID</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">INDONESIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IE_IRELAND -->
+
+    <Country rdf:about="#Country_IE_IRELAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">IRELAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">IRELAND</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IL_ISRAEL -->
+
+    <owl:Thing rdf:about="#Country_IL_ISRAEL">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ISRAEL</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IL</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ISRAEL</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IM_ISLE_OF_MAN -->
+
+    <owl:Thing rdf:about="#Country_IM_ISLE_OF_MAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ISLE OF MAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ISLE OF MAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IN_INDIA -->
+
+    <Country rdf:about="#Country_IN_INDIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">INDIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">INDIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IO_BRITISH_INDIAN_OCEAN_TERRITORY -->
+
+    <owl:Thing rdf:about="#Country_IO_BRITISH_INDIAN_OCEAN_TERRITORY">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >BRITISH INDIAN OCEAN TERRITORY</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >BRITISH INDIAN OCEAN TERRITORY</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IO</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IQ_IRAQ -->
+
+    <Country rdf:about="#Country_IQ_IRAQ">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">IRAQ</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IQ</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">IRAQ</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IR_IRAN_ISLAMIC_REPUBLIC_OF -->
+
+    <owl:Thing rdf:about="#Country_IR_IRAN_ISLAMIC_REPUBLIC_OF">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >IRAN, ISLAMIC REPUBLIC OF</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >IRAN, ISLAMIC REPUBLIC OF</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IS_ICELAND -->
+
+    <owl:Thing rdf:about="#Country_IS_ICELAND">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ICELAND</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ICELAND</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IS</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_IT_ITALY -->
+
+    <owl:Thing rdf:about="#Country_IT_ITALY">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ITALY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">IT</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ITALY</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_JE_JERSEY -->
+
+    <Country rdf:about="#Country_JE_JERSEY">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">JERSEY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">JE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">JERSEY</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_JM_JAMAICA -->
+
+    <owl:Thing rdf:about="#Country_JM_JAMAICA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">JAMAICA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">JAMAICA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">JM</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_JO_JORDAN -->
+
+    <owl:Thing rdf:about="#Country_JO_JORDAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">JORDAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">JO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">JORDAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_JP_JAPAN -->
+
+    <Country rdf:about="#Country_JP_JAPAN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">JAPAN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">JAPAN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">JP</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KE_KENYA -->
+
+    <Country rdf:about="#Country_KE_KENYA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">KENYA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">KENYA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KG_KYRGYZSTAN -->
+
+    <Country rdf:about="#Country_KG_KYRGYZSTAN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">KYRGYZSTAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">KYRGYZSTAN</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KH_CAMBODIA -->
+
+    <Country rdf:about="#Country_KH_CAMBODIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">CAMBODIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CAMBODIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KH</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KI_KIRIBATI -->
+
+    <owl:Thing rdf:about="#Country_KI_KIRIBATI">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">KIRIBATI</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">KIRIBATI</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KM_COMOROS -->
+
+    <owl:Thing rdf:about="#Country_KM_COMOROS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">COMOROS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">COMOROS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KM</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KN_SAINT_KITTS_AND_NEVIS -->
+
+    <owl:Thing rdf:about="#Country_KN_SAINT_KITTS_AND_NEVIS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SAINT KITTS AND NEVIS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SAINT KITTS AND NEVIS</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KP_KOREA_DEMOCRATIC_PEOPLE_S_REPUBLIC_OF -->
+
+    <owl:Thing rdf:about="#Country_KP_KOREA_DEMOCRATIC_PEOPLE_S_REPUBLIC_OF">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >KOREA, DEMOCRATIC PEOPLE\&#39;S REPUBLIC OF</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >KOREA, DEMOCRATIC PEOPLE\&#39;S REPUBLIC OF</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KP</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KR_KOREA_REPUBLIC_OF -->
+
+    <owl:Thing rdf:about="#Country_KR_KOREA_REPUBLIC_OF">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >KOREA, REPUBLIC OF</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >KOREA, REPUBLIC OF</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KR</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KW_KUWAIT -->
+
+    <Country rdf:about="#Country_KW_KUWAIT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">KUWAIT</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">KUWAIT</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KW</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KY_CAYMAN_ISLANDS -->
+
+    <owl:Thing rdf:about="#Country_KY_CAYMAN_ISLANDS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CAYMAN ISLANDS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CAYMAN ISLANDS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KY</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_KZ_KAZAKHSTAN -->
+
+    <Country rdf:about="#Country_KZ_KAZAKHSTAN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">KAZAKHSTAN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">KAZAKHSTAN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">KZ</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LA_LAO_PEOPLE_S_DEMOCRATIC_REPUBLIC -->
+
+    <Country rdf:about="#Country_LA_LAO_PEOPLE_S_DEMOCRATIC_REPUBLIC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >LAO PEOPLE\&#39;S DEMOCRATIC REPUBLIC</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >LAO PEOPLE\&#39;S DEMOCRATIC REPUBLIC</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LB_LEBANON -->
+
+    <Country rdf:about="#Country_LB_LEBANON">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">LEBANON</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LB</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">LEBANON</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LC_SAINT_LUCIA -->
+
+    <Country rdf:about="#Country_LC_SAINT_LUCIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SAINT LUCIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SAINT LUCIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LI_LIECHTENSTEIN -->
+
+    <owl:Thing rdf:about="#Country_LI_LIECHTENSTEIN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">LIECHTENSTEIN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">LIECHTENSTEIN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LK_SRI_LANKA -->
+
+    <owl:Thing rdf:about="#Country_LK_SRI_LANKA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SRI LANKA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LK</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SRI LANKA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LR_LIBERIA -->
+
+    <owl:Thing rdf:about="#Country_LR_LIBERIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">LIBERIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">LIBERIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LR</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LS_LESOTHO -->
+
+    <owl:Thing rdf:about="#Country_LS_LESOTHO">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">LESOTHO</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">LESOTHO</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LS</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LT_LITHUANIA -->
+
+    <Country rdf:about="#Country_LT_LITHUANIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">LITHUANIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">LITHUANIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LT</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LU_LUXEMBOURG -->
+
+    <owl:Thing rdf:about="#Country_LU_LUXEMBOURG">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">LUXEMBOURG</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LU</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">LUXEMBOURG</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LV_LATVIA -->
+
+    <owl:Thing rdf:about="#Country_LV_LATVIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">LATVIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">LATVIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LV</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_LY_LIBYAN_ARAB_JAMAHIRIYA -->
+
+    <Country rdf:about="#Country_LY_LIBYAN_ARAB_JAMAHIRIYA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >LIBYAN ARAB JAMAHIRIYA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >LIBYAN ARAB JAMAHIRIYA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">LY</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MA_MOROCCO -->
+
+    <Country rdf:about="#Country_MA_MOROCCO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MOROCCO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">MOROCCO</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MC_MONACO -->
+
+    <owl:Thing rdf:about="#Country_MC_MONACO">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MONACO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">MONACO</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MD_MOLDOVA_REPUBLIC_OF -->
+
+    <owl:Thing rdf:about="#Country_MD_MOLDOVA_REPUBLIC_OF">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >MOLDOVA, REPUBLIC OF</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MD</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >MOLDOVA, REPUBLIC OF</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ME_MONTENEGRO -->
+
+    <Country rdf:about="#Country_ME_MONTENEGRO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MONTENEGRO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ME</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">MONTENEGRO</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MG_MADAGASCAR -->
+
+    <Country rdf:about="#Country_MG_MADAGASCAR">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MADAGASCAR</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MADAGASCAR</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MG</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MH_MARSHALL_ISLANDS -->
+
+    <Country rdf:about="#Country_MH_MARSHALL_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >MARSHALL ISLANDS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >MARSHALL ISLANDS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MH</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MK_MACEDONIA_THE_FORMER_YUGOSLAV_REPUBLIC_OF -->
+
+    <Country rdf:about="#Country_MK_MACEDONIA_THE_FORMER_YUGOSLAV_REPUBLIC_OF">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MK</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ML_MALI -->
+
+    <owl:Thing rdf:about="#Country_ML_MALI">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MALI</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MALI</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ML</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MM_MYANMAR -->
+
+    <owl:Thing rdf:about="#Country_MM_MYANMAR">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MYANMAR</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">MYANMAR</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MN_MONGOLIA -->
+
+    <Country rdf:about="#Country_MN_MONGOLIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MONGOLIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">MONGOLIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MO_MACAO -->
+
+    <Country rdf:about="#Country_MO_MACAO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MACAO</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MACAO</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MO</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MP_NORTHERN_MARIANA_ISLANDS -->
+
+    <Country rdf:about="#Country_MP_NORTHERN_MARIANA_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >NORTHERN MARIANA ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MP</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >NORTHERN MARIANA ISLANDS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MQ_MARTINIQUE -->
+
+    <owl:Thing rdf:about="#Country_MQ_MARTINIQUE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MARTINIQUE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MARTINIQUE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MQ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MR_MAURITANIA -->
+
+    <Country rdf:about="#Country_MR_MAURITANIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MAURITANIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MAURITANIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MR</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MS_MONTSERRAT -->
+
+    <owl:Thing rdf:about="#Country_MS_MONTSERRAT">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MONTSERRAT</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MONTSERRAT</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MS</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MT_MALTA -->
+
+    <owl:Thing rdf:about="#Country_MT_MALTA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MALTA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MALTA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MT</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MU_MAURITIUS -->
+
+    <owl:Thing rdf:about="#Country_MU_MAURITIUS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MAURITIUS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MAURITIUS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MU</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MV_MALDIVES -->
+
+    <Country rdf:about="#Country_MV_MALDIVES">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MALDIVES</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MALDIVES</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MV</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MW_MALAWI -->
+
+    <owl:Thing rdf:about="#Country_MW_MALAWI">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MALAWI</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MALAWI</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MW</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MX_MEXICO -->
+
+    <Country rdf:about="#Country_MX_MEXICO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">MEXICO</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MEXICO</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MX</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MY_MALAYSIA -->
+
+    <owl:Thing rdf:about="#Country_MY_MALAYSIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MALAYSIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MALAYSIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MY</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_MZ_MOZAMBIQUE -->
+
+    <owl:Thing rdf:about="#Country_MZ_MOZAMBIQUE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MOZAMBIQUE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MOZAMBIQUE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">MZ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NA_NAMIBIA -->
+
+    <Country rdf:about="#Country_NA_NAMIBIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NAMIBIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NAMIBIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NC_NEW_CALEDONIA -->
+
+    <Country rdf:about="#Country_NC_NEW_CALEDONIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NEW CALEDONIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NEW CALEDONIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NE_NIGER -->
+
+    <owl:Thing rdf:about="#Country_NE_NIGER">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">NIGER</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NIGER</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NF_NORFOLK_ISLAND -->
+
+    <Country rdf:about="#Country_NF_NORFOLK_ISLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NORFOLK ISLAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NF</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NORFOLK ISLAND</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NG_NIGERIA -->
+
+    <owl:Thing rdf:about="#Country_NG_NIGERIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">NIGERIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NIGERIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NI_NICARAGUA -->
+
+    <Country rdf:about="#Country_NI_NICARAGUA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NICARAGUA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NICARAGUA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NL_NETHERLANDS -->
+
+    <Country rdf:about="#Country_NL_NETHERLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NETHERLANDS</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">NETHERLANDS</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NL</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NO_NORWAY -->
+
+    <owl:Thing rdf:about="#Country_NO_NORWAY">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">NORWAY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">NORWAY</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NP_NEPAL -->
+
+    <Country rdf:about="#Country_NP_NEPAL">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NEPAL</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">NEPAL</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NP</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NR_NAURU -->
+
+    <Country rdf:about="#Country_NR_NAURU">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NAURU</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">NAURU</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NR</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NU_NIUE -->
+
+    <Country rdf:about="#Country_NU_NIUE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NIUE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">NIUE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NU</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_NZ_NEW_ZEALAND -->
+
+    <Country rdf:about="#Country_NZ_NEW_ZEALAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">NEW ZEALAND</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">NEW ZEALAND</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">NZ</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_OM_OMAN -->
+
+    <owl:Thing rdf:about="#Country_OM_OMAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">OMAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">OM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">OMAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PA_PANAMA -->
+
+    <owl:Thing rdf:about="#Country_PA_PANAMA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">PANAMA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">PANAMA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PE_PERU -->
+
+    <Country rdf:about="#Country_PE_PERU">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">PERU</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">PERU</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PF_FRENCH_POLYNESIA -->
+
+    <owl:Thing rdf:about="#Country_PF_FRENCH_POLYNESIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >FRENCH POLYNESIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >FRENCH POLYNESIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PF</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PG_PAPUA_NEW_GUINEA -->
+
+    <owl:Thing rdf:about="#Country_PG_PAPUA_NEW_GUINEA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >PAPUA NEW GUINEA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >PAPUA NEW GUINEA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PG</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PH_PHILIPPINES -->
+
+    <Country rdf:about="#Country_PH_PHILIPPINES">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">PHILIPPINES</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PH</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">PHILIPPINES</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PK_PAKISTAN -->
+
+    <owl:Thing rdf:about="#Country_PK_PAKISTAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">PAKISTAN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">PAKISTAN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PK</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PL_POLAND -->
+
+    <Country rdf:about="#Country_PL_POLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">POLAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PL</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">POLAND</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PM_SAINT_PIERRE_AND_MIQUELON -->
+
+    <owl:Thing rdf:about="#Country_PM_SAINT_PIERRE_AND_MIQUELON">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SAINT PIERRE AND MIQUELON</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SAINT PIERRE AND MIQUELON</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PN_PITCAIRN -->
+
+    <Country rdf:about="#Country_PN_PITCAIRN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">PITCAIRN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">PITCAIRN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PN</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PR_PUERTO_RICO -->
+
+    <owl:Thing rdf:about="#Country_PR_PUERTO_RICO">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">PUERTO RICO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">PUERTO RICO</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PS_PALESTINIAN_TERRITORY_OCCUPIED -->
+
+    <Country rdf:about="#Country_PS_PALESTINIAN_TERRITORY_OCCUPIED">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >PALESTINIAN TERRITORY, OCCUPIED</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >PALESTINIAN TERRITORY, OCCUPIED</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PS</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PT_PORTUGAL -->
+
+    <owl:Thing rdf:about="#Country_PT_PORTUGAL">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">PORTUGAL</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">PORTUGAL</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PT</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PW_PALAU -->
+
+    <Country rdf:about="#Country_PW_PALAU">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">PALAU</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">PALAU</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PW</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_PY_PARAGUAY -->
+
+    <owl:Thing rdf:about="#Country_PY_PARAGUAY">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">PARAGUAY</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">PARAGUAY</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">PY</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_QA_QATAR -->
+
+    <Country rdf:about="#Country_QA_QATAR">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">QATAR</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">QA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">QATAR</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_RE_REUNION -->
+
+    <Country rdf:about="#Country_RE_REUNION">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">REUNION</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">RE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">REUNION</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_RO_ROMANIA -->
+
+    <owl:Thing rdf:about="#Country_RO_ROMANIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROMANIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">RO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">ROMANIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_RS_SERBIA -->
+
+    <Country rdf:about="#Country_RS_SERBIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SERBIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">RS</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SERBIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_RU_RUSSIAN_FEDERATION -->
+
+    <owl:Thing rdf:about="#Country_RU_RUSSIAN_FEDERATION">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >RUSSIAN FEDERATION</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">RU</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >RUSSIAN FEDERATION</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_RW_RWANDA -->
+
+    <owl:Thing rdf:about="#Country_RW_RWANDA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">RWANDA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">RW</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">RWANDA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SA_SAUDI_ARABIA -->
+
+    <owl:Thing rdf:about="#Country_SA_SAUDI_ARABIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SAUDI ARABIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SAUDI ARABIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SB_SOLOMON_ISLANDS -->
+
+    <owl:Thing rdf:about="#Country_SB_SOLOMON_ISLANDS">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SOLOMON ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SB</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SOLOMON ISLANDS</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SC_SEYCHELLES -->
+
+    <Country rdf:about="#Country_SC_SEYCHELLES">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SEYCHELLES</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SEYCHELLES</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SD_SUDAN -->
+
+    <owl:Thing rdf:about="#Country_SD_SUDAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SUDAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SD</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SUDAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SE_SWEDEN -->
+
+    <owl:Thing rdf:about="#Country_SE_SWEDEN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SWEDEN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SWEDEN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SG_SINGAPORE -->
+
+    <owl:Thing rdf:about="#Country_SG_SINGAPORE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SINGAPORE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SINGAPORE</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SH_SAINT_HELENA -->
+
+    <owl:Thing rdf:about="#Country_SH_SAINT_HELENA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SAINT HELENA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SAINT HELENA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SH</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SI_SLOVENIA -->
+
+    <owl:Thing rdf:about="#Country_SI_SLOVENIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SLOVENIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SLOVENIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SJ_SVALBARD_AND_JAN_MAYEN -->
+
+    <Country rdf:about="#Country_SJ_SVALBARD_AND_JAN_MAYEN">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SVALBARD AND JAN MAYEN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SJ</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SVALBARD AND JAN MAYEN</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SK_SLOVAKIA -->
+
+    <Country rdf:about="#Country_SK_SLOVAKIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SLOVAKIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SK</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SLOVAKIA</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SL_SIERRA_LEONE -->
+
+    <Country rdf:about="#Country_SL_SIERRA_LEONE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SIERRA LEONE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SIERRA LEONE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SL</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SM_SAN_MARINO -->
+
+    <owl:Thing rdf:about="#Country_SM_SAN_MARINO">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SAN MARINO</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SAN MARINO</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SM</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SN_SENEGAL -->
+
+    <Country rdf:about="#Country_SN_SENEGAL">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SENEGAL</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SENEGAL</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SN</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SO_SOMALIA -->
+
+    <owl:Thing rdf:about="#Country_SO_SOMALIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SOMALIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SOMALIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SR_SURINAME -->
+
+    <Country rdf:about="#Country_SR_SURINAME">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SURINAME</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">SURINAME</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ST_SAO_TOME_AND_PRINCIPE -->
+
+    <owl:Thing rdf:about="#Country_ST_SAO_TOME_AND_PRINCIPE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SAO TOME AND PRINCIPE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SAO TOME AND PRINCIPE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ST</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SV_EL_SALVADOR -->
+
+    <Country rdf:about="#Country_SV_EL_SALVADOR">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">EL SALVADOR</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">EL SALVADOR</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SV</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SY_SYRIAN_ARAB_REPUBLIC -->
+
+    <owl:Thing rdf:about="#Country_SY_SYRIAN_ARAB_REPUBLIC">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SYRIAN ARAB REPUBLIC</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SY</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SYRIAN ARAB REPUBLIC</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_SZ_SWAZILAND -->
+
+    <owl:Thing rdf:about="#Country_SZ_SWAZILAND">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">SWAZILAND</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SWAZILAND</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">SZ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TC_TURKS_AND_CAICOS_ISLANDS -->
+
+    <Country rdf:about="#Country_TC_TURKS_AND_CAICOS_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >TURKS AND CAICOS ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TC</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >TURKS AND CAICOS ISLANDS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TD_CHAD -->
+
+    <owl:Thing rdf:about="#Country_TD_CHAD">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">CHAD</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">CHAD</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TD</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TF_FRENCH_SOUTHERN_TERRITORIES -->
+
+    <owl:Thing rdf:about="#Country_TF_FRENCH_SOUTHERN_TERRITORIES">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >FRENCH SOUTHERN TERRITORIES</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >FRENCH SOUTHERN TERRITORIES</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TF</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TG_TOGO -->
+
+    <Country rdf:about="#Country_TG_TOGO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">TOGO</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">TOGO</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TH_THAILAND -->
+
+    <Country rdf:about="#Country_TH_THAILAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">THAILAND</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TH</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">THAILAND</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TJ_TAJIKISTAN -->
+
+    <owl:Thing rdf:about="#Country_TJ_TAJIKISTAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">TAJIKISTAN</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">TAJIKISTAN</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TJ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TK_TOKELAU -->
+
+    <owl:Thing rdf:about="#Country_TK_TOKELAU">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">TOKELAU</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TK</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">TOKELAU</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TL_TIMOR_LESTE -->
+
+    <Country rdf:about="#Country_TL_TIMOR_LESTE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">TIMOR-LESTE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">TIMOR-LESTE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TL</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TM_TURKMENISTAN -->
+
+    <owl:Thing rdf:about="#Country_TM_TURKMENISTAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">TURKMENISTAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">TURKMENISTAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TN_TUNISIA -->
+
+    <owl:Thing rdf:about="#Country_TN_TUNISIA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">TUNISIA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TN</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">TUNISIA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TO_TONGA -->
+
+    <owl:Thing rdf:about="#Country_TO_TONGA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">TONGA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TO</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">TONGA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TR_TURKEY -->
+
+    <Country rdf:about="#Country_TR_TURKEY">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">TURKEY</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TR</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">TURKEY</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TT_TRINIDAD_AND_TOBAGO -->
+
+    <Country rdf:about="#Country_TT_TRINIDAD_AND_TOBAGO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >TRINIDAD AND TOBAGO</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >TRINIDAD AND TOBAGO</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TT</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TV_TUVALU -->
+
+    <owl:Thing rdf:about="#Country_TV_TUVALU">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">TUVALU</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">TUVALU</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TV</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TW_TAIWAN_PROVINCE_OF_CHINA -->
+
+    <owl:Thing rdf:about="#Country_TW_TAIWAN_PROVINCE_OF_CHINA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >TAIWAN, PROVINCE OF CHINA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >TAIWAN, PROVINCE OF CHINA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TW</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_TZ_TANZANIA_UNITED_REPUBLIC_OF -->
+
+    <owl:Thing rdf:about="#Country_TZ_TANZANIA_UNITED_REPUBLIC_OF">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >TANZANIA, UNITED REPUBLIC OF</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >TANZANIA, UNITED REPUBLIC OF</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">TZ</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_UA_UKRAINE -->
+
+    <owl:Thing rdf:about="#Country_UA_UKRAINE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">UKRAINE</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">UA</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">UKRAINE</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_UG_UGANDA -->
+
+    <owl:Thing rdf:about="#Country_UG_UGANDA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">UGANDA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">UG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">UGANDA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_UM_UNITED_STATES_MINOR_OUTLYING_ISLANDS -->
+
+    <Country rdf:about="#Country_UM_UNITED_STATES_MINOR_OUTLYING_ISLANDS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >UNITED STATES MINOR OUTLYING ISLANDS</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">UM</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >UNITED STATES MINOR OUTLYING ISLANDS</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_US_UNITED_STATES -->
+
+    <owl:Thing rdf:about="#Country_US_UNITED_STATES">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">UNITED STATES</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">UNITED STATES</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">US</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_UY_URUGUAY -->
+
+    <owl:Thing rdf:about="#Country_UY_URUGUAY">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">URUGUAY</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">URUGUAY</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">UY</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_UZ_UZBEKISTAN -->
+
+    <owl:Thing rdf:about="#Country_UZ_UZBEKISTAN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">UZBEKISTAN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">UZ</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">UZBEKISTAN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VA_HOLY_SEE_VATICAN_CITY_STATE_ -->
+
+    <owl:Thing rdf:about="#Country_VA_HOLY_SEE_VATICAN_CITY_STATE_">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >HOLY SEE (VATICAN CITY STATE)</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >HOLY SEE (VATICAN CITY STATE)</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VA</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VC_SAINT_VINCENT_AND_THE_GRENADINES -->
+
+    <Country rdf:about="#Country_VC_SAINT_VINCENT_AND_THE_GRENADINES">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >SAINT VINCENT AND THE GRENADINES</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >SAINT VINCENT AND THE GRENADINES</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VC</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VE_VENEZUELA -->
+
+    <owl:Thing rdf:about="#Country_VE_VENEZUELA">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">VENEZUELA</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">VENEZUELA</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VG_VIRGIN_ISLANDS_BRITISH -->
+
+    <Country rdf:about="#Country_VG_VIRGIN_ISLANDS_BRITISH">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >VIRGIN ISLANDS, BRITISH</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VG</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >VIRGIN ISLANDS, BRITISH</hasCountryName>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VI_VIRGIN_ISLANDS_U_S_ -->
+
+    <owl:Thing rdf:about="#Country_VI_VIRGIN_ISLANDS_U_S_">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >VIRGIN ISLANDS, U.S.</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VI</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >VIRGIN ISLANDS, U.S.</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VN_VIET_NAM -->
+
+    <Country rdf:about="#Country_VN_VIET_NAM">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">VIET NAM</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">VIET NAM</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VN</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_VU_VANUATU -->
+
+    <owl:Thing rdf:about="#Country_VU_VANUATU">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">VANUATU</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">VANUATU</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">VU</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_WF_WALLIS_AND_FUTUNA -->
+
+    <Country rdf:about="#Country_WF_WALLIS_AND_FUTUNA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >WALLIS AND FUTUNA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string"
+            >WALLIS AND FUTUNA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">WF</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_WS_SAMOA -->
+
+    <Country rdf:about="#Country_WS_SAMOA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SAMOA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SAMOA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">WS</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_YE_YEMEN -->
+
+    <owl:Thing rdf:about="#Country_YE_YEMEN">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">YEMEN</rdfs:label>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">YE</hasISO3166Identifier>
+        <hasCountryName rdf:datatype="&xsd;string">YEMEN</hasCountryName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_YT_MAYOTTE -->
+
+    <owl:Thing rdf:about="#Country_YT_MAYOTTE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">MAYOTTE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">MAYOTTE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">YT</hasISO3166Identifier>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ZA_SOUTH_AFRICA -->
+
+    <Country rdf:about="#Country_ZA_SOUTH_AFRICA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">SOUTH AFRICA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">SOUTH AFRICA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ZA</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ZM_ZAMBIA -->
+
+    <Country rdf:about="#Country_ZM_ZAMBIA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">ZAMBIA</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ZAMBIA</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ZM</hasISO3166Identifier>
+    </Country>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Country.owl#Country_ZW_ZIMBABWE -->
+
+    <owl:Thing rdf:about="#Country_ZW_ZIMBABWE">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label rdf:datatype="&xsd;string">ZIMBABWE</rdfs:label>
+        <hasCountryName rdf:datatype="&xsd;string">ZIMBABWE</hasCountryName>
+        <hasISO3166Identifier rdf:datatype="&xsd;string">ZW</hasISO3166Identifier>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

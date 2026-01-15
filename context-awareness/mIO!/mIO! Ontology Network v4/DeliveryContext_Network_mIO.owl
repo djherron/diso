@@ -1,0 +1,639 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
+    <!ENTITY ruleml "http://www.w3.org/2003/11/ruleml#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owlx "http://www.w3.org/2003/05/owl-xml#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY kaon2 "http://kaon2.semanticweb.org/internal#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DeliveryContext "http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#"
+     xml:base="http://www.w3.org/2007/uwa/ontologies/DeliveryContext_Network.owl"
+     xmlns:DeliveryContext="http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#"
+     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:kaon2="http://kaon2.semanticweb.org/internal#"
+     xmlns:owlx="http://www.w3.org/2003/05/owl-xml#"
+     xmlns:ruleml="http://www.w3.org/2003/11/ruleml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment xml:lang="en"
+            >Ontology module about Network extracted from Delivery Context Ontology.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#activeNetworkBearer -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;activeNetworkBearer">
+        <rdfs:range rdf:resource="&DeliveryContext;AvailableNetworkBearer"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkSupport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#availableNetworkBearers -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;availableNetworkBearers">
+        <rdfs:range rdf:resource="&DeliveryContext;AvailableNetworkBearer"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkEnvironment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#bearerNetwork -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;bearerNetwork">
+        <rdfs:range rdf:resource="&DeliveryContext;MobileNetwork"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkBearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#bearerType -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;bearerType">
+        <rdfs:range rdf:resource="&DeliveryContext;BearerType"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkBearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#homeNetwork -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;homeNetwork">
+        <rdfs:range rdf:resource="&DeliveryContext;MobileNetwork"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkSupport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#networkMode -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;networkMode">
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkBearer"/>
+        <rdfs:range rdf:resource="&DeliveryContext;NetworkMode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#networkType -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;networkType">
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkMode"/>
+        <rdfs:range rdf:resource="&DeliveryContext;NetworkType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#operatingNetworkBearer -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;operatingNetworkBearer">
+        <rdfs:range rdf:resource="&DeliveryContext;AvailableNetworkBearer"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkEnvironment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#supportedNetworkBearers -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;supportedNetworkBearers">
+        <rdfs:range rdf:resource="&DeliveryContext;NetworkBearer"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkSupport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#supportedNetworkModes -->
+
+    <owl:ObjectProperty rdf:about="&DeliveryContext;supportedNetworkModes">
+        <rdfs:range rdf:resource="&DeliveryContext;NetworkMode"/>
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkSupport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#addressType -->
+
+    <owl:DatatypeProperty rdf:about="&DeliveryContext;addressType">
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkBearer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#alternativeNames -->
+
+    <owl:DatatypeProperty rdf:about="&DeliveryContext;alternativeNames">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&DeliveryContext;BearerType"/>
+                    <rdf:Description rdf:about="&DeliveryContext;NetworkType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#networkIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="&DeliveryContext;networkIdentifier">
+        <rdfs:domain rdf:resource="&DeliveryContext;MobileNetwork"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#networkName -->
+
+    <owl:DatatypeProperty rdf:about="&DeliveryContext;networkName">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&DeliveryContext;BearerType"/>
+                    <rdf:Description rdf:about="&DeliveryContext;MobileNetwork"/>
+                    <rdf:Description rdf:about="&DeliveryContext;NetworkType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#operationBands -->
+
+    <owl:DatatypeProperty rdf:about="&DeliveryContext;operationBands">
+        <rdfs:domain rdf:resource="&DeliveryContext;NetworkMode"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#AvailableNetworkBearer -->
+
+    <owl:Class rdf:about="&DeliveryContext;AvailableNetworkBearer">
+        <rdfs:subClassOf rdf:resource="&DeliveryContext;NetworkBearer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;bearerNetwork"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#BearerType -->
+
+    <owl:Class rdf:about="&DeliveryContext;BearerType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;networkName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#MobileNetwork -->
+
+    <owl:Class rdf:about="&DeliveryContext;MobileNetwork">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;networkName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;networkIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkBearer -->
+
+    <owl:Class rdf:about="&DeliveryContext;NetworkBearer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;bearerType"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;networkMode"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkEnvironment -->
+
+    <owl:Class rdf:about="&DeliveryContext;NetworkEnvironment">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;operatingNetworkBearer"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkMode -->
+
+    <owl:Class rdf:about="&DeliveryContext;NetworkMode">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;networkType"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;operationBands"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkSupport -->
+
+    <owl:Class rdf:about="&DeliveryContext;NetworkSupport">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;supportedNetworkBearers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;supportedNetworkModes"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType -->
+
+    <owl:Class rdf:about="&DeliveryContext;NetworkType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DeliveryContext;networkName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#BearerType_GPRS -->
+
+    <BearerType rdf:about="&DeliveryContext;BearerType_GPRS">
+        <networkName rdf:datatype="&xsd;string">GPRS</networkName>
+    </BearerType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#BearerType_SMS -->
+
+    <BearerType rdf:about="&DeliveryContext;BearerType_SMS">
+        <networkName rdf:datatype="&xsd;string">SMS</networkName>
+    </BearerType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#GSM_900_1800_1900 -->
+
+    <NetworkMode rdf:about="&DeliveryContext;GSM_900_1800_1900">
+        <operationBands rdf:datatype="&xsd;long">1800</operationBands>
+        <operationBands rdf:datatype="&xsd;long">1900</operationBands>
+        <operationBands rdf:datatype="&xsd;long">900</operationBands>
+        <networkType rdf:resource="&DeliveryContext;NetworkType_GSM"/>
+    </NetworkMode>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#GSM_GPRS_IPV4 -->
+
+    <NetworkBearer rdf:about="&DeliveryContext;GSM_GPRS_IPV4">
+        <addressType rdf:datatype="&xsd;string">Ipv4</addressType>
+        <bearerType rdf:resource="&DeliveryContext;BearerType_GPRS"/>
+        <networkMode rdf:resource="&DeliveryContext;GSM_900_1800_1900"/>
+    </NetworkBearer>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#GSM_GPRS_IPV4_MN1 -->
+
+    <AvailableNetworkBearer rdf:about="&DeliveryContext;GSM_GPRS_IPV4_MN1">
+        <addressType rdf:datatype="&xsd;string">Ipv4</addressType>
+        <bearerType rdf:resource="&DeliveryContext;BearerType_GPRS"/>
+        <networkMode rdf:resource="&DeliveryContext;GSM_900_1800_1900"/>
+    </AvailableNetworkBearer>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#GSM_SMS_MSISDN -->
+
+    <NetworkBearer rdf:about="&DeliveryContext;GSM_SMS_MSISDN">
+        <addressType rdf:datatype="&xsd;string">GSM_MSISDN</addressType>
+        <bearerType rdf:resource="&DeliveryContext;BearerType_SMS"/>
+        <networkMode rdf:resource="&DeliveryContext;GSM_900_1800_1900"/>
+    </NetworkBearer>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkEnvironment_1 -->
+
+    <NetworkEnvironment rdf:about="&DeliveryContext;NetworkEnvironment_1">
+        <operatingNetworkBearer rdf:resource="&DeliveryContext;GSM_GPRS_IPV4_MN1"/>
+        <availableNetworkBearers rdf:resource="&DeliveryContext;GSM_GPRS_IPV4_MN1"/>
+    </NetworkEnvironment>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkProtocol_21 -->
+
+    <rdf:Description rdf:about="&DeliveryContext;NetworkProtocol_21">
+        <networkName rdf:datatype="&xsd;string">W-HTTP</networkName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkProtocol_22 -->
+
+    <rdf:Description rdf:about="&DeliveryContext;NetworkProtocol_22">
+        <networkName rdf:datatype="&xsd;string">HTTPS</networkName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkProtocol_23 -->
+
+    <rdf:Description rdf:about="&DeliveryContext;NetworkProtocol_23">
+        <networkName rdf:datatype="&xsd;string">FTP</networkName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkProtocol_24 -->
+
+    <rdf:Description rdf:about="&DeliveryContext;NetworkProtocol_24">
+        <networkName rdf:datatype="&xsd;string">HTTP</networkName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_AMPS -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_AMPS">
+        <networkName rdf:datatype="&xsd;string">AMPS</networkName>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_ANSI-136 -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_ANSI-136">
+        <networkName rdf:datatype="&xsd;string">ANSI-136</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">D-AMPS</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">IS-136</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">TDMA</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_CDMA2000_1xRTT -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_CDMA2000_1xRTT">
+        <alternativeNames rdf:datatype="&xsd;string">1x</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">1xRTT</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">1xrtt</alternativeNames>
+        <networkName rdf:datatype="&xsd;string">CDMA2000_1xRTT</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">IS-2000</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">IS2000</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_CDMA2000_EVDO -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_CDMA2000_EVDO">
+        <networkName rdf:datatype="&xsd;string">CDMA2000_EVDO</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">EV</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">EVDO</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_CDMA2000_EVDV -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_CDMA2000_EVDV">
+        <networkName rdf:datatype="&xsd;string">CDMA2000_EVDV</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">DV</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">EV-DV</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_GSM -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_GSM">
+        <networkName rdf:datatype="&xsd;string">GSM</networkName>
+        <alternativeNames rdf:datatype="&xsd;string"
+            >Global System for Mobile Communications</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_HSDPA -->
+
+    <BearerType rdf:about="&DeliveryContext;NetworkType_HSDPA">
+        <networkName rdf:datatype="&xsd;string">HSDPA</networkName>
+    </BearerType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_IEEE_802.11a -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_IEEE_802.11a">
+        <alternativeNames rdf:datatype="&xsd;string">802.11a</alternativeNames>
+        <networkName rdf:datatype="&xsd;string">IEEE_802.11a</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">Wi-Fi</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">WiFi</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_IEEE_802.11b -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_IEEE_802.11b">
+        <alternativeNames rdf:datatype="&xsd;string">802.11b</alternativeNames>
+        <networkName rdf:datatype="&xsd;string">IEEE_802.11b</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">Wi-Fi</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">WiFi</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_IEEE_802.11g -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_IEEE_802.11g">
+        <alternativeNames rdf:datatype="&xsd;string">802.11g</alternativeNames>
+        <networkName rdf:datatype="&xsd;string">IEEE_802.11g</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">Wi-Fi</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">WiFi</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_IS-95 -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_IS-95">
+        <networkName rdf:datatype="&xsd;string">IS-95</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">TIA-EIA-95</alternativeNames>
+        <alternativeNames rdf:datatype="&xsd;string">cdmaOne</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_Mobitex -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_Mobitex">
+        <networkName rdf:datatype="&xsd;string">Mobitex</networkName>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_PDC -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_PDC">
+        <networkName rdf:datatype="&xsd;string">PDC</networkName>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_PHS -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_PHS">
+        <alternativeNames rdf:datatype="&xsd;string">PAS</alternativeNames>
+        <networkName rdf:datatype="&xsd;string">PHS</networkName>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_TD-SCDMA -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_TD-SCDMA">
+        <networkName rdf:datatype="&xsd;string">TD-SCDMA</networkName>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_TETRA -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_TETRA">
+        <networkName rdf:datatype="&xsd;string">TETRA</networkName>
+        <alternativeNames rdf:datatype="&xsd;string"
+            >Trans European Trunked RAdio</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_UMTS_W-CDMA -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_UMTS_W-CDMA">
+        <alternativeNames rdf:datatype="&xsd;string">UMTS</alternativeNames>
+        <networkName rdf:datatype="&xsd;string">W-CDMA</networkName>
+        <alternativeNames rdf:datatype="&xsd;string">WCDMA</alternativeNames>
+    </NetworkType>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType_iDEN -->
+
+    <NetworkType rdf:about="&DeliveryContext;NetworkType_iDEN">
+        <networkName rdf:datatype="&xsd;string">iDEN</networkName>
+    </NetworkType>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+
