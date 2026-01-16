@@ -28,4 +28,31 @@ It is clear from the NDTP diagram that it is not only DISO `smart-environment` o
 
 The diagram also shows that the **IMF** needs its own **top-level** (upper-level) ontology, as well as **mid-level** ontology (the FDM and RDL depected in the diagram). With version 5 of **IES**, released in November 2025, these **IMF-specific** top-level and mid-level ontologies have been delivered.  The **IMF-specific** **top-level** ontology is called `ies-top`; the **mid-level** ontology (corresponding roughly to the FDM/RDL) is called `ies-core`.  See the **IES** entry in DISO cluster `information-exchange` for these ontologies.
 
+## The IMF (Information Management Framework)
+
+The following diagram, from the Digital Twin Hub website [1], provides a conceptual view of the architecture of the NDTP's **IMF** (Information Management Framework).
+
+![IMF](The_7_circles_of_Information_Management_(NDTP).png "The 7 circles of Information Management (NDTP)")
+
+As of version 5 of **IES**,:
+* the **IES-top** ontology corresponds to the IMF layer 2: **Top Level Ontology**
+* the **IES-core** ontology corresponds roughly to the IMF layer 3:  **Foundation Data Model**
+* and **IES** itself is a component of the IMF layer 5: **Integration Architecture**
+
+## NDTP analysis of upper-level ontologies
+
+The following diagram, from an NDTP publication [2], shows the set of **upper-level** ontologies reviewed and considered by the team responsible for designing the **IMF's** top-level ontology.  The diagram classifies this set of top-level ontologies according to the requirements for the **IMF's** top-level ontology, as identified by the **IMF** team.
+
+![top-level-onto-classification](top-level_ontology_classification_(NDTP).png "Top-level ontology classification for IMF by NDTP")
+
+At the heart of the diagram we see the 4 top-level ontologies that satisify all of the NDTP's requirements for the **IMF's** top-level ontology. These are all variants of **BORO** which is proprietary. DISO does not contain any of these 4 ontologies.
+
+However, DISO contains several of the nearby ontologies that satisfy many or most of the NDTP's requirements, such as: BFO, a version of UFO called gUFO, GFO and DOLCE.
+
+---
+[1] https://digitaltwinhub.co.uk/information-management-framework-imf/7-circles-of-information-management/
+
+[2] `The Approach to Develop the Foundation Data Model for the Information Management Framework (NDTP, 2020)`
+
+
 
