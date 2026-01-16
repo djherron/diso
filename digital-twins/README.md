@@ -15,14 +15,15 @@ A digital twin:
 
 ## The UK's National Digital Twin Programme
 
-https://ndtp.co.uk/
+NDTP website:
+* https://ndtp.co.uk/
 
 The following diagram (a cross between a knowledge graph and a mind-map) describes the UK's National Digital Twin Programme:
 
 ![NDTP](NDTP-KG-Mindmap.png "UK National Digital Twin Programme")
 
+It is clear from the NDTP diagram that it is not only DISO `smart-environment` ontologies that have relevance to the concept of **digital twins** and the UK **national digital twin** vision. The **IES** ontology, in the DISO `information-exchange` cluster, plays a key role in enabling the **IMF** (Information Management Framework) component of the **NDTP**.
 
-
-
+The diagram also shows that the **IMF** needs its own **top-level** (upper-level) ontology, as well as **mid-level** ontology (the FDM and RDL depected in the diagram). With version 5 of **IES**, released in November 2025, these **IMF-specific** top-level and mid-level ontologies have been delivered.  The **IMF-specific** **top-level** ontology is called `ies-top`; the **mid-level** ontology (corresponding roughly to the FDM/RDL) is called `ies-core`.  See the **IES** entry in DISO cluster `information-exchange` for these ontologies.
 
 
