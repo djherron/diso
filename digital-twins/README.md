@@ -9,7 +9,9 @@ Digital twins, as defined by the UK's **National Digital Twin Programme**:
 
 A digital twin:
 > is a **digital representation of a physical-world entity or environment or a process** that includes a **two-way data flow** into and out of the physical world; (ie to/from the physical thing and its digital twin)
+
 > replicates its physical-world counterpart to a known tolerance, performs without statistical bias, and is **able to predict what the associated physical-world entity would do given a stimulus**; and
+
 > provides a level of **prediction confidence** within specified validation envelope and an associated **assumption set**
 
 
