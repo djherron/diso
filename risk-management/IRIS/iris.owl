@@ -1,0 +1,1577 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+    xmlns="http://lpis.csd.auth.gr/ontologies/2010/iris.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+  xml:base="http://lpis.csd.auth.gr/ontologies/2010/iris.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="RiskEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RiskVariable"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DesignProcedureRisks">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:ID="consistsOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="DesignProcedureRisk"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#DesignProcedureRisk"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DES</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >DES</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:ID="GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="HumanImpact">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RiskImpact"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RiskImpact">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The negative result or effect of an event. There may be a range of possible impacts associated with an event. (only negative effects are considered here)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RiskVariable"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RiskVariable">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProbabilisticConcept"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LegalRisks">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LEG</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="LegalRisk"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#LegalRisk"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >LEG</owl:hasValue>
+          </owl:Restriction>
+          <owl:Class rdf:about="#GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="EnvironmentalRisk">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConstructionRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OperationalRisk"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ENV</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:ID="Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TechnicalStructuralRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasImpact"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="EnvironmentImpact"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LegalRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FinancialRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="EnvironmentalRisks"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ENV</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DesignProcedureRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#EnvironmentalRisks"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="QuantitativeConcept">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="IRISConcept"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentalRisks">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ENV</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ENV</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#EnvironmentalRisk"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#EnvironmentalRisk"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#OperationalRisk">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DesignProcedureRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="OperationalRisks"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EnvironmentalRisk"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OPER</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >OPER</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstructionRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FinancialRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#OperationalRisks"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasImpact"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="CostImpact"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TechnicalStructuralRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LegalRisk"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialRisks">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#FinancialRisk"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#FinancialRisk"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >FIN</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FIN</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RiskFactor">
+    <rdfs:subClassOf rdf:resource="#RiskVariable"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A measurable characteristic, element or variable that can cause a risk to occur.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CaseStudy">
+    <rdfs:subClassOf rdf:resource="#IRISConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GroupOfRisks">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RiskCase"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CollectionOfConcepts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FinancialRisk">
+    <owl:disjointWith rdf:resource="#OperationalRisk"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#FinancialRisks"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EnvironmentalRisk"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#CostImpact"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasImpact"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LegalRisk"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >FIN</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DesignProcedureRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TechnicalStructuralRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#FinancialRisks"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FIN</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstructionRisk"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="RiskComponent">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A constituent of risk, which is identifiable upon risk occurrence and its presence denotes the occurrence of the risk.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#RiskVariable"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Risk">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasImpact"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasFactor"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RiskCase"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#GroupOfRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProbabilisticConcept"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#GroupOfRisks"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TechnicalStructuralRisks">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TechnicalStructuralRisk"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TechnicalStructuralRisk"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TECH</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >TECH</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#OperationalRisks">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#OperationalRisk"/>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#OperationalRisk"/>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >OPER</owl:hasValue>
+          </owl:Restriction>
+          <owl:Class rdf:about="#GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OPER</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#LegalRisk">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstructionRisk"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >LEG</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DesignProcedureRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TechnicalStructuralRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#FinancialRisk"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#LegalRisks"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LEG</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#LegalRisks"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#OperationalRisk"/>
+    <owl:disjointWith rdf:resource="#EnvironmentalRisk"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ConstructionRisks">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CON</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CON</owl:hasValue>
+          </owl:Restriction>
+          <owl:Class rdf:about="#GroupOfRisks"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#ConstructionRisk"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#ConstructionRisk"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Risk"/>
+      <owl:Class rdf:about="#GroupOfRisks"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentImpact">
+    <rdfs:subClassOf rdf:resource="#RiskImpact"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RiskMechanism">
+    <rdfs:subClassOf rdf:resource="#RiskVariable"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The sequence of the driving forces that result to the occurrence of a risk. Risk occurrence is the result of relations of events, processes conditions and system reactions that all together constitute a risk occurrence mechanism.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ProbabilisticConcept">
+    <rdfs:subClassOf rdf:resource="#QuantitativeConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CollectionOfConcepts">
+    <rdfs:subClassOf rdf:resource="#IRISConcept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RiskProbability">
+    <rdfs:subClassOf rdf:resource="#QuantitativeConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CostImpact">
+    <rdfs:subClassOf rdf:resource="#RiskImpact"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DesignProcedureRisk">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TechnicalStructuralRisk"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DES</rdfs:comment>
+    <owl:disjointWith rdf:resource="#LegalRisk"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#DesignProcedureRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#OperationalRisk"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >DES</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstructionRisk"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#DesignProcedureRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EnvironmentalRisk"/>
+    <owl:disjointWith rdf:resource="#FinancialRisk"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TechnicalStructuralRisk">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TechnicalStructuralRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConstructionRisk"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DesignProcedureRisk"/>
+    <owl:disjointWith rdf:resource="#OperationalRisk"/>
+    <owl:disjointWith rdf:resource="#EnvironmentalRisk"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TechnicalStructuralRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#LegalRisk"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TECH</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >TECH</owl:hasValue>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#FinancialRisk"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RiskCase">
+    <rdfs:subClassOf rdf:resource="#IRISConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ConstructionRisk">
+    <owl:disjointWith rdf:resource="#EnvironmentalRisk"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CON</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#riskClass"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CON</owl:hasValue>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Risk"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#LegalRisk"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#ConstructionRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#ConstructionRisks"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#belongsTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TechnicalStructuralRisk"/>
+    <owl:disjointWith rdf:resource="#DesignProcedureRisk"/>
+    <owl:disjointWith rdf:resource="#FinancialRisk"/>
+    <owl:disjointWith rdf:resource="#OperationalRisk"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="associatedWith">
+    <rdfs:range rdf:resource="#RiskEvent"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="involves"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Risk"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isComponentOf">
+    <rdfs:domain rdf:resource="#RiskComponent"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="isVariableOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#RiskCase"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasComponent"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isImpactOf">
+    <rdfs:domain rdf:resource="#RiskImpact"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasImpact"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#isVariableOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#RiskCase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#involves">
+    <rdfs:range rdf:resource="#Risk"/>
+    <rdfs:domain rdf:resource="#RiskEvent"/>
+    <owl:inverseOf rdf:resource="#associatedWith"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isFactorOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasFactor"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#RiskFactor"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#isVariableOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#RiskCase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasComponent">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasVariable"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#RiskComponent"/>
+    <owl:inverseOf rdf:resource="#isComponentOf"/>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isVariableOf">
+    <rdfs:domain rdf:resource="#RiskVariable"/>
+    <rdfs:range rdf:resource="#RiskCase"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasVariable"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasImpact">
+    <rdfs:domain rdf:resource="#RiskCase"/>
+    <owl:inverseOf rdf:resource="#isImpactOf"/>
+    <rdfs:range rdf:resource="#RiskImpact"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasVariable"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasVariable">
+    <rdfs:range rdf:resource="#RiskVariable"/>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+    <owl:inverseOf rdf:resource="#isVariableOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="appearsInCaseStudy">
+    <rdfs:range rdf:resource="#CaseStudy"/>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasFactor">
+    <rdfs:range rdf:resource="#RiskFactor"/>
+    <rdfs:subPropertyOf rdf:resource="#hasVariable"/>
+    <owl:inverseOf rdf:resource="#isFactorOf"/>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="mechanismDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="code">
+    <rdfs:domain rdf:resource="#IRISConcept"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="description"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#description">
+    <rdfs:domain rdf:resource="#IRISConcept"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdfs:subPropertyOf rdf:resource="#description"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#IRISConcept"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="componentDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="significance">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The magnitude and importance of a risk</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="impactDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="editor">
+    <rdfs:domain rdf:resource="#CaseStudy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="probability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Probability of occurrence of a risk (quantitative terms)</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="factorDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="factor">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#QuantitativeConcept"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The negative result or effect of an event presented in quantitative terms. There may be a range of possible impacts associated with an event. (only negative effects are considered here)</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="place">
+    <rdfs:domain rdf:resource="#RiskEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="nextVersion">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="previousVersion"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#CaseStudy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#CaseStudy"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="versionDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#CaseStudy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="version">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#CaseStudy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="distribution">
+    <rdfs:domain rdf:resource="#RiskProbability"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#riskClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >DES</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >ENV</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >FIN</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >LEG</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >TECH</rdf:first>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >OPER</rdf:first>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >CON</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="time">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#RiskEvent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#belongsTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="#consistsOf"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#CollectionOfConcepts"/>
+    <rdfs:domain rdf:resource="#IRISConcept"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMechanism">
+    <rdfs:subPropertyOf rdf:resource="#hasVariable"/>
+    <rdfs:range rdf:resource="#RiskMechanism"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="isMechanismOf"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#RiskCase"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasProbability">
+    <rdfs:domain rdf:resource="#ProbabilisticConcept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#RiskProbability"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#consistsOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#belongsTo"/>
+    <rdfs:range rdf:resource="#IRISConcept"/>
+    <rdfs:domain rdf:resource="#CollectionOfConcepts"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#isMechanismOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#RiskCase"/>
+    <owl:inverseOf rdf:resource="#hasMechanism"/>
+    <rdfs:subPropertyOf rdf:resource="#isVariableOf"/>
+    <rdfs:domain rdf:resource="#RiskMechanism"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#previousVersion">
+    <rdfs:range rdf:resource="#CaseStudy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#nextVersion"/>
+    <rdfs:domain rdf:resource="#CaseStudy"/>
+  </owl:InverseFunctionalProperty>
+  <swrl:Imp rdf:ID="CaseStudyRule">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1>
+              <swrl:Variable rdf:ID="z"/>
+            </swrl:argument1>
+            <swrl:argument2>
+              <swrl:Variable rdf:ID="y"/>
+            </swrl:argument2>
+            <swrl:propertyPredicate rdf:resource="#appearsInCaseStudy"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#appearsInCaseStudy"/>
+                <swrl:argument1>
+                  <swrl:Variable rdf:ID="x"/>
+                </swrl:argument1>
+                <swrl:argument2 rdf:resource="#y"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument1 rdf:resource="#x"/>
+                    <swrl:propertyPredicate rdf:resource="#consistsOf"/>
+                    <swrl:argument2 rdf:resource="#z"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#x"/>
+            <swrl:classPredicate rdf:resource="#GroupOfRisks"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <swrl:Imp rdf:ID="FactorsRule">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2 rdf:resource="#y"/>
+                <swrl:propertyPredicate rdf:resource="#hasFactor"/>
+                <swrl:argument1 rdf:resource="#x"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2 rdf:resource="#z"/>
+                    <swrl:argument1 rdf:resource="#x"/>
+                    <swrl:propertyPredicate rdf:resource="#belongsTo"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#x"/>
+            <swrl:classPredicate rdf:resource="#Risk"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</swrla:isRuleEnabled>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument2 rdf:resource="#y"/>
+            <swrl:propertyPredicate rdf:resource="#hasFactor"/>
+            <swrl:argument1 rdf:resource="#z"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <swrl:Imp rdf:about="http://lpis.csd.auth.gr/ontologies/2010/MechanismRule">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#x"/>
+            <swrl:classPredicate rdf:resource="#GroupOfRisks"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2 rdf:resource="#y"/>
+                <swrl:argument1 rdf:resource="#x"/>
+                <swrl:propertyPredicate rdf:resource="#hasMechanism"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2 rdf:resource="#z"/>
+                    <swrl:argument1 rdf:resource="#x"/>
+                    <swrl:propertyPredicate rdf:resource="#consistsOf"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</swrla:isRuleEnabled>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1 rdf:resource="#z"/>
+            <swrl:argument2 rdf:resource="#y"/>
+            <swrl:propertyPredicate rdf:resource="#hasMechanism"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <RiskEvent rdf:ID="RiskEvent_14">
+    <hasProbability>
+      <RiskProbability rdf:ID="RiskProbability_7"/>
+    </hasProbability>
+  </RiskEvent>
+  <swrl:Imp rdf:about="http://lpis.csd.auth.gr/ontologies/2010/ComponentRule">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument1 rdf:resource="#x"/>
+                    <swrl:propertyPredicate rdf:resource="#consistsOf"/>
+                    <swrl:argument2 rdf:resource="#z"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2 rdf:resource="#y"/>
+                <swrl:argument1 rdf:resource="#x"/>
+                <swrl:propertyPredicate rdf:resource="#hasComponent"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#GroupOfRisks"/>
+            <swrl:argument1 rdf:resource="#x"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument2 rdf:resource="#y"/>
+            <swrl:argument1 rdf:resource="#z"/>
+            <swrl:propertyPredicate rdf:resource="#hasComponent"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <swrl:Imp rdf:about="http://lpis.csd.auth.gr/ontologies/2010/SignificanceRule">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:DatavaluedPropertyAtom>
+            <swrl:argument2 rdf:resource="#y"/>
+            <swrl:propertyPredicate rdf:resource="#significance"/>
+            <swrl:argument1 rdf:resource="#z"/>
+          </swrl:DatavaluedPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:DatavaluedPropertyAtom>
+                <swrl:argument1 rdf:resource="#x"/>
+                <swrl:argument2 rdf:resource="#y"/>
+                <swrl:propertyPredicate rdf:resource="#significance"/>
+              </swrl:DatavaluedPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument1 rdf:resource="#x"/>
+                    <swrl:argument2 rdf:resource="#z"/>
+                    <swrl:propertyPredicate rdf:resource="#consistsOf"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#GroupOfRisks"/>
+            <swrl:argument1 rdf:resource="#x"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <swrl:Imp rdf:about="http://lpis.csd.auth.gr/ontologies/2010/ImpactRule">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2 rdf:resource="#y"/>
+                <swrl:propertyPredicate rdf:resource="#hasImpact"/>
+                <swrl:argument1 rdf:resource="#x"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2 rdf:resource="#z"/>
+                    <swrl:propertyPredicate rdf:resource="#belongsTo"/>
+                    <swrl:argument1 rdf:resource="#x"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Risk"/>
+            <swrl:argument1 rdf:resource="#x"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument2 rdf:resource="#y"/>
+            <swrl:argument1 rdf:resource="#z"/>
+            <swrl:propertyPredicate rdf:resource="#hasImpact"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</swrla:isRuleEnabled>
+  </swrl:Imp>
+  <CostImpact rdf:ID="CostImpact_9">
+    <isImpactOf>
+      <Risk rdf:ID="TECH_1_1_a">
+        <hasMechanism>
+          <RiskMechanism rdf:ID="RiskMechanism_8">
+            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Dynamic and repeated (cycling) loading due to winds and waves may lead to the development of microcracks of defects that cause localized stress concentrations. These microcracks may grow or propagate without any appreciable deformation of the structure. Consequently, gradual loss of the resistance of the support structure and/or the tower and/or the RNA occurs combined with the existence of cumulative damages on the various parts of the OWT (Fatigue mechanism).</description>
+            <hasProbability>
+              <RiskProbability rdf:ID="RiskProbability_14"/>
+            </hasProbability>
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Mechanism of TECH.1.1</name>
+            <isMechanismOf>
+              <GroupOfRisks rdf:ID="TECH_1_1">
+                <hasComponent>
+                  <RiskComponent rdf:ID="RiskComponent_6">
+                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >excessive or premature cracking</name>
+                    <hasProbability>
+                      <RiskProbability rdf:ID="RiskProbability_5"/>
+                    </hasProbability>
+                    <isComponentOf rdf:resource="#TECH_1_1"/>
+                    <isComponentOf rdf:resource="#TECH_1_1_a"/>
+                    <isComponentOf>
+                      <Risk rdf:ID="TECH_1_1_b">
+                        <riskClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >TECH</riskClass>
+                        <hasImpact>
+                          <CostImpact rdf:ID="CostImpact_10">
+                            <isImpactOf rdf:resource="#TECH_1_1_b"/>
+                            <isImpactOf rdf:resource="#TECH_1_1"/>
+                            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >replacement cost of TECH.1.1</name>
+                            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >replacement cost of the tower and the RNA and/or of the whole OWT</description>
+                            <hasProbability>
+                              <RiskProbability rdf:ID="RiskProbability_10"/>
+                            </hasProbability>
+                          </CostImpact>
+                        </hasImpact>
+                        <hasProbability>
+                          <RiskProbability rdf:ID="RiskProbability_TECH_1_1_b"/>
+                        </hasProbability>
+                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Risk of replacement cost due to normal wind and wave conditions in power production situations </description>
+                        <appearsInCaseStudy>
+                          <CaseStudy rdf:ID="CaseStudy_1">
+                            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >IRISOW</name>
+                            <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >1.0</version>
+                            <versionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+                            >2010-04-01</versionDate>
+                            <editor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            ></editor>
+                            <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >1</code>
+                          </CaseStudy>
+                        </appearsInCaseStudy>
+                        <hasComponent rdf:resource="#RiskComponent_6"/>
+                        <hasComponent>
+                          <RiskComponent rdf:ID="RiskComponent_7">
+                            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >fracture</name>
+                            <isComponentOf rdf:resource="#TECH_1_1"/>
+                            <isComponentOf rdf:resource="#TECH_1_1_a"/>
+                            <isComponentOf rdf:resource="#TECH_1_1_b"/>
+                            <isComponentOf>
+                              <Risk rdf:ID="TECH_1_1_c">
+                                <hasMechanism rdf:resource="#RiskMechanism_8"/>
+                                <belongsTo rdf:resource="#TECH_1_1"/>
+                                <hasComponent rdf:resource="#RiskComponent_6"/>
+                                <hasProbability>
+                                  <RiskProbability rdf:ID="RiskProbability_TECH_1_1_c"/>
+                                </hasProbability>
+                                <hasComponent>
+                                  <RiskComponent rdf:ID="RiskComponent_5">
+                                    <hasProbability>
+                                      <RiskProbability rdf:ID="RiskProbability_4"/>
+                                    </hasProbability>
+                                    <isComponentOf rdf:resource="#TECH_1_1"/>
+                                    <isComponentOf rdf:resource="#TECH_1_1_a"/>
+                                    <isComponentOf rdf:resource="#TECH_1_1_b"/>
+                                    <isComponentOf rdf:resource="#TECH_1_1_c"/>
+                                    <isComponentOf>
+                                      <Risk rdf:ID="TECH_1_1_d">
+                                        <hasComponent rdf:resource="#RiskComponent_5"/>
+                                        <description rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Risk of injuries due to normal wind and wave conditions in power production situations</description>
+                                        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                        >TECH.1.1.d</code>
+                                        <appearsInCaseStudy rdf:resource="#CaseStudy_1"/>
+                                        <hasFactor>
+                                          <RiskFactor rdf:ID="RiskFactor_4">
+                                            <hasProbability>
+                                              <RiskProbability rdf:ID="RiskProbability_9"/>
+                                            </hasProbability>
+                                            <name rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >normal wind and wave conditions</name>
+                                            <description rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Combination of normal (return period of 1 year) wind and wave loads in power operation situation</description>
+                                            <isFactorOf rdf:resource="#TECH_1_1_a"/>
+                                            <isFactorOf rdf:resource="#TECH_1_1_b"/>
+                                            <isFactorOf rdf:resource="#TECH_1_1_c"/>
+                                            <isFactorOf rdf:resource="#TECH_1_1_d"/>
+                                            <isFactorOf rdf:resource="#TECH_1_1"/>
+                                          </RiskFactor>
+                                        </hasFactor>
+                                        <hasImpact>
+                                          <HumanImpact rdf:ID="HumanImpact_8">
+                                            <name rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >injuries of TECH.1.1</name>
+                                            <hasProbability>
+                                              <RiskProbability rdf:ID="RiskProbability_15"/>
+                                            </hasProbability>
+                                            <isImpactOf rdf:resource="#TECH_1_1_d"/>
+                                            <isImpactOf rdf:resource="#TECH_1_1"/>
+                                            <description rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >injuries or loss of human life</description>
+                                          </HumanImpact>
+                                        </hasImpact>
+                                        <hasComponent rdf:resource="#RiskComponent_6"/>
+                                        <hasProbability>
+                                          <RiskProbability rdf:ID="RiskProbability_TECH_1_1_d"/>
+                                        </hasProbability>
+                                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                        >Risk of failure due to normal wind and wave conditions in power production situations</name>
+                                        <hasComponent rdf:resource="#RiskComponent_7"/>
+                                        <hasMechanism rdf:resource="#RiskMechanism_8"/>
+                                        <belongsTo rdf:resource="#TECH_1_1"/>
+                                        <riskClass rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >TECH</riskClass>
+                                      </Risk>
+                                    </isComponentOf>
+                                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >Permanent inelastic deformations</name>
+                                  </RiskComponent>
+                                </hasComponent>
+                                <hasComponent rdf:resource="#RiskComponent_7"/>
+                                <appearsInCaseStudy rdf:resource="#CaseStudy_1"/>
+                                <hasImpact>
+                                  <CostImpact rdf:ID="CostImpact_11">
+                                    <hasProbability>
+                                      <RiskProbability rdf:ID="RiskProbability_11"/>
+                                    </hasProbability>
+                                    <isImpactOf rdf:resource="#TECH_1_1_c"/>
+                                    <isImpactOf rdf:resource="#TECH_1_1"/>
+                                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >loss of revenue of TECH.1.1</name>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >loss of revenue (power production loss)</description>
+                                  </CostImpact>
+                                </hasImpact>
+                                <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >TECH.1.1.c</code>
+                                <riskClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >TECH</riskClass>
+                                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Risk of failure due to normal wind and wave conditions in power production situations</name>
+                                <hasFactor rdf:resource="#RiskFactor_4"/>
+                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Risk of  loss of revenue due to normal wind and wave conditions in power production situations </description>
+                              </Risk>
+                            </isComponentOf>
+                            <isComponentOf rdf:resource="#TECH_1_1_d"/>
+                            <hasProbability>
+                              <RiskProbability rdf:ID="RiskProbability_6"/>
+                            </hasProbability>
+                          </RiskComponent>
+                        </hasComponent>
+                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Risk of failure due to normal wind and wave conditions in power production situations</name>
+                        <belongsTo rdf:resource="#TECH_1_1"/>
+                        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >TECH.1.1.b</code>
+                        <hasFactor rdf:resource="#RiskFactor_4"/>
+                        <hasMechanism rdf:resource="#RiskMechanism_8"/>
+                        <hasComponent rdf:resource="#RiskComponent_5"/>
+                      </Risk>
+                    </isComponentOf>
+                    <isComponentOf rdf:resource="#TECH_1_1_c"/>
+                    <isComponentOf rdf:resource="#TECH_1_1_d"/>
+                  </RiskComponent>
+                </hasComponent>
+                <appearsInCaseStudy rdf:resource="#CaseStudy_1"/>
+                <hasImpact rdf:resource="#CostImpact_11"/>
+                <consistsOf rdf:resource="#TECH_1_1_c"/>
+                <consistsOf rdf:resource="#TECH_1_1_b"/>
+                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Risk of failure due to normal wind and wave conditions in power production situations</name>
+                <hasImpact rdf:resource="#CostImpact_9"/>
+                <hasImpact rdf:resource="#CostImpact_10"/>
+                <hasComponent rdf:resource="#RiskComponent_5"/>
+                <hasFactor rdf:resource="#RiskFactor_4"/>
+                <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >TECH.1.1</code>
+                <consistsOf rdf:resource="#TECH_1_1_d"/>
+                <hasMechanism rdf:resource="#RiskMechanism_8"/>
+                <consistsOf rdf:resource="#TECH_1_1_a"/>
+                <hasImpact rdf:resource="#HumanImpact_8"/>
+                <hasComponent rdf:resource="#RiskComponent_7"/>
+                <riskClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >TECH</riskClass>
+              </GroupOfRisks>
+            </isMechanismOf>
+            <isMechanismOf rdf:resource="#TECH_1_1_c"/>
+            <isMechanismOf rdf:resource="#TECH_1_1_b"/>
+            <isMechanismOf rdf:resource="#TECH_1_1_a"/>
+            <isMechanismOf rdf:resource="#TECH_1_1_d"/>
+          </RiskMechanism>
+        </hasMechanism>
+        <riskClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >TECH</riskClass>
+        <appearsInCaseStudy rdf:resource="#CaseStudy_1"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Risk of failure due to normal wind and wave conditions in power production situations</name>
+        <hasImpact rdf:resource="#CostImpact_9"/>
+        <hasProbability>
+          <RiskProbability rdf:ID="RiskProbability_TECH_1_1_a"/>
+        </hasProbability>
+        <hasComponent rdf:resource="#RiskComponent_7"/>
+        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >TECH.1.1.a</code>
+        <hasFactor rdf:resource="#RiskFactor_4"/>
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Risk of Repair/maintenance cost due to normal wind and wave conditions in power production situations </description>
+        <hasComponent rdf:resource="#RiskComponent_5"/>
+        <belongsTo rdf:resource="#TECH_1_1"/>
+        <hasComponent rdf:resource="#RiskComponent_6"/>
+      </Risk>
+    </isImpactOf>
+    <isImpactOf rdf:resource="#TECH_1_1"/>
+    <hasProbability>
+      <RiskProbability rdf:ID="RiskProbability_12"/>
+    </hasProbability>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Repair/maintenance cost of the support structure and/or of the tower and/or of RNA </description>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Repair/maintenance cost of TECH.1.1</name>
+  </CostImpact>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->
