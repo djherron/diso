@@ -45,6 +45,8 @@ For our convenience within DISO, we use this `2` as indicating `UCO_2`, to help 
 
 Be careful not to mistake one UCO ontology for the other. They are very different.
 
+## Caution: illegal punning
 
+When UCO_2 `uco2.ttl` is loaded into Protege, Protege complains (and puts WARN messages into its log file) about several instances of 'illegal punning'. We may want to fix these at some point.
 
 
