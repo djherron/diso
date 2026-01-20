@@ -49,7 +49,15 @@ At the heart of the diagram we see the 4 top-level ontologies that satisify all 
 
 However, DISO contains several of the nearby ontologies that satisfy many or most of the NDTP's requirements, such as: BFO, a version of UFO called gUFO, GFO and DOLCE.
 
+## Digital Twins and Smart Environments
+
+There is strong overlap between the DISO clusters of `digital-twins` and `smart-environments`
+
+Many of the DISO `smart-environments` ontologies can arguably be regarded as `digital-twin` ontologies. 
+
+
 ---
+
 [1] https://digitaltwinhub.co.uk/information-management-framework-imf/7-circles-of-information-management/
 
 [2] `The Approach to Develop the Foundation Data Model for the Information Management Framework (NDTP, 2020)`
