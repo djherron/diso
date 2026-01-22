@@ -17,10 +17,10 @@ BOnSAI ontology
   - CoDAMoS context ontology
   - from `http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl`
 
-We created a merged version of the BOnSAI ontology files, in Protege:
+We created a **merged** version of the BOnSAI ontology files, in Protege:
 * loaded `BOnSAI.owl` into Protege
 * Protege imports `Service.owl` and `CoDAMoS.owl`
 * created merged ontology
-* save merged ontology to `bonsaiFull.ttl`
+* save merged ontology to `bonsaiMerged.ttl`
 
 
