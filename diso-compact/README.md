@@ -1,4 +1,4 @@
-# README
+# DISO-Compact
 
 `diso-compact` is a compact (condensed) version of this **DISO** repository.
 
