@@ -1,0 +1,2279 @@
+@prefix : <http://pervasive.semanticweb.org/ont/2004/06/soupa-merged/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://pervasive.semanticweb.org/ont/2004/06/soupa-merged/> .
+
+<http://pervasive.semanticweb.org/ont/2004/06/soupa-merged/> rdf:type owl:Ontology ;
+                                                              rdfs:comment "" ;
+                                                              rdfs:label "Region Connection Calculus Ontology" ,
+                                                                         "SOUPA Action Ontology" ,
+                                                                         "SOUPA Agent Ontology" ,
+                                                                         "SOUPA Belief-Desire-Intention Ontology" ,
+                                                                         "SOUPA Camera Phone Image Capture Ontology" ,
+                                                                         "SOUPA Context Knowledge Ontology" ,
+                                                                         "SOUPA Device Ontology" ,
+                                                                         "SOUPA Digital Document Ontology" ,
+                                                                         "SOUPA Document Ontology" ,
+                                                                         "SOUPA Event Ontology" ,
+                                                                         "SOUPA Geographical Measurement Ontology" ,
+                                                                         "SOUPA Location Context Ontology" ,
+                                                                         "SOUPA Meeting Ontology" ,
+                                                                         "SOUPA Meeting Schedule Ontology" ,
+                                                                         "SOUPA Person Ontology" ,
+                                                                         "SOUPA Policy Ontology" ,
+                                                                         "SOUPA Space Ontology" ,
+                                                                         "SOUPA Time Ontology" ;
+                                                              owl:versionInfo "$Revision: 1.1 $, $Date: 2004/05/15 18:55:08 $" ,
+                                                                              "$Revision: 1.1 $, $Date: 2004/05/15 18:55:09 $" ,
+                                                                              "$Revision: 1.2 $, $Date: 2004/05/15 18:55:09 $" ,
+                                                                              "$Revision: 1.4 $, $Date: 2004/03/07 17:58:36 $" ,
+                                                                              "$Revision: 1.4 $, $Date: 2004/07/15 15:40:46 $" ,
+                                                                              "$Revision: 1.6 $, $Date: 2004/07/15 15:40:46 $" ,
+                                                                              "$Revision: 1.7 $, $Date: 2004/06/03 20:27:01 $" ,
+                                                                              "cvs:$Revision: 1.1 $, $Date: 2004/05/15 18:55:08 $" ,
+                                                                              "cvs:$Revision: 1.2 $, $Date: 2004/03/07 17:58:36 $" ,
+                                                                              "cvs:$Revision: 1.2 $, $Date: 2004/03/07 22:59:13 $" ,
+                                                                              "cvs:$Revision: 1.2 $, $Date: 2004/05/15 18:55:08 $" ,
+                                                                              "cvs:$Revision: 1.3 $, $Date: 2004/03/07 17:33:18 $" ,
+                                                                              "cvs:$Revision: 1.3 $, $Date: 2004/03/07 18:26:58 $" ,
+                                                                              "cvs:$Revision: 1.4 $, $Date: 2004/03/04 18:16:46 $" ,
+                                                                              "cvs:$Revision: 1.4 $, $Date: 2004/05/15 18:55:09 $" ,
+                                                                              "cvs:$Revision: 1.6 $, $Date: 2004/05/25 19:52:44 $" ,
+                                                                              "cvs:$Revision: 1.8 $, $Date: 2004/06/19 20:50:17 $" .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#actor
+<http://pervasive.semanticweb.org/ont/2004/06/action#actor> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/action#Action> ;
+                                                            rdfs:label "actor" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#instrument
+<http://pervasive.semanticweb.org/ont/2004/06/action#instrument> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/action#Action> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#location
+<http://pervasive.semanticweb.org/ont/2004/06/action#location> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/action#Action> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#recipient
+<http://pervasive.semanticweb.org/ont/2004/06/action#recipient> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/action#Action> ;
+                                                                rdfs:label "recipient" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#target
+<http://pervasive.semanticweb.org/ont/2004/06/action#target> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/action#Action> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#time
+<http://pervasive.semanticweb.org/ont/2004/06/action#time> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/action#Action> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/agent#believes
+<http://pervasive.semanticweb.org/ont/2004/06/agent#believes> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/agent#Agent> ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/bdi#Belief> ;
+                                                              rdfs:label "believes" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/agent#desires
+<http://pervasive.semanticweb.org/ont/2004/06/agent#desires> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/agent#Agent> ;
+                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire> ;
+                                                             rdfs:label "desires" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/agent#hasGoal
+<http://pervasive.semanticweb.org/ont/2004/06/agent#hasGoal> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/agent#desires> ;
+                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/bdi#Goal> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/agent#intends
+<http://pervasive.semanticweb.org/ont/2004/06/agent#intends> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/agent#Agent> ;
+                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/bdi#Intention> ;
+                                                             rdfs:label "intends" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#canBeAchievedWithPlan
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#canBeAchievedWithPlan> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire> ;
+                                                                         rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/bdi#Plan> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#conflicts
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#conflicts> rdf:type owl:ObjectProperty ,
+                                                                      owl:SymmetricProperty ;
+                                                             rdfs:domain owl:Thing ;
+                                                             rdfs:range owl:Thing .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#definedByPlan
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#definedByPlan> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/bdi#Intention> ;
+                                                                 rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/bdi#Plan> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#effect
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#effect> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/bdi#Plan> ;
+                                                          rdfs:range owl:Thing .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#endState
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#endState> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire> ;
+                                                            rdfs:range owl:Thing .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#preCondition
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#preCondition> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/bdi#Plan> ;
+                                                                rdfs:range owl:Thing .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#reasonForConflict
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#reasonForConflict> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/bdi#ConflictingDesire> ;
+                                                                     rdfs:label "reasonForConflict" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#hasUser
+<http://pervasive.semanticweb.org/ont/2004/06/device#hasUser> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/device#Device> ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                              rdfs:label "userOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#manufacturerHomepage
+<http://pervasive.semanticweb.org/ont/2004/06/device#manufacturerHomepage> rdf:type owl:ObjectProperty ;
+                                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/device#Device> ;
+                                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Homepage> ;
+                                                                           rdfs:label "manufacturerHomepage" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#fileSize
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#fileSize> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument> ;
+                                                                    rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeDescription> ;
+                                                                    rdfs:label "fileSize" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#sourceURL
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#sourceURL> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#unit
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#unit> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeDescription> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> ;
+                                                                rdfs:label "unit" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/document#copyrightedBy
+<http://pervasive.semanticweb.org/ont/2004/06/document#copyrightedBy> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/document#Document> ;
+                                                                      rdfs:label "copyrightedBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/document#createdBy
+<http://pervasive.semanticweb.org/ont/2004/06/document#createdBy> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/document#Document> ;
+                                                                  rdfs:label "createdBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/document#createdOnAsInstantThing
+<http://pervasive.semanticweb.org/ont/2004/06/document#createdOnAsInstantThing> rdf:type owl:ObjectProperty ;
+                                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/document#Document> ;
+                                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                                                rdfs:label "createdOnAsInstantThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaUnit
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaUnit> rdf:type owl:ObjectProperty ;
+                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaValueDescription> ;
+                                                                        rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> ;
+                                                                        rdfs:label "areaUnit" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValueDescription
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValueDescription> rdf:type owl:ObjectProperty ;
+                                                                                    rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SurfaceArea> ;
+                                                                                    rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaValueDescription> ;
+                                                                                    rdfs:label "areValueDescription" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#direction
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#direction> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription> ;
+                                                                         rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> ;
+                                                                         rdfs:label "direction" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceUnit
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceUnit> rdf:type owl:ObjectProperty ;
+                                                                            rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription> ;
+                                                                            rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> ;
+                                                                            rdfs:label "distanceUnit" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValueDescription
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValueDescription> rdf:type owl:ObjectProperty ,
+                                                                                                 owl:FunctionalProperty ;
+                                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Distance> ;
+                                                                                        rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription> ;
+                                                                                        rdfs:label "distanceValueDescription" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#fromSpatialThing
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#fromSpatialThing> rdf:type owl:ObjectProperty ,
+                                                                                         owl:FunctionalProperty ;
+                                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Distance> ;
+                                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                                rdfs:label "fromSpatialThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#surfaceAreaOf
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#surfaceAreaOf> rdf:type owl:ObjectProperty ;
+                                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SurfaceArea> ;
+                                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                             rdfs:label "surfaceAreaOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#toSpatialThing
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#toSpatialThing> rdf:type owl:ObjectProperty ,
+                                                                                       owl:FunctionalProperty ;
+                                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Distance> ;
+                                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                              rdfs:label "toSpatialThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/img-capture#atLocation
+<http://pervasive.semanticweb.org/ont/2004/06/img-capture#atLocation> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/img-capture#ImageCaptureEvent> ;
+                                                                      rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                      rdfs:label "atLocation" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/img-capture#capturedBy
+<http://pervasive.semanticweb.org/ont/2004/06/img-capture#capturedBy> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/img-capture#ImageCaptureEvent> ;
+                                                                      rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/img-capture#CameraPhone> ;
+                                                                      rdfs:label "capturedBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/img-capture#image
+<http://pervasive.semanticweb.org/ont/2004/06/img-capture#image> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/img-capture#ImageCaptureEvent> ;
+                                                                 rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#ImageFile> ;
+                                                                 rdfs:label "image" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#inconsistentWith
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#inconsistentWith> rdf:type owl:ObjectProperty ,
+                                                                                   owl:SymmetricProperty ;
+                                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ;
+                                                                          rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ;
+                                                                          rdfs:label "inconsistentWith" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#source
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#source> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ;
+                                                                rdfs:label "source" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/location#boundedWithin
+<http://pervasive.semanticweb.org/ont/2004/06/location#boundedWithin> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/location#LocationContext> ;
+                                                                      rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                      rdfs:label "boundedWithin" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/location#locationContextOf
+<http://pervasive.semanticweb.org/ont/2004/06/location#locationContextOf> rdf:type owl:ObjectProperty ;
+                                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/location#LocationContext> ;
+                                                                          rdfs:label "locationContextOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#attendee
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#attendee> rdf:type owl:ObjectProperty ;
+                                                                owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/meeting#attends> ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                rdfs:label "attendee" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#attends
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#attends> rdf:type owl:ObjectProperty ;
+                                                               rdfs:label "attends" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#homepage
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#homepage> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Homepage> ;
+                                                                rdfs:label "homepage" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#location
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#location> rdf:type owl:ObjectProperty ,
+                                                                         owl:FunctionalProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure> ;
+                                                                rdfs:label "location" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#organizedBy
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#organizedBy> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                   rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                   rdfs:label "organizedBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#email
+<http://pervasive.semanticweb.org/ont/2004/06/person#email> rdf:type owl:ObjectProperty ;
+                                                            rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Email> ;
+                                                            rdfs:label "email" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#gender
+<http://pervasive.semanticweb.org/ont/2004/06/person#gender> rdf:type owl:ObjectProperty ,
+                                                                      owl:FunctionalProperty ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Gender> ;
+                                                             rdfs:label "gender" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#hasContactProfile
+<http://pervasive.semanticweb.org/ont/2004/06/person#hasContactProfile> rdf:type owl:ObjectProperty ;
+                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                        rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#ContactProfile> ;
+                                                                        rdfs:label "hasContactProfile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#hasHomeContactProfile
+<http://pervasive.semanticweb.org/ont/2004/06/person#hasHomeContactProfile> rdf:type owl:ObjectProperty ;
+                                                                            rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/person#hasContactProfile> ;
+                                                                            rdfs:label "hasHomeContactProfile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#hasRegisteredChatID
+<http://pervasive.semanticweb.org/ont/2004/06/person#hasRegisteredChatID> rdf:type owl:ObjectProperty ;
+                                                                          owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/person#providedBy> ;
+                                                                          rdfs:label "hasRegisteredChatID" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#hasSchoolContactProfile
+<http://pervasive.semanticweb.org/ont/2004/06/person#hasSchoolContactProfile> rdf:type owl:ObjectProperty ;
+                                                                              rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/person#hasContactProfile> ;
+                                                                              rdfs:label "hasSchoolContact" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#hasWorkContactProfile
+<http://pervasive.semanticweb.org/ont/2004/06/person#hasWorkContactProfile> rdf:type owl:ObjectProperty ;
+                                                                            rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/person#hasContactProfile> ;
+                                                                            rdfs:label "hasHomeContact" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#homepage
+<http://pervasive.semanticweb.org/ont/2004/06/person#homepage> rdf:type owl:ObjectProperty ;
+                                                               rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Homepage> ;
+                                                               rdfs:label "homepage" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#im
+<http://pervasive.semanticweb.org/ont/2004/06/person#im> rdf:type owl:ObjectProperty ;
+                                                         rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#ChatID> ;
+                                                         rdfs:label "im" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#knows
+<http://pervasive.semanticweb.org/ont/2004/06/person#knows> rdf:type owl:ObjectProperty ;
+                                                            owl:equivalentProperty <http://xmlns.com/foaf/0.1#knows> ;
+                                                            rdf:type owl:SymmetricProperty ;
+                                                            rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                            rdfs:label "knows" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#myagent
+<http://pervasive.semanticweb.org/ont/2004/06/person#myagent> rdf:type owl:ObjectProperty ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#JADEAgentID> ;
+                                                              rdfs:label "im" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#providedBy
+<http://pervasive.semanticweb.org/ont/2004/06/person#providedBy> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#ChatID> ;
+                                                                 rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#IMProvider> ;
+                                                                 rdfs:label "providedBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#schoolHomepage
+<http://pervasive.semanticweb.org/ont/2004/06/person#schoolHomepage> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/person#homepage> ;
+                                                                     rdfs:label "schoolHomepage" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#workplaceHomepage
+<http://pervasive.semanticweb.org/ont/2004/06/person#workplaceHomepage> rdf:type owl:ObjectProperty ;
+                                                                        rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/person#homepage> ;
+                                                                        rdfs:label "workplaceHomepage" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#createdOn
+<http://pervasive.semanticweb.org/ont/2004/06/policy#createdOn> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                                rdfs:label "createdOn" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#creator
+<http://pervasive.semanticweb.org/ont/2004/06/policy#creator> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                              rdfs:label "creator" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#defaultPolicyMode
+<http://pervasive.semanticweb.org/ont/2004/06/policy#defaultPolicyMode> rdf:type owl:ObjectProperty ;
+                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                                        rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/policy#Mode> ;
+                                                                        rdfs:label "rulePrecedence" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#enforcer
+<http://pervasive.semanticweb.org/ont/2004/06/policy#enforcer> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                               rdfs:label "enforcer" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#forbids
+<http://pervasive.semanticweb.org/ont/2004/06/policy#forbids> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/policy#ForbiddenAction> ;
+                                                              rdfs:label "forbids" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#permits
+<http://pervasive.semanticweb.org/ont/2004/06/policy#permits> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/policy#PermittedAction> ;
+                                                              rdfs:label "permits" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#policyOf
+<http://pervasive.semanticweb.org/ont/2004/06/policy#policyOf> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                               rdfs:label "policyOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#connectsWith
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#connectsWith> rdf:type owl:ObjectProperty ,
+                                                                         owl:SymmetricProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                rdfs:label "connectsWith" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#isDisconnectedFrom
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#isDisconnectedFrom> rdf:type owl:ObjectProperty ,
+                                                                               owl:SymmetricProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                      rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                      rdfs:label "isDisconnectedFrom" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#isExternallyConnectedWith
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#isExternallyConnectedWith> rdf:type owl:ObjectProperty ;
+                                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                             rdfs:label "isExternallyConnectedWith" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#nontangentialProperPartOf
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#nontangentialProperPartOf> rdf:type owl:ObjectProperty ;
+                                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                             rdfs:label "nontangentialProperPartOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#overlaps
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#overlaps> rdf:type owl:ObjectProperty ,
+                                                                     owl:SymmetricProperty ;
+                                                            rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                            rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                            rdfs:label "overlaps" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#partOf
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#partOf> rdf:type owl:ObjectProperty ,
+                                                                   owl:TransitiveProperty ;
+                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                          rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                          rdfs:label "partOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#partiallyOverlaps
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#partiallyOverlaps> rdf:type owl:ObjectProperty ,
+                                                                              owl:SymmetricProperty ;
+                                                                     rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                     rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                     rdfs:label "partiallyOverlaps" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#properPartOf
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#properPartOf> rdf:type owl:ObjectProperty ,
+                                                                         owl:TransitiveProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                rdfs:label "properPartOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#tangentialProperPartOf
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#tangentialProperPartOf> rdf:type owl:ObjectProperty ;
+                                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                          rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> ;
+                                                                          rdfs:label "tangentialProperPartOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#createdBy
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#createdBy> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> ;
+                                                                  rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                  rdfs:label "createdBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#invitedParticipant
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#invitedParticipant> rdf:type owl:ObjectProperty ;
+                                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> ;
+                                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                           rdfs:label "invitedParticipant" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#location
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#location> rdf:type owl:ObjectProperty ,
+                                                                          owl:FunctionalProperty ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> ;
+                                                                 rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure> ;
+                                                                 rdfs:label "location" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#scheduleOf
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#scheduleOf> rdf:type owl:ObjectProperty ,
+                                                                            owl:FunctionalProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> ;
+                                                                   rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                   rdfs:label "scheduleOf" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#controlledBy
+<http://pervasive.semanticweb.org/ont/2004/06/space#controlledBy> rdf:type owl:ObjectProperty ;
+                                                                  owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/space#controls> ;
+                                                                  rdfs:label "controlledBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#controls
+<http://pervasive.semanticweb.org/ont/2004/06/space#controls> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity> ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                              rdfs:label "controls" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#definesPolicy
+<http://pervasive.semanticweb.org/ont/2004/06/space#definesPolicy> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity> ;
+                                                                   rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> ;
+                                                                   rdfs:label "definesPolicy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#hasCoordinates
+<http://pervasive.semanticweb.org/ont/2004/06/space#hasCoordinates> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                    rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates> ;
+                                                                    rdfs:label "hasCoordinates" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#spatiallySubsumedBy
+<http://pervasive.semanticweb.org/ont/2004/06/space#spatiallySubsumedBy> rdf:type owl:ObjectProperty ;
+                                                                         owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/space#spatiallySubsumes> ;
+                                                                         rdfs:label "spatiallySubsumedBy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#spatiallySubsumes
+<http://pervasive.semanticweb.org/ont/2004/06/space#spatiallySubsumes> rdf:type owl:ObjectProperty ,
+                                                                                owl:TransitiveProperty ;
+                                                                       rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                                       rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                                       rdfs:label "spatiallySubsumes" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#after
+<http://pervasive.semanticweb.org/ont/2004/06/time#after> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#before> ,
+                                                                        <http://pervasive.semanticweb.org/ont/2004/06/time#beforeOrAt> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#afterOrAt
+<http://pervasive.semanticweb.org/ont/2004/06/time#afterOrAt> rdf:type owl:ObjectProperty ;
+                                                              rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#startsAfterEndOf> ;
+                                                              owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#before> ;
+                                                              rdf:type owl:TransitiveProperty ;
+                                                              rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                              rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#before
+<http://pervasive.semanticweb.org/ont/2004/06/time#before> rdf:type owl:ObjectProperty ,
+                                                                    owl:TransitiveProperty ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#beforeOrAt
+<http://pervasive.semanticweb.org/ont/2004/06/time#beforeOrAt> rdf:type owl:ObjectProperty ;
+                                                               rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#endsBeforeStartOf> ;
+                                                               rdf:type owl:TransitiveProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                               rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#begins
+<http://pervasive.semanticweb.org/ont/2004/06/time#begins> rdf:type owl:ObjectProperty ;
+                                                           owl:equivalentProperty <http://pervasive.semanticweb.org/ont/2004/06/time#from> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#contains
+<http://pervasive.semanticweb.org/ont/2004/06/time#contains> rdf:type owl:ObjectProperty ;
+                                                             owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intContains> ;
+                                                             owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#during> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#during
+<http://pervasive.semanticweb.org/ont/2004/06/time#during> rdf:type owl:ObjectProperty ;
+                                                           owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intDuring> ;
+                                                           rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#startsOrDuring> ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#ends
+<http://pervasive.semanticweb.org/ont/2004/06/time#ends> rdf:type owl:ObjectProperty ;
+                                                         owl:equivalentProperty <http://pervasive.semanticweb.org/ont/2004/06/time#to> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#endsBeforeStartOf
+<http://pervasive.semanticweb.org/ont/2004/06/time#endsBeforeStartOf> rdf:type owl:ObjectProperty ;
+                                                                      owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#startsAfterEndOf> ;
+                                                                      rdf:type owl:TransitiveProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                      rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#endsLaterThan
+<http://pervasive.semanticweb.org/ont/2004/06/time#endsLaterThan> rdf:type owl:ObjectProperty ;
+                                                                  owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#endsSoonerThan> ;
+                                                                  rdf:type owl:TransitiveProperty ;
+                                                                  rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                  rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#endsSameTimeAs
+<http://pervasive.semanticweb.org/ont/2004/06/time#endsSameTimeAs> rdf:type owl:ObjectProperty ,
+                                                                            owl:TransitiveProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                   rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#endsSoonerThan
+<http://pervasive.semanticweb.org/ont/2004/06/time#endsSoonerThan> rdf:type owl:ObjectProperty ,
+                                                                            owl:TransitiveProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                   rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#equals
+<http://pervasive.semanticweb.org/ont/2004/06/time#equals> rdf:type owl:ObjectProperty ;
+                                                           owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intEquals> ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#finishedBy
+<http://pervasive.semanticweb.org/ont/2004/06/time#finishedBy> rdf:type owl:ObjectProperty ;
+                                                               owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intFinishedBy> ;
+                                                               owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#finishes> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#finishes
+<http://pervasive.semanticweb.org/ont/2004/06/time#finishes> rdf:type owl:ObjectProperty ;
+                                                             owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intFinishes> ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#from
+<http://pervasive.semanticweb.org/ont/2004/06/time#from> rdf:type owl:ObjectProperty ;
+                                                         owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#begins> ;
+                                                         rdf:type owl:FunctionalProperty ;
+                                                         rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                         rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                         rdfs:label "from" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#inside
+<http://pervasive.semanticweb.org/ont/2004/06/time#inside> rdf:type owl:ObjectProperty ;
+                                                           owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#inside> ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing> ;
+                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                           rdfs:label "inside" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#meets
+<http://pervasive.semanticweb.org/ont/2004/06/time#meets> rdf:type owl:ObjectProperty ;
+                                                          owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intMeets> ;
+                                                          rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#nonoverlap> ;
+                                                          owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#metBy> ;
+                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                          rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#metBy
+<http://pervasive.semanticweb.org/ont/2004/06/time#metBy> rdf:type owl:ObjectProperty ;
+                                                          owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intMetBy> ;
+                                                          rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#nonoverlap> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#nonoverlap
+<http://pervasive.semanticweb.org/ont/2004/06/time#nonoverlap> rdf:type owl:ObjectProperty ;
+                                                               owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#nonoverlap> ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                               rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#overlappedBy
+<http://pervasive.semanticweb.org/ont/2004/06/time#overlappedBy> rdf:type owl:ObjectProperty ;
+                                                                 owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intOverlappedBy> ;
+                                                                 owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#overlaps> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#overlaps
+<http://pervasive.semanticweb.org/ont/2004/06/time#overlaps> rdf:type owl:ObjectProperty ;
+                                                             owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intOverlaps> ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                             rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#sameTimeAs
+<http://pervasive.semanticweb.org/ont/2004/06/time#sameTimeAs> rdf:type owl:ObjectProperty ;
+                                                               rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#afterOrAt> ,
+                                                                                  <http://pervasive.semanticweb.org/ont/2004/06/time#beforeOrAt> ,
+                                                                                  <http://pervasive.semanticweb.org/ont/2004/06/time#endsSameTimeAs> ,
+                                                                                  <http://pervasive.semanticweb.org/ont/2004/06/time#startsSameTimeAs> ;
+                                                               owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#sameTimeAs> ;
+                                                               rdf:type owl:SymmetricProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#Instant> ;
+                                                               rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#Instant> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#startedBy
+<http://pervasive.semanticweb.org/ont/2004/06/time#startedBy> rdf:type owl:ObjectProperty ;
+                                                              owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intStartedBy> ;
+                                                              owl:inverseOf <http://pervasive.semanticweb.org/ont/2004/06/time#starts> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#starts
+<http://pervasive.semanticweb.org/ont/2004/06/time#starts> rdf:type owl:ObjectProperty ;
+                                                           owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#intStarts> ;
+                                                           rdfs:subPropertyOf <http://pervasive.semanticweb.org/ont/2004/06/time#startsOrDuring> ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                           rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#startsAfterEndOf
+<http://pervasive.semanticweb.org/ont/2004/06/time#startsAfterEndOf> rdf:type owl:ObjectProperty ,
+                                                                              owl:TransitiveProperty ;
+                                                                     rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                     rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#startsLaterThan
+<http://pervasive.semanticweb.org/ont/2004/06/time#startsLaterThan> rdf:type owl:ObjectProperty ,
+                                                                             owl:TransitiveProperty ;
+                                                                    rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                    rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#startsOrDuring
+<http://pervasive.semanticweb.org/ont/2004/06/time#startsOrDuring> rdf:type owl:ObjectProperty ;
+                                                                   owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#startsOrDuring> ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> ;
+                                                                   rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#startsSameTimeAs
+<http://pervasive.semanticweb.org/ont/2004/06/time#startsSameTimeAs> rdf:type owl:ObjectProperty ,
+                                                                              owl:SymmetricProperty ;
+                                                                     rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                     rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#startsSoonerThan
+<http://pervasive.semanticweb.org/ont/2004/06/time#startsSoonerThan> rdf:type owl:ObjectProperty ,
+                                                                              owl:TransitiveProperty ;
+                                                                     rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                                     rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#step
+<http://pervasive.semanticweb.org/ont/2004/06/time#step> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#Interval> ;
+                                                         rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#to
+<http://pervasive.semanticweb.org/ont/2004/06/time#to> rdf:type owl:ObjectProperty ;
+                                                       owl:equivalentProperty <http://www.isi.edu/~pan/damltime/time-entry.owl#ends> ;
+                                                       rdf:type owl:FunctionalProperty ;
+                                                       rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                       rdfs:range <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                       rdfs:label "to" .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#begins
+<http://www.isi.edu/~pan/damltime/time-entry.owl#begins> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#ends
+<http://www.isi.edu/~pan/damltime/time-entry.owl#ends> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#inside
+<http://www.isi.edu/~pan/damltime/time-entry.owl#inside> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intContains
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intContains> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intDuring
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intDuring> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intEquals
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intEquals> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intFinishedBy
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intFinishedBy> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intFinishes
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intFinishes> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intMeets
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intMeets> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intMetBy
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intMetBy> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intOverlappedBy
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intOverlappedBy> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intOverlaps
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intOverlaps> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intStartedBy
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intStartedBy> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#intStarts
+<http://www.isi.edu/~pan/damltime/time-entry.owl#intStarts> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#nonoverlap
+<http://www.isi.edu/~pan/damltime/time-entry.owl#nonoverlap> rdf:type owl:ObjectProperty .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#startsOrDuring
+<http://www.isi.edu/~pan/damltime/time-entry.owl#startsOrDuring> rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1#knows
+<http://xmlns.com/foaf/0.1#knows> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#bluetoothMAC
+<http://pervasive.semanticweb.org/ont/2004/06/device#bluetoothMAC> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/device#BluetoothEnabledCellphone> ;
+                                                                   rdfs:range xsd:string ;
+                                                                   rdfs:label "bluetoothMAC" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#modelNumber
+<http://pervasive.semanticweb.org/ont/2004/06/device#modelNumber> rdf:type owl:DatatypeProperty ;
+                                                                  rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/device#Device> ;
+                                                                  rdfs:range xsd:string ;
+                                                                  rdfs:label "modelNumber" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#serialNumber
+<http://pervasive.semanticweb.org/ont/2004/06/device#serialNumber> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/device#Device> ;
+                                                                   rdfs:range xsd:string ;
+                                                                   rdfs:label "serialNumber" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#size
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#size> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeDescription> ;
+                                                                rdfs:range xsd:unsignedLong ;
+                                                                rdfs:label "size" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/document#createdOn
+<http://pervasive.semanticweb.org/ont/2004/06/document#createdOn> rdf:type owl:DatatypeProperty ;
+                                                                  rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/document#Document> ;
+                                                                  rdfs:range xsd:dateTime ;
+                                                                  rdfs:label "createdOn" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#altitude
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#altitude> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates> ;
+                                                                        rdfs:range xsd:string ;
+                                                                        rdfs:label "altitude" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValue
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValue> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaValueDescription> ;
+                                                                         rdfs:range xsd:float ;
+                                                                         rdfs:label "areaValue" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValue
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValue> rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription> ;
+                                                                             rdfs:range xsd:float ;
+                                                                             rdfs:label "distanceValue" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#latitude
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#latitude> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates> ;
+                                                                        rdfs:range xsd:string ;
+                                                                        rdfs:label "latitude" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#longitude
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#longitude> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates> ;
+                                                                         rdfs:range xsd:string ;
+                                                                         rdfs:label "longitude" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#inconsistentWithCount
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#inconsistentWithCount> rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ;
+                                                                               rdfs:range xsd:nonNegativeInteger ;
+                                                                               rdfs:label "inconsistentWithCounty" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#reliabilityRating
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#reliabilityRating> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ;
+                                                                           rdfs:range xsd:float ;
+                                                                           rdfs:label "reliabilityRating" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#description
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#description> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                   rdfs:range xsd:string ;
+                                                                   rdfs:label "description" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#eventCancelled
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#eventCancelled> rdf:type owl:DatatypeProperty ;
+                                                                      rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                      rdfs:range xsd:boolean ;
+                                                                      rdfs:label "eventCancelled" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#eventRescheduled
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#eventRescheduled> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                        rdfs:range xsd:boolean ;
+                                                                        rdfs:label "eventRescheduled" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#name
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#name> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                            rdfs:range xsd:string ;
+                                                            rdfs:label "name" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#address
+<http://pervasive.semanticweb.org/ont/2004/06/person#address> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:label "address" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#birthDate
+<http://pervasive.semanticweb.org/ont/2004/06/person#birthDate> rdf:type owl:DatatypeProperty ,
+                                                                         owl:FunctionalProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                rdfs:range xsd:date ;
+                                                                rdfs:label "birthDate" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#familyName
+<http://pervasive.semanticweb.org/ont/2004/06/person#familyName> rdf:type owl:DatatypeProperty ;
+                                                                 owl:equivalentProperty <http://pervasive.semanticweb.org/ont/2004/06/person#lastName> ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                 rdfs:range xsd:string ;
+                                                                 rdfs:label "familyName" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#fax
+<http://pervasive.semanticweb.org/ont/2004/06/person#fax> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:range xsd:string ;
+                                                          rdfs:label "fax" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#firstName
+<http://pervasive.semanticweb.org/ont/2004/06/person#firstName> rdf:type owl:DatatypeProperty ;
+                                                                owl:equivalentProperty <http://pervasive.semanticweb.org/ont/2004/06/person#givenName> ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                rdfs:range xsd:string ;
+                                                                rdfs:label "firstName" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#givenName
+<http://pervasive.semanticweb.org/ont/2004/06/person#givenName> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                rdfs:range xsd:string ;
+                                                                rdfs:label "givenName" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#lastName
+<http://pervasive.semanticweb.org/ont/2004/06/person#lastName> rdf:type owl:DatatypeProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                               rdfs:range xsd:string ;
+                                                               rdfs:label "lastName" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#middleName
+<http://pervasive.semanticweb.org/ont/2004/06/person#middleName> rdf:type owl:DatatypeProperty ;
+                                                                 rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                                 rdfs:range xsd:string ;
+                                                                 rdfs:label "middleName" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#mobile
+<http://pervasive.semanticweb.org/ont/2004/06/person#mobile> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:range xsd:string ;
+                                                             rdfs:label "mobile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#name
+<http://pervasive.semanticweb.org/ont/2004/06/person#name> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                           rdfs:range xsd:string ;
+                                                           rdfs:label "name" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#nickname
+<http://pervasive.semanticweb.org/ont/2004/06/person#nickname> rdf:type owl:DatatypeProperty ;
+                                                               rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/person#Person> ;
+                                                               rdfs:range xsd:string ;
+                                                               rdfs:label "nickname" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#phone
+<http://pervasive.semanticweb.org/ont/2004/06/person#phone> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:range xsd:string ;
+                                                            rdfs:label "phone" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#sms
+<http://pervasive.semanticweb.org/ont/2004/06/person#sms> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:range xsd:string ;
+                                                          rdfs:label "sms" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#description
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#description> rdf:type owl:DatatypeProperty ;
+                                                                    rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> ;
+                                                                    rdfs:range xsd:string ;
+                                                                    rdfs:label "description" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#name
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#name> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> ;
+                                                             rdfs:range xsd:string ;
+                                                             rdfs:label "name" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#name
+<http://pervasive.semanticweb.org/ont/2004/06/space#name> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                          rdfs:range xsd:string ;
+                                                          rdfs:label "name" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#officialName
+<http://pervasive.semanticweb.org/ont/2004/06/space#officialName> rdf:type owl:DatatypeProperty ,
+                                                                           owl:FunctionalProperty ;
+                                                                  rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity> ;
+                                                                  rdfs:range xsd:string ;
+                                                                  rdfs:label "officialName" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#at
+<http://pervasive.semanticweb.org/ont/2004/06/time#at> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ;
+                                                       rdfs:range xsd:dateTime ;
+                                                       rdfs:label "at" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://pervasive.semanticweb.org/ont/2004/06/action#Action
+<http://pervasive.semanticweb.org/ont/2004/06/action#Action> rdf:type owl:Class ;
+                                                             rdfs:label "Action" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/agent#Agent
+<http://pervasive.semanticweb.org/ont/2004/06/agent#Agent> rdf:type owl:Class ;
+                                                           rdfs:label "Agent" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#AchievableDesire
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#AchievableDesire> rdf:type owl:Class ;
+                                                                    owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire>
+                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                 owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/bdi#canBeAchievedWithPlan> ;
+                                                                                                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                                               ]
+                                                                                                             ) ;
+                                                                                          rdf:type owl:Class
+                                                                                        ] ;
+                                                                    owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/bdi#NonAchievableDesire> ;
+                                                                    rdfs:label "AchievableDesire" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#Belief
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#Belief> rdf:type owl:Class ;
+                                                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/bdi#FalseStatement>
+                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/bdi#TrueStatement>
+                                                                                            )
+                                                                              ] ;
+                                                          rdfs:label "Belief" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#ConflictingDesire
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#ConflictingDesire> rdf:type owl:Class ;
+                                                                     owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire>
+                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                  owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/bdi#conflicts> ;
+                                                                                                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                                                ]
+                                                                                                              ) ;
+                                                                                           rdf:type owl:Class
+                                                                                         ] ;
+                                                                     owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/bdi#NonConflictingDesire> ;
+                                                                     rdfs:label "ConflictingDesire" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire> rdf:type owl:Class ;
+                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/bdi#endState> ;
+                                                                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                          ] ;
+                                                          rdfs:label "Desire" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#FalseStatement
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#FalseStatement> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/bdi#Belief> ;
+                                                                  owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/bdi#TrueStatement> ;
+                                                                  rdfs:label "FalseStatement" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#Goal
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#Goal> rdf:type owl:Class ;
+                                                        owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/bdi#AchievableDesire>
+                                                                                                   <http://pervasive.semanticweb.org/ont/2004/06/bdi#NonConflictingDesire>
+                                                                                                 ) ;
+                                                                              rdf:type owl:Class
+                                                                            ] ;
+                                                        rdfs:label "Goal" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#Intention
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#Intention> rdf:type owl:Class ;
+                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/bdi#definedByPlan> ;
+                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                             ] ;
+                                                             rdfs:label "Intention" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#NonAchievableDesire
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#NonAchievableDesire> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire> ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/bdi#canBeAchievedWithPlan> ;
+                                                                                         owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                                                       ] ;
+                                                                       rdfs:label "NonAchievableDesire" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#NonConflictingDesire
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#NonConflictingDesire> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/bdi#Desire> ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/bdi#conflicts> ;
+                                                                                          owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                                                        ] ;
+                                                                        rdfs:label "NonConflictingDesire" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#Plan
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#Plan> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/action#Action> ;
+                                                        rdfs:label "Plan" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/bdi#TrueStatement
+<http://pervasive.semanticweb.org/ont/2004/06/bdi#TrueStatement> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/bdi#Belief> ;
+                                                                 rdfs:label "TrueStatement" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#BluetoothEnabledCellphone
+<http://pervasive.semanticweb.org/ont/2004/06/device#BluetoothEnabledCellphone> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/device#Cellphone> ,
+                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                  owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/device#bluetoothMAC> ;
+                                                                                                  owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                ] ;
+                                                                                rdfs:label "BluetoothEnabledCellphone" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#Cellphone
+<http://pervasive.semanticweb.org/ont/2004/06/device#Cellphone> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/device#Device> ;
+                                                                rdfs:label "Cellphone" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#Device
+<http://pervasive.semanticweb.org/ont/2004/06/device#Device> rdf:type owl:Class ;
+                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/device#manufacturerHomepage> ;
+                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                             ] ,
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/device#modelNumber> ;
+                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                             ] ,
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/device#serialNumber> ;
+                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                             ] ;
+                                                             rdfs:label "Device" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#NokiaCellphone
+<http://pervasive.semanticweb.org/ont/2004/06/device#NokiaCellphone> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/device#Cellphone> ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/device#manufacturerHomepage> ;
+                                                                                       owl:hasValue <http://www.nokia.com>
+                                                                                     ] ;
+                                                                     rdfs:label "NokiaCellphone" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/device#SonyEricssonCellphone
+<http://pervasive.semanticweb.org/ont/2004/06/device#SonyEricssonCellphone> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/device#Cellphone> ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/device#manufacturerHomepage> ;
+                                                                                              owl:hasValue <http://www.sonyericsson.com>
+                                                                                            ] ;
+                                                                            rdfs:label "SonyEricssonCellphone" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#AudioFile
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#AudioFile> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument> ;
+                                                                     owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#ImageFile> ,
+                                                                                      <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#VideoFile> ;
+                                                                     rdfs:label "AudioFile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument> rdf:type owl:Class ;
+                                                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                                 owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#AudioFile>
+                                                                                                               <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#ImageFile>
+                                                                                                               <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#VideoFile>
+                                                                                                             )
+                                                                                               ] ;
+                                                                           rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/document#Document> ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#fileSize> ;
+                                                                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                           ] ;
+                                                                           rdfs:label "DigitalDocument" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeDescription
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeDescription> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#unit> ;
+                                                                                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                               ] ,
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#size> ;
+                                                                                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                               ] ;
+                                                                               rdfs:label "FileSizeDescription" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> rdf:type owl:Class ;
+                                                                        owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                              owl:oneOf ( <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#Bytes>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#GBytes>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#KBytes>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#MBytes>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#TBytes>
+                                                                                                        )
+                                                                                            ] ;
+                                                                        rdfs:label "FileSizeUnit" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#ImageFile
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#ImageFile> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument> ;
+                                                                     owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#VideoFile> ;
+                                                                     rdfs:label "ImageFile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#VideoFile
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#VideoFile> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#DigitalDocument> ;
+                                                                     rdfs:label "VideoFile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/document#Document
+<http://pervasive.semanticweb.org/ont/2004/06/document#Document> rdf:type owl:Class ;
+                                                                 rdfs:label "Document" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/event#SpatialTemporalEvent
+<http://pervasive.semanticweb.org/ont/2004/06/event#SpatialTemporalEvent> rdf:type owl:Class ;
+                                                                          owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/event#SpatialTemporalThing>
+                                                                                                                     <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent>
+                                                                                                                   ) ;
+                                                                                                rdf:type owl:Class
+                                                                                              ] ;
+                                                                          rdfs:label "SpatialTemporalEvent" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/event#SpatialTemporalThing
+<http://pervasive.semanticweb.org/ont/2004/06/event#SpatialTemporalThing> rdf:type owl:Class ;
+                                                                          owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing>
+                                                                                                                     <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing>
+                                                                                                                   ) ;
+                                                                                                rdf:type owl:Class
+                                                                                              ] ;
+                                                                          rdfs:label "SpatialTemporalThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> rdf:type owl:Class ;
+                                                                        owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                              owl:oneOf ( <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#CentimeterSq>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#FootSq>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#InchSq>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#KilometerSq>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MeterSq>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MileSq>
+                                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#YardSq>
+                                                                                                        )
+                                                                                            ] ;
+                                                                        rdfs:label "AreaUnit" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaValueDescription
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaValueDescription> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaUnit> ;
+                                                                                                      owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                    ] ,
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValue> ;
+                                                                                                      owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                    ] ;
+                                                                                    rdfs:label "AreaValueDescription" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> rdf:type owl:Class ;
+                                                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                               owl:oneOf ( <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#E>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#N>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NE>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NW>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#S>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SE>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SW>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#W>
+                                                                                                         )
+                                                                                             ] ;
+                                                                         rdfs:label "Direction" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Distance
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Distance> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValueDescription> ;
+                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#fromSpatialThing> ;
+                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#toSpatialThing> ;
+                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                        ] ;
+                                                                        rdfs:label "Distance" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> rdf:type owl:Class ;
+                                                                            owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                                  owl:oneOf ( <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Centimeter>
+                                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Foot>
+                                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Inch>
+                                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Kilometer>
+                                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Meter>
+                                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Mile>
+                                                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Yard>
+                                                                                                            )
+                                                                                                ] ;
+                                                                            rdfs:label "DistanceUnit" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceValueDescription> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceUnit> ;
+                                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                        ] ,
+                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#direction> ;
+                                                                                                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                                        ] ,
+                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#distanceValue> ;
+                                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                        ] ;
+                                                                                        rdfs:label "DistanceValueDescription" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#altitude> ;
+                                                                                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                   ] ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#latitude> ;
+                                                                                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                   ] ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#longitude> ;
+                                                                                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                   ] ;
+                                                                                   rdfs:label "LocationCoordinates" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SurfaceArea
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SurfaceArea> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#areaValueDescription> ;
+                                                                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                           ] ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#surfaceAreaOf> ;
+                                                                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                           ] ;
+                                                                           rdfs:label "SurfaceArea" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/img-capture#CameraPhone
+<http://pervasive.semanticweb.org/ont/2004/06/img-capture#CameraPhone> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/device#Cellphone> ,
+                                                                                       <http://protege.stanford.edu/plugins/owl/owl-library/camera.owlDigital> ;
+                                                                       rdfs:label "CameraPhone" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/img-capture#ImageCaptureEvent
+<http://pervasive.semanticweb.org/ont/2004/06/img-capture#ImageCaptureEvent> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ,
+                                                                                             <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent> ;
+                                                                             rdfs:label "ImageCaptureEvent" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#ConsistentKnowledge
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#ConsistentKnowledge> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ,
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/knowledge#inconsistentWith> ;
+                                                                                               owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                                                             ] ;
+                                                                             owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/knowledge#InconsistentKnowledge> ;
+                                                                             rdfs:label "ConsistentKnowledge" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#InconsistentKnowledge
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#InconsistentKnowledge> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ,
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/knowledge#inconsistentWith> ;
+                                                                                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                               ] ;
+                                                                               rdfs:label "InconsistentKnowledge" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge
+<http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> rdf:type owl:Class ;
+                                                                   owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                         owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/knowledge#ConsistentKnowledge>
+                                                                                                       <http://pervasive.semanticweb.org/ont/2004/06/knowledge#InconsistentKnowledge>
+                                                                                                     )
+                                                                                       ] ;
+                                                                   rdfs:label "Knowledge" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/location#LocationContext
+<http://pervasive.semanticweb.org/ont/2004/06/location#LocationContext> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/knowledge#Knowledge> ,
+                                                                                        <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ,
+                                                                                        <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent> ;
+                                                                        rdfs:label "LocationContext" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> rdf:type owl:Class ;
+                                                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                     owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsCancelled>
+                                                                                                   <http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsOnTime>
+                                                                                                   <http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsRescheduled>
+                                                                                                 )
+                                                                                   ] ;
+                                                               rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalEvent> ,
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/meeting#location> ;
+                                                                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                               ] ;
+                                                               rdfs:label "Meeting" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsCancelled
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsCancelled> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/meeting#eventCancelled> ;
+                                                                                                     owl:hasValue "true"^^xsd:boolean
+                                                                                                   ] ;
+                                                                                   owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsOnTime> ,
+                                                                                                    <http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsRescheduled> ;
+                                                                                   rdfs:label "ScheduledMeetingIsCancelled" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsOnTime
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsOnTime> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ;
+                                                                                owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsRescheduled> ;
+                                                                                rdfs:label "ScheduledMeetingIsOnTime" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsRescheduled
+<http://pervasive.semanticweb.org/ont/2004/06/meeting#ScheduledMeetingIsRescheduled> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/meeting#Meeting> ,
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/meeting#eventRescheduled> ;
+                                                                                                       owl:hasValue "true"^^xsd:boolean
+                                                                                                     ] ;
+                                                                                     rdfs:label "ScheduledMeetingIsRescheduled" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#ChatID
+<http://pervasive.semanticweb.org/ont/2004/06/person#ChatID> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/person#InternetResourceURL> ;
+                                                             rdfs:label "ChatID" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#ContactProfile
+<http://pervasive.semanticweb.org/ont/2004/06/person#ContactProfile> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#email> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#homepage> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#im> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#myagent> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#address> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#fax> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#mobile> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#phone> ;
+                                                                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                     ] ;
+                                                                     rdfs:label "ContactProfile" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Document
+<http://pervasive.semanticweb.org/ont/2004/06/person#Document> rdf:type owl:Class ;
+                                                               owl:equivalentClass <http://xmlns.com/foaf/0.1#Document> ;
+                                                               rdfs:label "Document" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Email
+<http://pervasive.semanticweb.org/ont/2004/06/person#Email> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/person#InternetResourceURL> ;
+                                                            rdfs:label "Email" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Gender
+<http://pervasive.semanticweb.org/ont/2004/06/person#Gender> rdf:type owl:Class ;
+                                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                   owl:oneOf ( <http://pervasive.semanticweb.org/ont/2004/06/person#Female>
+                                                                                               <http://pervasive.semanticweb.org/ont/2004/06/person#Male>
+                                                                                             )
+                                                                                 ] ;
+                                                             rdfs:label "Gender" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Homepage
+<http://pervasive.semanticweb.org/ont/2004/06/person#Homepage> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/person#Document> ,
+                                                                               <http://pervasive.semanticweb.org/ont/2004/06/person#InternetResourceURL> ;
+                                                               rdfs:label "Homepage" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#IMProvider
+<http://pervasive.semanticweb.org/ont/2004/06/person#IMProvider> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#hasRegisteredChatID> ;
+                                                                                   owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                 ] ;
+                                                                 rdfs:label "IMProvider" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#InternetResourceURL
+<http://pervasive.semanticweb.org/ont/2004/06/person#InternetResourceURL> rdf:type owl:Class ;
+                                                                          rdfs:label "InternetResourceURL" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#JADEAgentID
+<http://pervasive.semanticweb.org/ont/2004/06/person#JADEAgentID> rdf:type owl:Class ;
+                                                                  rdfs:label "JADEAgentID" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Person
+<http://pervasive.semanticweb.org/ont/2004/06/person#Person> rdf:type owl:Class ;
+                                                             owl:equivalentClass <http://xmlns.com/foaf/0.1#Person> ;
+                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#gender> ;
+                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                             ] ,
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/person#birthDate> ;
+                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                             ] ;
+                                                             rdfs:label "Person" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#ForbiddenAction
+<http://pervasive.semanticweb.org/ont/2004/06/policy#ForbiddenAction> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/action#Action> ;
+                                                                      owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/policy#PermittedAction> ;
+                                                                      rdfs:label "ForbiddenAction" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#Mode
+<http://pervasive.semanticweb.org/ont/2004/06/policy#Mode> rdf:type owl:Class ;
+                                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                 owl:oneOf ( <http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission>
+                                                                                             <http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresNoExplicitPermission>
+                                                                                           )
+                                                                               ] ;
+                                                           rdfs:label "Mode" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#PermittedAction
+<http://pervasive.semanticweb.org/ont/2004/06/policy#PermittedAction> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/action#Action> ;
+                                                                      rdfs:label "PermittedAction" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#Policy
+<http://pervasive.semanticweb.org/ont/2004/06/policy#Policy> rdf:type owl:Class ;
+                                                             rdfs:label "Policy" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion
+<http://pervasive.semanticweb.org/ont/2004/06/rcc#RCCSpatialRegion> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                    rdfs:label "RCCSpatialRegion" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule
+<http://pervasive.semanticweb.org/ont/2004/06/schedule#MeetingSchedule> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing> ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/schedule#location> ;
+                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/schedule#createdBy> ;
+                                                                                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/schedule#name> ;
+                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                        ] ;
+                                                                        rdfs:label "MeetingSchedule" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#FixedStructure
+<http://pervasive.semanticweb.org/ont/2004/06/space#FixedStructure> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                                    owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalRegion> ,
+                                                                                     <http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure> ;
+                                                                    rdfs:label "FixedStructure" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalRegion
+<http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalRegion> rdf:type owl:Class ;
+                                                                        owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                              owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/space#LandBasedRegion>
+                                                                                                            <http://pervasive.semanticweb.org/ont/2004/06/space#WaterBasedRegion>
+                                                                                                          )
+                                                                                            ] ;
+                                                                        rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                                        owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure> ;
+                                                                        rdfs:label "GeographicalRegion" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace
+<http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> rdf:type owl:Class ;
+                                                                       owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                             owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/space#FixedStructure>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalRegion>
+                                                                                                           <http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure>
+                                                                                                         )
+                                                                                           ] ;
+                                                                       rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> ;
+                                                                       owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/space#MovableSpatialThing> ;
+                                                                       rdfs:label "GeographicalSpace" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity
+<http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity> rdf:type owl:Class ;
+                                                                        rdfs:label "GeopoliticalEntity" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#LandBasedRegion
+<http://pervasive.semanticweb.org/ont/2004/06/space#LandBasedRegion> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalRegion> ;
+                                                                     owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/space#WaterBasedRegion> ;
+                                                                     rdfs:label "LandBasedRegion" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#MovableSpatialThing
+<http://pervasive.semanticweb.org/ont/2004/06/space#MovableSpatialThing> rdf:type owl:Class .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure
+<http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace> ;
+                                                                            rdfs:label "SpaceInAFixedStructure" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing
+<http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing> rdf:type owl:Class ;
+                                                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                        owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalSpace>
+                                                                                                      <http://pervasive.semanticweb.org/ont/2004/06/space#MovableSpatialThing>
+                                                                                                    )
+                                                                                      ] ;
+                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/space#hasCoordinates> ;
+                                                                                    owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                  ] ;
+                                                                  rdfs:label "SpatialThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/space#WaterBasedRegion
+<http://pervasive.semanticweb.org/ont/2004/06/space#WaterBasedRegion> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/space#GeographicalRegion> ;
+                                                                      rdfs:label "WaterBasedRegion" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#ContinuousInterval
+<http://pervasive.semanticweb.org/ont/2004/06/time#ContinuousInterval> rdf:type owl:Class ;
+                                                                       owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#Interval>
+                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                    owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/time#step> ;
+                                                                                                                    owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                                                                                  ]
+                                                                                                                ) ;
+                                                                                             rdf:type owl:Class
+                                                                                           ] ;
+                                                                       owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/time#DiscreteInterval> ;
+                                                                       rdfs:label "ContinuousInterval" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#DiscreteInterval
+<http://pervasive.semanticweb.org/ont/2004/06/time#DiscreteInterval> rdf:type owl:Class ;
+                                                                     owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#Interval>
+                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                  owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/time#step> ;
+                                                                                                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                                                ]
+                                                                                                              ) ;
+                                                                                           rdf:type owl:Class
+                                                                                         ] ;
+                                                                     owl:disjointWith owl:Thing ;
+                                                                     rdfs:label "DiscreteInterval" .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid133 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(DiscreteInterval) replaced by DisjointClasses(DiscreteInterval Thing)" ;
+   rdfs:comment "Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi on 22/01/2026, 11:52"
+ ] .
+
+_:genid133 rdf:type owl:Axiom ;
+            owl:annotatedSource <http://pervasive.semanticweb.org/ont/2004/06/time#DiscreteInterval> ;
+            owl:annotatedProperty owl:disjointWith ;
+            owl:annotatedTarget owl:Thing ;
+            rdfs:comment "DisjointClasses(DiscreteInterval) replaced by DisjointClasses(DiscreteInterval Thing)" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#Instant
+<http://pervasive.semanticweb.org/ont/2004/06/time#Instant> rdf:type owl:Class ;
+                                                            owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#Instant> ;
+                                                            rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ,
+                                                                            <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                            owl:disjointWith <http://pervasive.semanticweb.org/ont/2004/06/time#Interval> ;
+                                                            rdfs:label "Instant" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#InstantEvent
+<http://pervasive.semanticweb.org/ont/2004/06/time#InstantEvent> rdf:type owl:Class ;
+                                                                 owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#InstantEvent> ;
+                                                                 rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> ,
+                                                                                 <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent> ;
+                                                                 rdfs:label "InstantEvent" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing
+<http://pervasive.semanticweb.org/ont/2004/06/time#InstantThing> rdf:type owl:Class ;
+                                                                 owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#InstantThing> ,
+                                                                                     [ rdf:type owl:Class ;
+                                                                                       owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#Instant>
+                                                                                                     <http://pervasive.semanticweb.org/ont/2004/06/time#InstantEvent>
+                                                                                                   )
+                                                                                     ] ;
+                                                                 rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ,
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/time#at> ;
+                                                                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                 ] ;
+                                                                 rdfs:label "InstantThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#Interval
+<http://pervasive.semanticweb.org/ont/2004/06/time#Interval> rdf:type owl:Class ;
+                                                             owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#Interval> ;
+                                                             rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing> ,
+                                                                             <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ;
+                                                             rdfs:label "Interval" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#IntervalEvent
+<http://pervasive.semanticweb.org/ont/2004/06/time#IntervalEvent> rdf:type owl:Class ;
+                                                                  owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalEvent> ;
+                                                                  rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing> ,
+                                                                                  <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent> ;
+                                                                  rdfs:label "IntervalEvent" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing
+<http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing> rdf:type owl:Class ;
+                                                                  owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing> ,
+                                                                                      [ rdf:type owl:Class ;
+                                                                                        owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#Interval>
+                                                                                                      <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalEvent>
+                                                                                                    )
+                                                                                      ] ;
+                                                                  rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/time#from> ;
+                                                                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/time#to> ;
+                                                                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                  ] ;
+                                                                  rdfs:label "IntervalThing" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#PeriodicDiscreteInterval
+<http://pervasive.semanticweb.org/ont/2004/06/time#PeriodicDiscreteInterval> rdf:type owl:Class ;
+                                                                             owl:equivalentClass [ owl:intersectionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#DiscreteInterval>
+                                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                                          owl:onProperty <http://pervasive.semanticweb.org/ont/2004/06/time#step> ;
+                                                                                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                                                        ]
+                                                                                                                      ) ;
+                                                                                                   rdf:type owl:Class
+                                                                                                 ] ;
+                                                                             rdfs:label "PeriodicDiscreteInterval" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#ProperInterval
+<http://pervasive.semanticweb.org/ont/2004/06/time#ProperInterval> rdf:type owl:Class ;
+                                                                   owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#ProperInterval> ;
+                                                                   rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#Interval> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing
+<http://pervasive.semanticweb.org/ont/2004/06/time#ProperIntervalThing> rdf:type owl:Class ;
+                                                                        owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing> ;
+                                                                        rdfs:subClassOf <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent
+<http://pervasive.semanticweb.org/ont/2004/06/time#TemporalEvent> rdf:type owl:Class ;
+                                                                  owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#Event> ,
+                                                                                      [ rdf:type owl:Class ;
+                                                                                        owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#InstantEvent>
+                                                                                                      <http://pervasive.semanticweb.org/ont/2004/06/time#IntervalEvent>
+                                                                                                    )
+                                                                                      ] ;
+                                                                  rdfs:label "TemporalEvent" .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing
+<http://pervasive.semanticweb.org/ont/2004/06/time#TemporalThing> rdf:type owl:Class ;
+                                                                  owl:equivalentClass <http://www.isi.edu/~pan/damltime/time-entry.owl#TemporalThing> ,
+                                                                                      [ rdf:type owl:Class ;
+                                                                                        owl:unionOf ( <http://pervasive.semanticweb.org/ont/2004/06/time#Instant>
+                                                                                                      <http://pervasive.semanticweb.org/ont/2004/06/time#Interval>
+                                                                                                    )
+                                                                                      ] ;
+                                                                  rdfs:label "TemporalThing" .
+
+
+###  http://protege.stanford.edu/plugins/owl/owl-library/camera.owlDigital
+<http://protege.stanford.edu/plugins/owl/owl-library/camera.owlDigital> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#Event
+<http://www.isi.edu/~pan/damltime/time-entry.owl#Event> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#Instant
+<http://www.isi.edu/~pan/damltime/time-entry.owl#Instant> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#InstantEvent
+<http://www.isi.edu/~pan/damltime/time-entry.owl#InstantEvent> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#InstantThing
+<http://www.isi.edu/~pan/damltime/time-entry.owl#InstantThing> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#Interval
+<http://www.isi.edu/~pan/damltime/time-entry.owl#Interval> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalEvent
+<http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalEvent> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing
+<http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#ProperInterval
+<http://www.isi.edu/~pan/damltime/time-entry.owl#ProperInterval> rdf:type owl:Class .
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#TemporalThing
+<http://www.isi.edu/~pan/damltime/time-entry.owl#TemporalThing> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1#Document
+<http://xmlns.com/foaf/0.1#Document> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1#Person
+<http://xmlns.com/foaf/0.1#Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.nokia.com
+<http://www.nokia.com> rdf:type owl:NamedIndividual ,
+                                <http://pervasive.semanticweb.org/ont/2004/06/person#Homepage> .
+
+
+###  http://www.sonyericsson.com
+<http://www.sonyericsson.com> rdf:type owl:NamedIndividual ,
+                                       <http://pervasive.semanticweb.org/ont/2004/06/person#Homepage> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#Bytes
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#Bytes> rdf:type owl:NamedIndividual ,
+                                                                          <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#GBytes
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#GBytes> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#KBytes
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#KBytes> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#MBytes
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#MBytes> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/digital-doc#TBytes
+<http://pervasive.semanticweb.org/ont/2004/06/digital-doc#TBytes> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#FileSizeUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Centimeter
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Centimeter> rdf:type owl:NamedIndividual ,
+                                                                                   <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#CentimeterSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#CentimeterSq> rdf:type owl:NamedIndividual ,
+                                                                                     <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#E
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#E> rdf:type owl:NamedIndividual ,
+                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Foot
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Foot> rdf:type owl:NamedIndividual ,
+                                                                             <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#FootSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#FootSq> rdf:type owl:NamedIndividual ,
+                                                                               <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Inch
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Inch> rdf:type owl:NamedIndividual ,
+                                                                             <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#InchSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#InchSq> rdf:type owl:NamedIndividual ,
+                                                                               <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Kilometer
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Kilometer> rdf:type owl:NamedIndividual ,
+                                                                                  <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#KilometerSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#KilometerSq> rdf:type owl:NamedIndividual ,
+                                                                                    <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Meter
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Meter> rdf:type owl:NamedIndividual ,
+                                                                              <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MeterSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MeterSq> rdf:type owl:NamedIndividual ,
+                                                                                <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Mile
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Mile> rdf:type owl:NamedIndividual ,
+                                                                             <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MileSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#MileSq> rdf:type owl:NamedIndividual ,
+                                                                               <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#N
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#N> rdf:type owl:NamedIndividual ,
+                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NE
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NE> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NW
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#NW> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#S
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#S> rdf:type owl:NamedIndividual ,
+                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SE
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SE> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SW
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#SW> rdf:type owl:NamedIndividual ,
+                                                                           <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#W
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#W> rdf:type owl:NamedIndividual ,
+                                                                          <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Direction> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Yard
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#Yard> rdf:type owl:NamedIndividual ,
+                                                                             <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#DistanceUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#YardSq
+<http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#YardSq> rdf:type owl:NamedIndividual ,
+                                                                               <http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#AreaUnit> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Female
+<http://pervasive.semanticweb.org/ont/2004/06/person#Female> rdf:type owl:NamedIndividual ,
+                                                                      <http://pervasive.semanticweb.org/ont/2004/06/person#Gender> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/person#Male
+<http://pervasive.semanticweb.org/ont/2004/06/person#Male> rdf:type owl:NamedIndividual ,
+                                                                    <http://pervasive.semanticweb.org/ont/2004/06/person#Gender> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#Conservative
+<http://pervasive.semanticweb.org/ont/2004/06/policy#Conservative> rdf:type owl:NamedIndividual ,
+                                                                            <http://pervasive.semanticweb.org/ont/2004/06/policy#Mode> ;
+                                                                   owl:sameAs <http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission
+<http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission> rdf:type owl:NamedIndividual .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#Liberal
+<http://pervasive.semanticweb.org/ont/2004/06/policy#Liberal> rdf:type owl:NamedIndividual ,
+                                                                       <http://pervasive.semanticweb.org/ont/2004/06/policy#Mode> ;
+                                                              owl:sameAs <http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission
+<http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission> rdf:type owl:NamedIndividual .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission
+<http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresExplicitPermission> rdf:type owl:NamedIndividual ,
+                                                                                          <http://pervasive.semanticweb.org/ont/2004/06/policy#Mode> .
+
+
+###  http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresNoExplicitPermission
+<http://pervasive.semanticweb.org/ont/2004/06/policy#RequiresNoExplicitPermission> rdf:type owl:NamedIndividual ,
+                                                                                            <http://pervasive.semanticweb.org/ont/2004/06/policy#Mode> .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

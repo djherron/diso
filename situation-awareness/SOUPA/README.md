@@ -42,5 +42,9 @@ there is also an example privacy policy
 **NOTE**: Due to the close association between **SOUPA** and the **COBRA-ONT** ontologies, DISO treats them as one ontology: **SOUPA**. Also, it's not clear that the **COBRA-ONT** extensions of **SOUPA** will be of interest.
 
 
+## Merged ontology
+
+Using Protege, we created a **merged** version of the many component ontologies in the SOUPA network of ontologies. We called this merge `soupa-merged.ttl`.  Note that the **COBRA-ONT** extensions of **SOUPA** are NOT part of this merged ontology.
+
 
 
