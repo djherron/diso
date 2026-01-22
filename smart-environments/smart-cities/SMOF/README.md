@@ -13,3 +13,5 @@ SMOF ontology download:
 * https://figshare.com/articles/dataset/SMOF_IJGIS_/24996683
 * see `SMOF.rdf`
 
+Using Protege, we converted `SMOF.rdf` to `SMOF.ttl`
+

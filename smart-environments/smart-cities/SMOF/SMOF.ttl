@@ -1,0 +1,3820 @@
+@prefix : <http://www.semanticweb.org/10717/SMOF/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/10717/SMOF/> .
+
+<http://www.semanticweb.org/10717/SMOF> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/10717/SMOF#Belonging_Relationship
+:Belonging_Relationship rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :Generic_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Dependency
+:Dependency rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :Belonging_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Direction
+:Direction rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :Spatial_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Distance
+:Distance rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Spatial_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Equality
+:Equality rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Belonging_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Generic_Relationship
+:Generic_Relationship rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Hierarchy
+:Hierarchy rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :Belonging_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Spatial_Relationship
+:Spatial_Relationship rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :Generic_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Thematic_Extension_Relationship
+:Thematic_Extension_Relationship rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Time_Association
+:Time_Association rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :Time_Correlation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Time_Correlation
+:Time_Correlation rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :Generic_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Topology
+:Topology rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Spatial_Relationship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#adjoins
+:adjoins rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :Topology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#comprises
+:comprises rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :Hierarchy ;
+           rdf:type owl:TransitiveProperty ;
+           owl:propertyDisjointWith :isPartOf .
+
+
+###  http://www.semanticweb.org/10717/SMOF#connects
+:connects rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Topology ;
+          rdf:type owl:TransitiveProperty ;
+          owl:propertyDisjointWith :isConnectedTo .
+
+
+###  http://www.semanticweb.org/10717/SMOF#contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Topology ;
+          owl:propertyDisjointWith :isContainedBy .
+
+
+###  http://www.semanticweb.org/10717/SMOF#covers
+:covers rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :Topology ;
+        rdf:type owl:TransitiveProperty ;
+        owl:propertyDisjointWith :isCoveredBy .
+
+
+###  http://www.semanticweb.org/10717/SMOF#dependOn
+:dependOn rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Dependency ;
+          rdf:type owl:TransitiveProperty ;
+          owl:propertyDisjointWith :support .
+
+
+###  http://www.semanticweb.org/10717/SMOF#happensAfter
+:happensAfter rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :Time_Association ;
+              rdf:type owl:TransitiveProperty ;
+              owl:propertyDisjointWith :happensBefore ,
+                                       :happensSimultaneously .
+
+
+###  http://www.semanticweb.org/10717/SMOF#happensBefore
+:happensBefore rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Time_Association ;
+               rdf:type owl:TransitiveProperty ;
+               owl:propertyDisjointWith :happensSimultaneously .
+
+
+###  http://www.semanticweb.org/10717/SMOF#happensSimultaneously
+:happensSimultaneously rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :Time_Association ;
+                       rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#hasInstanceOf
+:hasInstanceOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Hierarchy ;
+               owl:propertyDisjointWith :isExampleOf .
+
+
+###  http://www.semanticweb.org/10717/SMOF#hasSubspecies
+:hasSubspecies rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Hierarchy ;
+               rdf:type owl:TransitiveProperty ;
+               owl:propertyDisjointWith :isInheritancedFrom .
+
+
+###  http://www.semanticweb.org/10717/SMOF#intersects
+:intersects rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :Topology ;
+            owl:propertyDisjointWith :isIntersectedBy .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isAbove
+:isAbove rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :Direction ;
+         rdf:type owl:TransitiveProperty ;
+         owl:propertyDisjointWith :isBelow .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isAntonymWith
+:isAntonymWith rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Equality ;
+               owl:propertyDisjointWith :isSynonymWith .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isBelow
+:isBelow rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :Direction ;
+         rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isConnectedTo
+:isConnectedTo rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Topology ;
+               rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isContainedBy
+:isContainedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Topology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isCoveredBy
+:isCoveredBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :Topology ;
+             rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isEastOf
+:isEastOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Direction ;
+          rdf:type owl:TransitiveProperty ;
+          owl:propertyDisjointWith :isWestOf .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isExampleOf
+:isExampleOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :Hierarchy ;
+             rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isInheritancedFrom
+:isInheritancedFrom rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :Hierarchy ;
+                    rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isIntersectedBy
+:isIntersectedBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :Topology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isNearSynonymWith
+:isNearSynonymWith rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :Equality ;
+                   rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isNorthOf
+:isNorthOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :Direction ;
+           rdf:type owl:TransitiveProperty ;
+           owl:propertyDisjointWith :isSouthOf .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isNortheastOf
+:isNortheastOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Direction ;
+               rdf:type owl:TransitiveProperty ;
+               owl:propertyDisjointWith :isSouthwestOf .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isNorthwestOf
+:isNorthwestOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Direction ;
+               rdf:type owl:TransitiveProperty ;
+               owl:propertyDisjointWith :isSoutheastOf .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Hierarchy ;
+          rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isSouthOf
+:isSouthOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :Direction ;
+           rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isSoutheastOf
+:isSoutheastOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Direction ;
+               rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isSouthwestOf
+:isSouthwestOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Direction ;
+               rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isSynonymWith
+:isSynonymWith rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Equality ;
+               rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#isWestOf
+:isWestOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :Direction ;
+          rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#support
+:support rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :Dependency ;
+         rdf:type owl:TransitiveProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/10717/SMOF#Absolute_Geographical_Location
+:Absolute_Geographical_Location rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf :Generic_Property ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "Latitude, longitude and altitude in CGCS2000" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#BGID
+:BGID rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :Generic_Property ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Unit grid where it is located" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#DataSource
+:DataSource rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :Generic_Property ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Actual measurement/other platforms" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#DeptCode
+:DeptCode rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :Generic_Property ;
+          rdfs:range xsd:long ;
+          rdfs:comment "Code of the supervising unit" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Generic_Property
+:Generic_Property rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Geometry_Representation
+:Geometry_Representation rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :Generic_Property ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "The geometric appearance presented by the entity" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#ID
+:ID rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf :Generic_Property ;
+    rdfs:range xsd:long ;
+    rdfs:comment "Unique identification" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Material_Composition
+:Material_Composition rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :Generic_Property ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Composition of entities" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :Generic_Property ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Specific name" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Note
+:Note rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :Generic_Property ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Content that requires special explanation" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#ORDate
+:ORDate rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :Generic_Property ;
+        rdfs:range xsd:dateTime ;
+        rdfs:comment "Initial date of survey entry" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Spatial_Semantic_Description
+:Spatial_Semantic_Description rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf :Generic_Property ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Semantic description of the location of the entity" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#State
+:State rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :Generic_Property ;
+       rdfs:range xsd:string ;
+       rdfs:comment "Intact/lost/abandoned, etc." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Subdivision
+:Subdivision rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :Generic_Property ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Classifications not reflected in the hierarchical classification table" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Thematic_Extension_Property
+:Thematic_Extension_Property rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Time
+:Time rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :Generic_Property ;
+      rdfs:range xsd:dateTime ;
+      rdfs:comment "The time or period during which an event occurs or the entity needs to be recorded" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#UPDate
+:UPDate rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :Generic_Property ;
+        rdfs:range xsd:dateTime ;
+        rdfs:comment "Update date of survey input" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/10717/SMOF#AboveArch_Structure
+:AboveArch_Structure rdf:type owl:Class ;
+                     rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline
+:Aboveground_Pipeline rdf:type owl:Class ;
+                      rdfs:subClassOf :Land_Communication_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Abutment
+:Abutment rdf:type owl:Class ;
+          rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Actuators
+:Actuators rdf:type owl:Class ;
+           rdfs:subClassOf :Sensor_Device ;
+           owl:disjointWith :Sensors .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Advanced_Support_Component
+:Advanced_Support_Component rdf:type owl:Class ;
+                            rdfs:subClassOf :Tunnel_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Agricultural_Sites
+:Agricultural_Sites rdf:type owl:Class ;
+                    rdfs:subClassOf :Site .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Agricultural_and_Forest_Land
+:Agricultural_and_Forest_Land rdf:type owl:Class ;
+                              rdfs:subClassOf :Natural_Entity ;
+                              rdfs:comment "The coverage of different agricultural and forestry land uses and soil properties and soil units." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Air_Terminal
+:Air_Terminal rdf:type owl:Class ;
+              rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Air_Terminal_Box
+:Air_Terminal_Box rdf:type owl:Class ;
+                  rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Air_To_Air_Heat_Recovery
+:Air_To_Air_Heat_Recovery rdf:type owl:Class ;
+                          rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Air_Vent_Cap
+:Air_Vent_Cap rdf:type owl:Class ;
+              rdfs:subClassOf :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aircraft
+:Aircraft rdf:type owl:Class ;
+          rdfs:subClassOf :Vehicle .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Alignment
+:Alignment rdf:type owl:Class ;
+           rdfs:subClassOf :Road_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Alignment_Model
+:Alignment_Model rdf:type owl:Class ;
+                 rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Anchor
+:Anchor rdf:type owl:Class ;
+        rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Anchor_Body
+:Anchor_Body rdf:type owl:Class ;
+             rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Anchoring_System
+:Anchoring_System rdf:type owl:Class ;
+                  rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Anti-Fall_Net
+:Anti-Fall_Net rdf:type owl:Class ;
+               rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Anti-Glare_Facilities
+:Anti-Glare_Facilities rdf:type owl:Class ;
+                       rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Arable_Land
+:Arable_Land rdf:type owl:Class ;
+             rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Arch
+:Arch rdf:type owl:Class ;
+      rdfs:subClassOf :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Artificial_Entity
+:Artificial_Entity rdf:type owl:Class ;
+                   rdfs:subClassOf :Generic_Entity ;
+                   owl:disjointWith :Natural_Entity ;
+                   rdfs:comment "Artificial entities are those created or altered by human intervention, such as buildings, site infrastructure, and management components." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Artificial_Water_Features
+:Artificial_Water_Features rdf:type owl:Class ;
+                           rdfs:subClassOf :Hydraulic_Engineering .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Audio_Visual_Appliance
+:Audio_Visual_Appliance rdf:type owl:Class ;
+                        rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Auxiliary_Facilities
+:Auxiliary_Facilities rdf:type owl:Class ;
+                      rdfs:subClassOf :Integrated_Pipe_Gallery .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Basic_Mass_Autonomous_Organization_Legal_Person
+:Basic_Mass_Autonomous_Organization_Legal_Person rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Special_Corporation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Beach
+:Beach rdf:type owl:Class ;
+       rdfs:subClassOf :Marine_landforms .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Beam
+:Beam rdf:type owl:Class ;
+      rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Beam_Arch
+:Beam_Arch rdf:type owl:Class ;
+           rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Beam_Bottom_Wedge
+:Beam_Bottom_Wedge rdf:type owl:Class ;
+                   rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bellows
+:Bellows rdf:type owl:Class ;
+         rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bicycle
+:Bicycle rdf:type owl:Class ;
+         rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Billboard
+:Billboard rdf:type owl:Class ;
+           rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bridge
+:Bridge rdf:type owl:Class ;
+        rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bridge_Beam
+:Bridge_Beam rdf:type owl:Class ;
+             rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bridge_Components
+:Bridge_Components rdf:type owl:Class ;
+                   rdfs:subClassOf :Bridge .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bridge_Vertical_and_Sectional_Connector
+:Bridge_Vertical_and_Sectional_Connector rdf:type owl:Class ;
+                                         rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Building_Components
+:Building_Components rdf:type owl:Class ;
+                     rdfs:subClassOf :Building_and_Its_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Building_Element_Proxy
+:Building_Element_Proxy rdf:type owl:Class ;
+                        rdfs:subClassOf :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Building_Facilities
+:Building_Facilities rdf:type owl:Class ;
+                     rdfs:subClassOf :Building_and_Its_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Building_and_Its_Appurtenances
+:Building_and_Its_Appurtenances rdf:type owl:Class ;
+                                rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Building_and_Site_Infrastructure
+:Building_and_Site_Infrastructure rdf:type owl:Class ;
+                                  rdfs:subClassOf :Artificial_Entity ;
+                                  rdfs:comment "The comprehensive array of physical structures and facilities that are required for the operation and use of a building and its surrounding area." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bulletin_Board
+:Bulletin_Board rdf:type owl:Class ;
+                rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Bus
+:Bus rdf:type owl:Class ;
+     rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Anchor
+:Cable_Anchor rdf:type owl:Class ;
+              rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Car
+:Cable_Car rdf:type owl:Class ;
+           rdfs:subClassOf :Urban_Rail_Transit .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Carrier_Segment
+:Cable_Carrier_Segment rdf:type owl:Class ;
+                       rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Clamp
+:Cable_Clamp rdf:type owl:Class ;
+             rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Damping
+:Cable_Damping rdf:type owl:Class ;
+               rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Entry_Pit（HTL）
+:Cable_Entry_Pit（HTL） rdf:type owl:Class ;
+                      rdfs:subClassOf :High-voltage_Transmission_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Saddle
+:Cable_Saddle rdf:type owl:Class ;
+              rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Segment
+:Cable_Segment rdf:type owl:Class ;
+               rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cableway
+:Cableway rdf:type owl:Class ;
+          rdfs:subClassOf :Others ;
+          owl:disjointWith :Passage .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Caisson_Foundation
+:Caisson_Foundation rdf:type owl:Class ;
+                    rdfs:subClassOf :StructuralElements .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Canal
+:Canal rdf:type owl:Class ;
+       rdfs:subClassOf :Ditch .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Catenary_Device
+:Catenary_Device rdf:type owl:Class ;
+                 rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cave
+:Cave rdf:type owl:Class ;
+      rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Charging_Pile
+:Charging_Pile rdf:type owl:Class ;
+               rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Chiller
+:Chiller rdf:type owl:Class ;
+         rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Chimney
+:Chimney rdf:type owl:Class ;
+         rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#City_Power_Introduction
+:City_Power_Introduction rdf:type owl:Class ;
+                         rdfs:subClassOf :Tower_Base_Station .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Civil_Cargo_Aircraft
+:Civil_Cargo_Aircraft rdf:type owl:Class ;
+                      rdfs:subClassOf :Aircraft .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Civil_Engineering_Structure
+:Civil_Engineering_Structure rdf:type owl:Class ;
+                             rdfs:subClassOf :Integrated_Pipe_Gallery .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Civil_Passenger_Aircraft
+:Civil_Passenger_Aircraft rdf:type owl:Class ;
+                          rdfs:subClassOf :Aircraft .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cleanout
+:Cleanout rdf:type owl:Class ;
+          rdfs:subClassOf :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cliff
+:Cliff rdf:type owl:Class ;
+       rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Coach
+:Coach rdf:type owl:Class ;
+       rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Coastline
+:Coastline rdf:type owl:Class ;
+           rdfs:subClassOf :Marine_landforms .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Column
+:Column rdf:type owl:Class ;
+        rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Communication_Facility
+:Communication_Facility rdf:type owl:Class ;
+                        rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Communication_Junction_Box
+:Communication_Junction_Box rdf:type owl:Class ;
+                            rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Communications_Appliance
+:Communications_Appliance rdf:type owl:Class ;
+                          rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Connector
+:Connector rdf:type owl:Class ;
+           rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Contact_Rail
+:Contact_Rail rdf:type owl:Class ;
+              rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Control_Equipment
+:Control_Equipment rdf:type owl:Class ;
+                   rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cooling_Tower
+:Cooling_Tower rdf:type owl:Class ;
+               rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cover_Beam
+:Cover_Beam rdf:type owl:Class ;
+            rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Covering
+:Covering rdf:type owl:Class ;
+          rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Covers_and_Shelters
+:Covers_and_Shelters rdf:type owl:Class ;
+                     rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cross_Joint
+:Cross_Joint rdf:type owl:Class ;
+             rdfs:subClassOf :Pipe_Fittings .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cruise_Ship
+:Cruise_Ship rdf:type owl:Class ;
+             rdfs:subClassOf :Maritime_Transport ;
+             owl:disjointWith :Passenger_Ship .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cultural_Relics_and_Historic_Sites
+:Cultural_Relics_and_Historic_Sites rdf:type owl:Class ;
+                                    rdfs:subClassOf :Other_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Culvert
+:Culvert rdf:type owl:Class ;
+         rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Culvert_Component
+:Culvert_Component rdf:type owl:Class ;
+                   rdfs:subClassOf :Culvert .
+
+
+###  http://www.semanticweb.org/10717/SMOF#CurtainWall
+:CurtainWall rdf:type owl:Class ;
+             rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Dam
+:Dam rdf:type owl:Class ;
+     rdfs:subClassOf :Water-related_Structures .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Damper
+:Damper rdf:type owl:Class ;
+        rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Daylighting
+:Daylighting rdf:type owl:Class ;
+             rdfs:subClassOf :Tunnel_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Deck_System_and_Ancillary_Works
+:Deck_System_and_Ancillary_Works rdf:type owl:Class ;
+                                 rdfs:subClassOf :Bridge .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Decorate_Equipment
+:Decorate_Equipment rdf:type owl:Class ;
+                    rdfs:subClassOf :Interior_Finishes .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Distribution_Chamber_Element
+:Distribution_Chamber_Element rdf:type owl:Class ;
+                              rdfs:subClassOf :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Distribution_Line
+:Distribution_Line rdf:type owl:Class ;
+                   rdfs:subClassOf :High_Voltage_Transmission_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Distribution_System
+:Distribution_System rdf:type owl:Class ;
+                     rdfs:subClassOf :Tunnel .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ditch
+:Ditch rdf:type owl:Class ;
+       rdfs:subClassOf :Hydraulic_Engineering .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Door
+:Door rdf:type owl:Class ;
+      rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Drain
+:Drain rdf:type owl:Class ;
+       rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Drainage_Pipeline
+:Drainage_Pipeline rdf:type owl:Class ;
+                   rdfs:subClassOf :Drainage_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Drainage_System
+:Drainage_System rdf:type owl:Class ;
+                 rdfs:subClassOf :Water_Supply_and_Drainage_Pipeline ;
+                 owl:disjointWith :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Dry_Ditch
+:Dry_Ditch rdf:type owl:Class ;
+           rdfs:subClassOf :Ditch .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Duct_Segment
+:Duct_Segment rdf:type owl:Class ;
+              rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Duct_Silencer
+:Duct_Silencer rdf:type owl:Class ;
+               rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Elbow
+:Elbow rdf:type owl:Class ;
+       rdfs:subClassOf :Pipe_Fittings .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Appliance
+:Electric_Appliance rdf:type owl:Class ;
+                    rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Distribution_Board
+:Electric_Distribution_Board rdf:type owl:Class ;
+                             rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Flow_Storage_Device
+:Electric_Flow_Storage_Device rdf:type owl:Class ;
+                              rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Generator
+:Electric_Generator rdf:type owl:Class ;
+                    rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Pole
+:Electric_Pole rdf:type owl:Class ;
+               rdfs:subClassOf :Transmission_Backbone_Line_Ancillary_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Power_Facilities
+:Electric_Power_Facilities rdf:type owl:Class ;
+                           rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electric_Time_Control
+:Electric_Time_Control rdf:type owl:Class ;
+                       rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Electrical
+:Electrical rdf:type owl:Class ;
+            rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#End_Wall
+:End_Wall rdf:type owl:Class ;
+          rdfs:subClassOf :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Engineering_Geology
+:Engineering_Geology rdf:type owl:Class ;
+                     rdfs:subClassOf :Geology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Environmental_Monitoring_Station
+:Environmental_Monitoring_Station rdf:type owl:Class ;
+                                  rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Equalizing_Box
+:Equalizing_Box rdf:type owl:Class ;
+                rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Equipment
+:Equipment rdf:type owl:Class ;
+           rdfs:subClassOf :Tower_Base_Station .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Equipment_Room
+:Equipment_Room rdf:type owl:Class ;
+                rdfs:subClassOf :Tower_Base_Station .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Exterior_Fountains
+:Exterior_Fountains rdf:type owl:Class ;
+                    rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Exterior_Signage
+:Exterior_Signage rdf:type owl:Class ;
+                  rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fan
+:Fan rdf:type owl:Class ;
+     rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fastener
+:Fastener rdf:type owl:Class ;
+          rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Faucet
+:Faucet rdf:type owl:Class ;
+        rdfs:subClassOf :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fences_and_Gates
+:Fences_and_Gates rdf:type owl:Class ;
+                  rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Field_border
+:Field_border rdf:type owl:Class ;
+              rdfs:subClassOf :Man-made_Landform .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Filter
+:Filter rdf:type owl:Class ;
+        rdfs:subClassOf :HVAC ,
+                        :Pipe_Accessories ,
+                        :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fire-Fighting_Facilities
+:Fire-Fighting_Facilities rdf:type owl:Class ;
+                          rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fire_Hydrant
+:Fire_Hydrant rdf:type owl:Class ;
+              rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fire_Protection_Facility
+:Fire_Protection_Facility rdf:type owl:Class ;
+                          rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fire_Suppression_Terminal
+:Fire_Suppression_Terminal rdf:type owl:Class ;
+                           rdfs:subClassOf :Plumbing_Fire_Protection .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Flagpoles
+:Flagpoles rdf:type owl:Class ;
+           rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Flange
+:Flange rdf:type owl:Class ;
+        rdfs:subClassOf :Pipe_Fittings .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Flood_Control_Wall
+:Flood_Control_Wall rdf:type owl:Class ;
+                    rdfs:subClassOf :Other_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Flood_Storage_Area
+:Flood_Storage_Area rdf:type owl:Class ;
+                    rdfs:subClassOf :Water-related_Structures .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Floor_Drain
+:Floor_Drain rdf:type owl:Class ;
+             rdfs:subClassOf :Drainage_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Flow_Meter
+:Flow_Meter rdf:type owl:Class ;
+            rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Footing
+:Footing rdf:type owl:Class ;
+         rdfs:subClassOf :Culvert_Component ,
+                         :StructuralElements .
+
+
+###  http://www.semanticweb.org/10717/SMOF#For-Profit_Corporations
+:For-Profit_Corporations rdf:type owl:Class ;
+                         rdfs:subClassOf :Legal_Entities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#For-Profit_Professional_Service_Organizations_Without_Legal_Personality
+:For-Profit_Professional_Service_Organizations_Without_Legal_Personality rdf:type owl:Class ;
+                                                                         rdfs:subClassOf :For-Profit_Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#For-Profit_Unincorporated_Organization
+:For-Profit_Unincorporated_Organization rdf:type owl:Class ;
+                                        rdfs:subClassOf :Unincorporated_Organization ;
+                                        owl:disjointWith :Non-Profit_Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Forest_Land
+:Forest_Land rdf:type owl:Class ;
+             rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Fountain
+:Fountain rdf:type owl:Class ;
+          rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Funnel
+:Funnel rdf:type owl:Class ;
+        rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Furniture
+:Furniture rdf:type owl:Class ;
+           rdfs:subClassOf :Interior_Finishes .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Garbage_Bin
+:Garbage_Bin rdf:type owl:Class ;
+             rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Garbage_Room
+:Garbage_Room rdf:type owl:Class ;
+              rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Gas_Pipeline
+:Gas_Pipeline rdf:type owl:Class ;
+              rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Gas_Pressure_Regulating_Station
+:Gas_Pressure_Regulating_Station rdf:type owl:Class ;
+                                 rdfs:subClassOf :Gas_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#General_Management_Facility
+:General_Management_Facility rdf:type owl:Class ;
+                             rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Generic_Entity
+:Generic_Entity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Geological_Structure
+:Geological_Structure rdf:type owl:Class ;
+                      rdfs:subClassOf :Geology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Geology
+:Geology rdf:type owl:Class ;
+         rdfs:subClassOf :Natural_Entity ;
+         rdfs:comment "The composition of the Earth's material and the internal structure of the Earth, or the observation points used for observing geological conditions" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Glacier
+:Glacier rdf:type owl:Class ;
+         rdfs:subClassOf :Snow_and_Ice .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Grass_Land
+:Grass_Land rdf:type owl:Class ;
+            rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Green_Space_Ancillary_Facilities
+:Green_Space_Ancillary_Facilities rdf:type owl:Class ;
+                                  rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Guard_Booth
+:Guard_Booth rdf:type owl:Class ;
+             rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Guardrails_and_Barriers
+:Guardrails_and_Barriers rdf:type owl:Class ;
+                         rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#HVAC
+:HVAC rdf:type owl:Class ;
+      rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Heat_Exchanger
+:Heat_Exchanger rdf:type owl:Class ;
+                rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#High-voltage_Transmission_Line
+:High-voltage_Transmission_Line rdf:type owl:Class ;
+                                rdfs:subClassOf :High_Voltage_Transmission_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#High_Voltage_Transmission_Lines_and_Associated_Facilities
+:High_Voltage_Transmission_Lines_and_Associated_Facilities rdf:type owl:Class ;
+                                                           rdfs:subClassOf :Municipal_Pipeline ;
+                                                           owl:disjointWith :Long_Distance_Communication_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Hydraulic_Engineering
+:Hydraulic_Engineering rdf:type owl:Class ;
+                       rdfs:subClassOf :Artificial_Entity ;
+                       rdfs:comment "The technology of water resources development, management and conservation for the optimization of the allocation and utilization of water resources" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Hydrogeology
+:Hydrogeology rdf:type owl:Class ;
+              rdfs:subClassOf :Geology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Hydrographic_Network
+:Hydrographic_Network rdf:type owl:Class ;
+                      rdfs:subClassOf :Natural_Entity ;
+                      rdfs:comment "The interconnected network of all bodies of water within a particular region, encompassing both surface and subterranean flows, sources, and bodies of water." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Industrial_Pipeline
+:Industrial_Pipeline rdf:type owl:Class ;
+                     rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Industrial_and_Mining_Sites
+:Industrial_and_Mining_Sites rdf:type owl:Class ;
+                             rdfs:subClassOf :Site .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Initial_Support_Component
+:Initial_Support_Component rdf:type owl:Class ;
+                           rdfs:subClassOf :Tunnel_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Inspection_Well
+:Inspection_Well rdf:type owl:Class ;
+                 rdfs:subClassOf :Integrated_Pipe_Gallery .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Institutional_Legal_Person
+:Institutional_Legal_Person rdf:type owl:Class ;
+                            rdfs:subClassOf :Non-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Instrumentation
+:Instrumentation rdf:type owl:Class ;
+                 rdfs:subClassOf :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Integrated_Pipe_Gallery
+:Integrated_Pipe_Gallery rdf:type owl:Class ;
+                         rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Interceptor
+:Interceptor rdf:type owl:Class ;
+             rdfs:subClassOf :Plumbing_Fire_Protection .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Interior_Construction
+:Interior_Construction rdf:type owl:Class ;
+                       rdfs:subClassOf :Interior_Finishes .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Interior_Finishes
+:Interior_Finishes rdf:type owl:Class ;
+                   rdfs:subClassOf :Building_and_Its_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Interior_Furnishing
+:Interior_Furnishing rdf:type owl:Class ;
+                     rdfs:subClassOf :Interior_Finishes .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Interior_Greening_and_Courtyard
+:Interior_Greening_and_Courtyard rdf:type owl:Class ;
+                                 rdfs:subClassOf :Interior_Finishes .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Intersection
+:Intersection rdf:type owl:Class ;
+              rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Iron_Tower
+:Iron_Tower rdf:type owl:Class ;
+            rdfs:subClassOf :Tower_Base_Station .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Island_and_Reef
+:Island_and_Reef rdf:type owl:Class ;
+                 rdfs:subClassOf :Marine_landforms .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Jig
+:Jig rdf:type owl:Class ;
+     rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Joint
+:Joint rdf:type owl:Class ;
+       rdfs:subClassOf :Pipe_Fittings .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Junction_Box
+:Junction_Box rdf:type owl:Class ;
+              rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Lake
+:Lake rdf:type owl:Class ;
+      rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Land_Communication_Line
+:Land_Communication_Line rdf:type owl:Class ;
+                         rdfs:subClassOf :Long_Distance_Communication_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Landscaping
+:Landscaping rdf:type owl:Class ;
+             rdfs:subClassOf :Public_Service_Sites .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Lanscape_Greening
+:Lanscape_Greening rdf:type owl:Class ;
+                   rdfs:subClassOf :Road_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Legal_Entities
+:Legal_Entities rdf:type owl:Class ;
+                rdfs:subClassOf :Organization ;
+                owl:disjointWith :Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Light_Fixture
+:Light_Fixture rdf:type owl:Class ;
+               rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Light_Rail
+:Light_Rail rdf:type owl:Class ;
+            rdfs:subClassOf :Urban_Rail_Transit .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Lighting
+:Lighting rdf:type owl:Class ;
+          rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Lighting_Facility
+:Lighting_Facility rdf:type owl:Class ;
+                   rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Lighting_Fixtures
+:Lighting_Fixtures rdf:type owl:Class ;
+                   rdfs:subClassOf :Interior_Finishes .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Lining
+:Lining rdf:type owl:Class ;
+        rdfs:subClassOf :Culvert ,
+                        :Tunnel .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Long_Distance_Communication_Lines_and_Associated_Facilities
+:Long_Distance_Communication_Lines_and_Associated_Facilities rdf:type owl:Class ;
+                                                             rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Mailbox
+:Mailbox rdf:type owl:Class ;
+         rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Main_Cable
+:Main_Cable rdf:type owl:Class ;
+            rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Man-made_Landform
+:Man-made_Landform rdf:type owl:Class ;
+                   rdfs:subClassOf :Artificial_Entity ;
+                   rdfs:comment "Surface landforms formed by human activities or man-made facilities on the basis of natural landforms." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Managed_Component
+:Managed_Component rdf:type owl:Class ;
+                   rdfs:subClassOf :Artificial_Entity ;
+                   rdfs:comment "The various individual elements and facilities aboveground that are operated and maintained to support the functioning of a city or urban area." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Management_Facilities
+:Management_Facilities rdf:type owl:Class ;
+                       rdfs:subClassOf :Transportation_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Manhole_Cover
+:Manhole_Cover rdf:type owl:Class ;
+               rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Marine_landforms
+:Marine_landforms rdf:type owl:Class ;
+                  rdfs:subClassOf :Natural_Entity ;
+                  rdfs:comment "The area located below the earth's surface in water depths of more than 200 meters and the biological, mineral, energy and other resources they contain." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Maritime_Transport
+:Maritime_Transport rdf:type owl:Class ;
+                    rdfs:subClassOf :Vehicle .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Mechanical_Equipment
+:Mechanical_Equipment rdf:type owl:Class ;
+                      rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Meteorological_Monitoring_Station
+:Meteorological_Monitoring_Station rdf:type owl:Class ;
+                                   rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Monitoring_Facility
+:Monitoring_Facility rdf:type owl:Class ;
+                     rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Motorcycle
+:Motorcycle rdf:type owl:Class ;
+            rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Mountain
+:Mountain rdf:type owl:Class ;
+          rdfs:subClassOf :Natural_Entity ;
+          rdfs:comment "Surface areas on land that are significantly higher than the surrounding terrain and their associated components" .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Mountain_Range
+:Mountain_Range rdf:type owl:Class ;
+                rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Mountain_Ridge
+:Mountain_Ridge rdf:type owl:Class ;
+                rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Municipal_Pipeline
+:Municipal_Pipeline rdf:type owl:Class ;
+                    rdfs:subClassOf :Artificial_Entity ;
+                    rdfs:comment "The comprehensive network of pipes and associated infrastructure used for the distribution and transmission of various utilities within a municipality." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Natural_Entity
+:Natural_Entity rdf:type owl:Class ;
+                rdfs:subClassOf :Generic_Entity ;
+                rdfs:comment "Natural entities primarily denote urban features that occur naturally or develop organically such as mountainous or water systems." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Natural_Person
+:Natural_Person rdf:type owl:Class ;
+                rdfs:subClassOf :Social_Entity ;
+                rdfs:comment "A human being who has the capacity for rights and duties." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Navigation_Line
+:Navigation_Line rdf:type owl:Class ;
+                 rdfs:subClassOf :Waterway ;
+                 owl:disjointWith :Shipping_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Noise_Display_Screen
+:Noise_Display_Screen rdf:type owl:Class ;
+                      rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Non-Civil_Aircraft
+:Non-Civil_Aircraft rdf:type owl:Class ;
+                    rdfs:subClassOf :Aircraft .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Non-Profit_Corporations
+:Non-Profit_Corporations rdf:type owl:Class ;
+                         rdfs:subClassOf :Legal_Entities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Non-Profit_Professional_Service_Organizations_Without_Legal_Personality
+:Non-Profit_Professional_Service_Organizations_Without_Legal_Personality rdf:type owl:Class ;
+                                                                         rdfs:subClassOf :Non-Profit_Unincorporated_Organization ;
+                                                                         owl:disjointWith :Other_Non-Profit_Non-Corporate_Organizations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Non-Profit_Unincorporated_Organization
+:Non-Profit_Unincorporated_Organization rdf:type owl:Class ;
+                                        rdfs:subClassOf :Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Orchard_Land
+:Orchard_Land rdf:type owl:Class ;
+              rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf :Social_Entity ;
+              rdfs:comment "An entity that is formed with a particular purpose and structured in a specific way to achieve collective goals." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Components
+:Other_Components rdf:type owl:Class ;
+                  rdfs:subClassOf :Managed_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Corporate_Legal_Entities
+:Other_Corporate_Legal_Entities rdf:type owl:Class ;
+                                rdfs:subClassOf :For-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Facilities
+:Other_Facilities rdf:type owl:Class ;
+                  rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_For-Profit_Non-Corporate_Organizations
+:Other_For-Profit_Non-Corporate_Organizations rdf:type owl:Class ;
+                                              rdfs:subClassOf :For-Profit_Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Man-made_Landforms
+:Other_Man-made_Landforms rdf:type owl:Class ;
+                          rdfs:subClassOf :Man-made_Landform .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Marine_Landforms
+:Other_Marine_Landforms rdf:type owl:Class ;
+                        rdfs:subClassOf :Marine_landforms .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Mountain_Landforms
+:Other_Mountain_Landforms rdf:type owl:Class ;
+                          rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Non-Profit_Legal_Entities
+:Other_Non-Profit_Legal_Entities rdf:type owl:Class ;
+                                 rdfs:subClassOf :Non-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Non-Profit_Non-Corporate_Organizations
+:Other_Non-Profit_Non-Corporate_Organizations rdf:type owl:Class ;
+                                              rdfs:subClassOf :Non-Profit_Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Pipelines
+:Other_Pipelines rdf:type owl:Class ;
+                 rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Snow_and_Ice_Landforms
+:Other_Snow_and_Ice_Landforms rdf:type owl:Class ;
+                              rdfs:subClassOf :Snow_and_Ice .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Soil_Units
+:Other_Soil_Units rdf:type owl:Class ;
+                  rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Special_Legal_Entities
+:Other_Special_Legal_Entities rdf:type owl:Class ;
+                              rdfs:subClassOf :Special_Corporation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Traffic_Safety_Facility_Components
+:Other_Traffic_Safety_Facility_Components rdf:type owl:Class ;
+                                          rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Water_Channels
+:Other_Water_Channels rdf:type owl:Class ;
+                      rdfs:subClassOf :Ditch .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Other_Water_Landforms
+:Other_Water_Landforms rdf:type owl:Class ;
+                       rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Others
+:Others rdf:type owl:Class ;
+        rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Outdoor_Fitness_Equipment
+:Outdoor_Fitness_Equipment rdf:type owl:Class ;
+                           rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Outlet
+:Outlet rdf:type owl:Class ;
+        rdfs:subClassOf :Electrical ,
+                        :Reservoir .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Parking_Area
+:Parking_Area rdf:type owl:Class ;
+              rdfs:subClassOf :Service_Facilities ;
+              owl:disjointWith :Service_Area .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Parking_Lots
+:Parking_Lots rdf:type owl:Class ;
+              rdfs:subClassOf :Public_Service_Sites .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Partnership_Enterprise
+:Partnership_Enterprise rdf:type owl:Class ;
+                        rdfs:subClassOf :For-Profit_Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Passage
+:Passage rdf:type owl:Class ;
+         rdfs:subClassOf :Others .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Passenger_Ship
+:Passenger_Ship rdf:type owl:Class ;
+                rdfs:subClassOf :Maritime_Transport .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Permanent_Residents
+:Permanent_Residents rdf:type owl:Class ;
+                     rdfs:subClassOf :Natural_Person ;
+                     owl:disjointWith :Temporary_Residents .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pier
+:Pier rdf:type owl:Class ;
+      rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pile
+:Pile rdf:type owl:Class ;
+      rdfs:subClassOf :StructuralElements .
+
+
+###  http://www.semanticweb.org/10717/SMOF#PipeFitting
+:PipeFitting rdf:type owl:Class ;
+             rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#PipeSegment
+:PipeSegment rdf:type owl:Class ;
+             rdfs:subClassOf :Culvert_Component ,
+                             :HVAC ,
+                             :Tunnel_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pipe_Accessories
+:Pipe_Accessories rdf:type owl:Class ;
+                  rdfs:subClassOf :Water_Supply_and_Drainage_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pipe_Fittings
+:Pipe_Fittings rdf:type owl:Class ;
+               rdfs:subClassOf :Water_Supply_and_Drainage_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pipe_Gallery_Line
+:Pipe_Gallery_Line rdf:type owl:Class ;
+                   rdfs:subClassOf :Integrated_Pipe_Gallery .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pipe_Insulation_Layer
+:Pipe_Insulation_Layer rdf:type owl:Class ;
+                       rdfs:subClassOf :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Planting_Accessories
+:Planting_Accessories rdf:type owl:Class ;
+                      rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Plants
+:Plants rdf:type owl:Class ;
+        rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Platform_Door_Control_System
+:Platform_Door_Control_System rdf:type owl:Class ;
+                              rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Playfield_Areas
+:Playfield_Areas rdf:type owl:Class ;
+                 rdfs:subClassOf :Public_Service_Sites .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Plazas
+:Plazas rdf:type owl:Class ;
+        rdfs:subClassOf :Public_Service_Sites .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Plumbing_Fire_Protection
+:Plumbing_Fire_Protection rdf:type owl:Class ;
+                          rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Portal
+:Portal rdf:type owl:Class ;
+        rdfs:subClassOf :Culvert ,
+                        :Tunnel .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Portal_Component
+:Portal_Component rdf:type owl:Class ;
+                  rdfs:subClassOf :Tunnel_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Power_Supply_and_Distribution_Facility
+:Power_Supply_and_Distribution_Facility rdf:type owl:Class ;
+                                        rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Private_Car
+:Private_Car rdf:type owl:Class ;
+             rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Protective_Device
+:Protective_Device rdf:type owl:Class ;
+                   rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Public_Service_Sites
+:Public_Service_Sites rdf:type owl:Class ;
+                      rdfs:subClassOf :Site .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Public_Toilet
+:Public_Toilet rdf:type owl:Class ;
+               rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Public_Utilities
+:Public_Utilities rdf:type owl:Class ;
+                  rdfs:subClassOf :Managed_Component ;
+                  owl:disjointWith :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pump
+:Pump rdf:type owl:Class ;
+      rdfs:subClassOf :HVAC ,
+                      :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pumping_Station
+:Pumping_Station rdf:type owl:Class ;
+                 rdfs:subClassOf :Water-related_Structures .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pylon
+:Pylon rdf:type owl:Class ;
+       rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Rail
+:Rail rdf:type owl:Class ;
+      rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Rail_Potential_Device
+:Rail_Potential_Device rdf:type owl:Class ;
+                       rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Railing
+:Railing rdf:type owl:Class ;
+         rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Railway_Subgrade
+:Railway_Subgrade rdf:type owl:Class ;
+                  rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Rainwater_Ditch
+:Rainwater_Ditch rdf:type owl:Class ;
+                 rdfs:subClassOf :Drainage_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Rainwater_Hopper
+:Rainwater_Hopper rdf:type owl:Class ;
+                  rdfs:subClassOf :Drainage_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ramp
+:Ramp rdf:type owl:Class ;
+      rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ravine
+:Ravine rdf:type owl:Class ;
+        rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Reflux_Box
+:Reflux_Box rdf:type owl:Class ;
+            rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Reinforcing_Bar
+:Reinforcing_Bar rdf:type owl:Class ;
+                 rdfs:subClassOf :StructuralElements .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Reservoir
+:Reservoir rdf:type owl:Class ;
+           rdfs:subClassOf :Hydraulic_Engineering .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Reservoir_Area
+:Reservoir_Area rdf:type owl:Class ;
+                rdfs:subClassOf :Reservoir .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Retaining_Walls
+:Retaining_Walls rdf:type owl:Class ;
+                 rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ridge
+:Ridge rdf:type owl:Class ;
+       rdfs:subClassOf :Man-made_Landform .
+
+
+###  http://www.semanticweb.org/10717/SMOF#River
+:River rdf:type owl:Class ;
+       rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#River_Beach
+:River_Beach rdf:type owl:Class ;
+             rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#River_Mouth
+:River_Mouth rdf:type owl:Class ;
+             rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#River_Source
+:River_Source rdf:type owl:Class ;
+              rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#River_and_Lake_Islands
+:River_and_Lake_Islands rdf:type owl:Class ;
+                        rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#RoadPart
+:RoadPart rdf:type owl:Class ;
+          rdfs:subClassOf :Tunnel .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Road_Components
+:Road_Components rdf:type owl:Class ;
+                 rdfs:subClassOf :Rail .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Road_Pavement
+:Road_Pavement rdf:type owl:Class ;
+               rdfs:subClassOf :Road_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Road_Traffic
+:Road_Traffic rdf:type owl:Class ;
+              rdfs:subClassOf :Vehicle .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Road_Transport_Safety_Facility
+:Road_Transport_Safety_Facility rdf:type owl:Class ;
+                                rdfs:subClassOf :Road_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Roof
+:Roof rdf:type owl:Class ;
+      rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Rural_Collective_Economic_Organization_Legal_Person
+:Rural_Collective_Economic_Organization_Legal_Person rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Special_Corporation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sandy_Land
+:Sandy_Land rdf:type owl:Class ;
+            rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sanitary_Terminal
+:Sanitary_Terminal rdf:type owl:Class ;
+                   rdfs:subClassOf :Plumbing_Fire_Protection .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sanitary_Ware_Device
+:Sanitary_Ware_Device rdf:type owl:Class ;
+                      rdfs:subClassOf :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sculpture
+:Sculpture rdf:type owl:Class ;
+           rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sea_Area
+:Sea_Area rdf:type owl:Class ;
+          rdfs:subClassOf :Marine_landforms .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Secondary_Lining_Component
+:Secondary_Lining_Component rdf:type owl:Class ;
+                            rdfs:subClassOf :Tunnel_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Self-Service_Payment_Machine
+:Self-Service_Payment_Machine rdf:type owl:Class ;
+                              rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sensor_Device
+:Sensor_Device rdf:type owl:Class ;
+               rdfs:subClassOf :Social_Entity ;
+               rdfs:comment "A piece of technology designed to detect and respond to input from the physical environment." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sensors
+:Sensors rdf:type owl:Class ;
+         rdfs:subClassOf :Sensor_Device .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Separation_Fence
+:Separation_Fence rdf:type owl:Class ;
+                  rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Septic_Tank
+:Septic_Tank rdf:type owl:Class ;
+             rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Service_Area
+:Service_Area rdf:type owl:Class ;
+              rdfs:subClassOf :Service_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Service_Facilities
+:Service_Facilities rdf:type owl:Class ;
+                    rdfs:subClassOf :Transportation_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sewage_Monitor
+:Sewage_Monitor rdf:type owl:Class ;
+                rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sewage_Outlet
+:Sewage_Outlet rdf:type owl:Class ;
+               rdfs:subClassOf :Artificial_Water_Features .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sewage_Outlet_Monitoring_Station
+:Sewage_Outlet_Monitoring_Station rdf:type owl:Class ;
+                                  rdfs:subClassOf :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Shading_Device
+:Shading_Device rdf:type owl:Class ;
+                rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Shipping_Line
+:Shipping_Line rdf:type owl:Class ;
+               rdfs:subClassOf :Waterway .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sight_Guidance_Facilities
+:Sight_Guidance_Facilities rdf:type owl:Class ;
+                           rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Signal_Box
+:Signal_Box rdf:type owl:Class ;
+            rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Signal_Device
+:Signal_Device rdf:type owl:Class ;
+               rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Signboard
+:Signboard rdf:type owl:Class ;
+           rdfs:subClassOf :Public_Utilities ,
+                           :Urban_Appearance_and_Environmental_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site
+:Site rdf:type owl:Class ;
+      rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Appurtenances
+:Site_Appurtenances rdf:type owl:Class ;
+                    rdfs:subClassOf :Site .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Bridges
+:Site_Bridges rdf:type owl:Class ;
+              rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Equipment
+:Site_Equipment rdf:type owl:Class ;
+                rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Facility_Equipment
+:Site_Facility_Equipment rdf:type owl:Class ;
+                         rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Furnishings
+:Site_Furnishings rdf:type owl:Class ;
+                  rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Screening_Devices
+:Site_Screening_Devices rdf:type owl:Class ;
+                        rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Site_Specialties
+:Site_Specialties rdf:type owl:Class ;
+                  rdfs:subClassOf :Site_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Slab
+:Slab rdf:type owl:Class ;
+      rdfs:subClassOf :Building_Components ,
+                      :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sleeve
+:Sleeve rdf:type owl:Class ;
+        rdfs:subClassOf :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sling
+:Sling rdf:type owl:Class ;
+       rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Slope
+:Slope rdf:type owl:Class ;
+       rdfs:subClassOf :Man-made_Landform .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sluice_Gate
+:Sluice_Gate rdf:type owl:Class ;
+             rdfs:subClassOf :Water-related_Structures .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Snow_and_Ice
+:Snow_and_Ice rdf:type owl:Class ;
+              rdfs:subClassOf :Natural_Entity ;
+              rdfs:comment "Natural phenomena that cover the surface area with ice, snow, or frost, covering various types of ice and snowfall." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Snowy_Region
+:Snowy_Region rdf:type owl:Class ;
+              rdfs:subClassOf :Snow_and_Ice .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Social_Entity
+:Social_Entity rdf:type owl:Class ;
+               rdfs:subClassOf :Generic_Entity ;
+               rdfs:comment "Social entities represent dynamic elements within urban spaces that interact with both artificial and natural entities during urban operations, including natural persons, transportation vehicles, and organizations." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Social_Organization_Legal_Person
+:Social_Organization_Legal_Person rdf:type owl:Class ;
+                                  rdfs:subClassOf :Non-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sole_Proprietorship
+:Sole_Proprietorship rdf:type owl:Class ;
+                     rdfs:subClassOf :For-Profit_Unincorporated_Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Sound_Barrier
+:Sound_Barrier rdf:type owl:Class ;
+               rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Special_Corporation
+:Special_Corporation rdf:type owl:Class ;
+                     rdfs:subClassOf :Legal_Entities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Special_Purpose_Vehicles
+:Special_Purpose_Vehicles rdf:type owl:Class ;
+                          rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Spillway
+:Spillway rdf:type owl:Class ;
+          rdfs:subClassOf :Reservoir .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Spring
+:Spring rdf:type owl:Class ;
+        rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Stack_Terminal
+:Stack_Terminal rdf:type owl:Class ;
+                rdfs:subClassOf :Plumbing_Fire_Protection .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Stair
+:Stair rdf:type owl:Class ;
+       rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#StairFlight
+:StairFlight rdf:type owl:Class ;
+             rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#StayCable
+:StayCable rdf:type owl:Class ;
+           rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Strata_and_Rock_Mass
+:Strata_and_Rock_Mass rdf:type owl:Class ;
+                      rdfs:subClassOf :Geology .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Street_Light
+:Street_Light rdf:type owl:Class ;
+              rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Street_Seat
+:Street_Seat rdf:type owl:Class ;
+             rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#StructuralElements
+:StructuralElements rdf:type owl:Class ;
+                    rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Structure
+:Structure rdf:type owl:Class ;
+           rdfs:subClassOf :Building_and_Site_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#SubBed
+:SubBed rdf:type owl:Class ;
+        rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Subgrade
+:Subgrade rdf:type owl:Class ;
+          rdfs:subClassOf :Road_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Submarine_Cable
+:Submarine_Cable rdf:type owl:Class ;
+                 rdfs:subClassOf :Long_Distance_Communication_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Substation_Equipment
+:Substation_Equipment rdf:type owl:Class ;
+                      rdfs:subClassOf :High_Voltage_Transmission_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Substructure
+:Substructure rdf:type owl:Class ;
+              rdfs:subClassOf :Bridge .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Subterranean_Building
+:Subterranean_Building rdf:type owl:Class ;
+                       rdfs:subClassOf :Building_and_Its_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Subterranean_Building_Facilities
+:Subterranean_Building_Facilities rdf:type owl:Class ;
+                                  rdfs:subClassOf :Building_and_Its_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Subway
+:Subway rdf:type owl:Class ;
+        rdfs:subClassOf :Urban_Rail_Transit .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Superstructure
+:Superstructure rdf:type owl:Class ;
+                rdfs:subClassOf :Bridge .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Surveillance_Camera
+:Surveillance_Camera rdf:type owl:Class ;
+                     rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Switching_Device
+:Switching_Device rdf:type owl:Class ;
+                  rdfs:subClassOf :Electrical .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tank
+:Tank rdf:type owl:Class ;
+      rdfs:subClassOf :HVAC ,
+                      :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Taxi
+:Taxi rdf:type owl:Class ;
+      rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tee_Joint
+:Tee_Joint rdf:type owl:Class ;
+           rdfs:subClassOf :Pipe_Fittings .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Temporary_Residents
+:Temporary_Residents rdf:type owl:Class ;
+                     rdfs:subClassOf :Natural_Person .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tendon
+:Tendon rdf:type owl:Class ;
+        rdfs:subClassOf :StructuralElements .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Thematic_Extension_Entity
+:Thematic_Extension_Entity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Thermal_Pipeline
+:Thermal_Pipeline rdf:type owl:Class ;
+                  rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tie_Bar
+:Tie_Bar rdf:type owl:Class ;
+         rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tie_Beam
+:Tie_Beam rdf:type owl:Class ;
+          rdfs:subClassOf :Bridge_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Toll_Facility
+:Toll_Facility rdf:type owl:Class ;
+               rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tower_Base_Station
+:Tower_Base_Station rdf:type owl:Class ;
+                    rdfs:subClassOf :Managed_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Track
+:Track rdf:type owl:Class ;
+       rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Track_Bed
+:Track_Bed rdf:type owl:Class ;
+           rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Track_Components
+:Track_Components rdf:type owl:Class ;
+                  rdfs:subClassOf :Track .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Track_Rail
+:Track_Rail rdf:type owl:Class ;
+            rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Track_Sleeper
+:Track_Sleeper rdf:type owl:Class ;
+               rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Track_Turnout
+:Track_Turnout rdf:type owl:Class ;
+               rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Traffic_Markings
+:Traffic_Markings rdf:type owl:Class ;
+                  rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Traffic_Safety_Facilities
+:Traffic_Safety_Facilities rdf:type owl:Class ;
+                           rdfs:subClassOf :Transportation_Infrastructure .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Traffic_Signs
+:Traffic_Signs rdf:type owl:Class ;
+               rdfs:subClassOf :Traffic_Safety_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Train
+:Train rdf:type owl:Class ;
+       rdfs:subClassOf :Urban_Rail_Transit .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tram
+:Tram rdf:type owl:Class ;
+      rdfs:subClassOf :Urban_Rail_Transit .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Transition_Piece
+:Transition_Piece rdf:type owl:Class ;
+                  rdfs:subClassOf :Pipe_Fittings .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Transmission_Backbone_Line_Ancillary_Facilities
+:Transmission_Backbone_Line_Ancillary_Facilities rdf:type owl:Class ;
+                                                 rdfs:subClassOf :High_Voltage_Transmission_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Transportation
+:Transportation rdf:type owl:Class ;
+                rdfs:subClassOf :Artificial_Entity ;
+                rdfs:comment "The network and systems and their components that facilitate the movement of people and goods across various distances." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Transportation_Infrastructure
+:Transportation_Infrastructure rdf:type owl:Class ;
+                               rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Trench_Pipe_Line
+:Trench_Pipe_Line rdf:type owl:Class ;
+                  rdfs:subClassOf :Integrated_Pipe_Gallery .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Truck
+:Truck rdf:type owl:Class ;
+       rdfs:subClassOf :Road_Traffic .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tunnel
+:Tunnel rdf:type owl:Class ;
+        rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tunnel_Component
+:Tunnel_Component rdf:type owl:Class ;
+                  rdfs:subClassOf :Tunnel .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Tunnel_Part
+:Tunnel_Part rdf:type owl:Class ;
+             rdfs:subClassOf :Tunnel .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Turning_Machine
+:Turning_Machine rdf:type owl:Class ;
+                 rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Underground_Transmission_Line
+:Underground_Transmission_Line rdf:type owl:Class ;
+                               rdfs:subClassOf :Land_Communication_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Unincorporated_Organization
+:Unincorporated_Organization rdf:type owl:Class ;
+                             rdfs:subClassOf :Organization .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Unitary_Equipment
+:Unitary_Equipment rdf:type owl:Class ;
+                   rdfs:subClassOf :HVAC .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Unknown_Pipeline
+:Unknown_Pipeline rdf:type owl:Class ;
+                  rdfs:subClassOf :Other_Pipelines .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Urban_And_Rural_Cooperative_Economic_Organization_Legal_Person
+:Urban_And_Rural_Cooperative_Economic_Organization_Legal_Person rdf:type owl:Class ;
+                                                                rdfs:subClassOf :Special_Corporation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Urban_Appearance_and_Environmental_Facilities
+:Urban_Appearance_and_Environmental_Facilities rdf:type owl:Class ;
+                                               rdfs:subClassOf :Managed_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Urban_Rail_Transit
+:Urban_Rail_Transit rdf:type owl:Class ;
+                    rdfs:subClassOf :Vehicle .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Utility_Pole
+:Utility_Pole rdf:type owl:Class ;
+              rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Valve
+:Valve rdf:type owl:Class ;
+       rdfs:subClassOf :HVAC ,
+                       :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Vehicle
+:Vehicle rdf:type owl:Class ;
+         rdfs:subClassOf :Social_Entity ;
+         rdfs:comment "Any means of transportation designed for the movement of people or goods." .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Vehicle_Base_Equipment
+:Vehicle_Base_Equipment rdf:type owl:Class ;
+                        rdfs:subClassOf :Track_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Vending_Machine
+:Vending_Machine rdf:type owl:Class ;
+                 rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ventilation_Facility
+:Ventilation_Facility rdf:type owl:Class ;
+                      rdfs:subClassOf :Management_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Volcano_Crater
+:Volcano_Crater rdf:type owl:Class ;
+                rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Walkman
+:Walkman rdf:type owl:Class ;
+         rdfs:subClassOf :Public_Service_Sites .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Wall
+:Wall rdf:type owl:Class ;
+      rdfs:subClassOf :Building_Components ,
+                      :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Waste_Terminal
+:Waste_Terminal rdf:type owl:Class ;
+                rdfs:subClassOf :Plumbing_Fire_Protection .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water-related_Structures
+:Water-related_Structures rdf:type owl:Class ;
+                          rdfs:subClassOf :Hydraulic_Engineering .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Channel
+:Water_Channel rdf:type owl:Class ;
+               rdfs:subClassOf :Ditch .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Dispenser
+:Water_Dispenser rdf:type owl:Class ;
+                 rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Guardrail
+:Water_Guardrail rdf:type owl:Class ;
+                 rdfs:subClassOf :Other_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Intake
+:Water_Intake rdf:type owl:Class ;
+              rdfs:subClassOf :Artificial_Water_Features .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Supply_Pipeline
+:Water_Supply_Pipeline rdf:type owl:Class ;
+                       rdfs:subClassOf :Water_Supply_System .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Supply_System
+:Water_Supply_System rdf:type owl:Class ;
+                     rdfs:subClassOf :Water_Supply_and_Drainage_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Supply_and_Drainage_Pipeline
+:Water_Supply_and_Drainage_Pipeline rdf:type owl:Class ;
+                                    rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Trap
+:Water_Trap rdf:type owl:Class ;
+            rdfs:subClassOf :Pipe_Accessories .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Water_Well
+:Water_Well rdf:type owl:Class ;
+            rdfs:subClassOf :Public_Utilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Waterfall
+:Waterfall rdf:type owl:Class ;
+           rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Watershed
+:Watershed rdf:type owl:Class ;
+           rdfs:subClassOf :Hydrographic_Network .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Waterway
+:Waterway rdf:type owl:Class ;
+          rdfs:subClassOf :Transportation .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Wet_Land
+:Wet_Land rdf:type owl:Class ;
+          rdfs:subClassOf :Agricultural_and_Forest_Land .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Windbreak_and_Sand-stabilizing_Net
+:Windbreak_and_Sand-stabilizing_Net rdf:type owl:Class ;
+                                    rdfs:subClassOf :Man-made_Landform .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Window
+:Window rdf:type owl:Class ;
+        rdfs:subClassOf :Building_Components .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Wing_Wall
+:Wing_Wall rdf:type owl:Class ;
+           rdfs:subClassOf :Culvert_Component .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Wire_Rack
+:Wire_Rack rdf:type owl:Class ;
+           rdfs:subClassOf :Transmission_Backbone_Line_Ancillary_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(GP)
+<http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(GP)> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :Gas_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(IP)
+<http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(IP)> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :Industrial_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(OGW)
+<http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(OGW)> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Pipeline_Indicator_Pile(OGW)> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(P/TP)
+<http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(P/TP)> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(TP)
+<http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(TP)> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :Thermal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ancillary_Facilities(LCL)
+<http://www.semanticweb.org/10717/SMOF#Ancillary_Facilities(LCL)> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf :Long_Distance_Communication_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Ancillary_Facilities(OGW)
+<http://www.semanticweb.org/10717/SMOF#Ancillary_Facilities(OGW)> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Building_(Above_Ground)
+<http://www.semanticweb.org/10717/SMOF#Building_(Above_Ground)> rdf:type owl:Class ;
+                                                                rdfs:subClassOf :Building_and_Its_Appurtenances .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Entry_Pit(HTL)
+<http://www.semanticweb.org/10717/SMOF#Cable_Entry_Pit(HTL)> rdf:type owl:Class ;
+                                                             rdfs:subClassOf :Distribution_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Entry_Pit(LCL)
+<http://www.semanticweb.org/10717/SMOF#Cable_Entry_Pit(LCL)> rdf:type owl:Class ;
+                                                             rdfs:subClassOf :Land_Communication_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Marker(HTL)
+<http://www.semanticweb.org/10717/SMOF#Cable_Marker(HTL)> rdf:type owl:Class ;
+                                                          rdfs:subClassOf :Transmission_Backbone_Line_Ancillary_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Cable_Marker(LCL)
+<http://www.semanticweb.org/10717/SMOF#Cable_Marker(LCL)> rdf:type owl:Class ;
+                                                          rdfs:subClassOf :Land_Communication_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Foundation)
+<http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Foundation)> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf :Non-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Religious_Activity_Venue)
+<http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Religious_Activity_Venue)> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf :Non-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Social_Service_Organization)
+<http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Social_Service_Organization)> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf :Non-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Embankment,_Reinforced_Bank
+<http://www.semanticweb.org/10717/SMOF#Embankment,_Reinforced_Bank> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf :Water-related_Structures .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Entrance_and_Exit_Of_Underground_Pipeline(P/TP)
+<http://www.semanticweb.org/10717/SMOF#Entrance_and_Exit_Of_Underground_Pipeline(P/TP)> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Entrance_and_Exit_of_Underground_Pipeline(OGW)
+<http://www.semanticweb.org/10717/SMOF#Entrance_and_Exit_of_Underground_Pipeline(OGW)> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Pipeline_Indicator_Pile(OGW)> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Inspection_Well(GP)
+<http://www.semanticweb.org/10717/SMOF#Inspection_Well(GP)> rdf:type owl:Class ;
+                                                            rdfs:subClassOf :Gas_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Inspection_Well(IP)
+<http://www.semanticweb.org/10717/SMOF#Inspection_Well(IP)> rdf:type owl:Class ;
+                                                            rdfs:subClassOf :Industrial_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Inspection_Well(TP)
+<http://www.semanticweb.org/10717/SMOF#Inspection_Well(TP)> rdf:type owl:Class ;
+                                                            rdfs:subClassOf :Thermal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Joint-Stock_Limited_Company_(jslc)
+<http://www.semanticweb.org/10717/SMOF#Joint-Stock_Limited_Company_(jslc)> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf :For-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Limited_Liability_Company_(llc)
+<http://www.semanticweb.org/10717/SMOF#Limited_Liability_Company_(llc)> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf :For-Profit_Corporations .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Maintenance_Well(P/TP)
+<http://www.semanticweb.org/10717/SMOF#Maintenance_Well(P/TP)> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Maintenance_Well_Hole(HTL)
+<http://www.semanticweb.org/10717/SMOF#Maintenance_Well_Hole(HTL)> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf :Transmission_Backbone_Line_Ancillary_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Maintenance_Well_Hole(LCL)
+<http://www.semanticweb.org/10717/SMOF#Maintenance_Well_Hole(LCL)> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf :Land_Communication_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities
+<http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities> rdf:type owl:Class ;
+                                                                                                           rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(GP)
+<http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(GP)> rdf:type owl:Class ;
+                                                              rdfs:subClassOf :Gas_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(IP)
+<http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(IP)> rdf:type owl:Class ;
+                                                              rdfs:subClassOf :Industrial_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(OGW)
+<http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(OGW)> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Pipeline_Indicator_Pile(OGW)> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(P/TP)
+<http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(P/TP)> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(TP)
+<http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(TP)> rdf:type owl:Class ;
+                                                              rdfs:subClassOf :Thermal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Overhead_Transmission_Line(HTL)
+<http://www.semanticweb.org/10717/SMOF#Overhead_Transmission_Line(HTL)> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf :Distribution_Line ,
+                                                                                        :High-voltage_Transmission_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Peak,_Column
+<http://www.semanticweb.org/10717/SMOF#Peak,_Column> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Pipeline_Indicator_Pile(OGW)
+<http://www.semanticweb.org/10717/SMOF#Pipeline_Indicator_Pile(OGW)> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf :High_Voltage_Transmission_Lines_and_Associated_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline
+<http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline> rdf:type owl:Class ;
+                                                               rdfs:subClassOf :Municipal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Rocky_Mountain,_Exposed_Rock_Area
+<http://www.semanticweb.org/10717/SMOF#Rocky_Mountain,_Exposed_Rock_Area> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf :Mountain .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Substation(HTL)
+<http://www.semanticweb.org/10717/SMOF#Substation(HTL)> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :Substation_Equipment ;
+                                                        owl:disjointWith <http://www.semanticweb.org/10717/SMOF#Transformer(HTL)> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Terrace,_Hump_Speed_bump
+<http://www.semanticweb.org/10717/SMOF#Terrace,_Hump_Speed_bump> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :Man-made_Landform .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Transformer(HTL)
+<http://www.semanticweb.org/10717/SMOF#Transformer(HTL)> rdf:type owl:Class ;
+                                                         rdfs:subClassOf :Substation_Equipment .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Transmission_Tower_(Iron_Tower)
+<http://www.semanticweb.org/10717/SMOF#Transmission_Tower_(Iron_Tower)> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf :Transmission_Backbone_Line_Ancillary_Facilities .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Underground_Pipeline(OGW)
+<http://www.semanticweb.org/10717/SMOF#Underground_Pipeline(OGW)> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/10717/SMOF#Pipeline_Indicator_Pile(OGW)> .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(GP)
+<http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(GP)> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf :Gas_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(IP)
+<http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(IP)> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf :Industrial_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(TP)
+<http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(TP)> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf :Thermal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Underground_Transmission_Line(HTL)
+<http://www.semanticweb.org/10717/SMOF#Underground_Transmission_Line(HTL)> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf :Distribution_Line ,
+                                                                                           :High-voltage_Transmission_Line .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Valve(GP)
+<http://www.semanticweb.org/10717/SMOF#Valve(GP)> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Gas_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Valve(IP)
+<http://www.semanticweb.org/10717/SMOF#Valve(IP)> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Industrial_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Valve(TP)
+<http://www.semanticweb.org/10717/SMOF#Valve(TP)> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Thermal_Pipeline .
+
+
+###  http://www.semanticweb.org/10717/SMOF#Well,_Pond
+<http://www.semanticweb.org/10717/SMOF#Well,_Pond> rdf:type owl:Class ;
+                                                   rdfs:subClassOf :Artificial_Water_Features .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AboveArch_Structure
+                :Abutment
+                :Anchor
+                :Anchor_Body
+                :Anchoring_System
+                :Beam_Arch
+                :Beam_Bottom_Wedge
+                :Bellows
+                :Bridge_Beam
+                :Bridge_Vertical_and_Sectional_Connector
+                :Cable_Anchor
+                :Cable_Clamp
+                :Cable_Damping
+                :Cable_Saddle
+                :Connector
+                :Cover_Beam
+                :Jig
+                :Main_Cable
+                :Pier
+                :Pylon
+                :Sling
+                :StayCable
+                :Tie_Bar
+                :Tie_Beam
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Advanced_Support_Component
+                :Daylighting
+                :Initial_Support_Component
+                :PipeSegment
+                :Portal_Component
+                :Secondary_Lining_Component
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Agricultural_Sites
+                :Industrial_and_Mining_Sites
+                :Public_Service_Sites
+                :Site_Appurtenances
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Agricultural_and_Forest_Land
+                :Geology
+                :Hydrographic_Network
+                :Marine_landforms
+                :Mountain
+                :Snow_and_Ice
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Air_Terminal
+                :Air_Terminal_Box
+                :Air_To_Air_Heat_Recovery
+                :Chiller
+                :Cooling_Tower
+                :Damper
+                :Duct_Segment
+                :Duct_Silencer
+                :Fan
+                :Filter
+                :Flow_Meter
+                :Heat_Exchanger
+                :PipeFitting
+                :PipeSegment
+                :Pump
+                :Tank
+                :Unitary_Equipment
+                :Valve
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Air_Vent_Cap
+                :Cleanout
+                :Filter
+                :Instrumentation
+                :Pipe_Insulation_Layer
+                :Sleeve
+                :Valve
+                :Water_Trap
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Aircraft
+                :Maritime_Transport
+                :Road_Traffic
+                :Urban_Rail_Transit
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Alignment
+                :Lanscape_Greening
+                :Road_Pavement
+                :Road_Transport_Safety_Facility
+                :Subgrade
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Alignment_Model
+                :Catenary_Device
+                :Contact_Rail
+                :Equalizing_Box
+                :Fastener
+                :Mechanical_Equipment
+                :Platform_Door_Control_System
+                :Rail_Potential_Device
+                :Railway_Subgrade
+                :Reflux_Box
+                :Signal_Box
+                :Signal_Device
+                :Site_Facility_Equipment
+                :SubBed
+                :Track_Bed
+                :Track_Rail
+                :Track_Sleeper
+                :Track_Turnout
+                :Turning_Machine
+                :Vehicle_Base_Equipment
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Anti-Fall_Net
+                :Anti-Glare_Facilities
+                :Guardrails_and_Barriers
+                :Other_Traffic_Safety_Facility_Components
+                :Separation_Fence
+                :Sight_Guidance_Facilities
+                :Sound_Barrier
+                :Traffic_Markings
+                :Traffic_Signs
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arable_Land
+                :Forest_Land
+                :Grass_Land
+                :Orchard_Land
+                :Other_Soil_Units
+                :Sandy_Land
+                :Wet_Land
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arch
+                :Building_Element_Proxy
+                :Distribution_Chamber_Element
+                :End_Wall
+                :Footing
+                :PipeSegment
+                :Slab
+                :Wall
+                :Wing_Wall
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Artificial_Entity
+                :Natural_Entity
+                :Social_Entity
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Artificial_Entity
+                :Natural_Entity
+                :Social_Entity
+                :Thematic_Extension_Entity
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Artificial_Water_Features
+                :Ditch
+                :Reservoir
+                :Water-related_Structures
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Audio_Visual_Appliance
+                :Cable_Carrier_Segment
+                :Cable_Segment
+                :Communications_Appliance
+                :Electric_Appliance
+                :Electric_Distribution_Board
+                :Electric_Flow_Storage_Device
+                :Electric_Generator
+                :Electric_Time_Control
+                :Junction_Box
+                :Light_Fixture
+                :Outlet
+                :Protective_Device
+                :Switching_Device
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Auxiliary_Facilities
+                :Civil_Engineering_Structure
+                :Inspection_Well
+                :Pipe_Gallery_Line
+                :Trench_Pipe_Line
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Basic_Mass_Autonomous_Organization_Legal_Person
+                :Other_Special_Legal_Entities
+                :Rural_Collective_Economic_Organization_Legal_Person
+                :Urban_And_Rural_Cooperative_Economic_Organization_Legal_Person
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Beach
+                :Coastline
+                :Island_and_Reef
+                :Other_Marine_Landforms
+                :Sea_Area
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Beam
+                :Column
+                :Covering
+                :CurtainWall
+                :Door
+                :Railing
+                :Ramp
+                :Roof
+                :Shading_Device
+                :Slab
+                :Stair
+                :StairFlight
+                :Wall
+                :Window
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bicycle
+                :Bus
+                :Coach
+                :Motorcycle
+                :Private_Car
+                :Special_Purpose_Vehicles
+                :Taxi
+                :Truck
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Billboard
+                :Bulletin_Board
+                :Environmental_Monitoring_Station
+                :Fountain
+                :Garbage_Bin
+                :Garbage_Room
+                :Green_Space_Ancillary_Facilities
+                :Meteorological_Monitoring_Station
+                :Noise_Display_Screen
+                :Public_Toilet
+                :Sculpture
+                :Septic_Tank
+                :Sewage_Monitor
+                :Sewage_Outlet_Monitoring_Station
+                :Signboard
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bridge
+                :Culvert
+                :Intersection
+                :Others
+                :Rail
+                :Track
+                :Transportation_Infrastructure
+                :Tunnel
+                :Waterway
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bridge_Components
+                :Deck_System_and_Ancillary_Works
+                :Substructure
+                :Superstructure
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_Components
+                :Building_Facilities
+                :Interior_Finishes
+                :Subterranean_Building
+                :Subterranean_Building_Facilities
+                <http://www.semanticweb.org/10717/SMOF#Building_(Above_Ground)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_Components
+                :Building_Facilities
+                :Subterranean_Building
+                :Subterranean_Building_Facilities
+                <http://www.semanticweb.org/10717/SMOF#Building_(Above_Ground)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Its_Appurtenances
+                :Electrical
+                :HVAC
+                :Plumbing_Fire_Protection
+                :Site
+                :StructuralElements
+                :Structure
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Its_Appurtenances
+                :Electrical
+                :HVAC
+                :Site
+                :Structure
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Its_Appurtenances
+                :Electrical
+                :Site
+                :Structure
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Its_Appurtenances
+                :Site
+                :Structure
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Site_Infrastructure
+                :Hydraulic_Engineering
+                :Man-made_Landform
+                :Managed_Component
+                :Municipal_Pipeline
+                :Transportation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Site_Infrastructure
+                :Hydraulic_Engineering
+                :Man-made_Landform
+                :Managed_Component
+                :Transportation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Building_and_Site_Infrastructure
+                :Hydraulic_Engineering
+                :Man-made_Landform
+                :Transportation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Cable_Car
+                :Light_Rail
+                :Subway
+                :Train
+                :Tram
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Cable_Entry_Pit（HTL）
+                <http://www.semanticweb.org/10717/SMOF#Overhead_Transmission_Line(HTL)>
+                <http://www.semanticweb.org/10717/SMOF#Underground_Transmission_Line(HTL)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Caisson_Foundation
+                :Footing
+                :Pile
+                :Reinforcing_Bar
+                :Tendon
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Canal
+                :Dry_Ditch
+                :Other_Water_Channels
+                :Water_Channel
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Cave
+                :Cliff
+                :Funnel
+                :Mountain_Range
+                :Mountain_Ridge
+                :Other_Mountain_Landforms
+                :Ravine
+                :Volcano_Crater
+                <http://www.semanticweb.org/10717/SMOF#Peak,_Column>
+                <http://www.semanticweb.org/10717/SMOF#Rocky_Mountain,_Exposed_Rock_Area>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Charging_Pile
+                :Communication_Junction_Box
+                :Electric_Power_Facilities
+                :Fire-Fighting_Facilities
+                :Guard_Booth
+                :Mailbox
+                :Manhole_Cover
+                :Outdoor_Fitness_Equipment
+                :Self-Service_Payment_Machine
+                :Signboard
+                :Street_Light
+                :Street_Seat
+                :Surveillance_Camera
+                :Utility_Pole
+                :Vending_Machine
+                :Water_Dispenser
+                :Water_Well
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :City_Power_Introduction
+                :Equipment
+                :Equipment_Room
+                :Iron_Tower
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Civil_Cargo_Aircraft
+                :Civil_Passenger_Aircraft
+                :Non-Civil_Aircraft
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Column
+                :Covering
+                :CurtainWall
+                :Door
+                :Railing
+                :Ramp
+                :Roof
+                :Shading_Device
+                :Slab
+                :Stair
+                :StairFlight
+                :Wall
+                :Window
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Communication_Facility
+                :Fire_Protection_Facility
+                :General_Management_Facility
+                :Lighting_Facility
+                :Monitoring_Facility
+                :Power_Supply_and_Distribution_Facility
+                :Toll_Facility
+                :Ventilation_Facility
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Control_Equipment
+                :Covers_and_Shelters
+                :Drain
+                :Exterior_Fountains
+                :Exterior_Signage
+                :Fences_and_Gates
+                :Fire_Hydrant
+                :Flagpoles
+                :Lighting
+                :Other_Facilities
+                :Planting_Accessories
+                :Plants
+                :Retaining_Walls
+                :Site_Bridges
+                :Site_Equipment
+                :Site_Furnishings
+                :Site_Screening_Devices
+                :Site_Specialties
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Cross_Joint
+                :Elbow
+                :Flange
+                :Joint
+                :Tee_Joint
+                :Transition_Piece
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Cultural_Relics_and_Historic_Sites
+                :Flood_Control_Wall
+                :Water_Guardrail
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Culvert_Component
+                :Lining
+                :Portal
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Dam
+                :Flood_Storage_Area
+                :Pumping_Station
+                :Sluice_Gate
+                <http://www.semanticweb.org/10717/SMOF#Embankment,_Reinforced_Bank>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Decorate_Equipment
+                :Furniture
+                :Interior_Construction
+                :Interior_Furnishing
+                :Interior_Greening_and_Courtyard
+                :Lighting_Fixtures
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Distribution_Line
+                :High-voltage_Transmission_Line
+                :Substation_Equipment
+                :Transmission_Backbone_Line_Ancillary_Facilities
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Distribution_System
+                :Lining
+                :Portal
+                :RoadPart
+                :Tunnel_Component
+                :Tunnel_Part
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Door
+                :Railing
+                :Ramp
+                :Roof
+                :Shading_Device
+                :Slab
+                :Stair
+                :StairFlight
+                :Wall
+                :Window
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Drainage_Pipeline
+                :Floor_Drain
+                :Rainwater_Ditch
+                :Rainwater_Hopper
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Drainage_System
+                :Pipe_Accessories
+                :Pipe_Fittings
+                :Water_Supply_System
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Electric_Pole
+                :Wire_Rack
+                <http://www.semanticweb.org/10717/SMOF#Cable_Marker(HTL)>
+                <http://www.semanticweb.org/10717/SMOF#Maintenance_Well_Hole(HTL)>
+                <http://www.semanticweb.org/10717/SMOF#Transmission_Tower_(Iron_Tower)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Engineering_Geology
+                :Geological_Structure
+                :Hydrogeology
+                :Strata_and_Rock_Mass
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Faucet
+                :Filter
+                :Pump
+                :Sanitary_Ware_Device
+                :Tank
+                :Water_Supply_Pipeline
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Field_border
+                :Other_Man-made_Landforms
+                :Ridge
+                :Slope
+                :Windbreak_and_Sand-stabilizing_Net
+                <http://www.semanticweb.org/10717/SMOF#Terrace,_Hump_Speed_bump>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Fire_Suppression_Terminal
+                :Interceptor
+                :Sanitary_Terminal
+                :Stack_Terminal
+                :Waste_Terminal
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :For-Profit_Corporations
+                :Non-Profit_Corporations
+                :Special_Corporation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :For-Profit_Professional_Service_Organizations_Without_Legal_Personality
+                :Other_For-Profit_Non-Corporate_Organizations
+                :Partnership_Enterprise
+                :Sole_Proprietorship
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Gas_Pipeline
+                :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Industrial_Pipeline
+                :Integrated_Pipe_Gallery
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                :Other_Pipelines
+                :Thermal_Pipeline
+                :Water_Supply_and_Drainage_Pipeline
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Gas_Pipeline
+                :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Industrial_Pipeline
+                :Integrated_Pipe_Gallery
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                :Thermal_Pipeline
+                :Water_Supply_and_Drainage_Pipeline
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Gas_Pipeline
+                :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Industrial_Pipeline
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                :Thermal_Pipeline
+                :Water_Supply_and_Drainage_Pipeline
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Gas_Pipeline
+                :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                :Thermal_Pipeline
+                :Water_Supply_and_Drainage_Pipeline
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Gas_Pipeline
+                :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                :Water_Supply_and_Drainage_Pipeline
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Gas_Pressure_Regulating_Station
+                <http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(GP)>
+                <http://www.semanticweb.org/10717/SMOF#Inspection_Well(GP)>
+                <http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(GP)>
+                <http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(GP)>
+                <http://www.semanticweb.org/10717/SMOF#Valve(GP)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Glacier
+                :Other_Snow_and_Ice_Landforms
+                :Snowy_Region
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                :Water_Supply_and_Drainage_Pipeline
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :High_Voltage_Transmission_Lines_and_Associated_Facilities
+                :Long_Distance_Communication_Lines_and_Associated_Facilities
+                <http://www.semanticweb.org/10717/SMOF#Oil,_Gas_and_Water_Transmission_Pipeline_and_Associated_Facilities>
+                <http://www.semanticweb.org/10717/SMOF#Power/Telecom_Pipeline>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Hydraulic_Engineering
+                :Man-made_Landform
+                :Transportation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Institutional_Legal_Person
+                :Other_Non-Profit_Legal_Entities
+                :Social_Organization_Legal_Person
+                <http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Foundation)>
+                <http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Religious_Activity_Venue)>
+                <http://www.semanticweb.org/10717/SMOF#Donation_Legal_Person_(Social_Service_Organization)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Lake
+                :Other_Water_Landforms
+                :River
+                :River_Beach
+                :River_Mouth
+                :River_Source
+                :River_and_Lake_Islands
+                :Spring
+                :Waterfall
+                :Watershed
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Land_Communication_Line
+                :Submarine_Cable
+                <http://www.semanticweb.org/10717/SMOF#Ancillary_Facilities(LCL)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Landscaping
+                :Parking_Lots
+                :Playfield_Areas
+                :Plazas
+                :Walkman
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Management_Facilities
+                :Service_Facilities
+                :Traffic_Safety_Facilities
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Natural_Person
+                :Organization
+                :Sensor_Device
+                :Vehicle
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Other_Components
+                :Public_Utilities
+                :Tower_Base_Station
+                :Urban_Appearance_and_Environmental_Facilities
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Other_Corporate_Legal_Entities
+                <http://www.semanticweb.org/10717/SMOF#Joint-Stock_Limited_Company_(jslc)>
+                <http://www.semanticweb.org/10717/SMOF#Limited_Liability_Company_(llc)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Outlet
+                :Reservoir_Area
+                :Spillway
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Sewage_Outlet
+                :Water_Intake
+                <http://www.semanticweb.org/10717/SMOF#Well,_Pond>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Slab
+                :Stair
+                :StairFlight
+                :Wall
+                :Window
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(IP)>
+                <http://www.semanticweb.org/10717/SMOF#Inspection_Well(IP)>
+                <http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(IP)>
+                <http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(IP)>
+                <http://www.semanticweb.org/10717/SMOF#Valve(IP)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(P/TP)>
+                <http://www.semanticweb.org/10717/SMOF#Entrance_and_Exit_Of_Underground_Pipeline(P/TP)>
+                <http://www.semanticweb.org/10717/SMOF#Maintenance_Well(P/TP)>
+                <http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(P/TP)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/10717/SMOF#Aboveground_Pipeline(TP)>
+                <http://www.semanticweb.org/10717/SMOF#Inspection_Well(TP)>
+                <http://www.semanticweb.org/10717/SMOF#Overhead_Pipeline(TP)>
+                <http://www.semanticweb.org/10717/SMOF#Underground_Pipeline_Entrance_and_Exit(TP)>
+                <http://www.semanticweb.org/10717/SMOF#Valve(TP)>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/10717/SMOF#Cable_Entry_Pit(HTL)>
+                <http://www.semanticweb.org/10717/SMOF#Overhead_Transmission_Line(HTL)>
+                <http://www.semanticweb.org/10717/SMOF#Underground_Transmission_Line(HTL)>
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
