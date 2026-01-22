@@ -1,5 +1,5 @@
 # Smart Cities
 
-... under construction; more coming soon ...
+Smart City ontologies. 
 
 
