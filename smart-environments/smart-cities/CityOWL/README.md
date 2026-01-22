@@ -16,7 +16,7 @@ websites:
 The master ontology, `CityOWL.ttl`, imports all of the component ontologies. The component ontologies, in turn, do some importing as well.
 
 We created a merged version of CityOWL using Protege.
-* see `CityOWLFull.ttl`
+* see `CityOWLmerged.ttl`
 
 
 
