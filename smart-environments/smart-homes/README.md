@@ -1,5 +1,5 @@
 # Smart Homes
 
-... under construction; more coming soon ...
+Smart Home ontologies.
 
 
