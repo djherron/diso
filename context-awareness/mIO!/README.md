@@ -16,5 +16,5 @@ It's from the Ontology Engineering Group at Univ of Madrid.
 paper:
 * `A Context Ontology for Mobile Environments` (Poveda-Villalon, 2010)
 
-
+We created a **merged** version of the mIO! network of ontologies called `mIOmerged.ttl`.
 
