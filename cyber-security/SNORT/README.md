@@ -29,4 +29,7 @@ The SNORT ontology files were created by the SEPSES team. They are **expressions
 
 Although created by the SEPSE team in relation to their **ICS-SEC KG**, the SEPSES SNORT ontologies gathered here on DISO are NOT part of the SEPSES integrated **ICS-SEC-KG** ontology, `ics-sec-kg-onto.ttl`.  See the DISO entry for **ICS-SEC-KG-ONTO** for more information on SEPSES and the **ICS Security KG**, and on the repo from where we obtained the SEPSIS SNORT ontology files.
 
+Using Protege, we created a **merged** version of the 3 snort ontology files and called it `snortMerged.ttl`
+
+
 
